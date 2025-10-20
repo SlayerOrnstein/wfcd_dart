@@ -1,5 +1,4 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:worldstate_models/src/utils/types.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 abstract class BaseContentObject {
