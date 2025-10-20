@@ -1,4 +1,4 @@
 .vscode/settings.json
-.dart_tool
+.dart_tool/
 
 pubspec.lock
