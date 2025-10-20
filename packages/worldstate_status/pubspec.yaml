@@ -1,0 +1,25 @@
+name: worldstate_status
+description: A new Dart Frog application
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+
+resolution: workspace
+
+workspace:
+  - packages/cache
+
+dependencies:
+  cache:
+    path: packages/cache
+  dart_frog: ^1.1.0
+  http: ^1.5.0
+  worldstate_models:
+    path: ../worldstate_models
+
+dev_dependencies:
+  dart_frog_lint: ^0.1.0
+  mocktail: ^1.0.3
+  test: ^1.25.5

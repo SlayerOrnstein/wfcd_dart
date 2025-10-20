@@ -1,0 +1,14 @@
+include: package:very_good_analysis/analysis_options.6.0.0.yaml
+
+formatter:
+  page_width: 120
+
+analyzer:
+  exclude:
+    - lib/src/models/*.mapper.dart
+    - lib/src/raw_models/*.mapper.dart
+
+linter:
+  rules:
+    lines_longer_than_80_chars: false
+    public_member_api_docs: false

@@ -1,0 +1,49 @@
+targets:
+  $default:
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: en
+          fallback_strategy: base_locale
+          flat_map: false
+          namespaces: true
+          flutter_integration: false
+          enum_name: WorldstateLocale
+          class_name: WorldstateData
+          input_directory: data
+          input_file_pattern: .i18n.json
+          output_directory: lib/src/i18n
+          output_file_name: worldstate_langs.g.dart
+          interfaces:
+            ArchonShard: archonShards.shards.*
+            SolNode: solNodes.nodes.*
+            Language: languages.languages.*
+            ConclaveMode: conclaveData.modes.*
+            ConclaveCategory: conclaveData.categories.*
+            ConclaveChallenge: conclaveData.challenges.*
+            ConclaveAffector: conclaveData.affectors.*
+            FissureModifier: fissureModifiers.modifiers.*
+            MissionType: missionTypes.types.*
+            SortieBoss: sortieData.bosses.*
+            SteelPathRotation: steelPath.rotation.*
+            SteelPathEvergreen: steelPath.evergreen.*
+            SyndicateData: syndicatesData.syndicates.*
+            UpgradeType: upgradeTypes.types.*
+            OperationType: operationTypes.types.*
+            SynthTarget:
+              paths:
+                - synthTargets.targets.*
+              attributes:
+                - String name
+                - String imageKey
+                - List<SynthTargetLocation> locations
+            SynthTargetLocation:
+              attributes:
+                - String last_verified
+                - String level
+                - String faction
+                - String spawn_rate
+                - String mission
+                - String planet
+                - String type
+            

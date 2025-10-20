@@ -1,0 +1,11 @@
+name: wfcd_dart
+
+environment:
+  sdk: '^3.9.0'
+
+workspace:
+  - packages/warframe_drop_data
+  - packages/warframe_items
+  - packages/warframe_worldstate_data
+  - packages/worldstate_models
+  - packages/worldstate_status

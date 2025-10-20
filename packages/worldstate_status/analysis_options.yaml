@@ -1,0 +1,9 @@
+include: package:dart_frog_lint/recommended.yaml
+
+formatter:
+  page_width: 120
+
+linter:
+  rules:
+    - lines_longer_than_80_chars: false
+    - public_member_api_docs: false

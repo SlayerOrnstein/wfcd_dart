@@ -1,0 +1,9 @@
+global_options:
+  dart_mappable_builder:
+    options:
+      # if true removes all map keys with null values
+      ignoreNull: true # or true
+      # used as property name for type discriminators
+      discriminatorKey: type
+      # used to specify which methods to generate (all by default)
+      generateMethods: [encode, decode, copy, stringify, equals]

@@ -1,0 +1,12 @@
+{
+  "factions(map)": {
+    "FC_CORPUS": "Corpus",
+    "FC_CORRUPTED": "Corrupted",
+    "FC_GRINEER": "Grineer",
+    "FC_INFESTATION": "Infested",
+    "FC_OROKIN": "Orokin",
+    "FC_SENTIENT": "Sentient",
+    "FC_MITW": "Man in the Wall",
+    "FC_NARMER": "Narmer"
+  }
+}

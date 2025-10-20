@@ -1,0 +1,129 @@
+import 'package:dart_mappable/dart_mappable.dart';
+import 'package:worldstate_models/src/models/construction_progress.dart';
+import 'package:worldstate_models/src/models/models.dart';
+import 'package:worldstate_models/src/utils/worldstate_utils.dart';
+
+part 'worldstate.mapper.dart';
+
+@MappableClass(caseStyle: CaseStyle.pascalCase)
+class RawWorldstate with RawWorldstateMappable {
+  RawWorldstate({
+    required this.time,
+    required this.events,
+    required this.goals,
+    required this.alerts,
+    required this.sorties,
+    required this.liteSorties,
+    required this.syndicateMissions,
+    required this.activeMissions,
+    required this.globalUpgrades,
+    required this.flashSales,
+    required this.inGameMarket,
+    required this.invasions,
+    required this.voidTraders,
+    required this.primeVaultTraders,
+    required this.dailyDeals,
+    required this.voidStorms,
+    required this.projectPct,
+    required this.endlessXpChoices,
+    required this.seasonInfo,
+    required this.knownCalendarSeasons,
+  });
+
+  static const fromJson = RawWorldstateMapper.fromJson;
+
+  static const fromMap = RawWorldstateMapper.fromMap;
+
+  final int time;
+  final List<RawEvent> events;
+  final List<RawGoal> goals;
+  final List<RawAlert> alerts;
+  final List<RawSortie> sorties;
+  final List<RawSortie> liteSorties;
+  final List<RawSyndicate> syndicateMissions;
+  final List<RawActiveMission> activeMissions;
+  final List<RawGlobalUpgrade> globalUpgrades;
+  final List<RawFlashSale> flashSales;
+  final RawInGameMarket inGameMarket;
+  final List<RawInvasion> invasions;
+  final List<RawTrader> voidTraders;
+  final List<RawTrader> primeVaultTraders;
+  final List<RawDailyDeal> dailyDeals;
+  final List<RawActiveMission> voidStorms;
+  final List<num> projectPct;
+  final List<RawCircuitChoice> endlessXpChoices;
+  final RawSeasonInfo seasonInfo;
+  final List<RawCalender> knownCalendarSeasons;
+}
+
+@MappableClass()
+class Worldstate with WorldstateMappable {
+  Worldstate({
+    required this.timestamp,
+    required this.news,
+    required this.events,
+    required this.alerts,
+    required this.sorite,
+    required this.archonHunt,
+    required this.syndicateMissions,
+    required this.fissures,
+    required this.globalUpgrades,
+    required this.flashSales,
+    required this.inGameMarket,
+    required this.invasions,
+    required this.voidTraders,
+    required this.vaultTrader,
+    required this.dailyDeals,
+    required this.constructionProgress,
+    required this.duviriCycle,
+    required this.nightwave,
+    required this.calender,
+  });
+
+  static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
+    return Worldstate(
+      timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000),
+      news: await parseArray(raw.events, (event) => News.fromRaw(event, locale)),
+      events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, locale)),
+      alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, locale)),
+      sorite: Sortie.fromRaw(raw.sorties.first, locale),
+      archonHunt: Sortie.fromRaw(raw.liteSorties.first, locale),
+      syndicateMissions: await parseArray(
+        raw.syndicateMissions,
+        (mission) => SyndicateMission.fromRaw(mission, locale),
+      ),
+      fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, locale)),
+      globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, locale)),
+      flashSales: await parseArray(raw.flashSales, (sale) => FlashSale.fromRaw(sale, locale)),
+      inGameMarket: InGameMarket.fromRaw(raw.inGameMarket, locale),
+      invasions: await parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, locale)),
+      voidTraders: await parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, locale)),
+      vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, locale),
+      dailyDeals: await parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, locale)),
+      constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
+      duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
+      nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
+      calender: Calender.fromRaw(raw.knownCalendarSeasons.first, locale),
+    );
+  }
+
+  final DateTime timestamp;
+  final List<News> news;
+  final List<WorldEvent> events;
+  final List<Alert> alerts;
+  final Sortie sorite;
+  final Sortie archonHunt;
+  final List<SyndicateMission> syndicateMissions;
+  final List<VoidFissure> fissures;
+  final List<GlobalUpgrade> globalUpgrades;
+  final List<FlashSale> flashSales;
+  final InGameMarket inGameMarket;
+  final List<Invasion> invasions;
+  final List<Trader> voidTraders;
+  final Trader vaultTrader;
+  final List<DailyDeal> dailyDeals;
+  final ConstructionProgress constructionProgress;
+  final DuviriCycle duviriCycle;
+  final Nightwave? nightwave;
+  final Calender calender;
+}
