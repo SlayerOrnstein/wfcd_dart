@@ -26,4 +26,4 @@ jobs:
         **/*.md
         !brick/**/*.md
         .*/**/*.md
-      modified_files_only: true
+      modified_files_only: false

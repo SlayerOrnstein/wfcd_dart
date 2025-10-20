@@ -8,16 +8,16 @@ on:
   pull_request:
     paths:
       - ".github/workflows/main.yaml"
-      - "lib/**"
-      - "test/**"
+      - ".github/workflows/run_check.yaml"
+      - "packages/**"
       - "pubspec.yaml"
   push:
     branches:
       - master
     paths:
       - ".github/workflows/main.yaml"
-      - "lib/**"
-      - "test/**"
+      - ".github/workflows/run_check.yaml"
+      - "packages/**"
       - "pubspec.yaml"
 
 jobs:
