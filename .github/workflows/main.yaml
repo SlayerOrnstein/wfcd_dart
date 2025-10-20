@@ -31,10 +31,10 @@ jobs:
     with:
       working_directory: packages/warframe_items
 
-  warfram_worldstate_data:
+  warframe_worldstate_data:
     uses: ./.github/workflows/run_check.yaml
     with:
-      working_directory: packages/warfram_worldstate_data
+      working_directory: packages/warframe_worldstate_data
 
   worldstate_models:
     uses: ./.github/workflows/run_check.yaml
