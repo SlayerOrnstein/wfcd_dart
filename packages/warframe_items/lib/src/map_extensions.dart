@@ -254,7 +254,7 @@ extension MapTransformers on Map<String, dynamic> {
   }
 
   void addIsPrime() {
-    final uname = (this['uniqueName'] as String).split('/').last;
+    // final uname = (this['uniqueName'] as String).split('/').last;
     final category = CategoryType.findCategory(this['category'] as String);
 
     switch (category) {
