@@ -24,11 +24,9 @@ class UpgradeSchema extends Schema with UpgradeSchemaMappable {
     super.productCategory,
   });
 
-  factory UpgradeSchema.fromJson(String json) =>
-      UpgradeSchemaMapper.fromJson(json);
+  factory UpgradeSchema.fromJson(String json) => UpgradeSchemaMapper.fromJson(json);
 
-  factory UpgradeSchema.fromMap(Map<String, dynamic> map) =>
-      UpgradeSchemaMapper.fromMap(map);
+  factory UpgradeSchema.fromMap(Map<String, dynamic> map) => UpgradeSchemaMapper.fromMap(map);
 
   final String polarity;
   final String rarity;
@@ -47,8 +45,7 @@ class LevelStat with LevelStatMappable {
 
   factory LevelStat.fromJson(String json) => LevelStatMapper.fromJson(json);
 
-  factory LevelStat.fromMap(Map<String, dynamic> map) =>
-      LevelStatMapper.fromMap(map);
+  factory LevelStat.fromMap(Map<String, dynamic> map) => LevelStatMapper.fromMap(map);
 
   final List<String> stats;
 }

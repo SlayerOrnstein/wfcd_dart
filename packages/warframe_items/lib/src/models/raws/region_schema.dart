@@ -17,11 +17,9 @@ class RegionSchema with RegionSchemaMappable {
     required this.maxEnemyLevel,
   });
 
-  factory RegionSchema.fromJson(String json) =>
-      RegionSchemaMapper.fromJson(json);
+  factory RegionSchema.fromJson(String json) => RegionSchemaMapper.fromJson(json);
 
-  factory RegionSchema.fromMap(Map<String, dynamic> map) =>
-      RegionSchemaMapper.fromMap(map);
+  factory RegionSchema.fromMap(Map<String, dynamic> map) => RegionSchemaMapper.fromMap(map);
 
   final String uniqueName;
   final String name;

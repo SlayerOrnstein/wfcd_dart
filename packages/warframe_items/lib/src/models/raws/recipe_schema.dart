@@ -18,11 +18,9 @@ class RecipeSchema with RecipeSchemaMappable {
     required this.secretIngredients,
   });
 
-  factory RecipeSchema.fromJson(String json) =>
-      RecipeSchemaMapper.fromJson(json);
+  factory RecipeSchema.fromJson(String json) => RecipeSchemaMapper.fromJson(json);
 
-  factory RecipeSchema.fromMap(Map<String, dynamic> map) =>
-      RecipeSchemaMapper.fromMap(map);
+  factory RecipeSchema.fromMap(Map<String, dynamic> map) => RecipeSchemaMapper.fromMap(map);
 
   final String uniqueName;
   final String resultType;
@@ -50,8 +48,7 @@ class Ingredient with IngredientMappable {
 
   factory Ingredient.fromJson(String json) => IngredientMapper.fromJson(json);
 
-  factory Ingredient.fromMap(Map<String, dynamic> map) =>
-      IngredientMapper.fromMap(map);
+  factory Ingredient.fromMap(Map<String, dynamic> map) => IngredientMapper.fromMap(map);
 
   @MappableField(key: 'ItemType')
   final String itemType;

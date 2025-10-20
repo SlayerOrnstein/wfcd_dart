@@ -15,8 +15,7 @@ class RelicSchema extends Schema with RelicSchemaMappable {
 
   factory RelicSchema.fromJson(String json) => RelicSchemaMapper.fromJson(json);
 
-  factory RelicSchema.fromMap(Map<String, dynamic> map) =>
-      RelicSchemaMapper.fromMap(map);
+  factory RelicSchema.fromMap(Map<String, dynamic> map) => RelicSchemaMapper.fromMap(map);
 
   final List<RelicReward> relicRewards;
 }
@@ -32,8 +31,7 @@ class RelicReward with RelicRewardMappable {
 
   factory RelicReward.fromJson(String json) => RelicRewardMapper.fromJson(json);
 
-  factory RelicReward.fromMap(Map<String, dynamic> map) =>
-      RelicRewardMapper.fromMap(map);
+  factory RelicReward.fromMap(Map<String, dynamic> map) => RelicRewardMapper.fromMap(map);
 
   final String rewardName;
   final String rarity;

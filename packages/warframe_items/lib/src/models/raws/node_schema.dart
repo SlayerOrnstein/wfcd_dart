@@ -8,8 +8,7 @@ class NodeSchema with NodeSchemaMappable {
 
   factory NodeSchema.fromJson(String json) => NodeSchemaMapper.fromJson(json);
 
-  factory NodeSchema.fromMap(Map<String, dynamic> map) =>
-      NodeSchemaMapper.fromMap(map);
+  factory NodeSchema.fromMap(Map<String, dynamic> map) => NodeSchemaMapper.fromMap(map);
 
   final String uniqueName;
   final String name;

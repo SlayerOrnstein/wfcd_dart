@@ -13,9 +13,7 @@ class GenericSchema extends Schema with GenericSchemaMappable {
     super.parentName,
   });
 
-  factory GenericSchema.fromJson(String json) =>
-      GenericSchemaMapper.fromJson(json);
+  factory GenericSchema.fromJson(String json) => GenericSchemaMapper.fromJson(json);
 
-  factory GenericSchema.fromMap(Map<String, dynamic> map) =>
-      GenericSchemaMapper.fromMap(map);
+  factory GenericSchema.fromMap(Map<String, dynamic> map) => GenericSchemaMapper.fromMap(map);
 }

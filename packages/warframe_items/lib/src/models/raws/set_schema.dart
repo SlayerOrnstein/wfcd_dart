@@ -12,8 +12,7 @@ class SetSchema with SetSchemaMappable {
 
   factory SetSchema.fromJson(String json) => SetSchemaMapper.fromJson(json);
 
-  factory SetSchema.fromMap(Map<String, dynamic> map) =>
-      SetSchemaMapper.fromMap(map);
+  factory SetSchema.fromMap(Map<String, dynamic> map) => SetSchemaMapper.fromMap(map);
 
   final String uniqueName;
   final int numUpgradesInSet;

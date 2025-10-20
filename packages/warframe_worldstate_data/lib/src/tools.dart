@@ -7,8 +7,9 @@ String toTitleCase(String str) {
 
 /// Split a [resourceName]
 String splitResourceName(String resourceName) {
-  return (RegExp('([A-Z]?[^A-Z]*)').allMatches(resourceName).map((m) => m[0]!).toList()..removeWhere((s) => s.isEmpty))
-      .join(' ');
+  return (RegExp(
+    '([A-Z]?[^A-Z]*)',
+  ).allMatches(resourceName).map((m) => m[0]!).toList()..removeWhere((s) => s.isEmpty)).join(' ');
 }
 
 /// Normalizes the [uniqueName] into a more human readable string

@@ -12,11 +12,9 @@ class SortieRewardSchema with SortieRewardSchemaMappable {
     required this.tier,
   });
 
-  factory SortieRewardSchema.fromJson(String json) =>
-      SortieRewardSchemaMapper.fromJson(json);
+  factory SortieRewardSchema.fromJson(String json) => SortieRewardSchemaMapper.fromJson(json);
 
-  factory SortieRewardSchema.fromMap(Map<String, dynamic> map) =>
-      SortieRewardSchemaMapper.fromMap(map);
+  factory SortieRewardSchema.fromMap(Map<String, dynamic> map) => SortieRewardSchemaMapper.fromMap(map);
 
   final String rewardName;
   final int itemCount;

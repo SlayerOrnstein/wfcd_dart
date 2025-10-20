@@ -50,6 +50,6 @@ void handResourceCategory(Map<String, dynamic> item, String key) {
     'Gem' => CategoryType.resources,
     'Plant' => CategoryType.resources,
     'Relic' => CategoryType.relics,
-    _ => CategoryType.misc
+    _ => CategoryType.misc,
   };
 }

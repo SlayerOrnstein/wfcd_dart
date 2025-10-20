@@ -20,8 +20,7 @@ class RivenSchema extends Schema with RivenSchemaMappable {
 
   factory RivenSchema.fromJson(String json) => RivenSchemaMapper.fromJson(json);
 
-  factory RivenSchema.fromMap(Map<String, dynamic> map) =>
-      RivenSchemaMapper.fromMap(map);
+  factory RivenSchema.fromMap(Map<String, dynamic> map) => RivenSchemaMapper.fromMap(map);
 
   final String polarity;
   final String rarity;
@@ -40,11 +39,9 @@ class UpgradeEntry with UpgradeEntryMappable {
     required this.upgradeValues,
   });
 
-  factory UpgradeEntry.fromJson(String json) =>
-      UpgradeEntryMapper.fromJson(json);
+  factory UpgradeEntry.fromJson(String json) => UpgradeEntryMapper.fromJson(json);
 
-  factory UpgradeEntry.fromMap(Map<String, dynamic> map) =>
-      UpgradeEntryMapper.fromMap(map);
+  factory UpgradeEntry.fromMap(Map<String, dynamic> map) => UpgradeEntryMapper.fromMap(map);
 
   final String tag;
   final String prefixTag;
@@ -56,11 +53,9 @@ class UpgradeEntry with UpgradeEntryMappable {
 class UpgradeValue with UpgradeValueMappable {
   UpgradeValue({required this.value, required this.locTag});
 
-  factory UpgradeValue.fromJson(String json) =>
-      UpgradeValueMapper.fromJson(json);
+  factory UpgradeValue.fromJson(String json) => UpgradeValueMapper.fromJson(json);
 
-  factory UpgradeValue.fromMap(Map<String, dynamic> map) =>
-      UpgradeValueMapper.fromMap(map);
+  factory UpgradeValue.fromMap(Map<String, dynamic> map) => UpgradeValueMapper.fromMap(map);
 
   final double value;
   final String locTag;
@@ -74,11 +69,9 @@ class AvailableChallenge with AvailableChallengeMappable {
     required this.complications,
   });
 
-  factory AvailableChallenge.fromJson(String json) =>
-      AvailableChallengeMapper.fromJson(json);
+  factory AvailableChallenge.fromJson(String json) => AvailableChallengeMapper.fromJson(json);
 
-  factory AvailableChallenge.fromMap(Map<String, dynamic> map) =>
-      AvailableChallengeMapper.fromMap(map);
+  factory AvailableChallenge.fromMap(Map<String, dynamic> map) => AvailableChallengeMapper.fromMap(map);
 
   final String fullName;
   final String description;
@@ -93,11 +86,9 @@ class Complication with ComplicationMappable {
     required this.overrideTag,
   });
 
-  factory Complication.fromJson(String json) =>
-      ComplicationMapper.fromJson(json);
+  factory Complication.fromJson(String json) => ComplicationMapper.fromJson(json);
 
-  factory Complication.fromMap(Map<String, dynamic> map) =>
-      ComplicationMapper.fromMap(map);
+  factory Complication.fromMap(Map<String, dynamic> map) => ComplicationMapper.fromMap(map);
 
   final String fullName;
   final String description;

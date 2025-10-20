@@ -30,11 +30,9 @@ class WeaponSchema with WeaponSchemaMappable {
     required this.multishot,
   });
 
-  factory WeaponSchema.fromJson(String json) =>
-      WeaponSchemaMapper.fromJson(json);
+  factory WeaponSchema.fromJson(String json) => WeaponSchemaMapper.fromJson(json);
 
-  factory WeaponSchema.fromMap(Map<String, dynamic> map) =>
-      WeaponSchemaMapper.fromMap(map);
+  factory WeaponSchema.fromMap(Map<String, dynamic> map) => WeaponSchemaMapper.fromMap(map);
 
   final String uniqueName;
   final String name;

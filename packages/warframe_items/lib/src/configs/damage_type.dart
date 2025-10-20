@@ -28,7 +28,7 @@ enum DamageType {
     return switch (this) {
       DamageType.voidDamage => 'void',
       DamageType.trueType => 'true',
-      _ => name
+      _ => name,
     };
   }
 }

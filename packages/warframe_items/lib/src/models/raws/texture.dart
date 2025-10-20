@@ -8,8 +8,7 @@ class Texture with TextureMappable {
 
   factory Texture.fromJson(String json) => TextureMapper.fromJson(json);
 
-  factory Texture.fromMap(Map<String, dynamic> map) =>
-      TextureMapper.fromMap(map);
+  factory Texture.fromMap(Map<String, dynamic> map) => TextureMapper.fromMap(map);
 
   final String uniqueName;
   final String textureLocation;

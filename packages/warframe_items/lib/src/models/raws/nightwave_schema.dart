@@ -10,11 +10,9 @@ class NightwaveSchema with NightwaveSchemaMappable {
     required this.rewards,
   });
 
-  factory NightwaveSchema.fromJson(String json) =>
-      NightwaveSchemaMapper.fromJson(json);
+  factory NightwaveSchema.fromJson(String json) => NightwaveSchemaMapper.fromJson(json);
 
-  factory NightwaveSchema.fromMap(Map<String, dynamic> map) =>
-      NightwaveSchemaMapper.fromMap(map);
+  factory NightwaveSchema.fromMap(Map<String, dynamic> map) => NightwaveSchemaMapper.fromMap(map);
 
   final String affiliationTag;
   final List<NightwaveChallenge> challenges;
@@ -30,11 +28,9 @@ class NightwaveChallenge with NightwaveChallengeMappable {
     required this.req,
   });
 
-  factory NightwaveChallenge.fromJson(String json) =>
-      NightwaveChallengeMapper.fromJson(json);
+  factory NightwaveChallenge.fromJson(String json) => NightwaveChallengeMapper.fromJson(json);
 
-  factory NightwaveChallenge.fromMap(Map<String, dynamic> map) =>
-      NightwaveChallengeMapper.fromMap(map);
+  factory NightwaveChallenge.fromMap(Map<String, dynamic> map) => NightwaveChallengeMapper.fromMap(map);
 
   final String uniqueName;
   final String name;
@@ -48,11 +44,9 @@ class NightwaveChallenge with NightwaveChallengeMappable {
 class NightwaveReward with NightwaveRewardMappable {
   NightwaveReward({required this.uniqueName, required this.itemCount});
 
-  factory NightwaveReward.fromJson(String json) =>
-      NightwaveRewardMapper.fromJson(json);
+  factory NightwaveReward.fromJson(String json) => NightwaveRewardMapper.fromJson(json);
 
-  factory NightwaveReward.fromMap(Map<String, dynamic> map) =>
-      NightwaveRewardMapper.fromMap(map);
+  factory NightwaveReward.fromMap(Map<String, dynamic> map) => NightwaveRewardMapper.fromMap(map);
 
   final String uniqueName;
   final int itemCount;

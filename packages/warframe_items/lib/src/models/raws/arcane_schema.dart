@@ -16,11 +16,9 @@ class ArcaneSchema extends Schema with ArcaneSchemaMappable {
     super.excludeFromCodex,
   });
 
-  factory ArcaneSchema.fromJson(String json) =>
-      ArcaneSchemaMapper.fromJson(json);
+  factory ArcaneSchema.fromJson(String json) => ArcaneSchemaMapper.fromJson(json);
 
-  factory ArcaneSchema.fromMap(Map<String, dynamic> map) =>
-      ArcaneSchemaMapper.fromMap(map);
+  factory ArcaneSchema.fromMap(Map<String, dynamic> map) => ArcaneSchemaMapper.fromMap(map);
 
   final String rarity;
   final List<LevelStat> levelStats;

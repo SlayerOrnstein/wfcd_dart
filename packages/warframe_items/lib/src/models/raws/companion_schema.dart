@@ -20,11 +20,9 @@ class CompanionSchema extends Schema with CompanionSchemaMappable {
     super.productCategory,
   });
 
-  factory CompanionSchema.fromJson(String json) =>
-      CompanionSchemaMapper.fromJson(json);
+  factory CompanionSchema.fromJson(String json) => CompanionSchemaMapper.fromJson(json);
 
-  factory CompanionSchema.fromMap(Map<String, dynamic> map) =>
-      CompanionSchemaMapper.fromMap(map);
+  factory CompanionSchema.fromMap(Map<String, dynamic> map) => CompanionSchemaMapper.fromMap(map);
 
   final int health;
   final int sheild;

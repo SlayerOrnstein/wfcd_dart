@@ -8,8 +8,15 @@ typedef SteelPathItem = ({String name, int cost});
 typedef SteelPathData = ({List<SteelPathItem> rotation, List<SteelPathItem> evergreen});
 
 /// Synth target location
-typedef SynthTargetLocation =
-    ({String lastVerified, String level, String faction, String spawnRate, String mission, String planet, String type});
+typedef SynthTargetLocation = ({
+  String lastVerified,
+  String level,
+  String faction,
+  String spawnRate,
+  String mission,
+  String planet,
+  String type,
+});
 
 /// Synth target
 typedef SynthTarget = ({String name, String imageKey, List<SynthTargetLocation> locations});
