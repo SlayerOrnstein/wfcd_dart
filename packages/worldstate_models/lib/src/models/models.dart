@@ -1,5 +1,5 @@
 export 'alert.dart';
-export 'calender.dart';
+export 'calendar.dart';
 export 'daily_deal.dart';
 export 'duviri_cycle.dart';
 export 'fissure.dart';

@@ -77,7 +77,7 @@ class Worldstate with WorldstateMappable {
     required this.constructionProgress,
     required this.duviriCycle,
     required this.nightwave,
-    required this.calender,
+    required this.calendar,
   });
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
@@ -103,7 +103,7 @@ class Worldstate with WorldstateMappable {
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
       nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
-      calender: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
+      calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
     );
   }
 
@@ -125,5 +125,5 @@ class Worldstate with WorldstateMappable {
   final ConstructionProgress constructionProgress;
   final DuviriCycle duviriCycle;
   final Nightwave? nightwave;
-  final Calendar calender;
+  final Calendar calendar;
 }
