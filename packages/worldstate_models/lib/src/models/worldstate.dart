@@ -53,7 +53,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<num> projectPct;
   final List<RawCircuitChoice> endlessXpChoices;
   final RawSeasonInfo seasonInfo;
-  final List<RawCalender> knownCalendarSeasons;
+  final List<RawCalendar> knownCalendarSeasons;
 }
 
 @MappableClass()
@@ -103,7 +103,7 @@ class Worldstate with WorldstateMappable {
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
       nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
-      calender: Calender.fromRaw(raw.knownCalendarSeasons.first, locale),
+      calender: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
     );
   }
 
@@ -125,5 +125,5 @@ class Worldstate with WorldstateMappable {
   final ConstructionProgress constructionProgress;
   final DuviriCycle duviriCycle;
   final Nightwave? nightwave;
-  final Calender calender;
+  final Calendar calender;
 }
