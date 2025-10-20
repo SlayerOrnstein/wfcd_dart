@@ -64,4 +64,10 @@ class DailyDeal extends WorldstateObject with DailyDealMappable {
   final int salePrice;
   final int total;
   final int sold;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

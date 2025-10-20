@@ -571,12 +571,12 @@ class CalendarMapper extends ClassMapperBase<Calendar> {
 
   static String _$id(Calendar v) => v.id;
   static const Field<Calendar, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Calendar v) => v.activation;
+  static DateTime _$activation(Calendar v) => v.activation;
   static const Field<Calendar, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Calendar v) => v.expiry;
+  static DateTime _$expiry(Calendar v) => v.expiry;
   static const Field<Calendar, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$season(Calendar v) => v.season;
   static const Field<Calendar, String> _f$season = Field('season', _$season);

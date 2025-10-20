@@ -290,12 +290,12 @@ class FlashSaleMapper extends ClassMapperBase<FlashSale> {
 
   static String _$id(FlashSale v) => v.id;
   static const Field<FlashSale, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(FlashSale v) => v.activation;
+  static DateTime _$activation(FlashSale v) => v.activation;
   static const Field<FlashSale, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(FlashSale v) => v.expiry;
+  static DateTime _$expiry(FlashSale v) => v.expiry;
   static const Field<FlashSale, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$item(FlashSale v) => v.item;
   static const Field<FlashSale, String> _f$item = Field('item', _$item);

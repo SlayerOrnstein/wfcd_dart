@@ -258,12 +258,12 @@ class DailyDealMapper extends ClassMapperBase<DailyDeal> {
 
   static String _$id(DailyDeal v) => v.id;
   static const Field<DailyDeal, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(DailyDeal v) => v.activation;
+  static DateTime _$activation(DailyDeal v) => v.activation;
   static const Field<DailyDeal, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(DailyDeal v) => v.expiry;
+  static DateTime _$expiry(DailyDeal v) => v.expiry;
   static const Field<DailyDeal, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$item(DailyDeal v) => v.item;
   static const Field<DailyDeal, String> _f$item = Field('item', _$item);

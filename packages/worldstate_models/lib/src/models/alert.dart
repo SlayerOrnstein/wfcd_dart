@@ -55,4 +55,10 @@ class Alert extends WorldstateObject with AlertMappable {
 
   /// Whether the mission node is made unlocked for the player or not
   final bool forceUnlocked;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

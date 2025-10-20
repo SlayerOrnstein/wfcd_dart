@@ -265,12 +265,12 @@ class GlobalUpgradeMapper extends ClassMapperBase<GlobalUpgrade> {
 
   static String _$id(GlobalUpgrade v) => v.id;
   static const Field<GlobalUpgrade, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(GlobalUpgrade v) => v.activation;
+  static DateTime _$activation(GlobalUpgrade v) => v.activation;
   static const Field<GlobalUpgrade, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(GlobalUpgrade v) => v.expiry;
+  static DateTime _$expiry(GlobalUpgrade v) => v.expiry;
   static const Field<GlobalUpgrade, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

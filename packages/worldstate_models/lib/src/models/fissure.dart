@@ -79,4 +79,10 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final int tierNum;
   final bool isStorm;
   final bool isSteelpath;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

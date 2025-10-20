@@ -440,12 +440,12 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
 
   static String _$id(WorldEvent v) => v.id;
   static const Field<WorldEvent, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(WorldEvent v) => v.activation;
+  static DateTime _$activation(WorldEvent v) => v.activation;
   static const Field<WorldEvent, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(WorldEvent v) => v.expiry;
+  static DateTime _$expiry(WorldEvent v) => v.expiry;
   static const Field<WorldEvent, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

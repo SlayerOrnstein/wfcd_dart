@@ -268,12 +268,12 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
 
   static String _$id(VoidFissure v) => v.id;
   static const Field<VoidFissure, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(VoidFissure v) => v.activation;
+  static DateTime _$activation(VoidFissure v) => v.activation;
   static const Field<VoidFissure, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(VoidFissure v) => v.expiry;
+  static DateTime _$expiry(VoidFissure v) => v.expiry;
   static const Field<VoidFissure, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

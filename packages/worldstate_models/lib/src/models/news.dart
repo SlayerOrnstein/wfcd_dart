@@ -51,8 +51,8 @@ class News with NewsMappable {
     return News(
       id: parseId(event.id),
       message: _getMessage(messages, locale),
-      link: event.prop,
-      imageLink: event.imageUrl,
+      link: event.prop ?? 'https://www.warframe.com/',
+      imageLink: event.imageUrl ?? 'https://cdn.warframestat.us/genesis/img/news-placeholder.png',
       date: date,
       priority: event.priority,
       update: event.prop?.contains(RegExp('(update|hotfix)', caseSensitive: false)) ?? false,
@@ -74,10 +74,10 @@ class News with NewsMappable {
   final String message;
 
   /// Any accompanied links
-  final String? link;
+  final String link;
 
   /// Image link if possible
-  final String? imageLink;
+  final String imageLink;
 
   /// Date the news was posted
   final DateTime date;

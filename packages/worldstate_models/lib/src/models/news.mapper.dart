@@ -245,9 +245,9 @@ class NewsMapper extends ClassMapperBase<News> {
   static const Field<News, String> _f$id = Field('id', _$id);
   static String _$message(News v) => v.message;
   static const Field<News, String> _f$message = Field('message', _$message);
-  static String? _$link(News v) => v.link;
+  static String _$link(News v) => v.link;
   static const Field<News, String> _f$link = Field('link', _$link);
-  static String? _$imageLink(News v) => v.imageLink;
+  static String _$imageLink(News v) => v.imageLink;
   static const Field<News, String> _f$imageLink = Field(
     'imageLink',
     _$imageLink,
@@ -382,8 +382,8 @@ class _NewsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, News, $Out>
   $R call({
     String? id,
     String? message,
-    Object? link = $none,
-    Object? imageLink = $none,
+    String? link,
+    String? imageLink,
     DateTime? date,
     bool? priority,
     bool? update,
@@ -394,8 +394,8 @@ class _NewsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, News, $Out>
     FieldCopyWithData({
       if (id != null) #id: id,
       if (message != null) #message: message,
-      if (link != $none) #link: link,
-      if (imageLink != $none) #imageLink: imageLink,
+      if (link != null) #link: link,
+      if (imageLink != null) #imageLink: imageLink,
       if (date != null) #date: date,
       if (priority != null) #priority: priority,
       if (update != null) #update: update,

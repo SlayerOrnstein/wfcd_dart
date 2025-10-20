@@ -54,7 +54,13 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
   final List<NightwaveChallenge> challenges;
 
   @override
-  String get id => hash(tag + activation!.toIso8601String() + expiry!.toIso8601String());
+  String get id => hash(tag + activation.toIso8601String() + expiry.toIso8601String());
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }
 
 @MappableClass()

@@ -19,6 +19,8 @@ class RawMission with RawMissionMappable {
     required this.questReq,
     required this.maxWaveNum,
     required this.difficulty,
+    required this.archwingRequired,
+    required this.isSharkwingMission,
   });
 
   static const fromMap = RawMissionMapper.fromMap;
@@ -35,6 +37,8 @@ class RawMission with RawMissionMappable {
   final String? questReq;
   final int maxWaveNum;
   final int difficulty;
+  final bool archwingRequired;
+  final bool isSharkwingMission;
 
   Mission toMission([String locale = 'en']) => Mission.fromRaw(this, locale);
 }
@@ -44,16 +48,17 @@ class Mission with MissionMappable {
   Mission({
     required this.type,
     required this.faction,
-    required this.location,
+    required this.node,
     required this.override,
     required this.enemySpec,
-    required this.minLevel,
-    required this.maxLevel,
+    required this.minEnemyLevel,
+    required this.maxEnemyLevel,
     required this.reward,
     required this.description,
     required this.questRequired,
     required this.maxWaves,
     required this.difficultyLevel,
+    required this.archwingRequired,
   });
 
   factory Mission.fromRaw(RawMission raw, [String locale = 'en']) {
@@ -62,30 +67,32 @@ class Mission with MissionMappable {
     return Mission(
       type: data.missionType(raw.missionType, locale),
       faction: data.faction(raw.faction, locale),
-      location: data.solNodes(locale).fetchNode(raw.location).name,
+      node: data.solNodes(locale).fetchNode(raw.location).name,
       override: raw.levelOverrride != null ? langs.fetchValue(raw.levelOverrride!) : null,
       enemySpec: langs.fetchValue(raw.enemySpec),
-      minLevel: raw.minEnemyLevel,
-      maxLevel: raw.maxEnemyLevel,
+      minEnemyLevel: raw.minEnemyLevel,
+      maxEnemyLevel: raw.maxEnemyLevel,
       reward: raw.missionReward.toReward(locale),
       // probably need lang for this one later down the line. Seems to be for events based on quest i.e. Jade of Shadows
       description: raw.descText,
       questRequired: raw.questReq,
       maxWaves: raw.maxWaveNum,
       difficultyLevel: raw.difficulty,
+      archwingRequired: raw.archwingRequired || raw.isSharkwingMission,
     );
   }
 
   final String type;
   final String faction;
-  final String location;
+  final String node;
   final String? override;
   final String enemySpec;
-  final int minLevel;
-  final int maxLevel;
+  final int minEnemyLevel;
+  final int maxEnemyLevel;
   final Reward reward;
   final String? description;
   final String? questRequired;
   final int? maxWaves;
   final int difficultyLevel;
+  final bool archwingRequired;
 }

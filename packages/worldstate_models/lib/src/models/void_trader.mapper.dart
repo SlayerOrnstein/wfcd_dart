@@ -433,12 +433,12 @@ class TraderMapper extends ClassMapperBase<Trader> {
 
   static String _$id(Trader v) => v.id;
   static const Field<Trader, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Trader v) => v.activation;
+  static DateTime _$activation(Trader v) => v.activation;
   static const Field<Trader, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Trader v) => v.expiry;
+  static DateTime _$expiry(Trader v) => v.expiry;
   static const Field<Trader, DateTime> _f$expiry = Field('expiry', _$expiry);
   static DateTime? _$initialStartDate(Trader v) => v.initialStartDate;
   static const Field<Trader, DateTime> _f$initialStartDate = Field(

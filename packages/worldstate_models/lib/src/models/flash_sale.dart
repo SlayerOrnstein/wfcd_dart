@@ -32,12 +32,6 @@ class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
   final int regularOverride;
   final JsonObject startDate;
   final JsonObject endDate;
-
-  @override
-  JsonObject get activation => startDate;
-
-  @override
-  JsonObject get expiry => endDate;
 }
 
 @MappableClass()
@@ -55,12 +49,12 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
   });
 
   factory FlashSale.fromRaw(RawFlashSale raw, String locale) {
-    final activation = parseDate(raw.activation);
+    final activation = parseDate(raw.startDate);
 
     return FlashSale(
       id: hash(raw.typeName + activation.toIso8601String()),
       activation: activation,
-      expiry: parseDate(raw.expiry),
+      expiry: parseDate(raw.endDate),
       item: languages(locale).fetchValue(raw.typeName),
       shownInMarket: raw.showInMarket,
       isSupporterPack: raw.supporterPack,
@@ -81,4 +75,10 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
   final int premiumOverride;
 
   final int regularOverride;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

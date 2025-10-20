@@ -243,12 +243,12 @@ class AlertMapper extends ClassMapperBase<Alert> {
 
   static String _$id(Alert v) => v.id;
   static const Field<Alert, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Alert v) => v.activation;
+  static DateTime _$activation(Alert v) => v.activation;
   static const Field<Alert, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Alert v) => v.expiry;
+  static DateTime _$expiry(Alert v) => v.expiry;
   static const Field<Alert, DateTime> _f$expiry = Field('expiry', _$expiry);
   static Mission _$mission(Alert v) => v.mission;
   static const Field<Alert, Mission> _f$mission = Field('mission', _$mission);

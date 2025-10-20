@@ -28,6 +28,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       RawDailyDealMapper.ensureInitialized();
       RawCircuitChoiceMapper.ensureInitialized();
       RawSeasonInfoMapper.ensureInitialized();
+      RawCalendarMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -148,9 +149,9 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$seasonInfo,
     key: r'SeasonInfo',
   );
-  static List<InvalidType> _$knownCalendarSeasons(RawWorldstate v) =>
+  static List<RawCalendar> _$knownCalendarSeasons(RawWorldstate v) =>
       v.knownCalendarSeasons;
-  static const Field<RawWorldstate, List<InvalidType>> _f$knownCalendarSeasons =
+  static const Field<RawWorldstate, List<RawCalendar>> _f$knownCalendarSeasons =
       Field(
         'knownCalendarSeasons',
         _$knownCalendarSeasons,
@@ -335,7 +336,11 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
   >
   get endlessXpChoices;
   RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo> get seasonInfo;
-  ListCopyWith<$R, InvalidType, ObjectCopyWith<$R, InvalidType, InvalidType>>
+  ListCopyWith<
+    $R,
+    RawCalendar,
+    RawCalendarCopyWith<$R, RawCalendar, RawCalendar>
+  >
   get knownCalendarSeasons;
   $R call({
     int? time,
@@ -357,7 +362,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     List<num>? projectPct,
     List<RawCircuitChoice>? endlessXpChoices,
     RawSeasonInfo? seasonInfo,
-    List<InvalidType>? knownCalendarSeasons,
+    List<RawCalendar>? knownCalendarSeasons,
   });
   RawWorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -522,10 +527,14 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
   RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo> get seasonInfo =>
       $value.seasonInfo.copyWith.$chain((v) => call(seasonInfo: v));
   @override
-  ListCopyWith<$R, InvalidType, ObjectCopyWith<$R, InvalidType, InvalidType>>
+  ListCopyWith<
+    $R,
+    RawCalendar,
+    RawCalendarCopyWith<$R, RawCalendar, RawCalendar>
+  >
   get knownCalendarSeasons => ListCopyWith(
     $value.knownCalendarSeasons,
-    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v, t) => v.copyWith.$chain(t),
     (v) => call(knownCalendarSeasons: v),
   );
   @override
@@ -549,7 +558,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     List<num>? projectPct,
     List<RawCircuitChoice>? endlessXpChoices,
     RawSeasonInfo? seasonInfo,
-    List<InvalidType>? knownCalendarSeasons,
+    List<RawCalendar>? knownCalendarSeasons,
   }) => $apply(
     FieldCopyWithData({
       if (time != null) #time: time,
@@ -636,6 +645,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       ConstructionProgressMapper.ensureInitialized();
       DuviriCycleMapper.ensureInitialized();
       NightwaveMapper.ensureInitialized();
+      CalendarMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -725,10 +735,10 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'nightwave',
     _$nightwave,
   );
-  static InvalidType _$calender(Worldstate v) => v.calender;
-  static const Field<Worldstate, InvalidType> _f$calender = Field(
-    'calender',
-    _$calender,
+  static Calendar _$calendar(Worldstate v) => v.calendar;
+  static const Field<Worldstate, Calendar> _f$calendar = Field(
+    'calendar',
+    _$calendar,
   );
 
   @override
@@ -751,7 +761,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #constructionProgress: _f$constructionProgress,
     #duviriCycle: _f$duviriCycle,
     #nightwave: _f$nightwave,
-    #calender: _f$calender,
+    #calendar: _f$calendar,
   };
   @override
   final bool ignoreNull = true;
@@ -776,7 +786,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       constructionProgress: data.dec(_f$constructionProgress),
       duviriCycle: data.dec(_f$duviriCycle),
       nightwave: data.dec(_f$nightwave),
-      calender: data.dec(_f$calender),
+      calendar: data.dec(_f$calendar),
     );
   }
 
@@ -877,6 +887,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   get constructionProgress;
   DuviriCycleCopyWith<$R, DuviriCycle, DuviriCycle> get duviriCycle;
   NightwaveCopyWith<$R, Nightwave, Nightwave>? get nightwave;
+  CalendarCopyWith<$R, Calendar, Calendar> get calendar;
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -896,7 +907,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     ConstructionProgress? constructionProgress,
     DuviriCycle? duviriCycle,
     Nightwave? nightwave,
-    InvalidType? calender,
+    Calendar? calendar,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1014,6 +1025,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
   NightwaveCopyWith<$R, Nightwave, Nightwave>? get nightwave =>
       $value.nightwave?.copyWith.$chain((v) => call(nightwave: v));
   @override
+  CalendarCopyWith<$R, Calendar, Calendar> get calendar =>
+      $value.calendar.copyWith.$chain((v) => call(calendar: v));
+  @override
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -1033,7 +1047,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     ConstructionProgress? constructionProgress,
     DuviriCycle? duviriCycle,
     Object? nightwave = $none,
-    InvalidType? calender,
+    Calendar? calendar,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1055,7 +1069,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
         #constructionProgress: constructionProgress,
       if (duviriCycle != null) #duviriCycle: duviriCycle,
       if (nightwave != $none) #nightwave: nightwave,
-      if (calender != null) #calender: calender,
+      if (calendar != null) #calendar: calendar,
     }),
   );
   @override
@@ -1084,7 +1098,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     ),
     duviriCycle: data.get(#duviriCycle, or: $value.duviriCycle),
     nightwave: data.get(#nightwave, or: $value.nightwave),
-    calender: data.get(#calender, or: $value.calender),
+    calendar: data.get(#calendar, or: $value.calendar),
   );
 
   @override

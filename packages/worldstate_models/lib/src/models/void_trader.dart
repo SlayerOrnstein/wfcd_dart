@@ -71,4 +71,10 @@ class Trader extends WorldstateObject with TraderMappable {
   final String node;
   final List<TraderItem> items;
   final List<TraderItem>? evergreenItems;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

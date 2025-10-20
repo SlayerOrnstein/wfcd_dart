@@ -65,6 +65,12 @@ class Sortie extends WorldstateObject with SortieMappable {
   final String boss;
   final String faction;
   final List<Variant> missions;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }
 
 @MappableClass()

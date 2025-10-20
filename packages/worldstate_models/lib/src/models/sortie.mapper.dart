@@ -419,12 +419,12 @@ class SortieMapper extends ClassMapperBase<Sortie> {
 
   static String _$id(Sortie v) => v.id;
   static const Field<Sortie, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Sortie v) => v.activation;
+  static DateTime _$activation(Sortie v) => v.activation;
   static const Field<Sortie, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Sortie v) => v.expiry;
+  static DateTime _$expiry(Sortie v) => v.expiry;
   static const Field<Sortie, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$boss(Sortie v) => v.boss;
   static const Field<Sortie, String> _f$boss = Field('boss', _$boss);

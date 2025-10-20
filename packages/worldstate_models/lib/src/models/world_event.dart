@@ -139,4 +139,10 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
   final List<Reward>? interimRewards;
 
   final String tag;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

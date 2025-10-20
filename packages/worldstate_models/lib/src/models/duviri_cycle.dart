@@ -43,6 +43,12 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
   final DuviriState state;
   final List<CircuitChoice> choices;
 
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
   static (DuviriState state, DateTime activation, DateTime expiry) _getStageInfo() {
     const cycleTime = 36000;
     const stateTime = 7200;

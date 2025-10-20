@@ -228,12 +228,12 @@ class DuviriCycleMapper extends ClassMapperBase<DuviriCycle> {
 
   static String _$id(DuviriCycle v) => v.id;
   static const Field<DuviriCycle, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(DuviriCycle v) => v.activation;
+  static DateTime _$activation(DuviriCycle v) => v.activation;
   static const Field<DuviriCycle, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(DuviriCycle v) => v.expiry;
+  static DateTime _$expiry(DuviriCycle v) => v.expiry;
   static const Field<DuviriCycle, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

@@ -82,6 +82,16 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
     'difficulty',
     _$difficulty,
   );
+  static bool _$archwingRequired(RawMission v) => v.archwingRequired;
+  static const Field<RawMission, bool> _f$archwingRequired = Field(
+    'archwingRequired',
+    _$archwingRequired,
+  );
+  static bool _$isSharkwingMission(RawMission v) => v.isSharkwingMission;
+  static const Field<RawMission, bool> _f$isSharkwingMission = Field(
+    'isSharkwingMission',
+    _$isSharkwingMission,
+  );
 
   @override
   final MappableFields<RawMission> fields = const {
@@ -97,6 +107,8 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
     #questReq: _f$questReq,
     #maxWaveNum: _f$maxWaveNum,
     #difficulty: _f$difficulty,
+    #archwingRequired: _f$archwingRequired,
+    #isSharkwingMission: _f$isSharkwingMission,
   };
   @override
   final bool ignoreNull = true;
@@ -115,6 +127,8 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
       questReq: data.dec(_f$questReq),
       maxWaveNum: data.dec(_f$maxWaveNum),
       difficulty: data.dec(_f$difficulty),
+      archwingRequired: data.dec(_f$archwingRequired),
+      isSharkwingMission: data.dec(_f$isSharkwingMission),
     );
   }
 
@@ -192,6 +206,8 @@ abstract class RawMissionCopyWith<$R, $In extends RawMission, $Out>
     String? questReq,
     int? maxWaveNum,
     int? difficulty,
+    bool? archwingRequired,
+    bool? isSharkwingMission,
   });
   RawMissionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -221,6 +237,8 @@ class _RawMissionCopyWithImpl<$R, $Out>
     Object? questReq = $none,
     int? maxWaveNum,
     int? difficulty,
+    bool? archwingRequired,
+    bool? isSharkwingMission,
   }) => $apply(
     FieldCopyWithData({
       if (missionType != null) #missionType: missionType,
@@ -235,6 +253,8 @@ class _RawMissionCopyWithImpl<$R, $Out>
       if (questReq != $none) #questReq: questReq,
       if (maxWaveNum != null) #maxWaveNum: maxWaveNum,
       if (difficulty != null) #difficulty: difficulty,
+      if (archwingRequired != null) #archwingRequired: archwingRequired,
+      if (isSharkwingMission != null) #isSharkwingMission: isSharkwingMission,
     }),
   );
   @override
@@ -251,6 +271,11 @@ class _RawMissionCopyWithImpl<$R, $Out>
     questReq: data.get(#questReq, or: $value.questReq),
     maxWaveNum: data.get(#maxWaveNum, or: $value.maxWaveNum),
     difficulty: data.get(#difficulty, or: $value.difficulty),
+    archwingRequired: data.get(#archwingRequired, or: $value.archwingRequired),
+    isSharkwingMission: data.get(
+      #isSharkwingMission,
+      or: $value.isSharkwingMission,
+    ),
   );
 
   @override
@@ -278,11 +303,8 @@ class MissionMapper extends ClassMapperBase<Mission> {
   static const Field<Mission, String> _f$type = Field('type', _$type);
   static String _$faction(Mission v) => v.faction;
   static const Field<Mission, String> _f$faction = Field('faction', _$faction);
-  static String _$location(Mission v) => v.location;
-  static const Field<Mission, String> _f$location = Field(
-    'location',
-    _$location,
-  );
+  static String _$node(Mission v) => v.node;
+  static const Field<Mission, String> _f$node = Field('node', _$node);
   static String? _$override(Mission v) => v.override;
   static const Field<Mission, String> _f$override = Field(
     'override',
@@ -293,10 +315,16 @@ class MissionMapper extends ClassMapperBase<Mission> {
     'enemySpec',
     _$enemySpec,
   );
-  static int _$minLevel(Mission v) => v.minLevel;
-  static const Field<Mission, int> _f$minLevel = Field('minLevel', _$minLevel);
-  static int _$maxLevel(Mission v) => v.maxLevel;
-  static const Field<Mission, int> _f$maxLevel = Field('maxLevel', _$maxLevel);
+  static int _$minEnemyLevel(Mission v) => v.minEnemyLevel;
+  static const Field<Mission, int> _f$minEnemyLevel = Field(
+    'minEnemyLevel',
+    _$minEnemyLevel,
+  );
+  static int _$maxEnemyLevel(Mission v) => v.maxEnemyLevel;
+  static const Field<Mission, int> _f$maxEnemyLevel = Field(
+    'maxEnemyLevel',
+    _$maxEnemyLevel,
+  );
   static Reward _$reward(Mission v) => v.reward;
   static const Field<Mission, Reward> _f$reward = Field('reward', _$reward);
   static String? _$description(Mission v) => v.description;
@@ -316,21 +344,27 @@ class MissionMapper extends ClassMapperBase<Mission> {
     'difficultyLevel',
     _$difficultyLevel,
   );
+  static bool _$archwingRequired(Mission v) => v.archwingRequired;
+  static const Field<Mission, bool> _f$archwingRequired = Field(
+    'archwingRequired',
+    _$archwingRequired,
+  );
 
   @override
   final MappableFields<Mission> fields = const {
     #type: _f$type,
     #faction: _f$faction,
-    #location: _f$location,
+    #node: _f$node,
     #override: _f$override,
     #enemySpec: _f$enemySpec,
-    #minLevel: _f$minLevel,
-    #maxLevel: _f$maxLevel,
+    #minEnemyLevel: _f$minEnemyLevel,
+    #maxEnemyLevel: _f$maxEnemyLevel,
     #reward: _f$reward,
     #description: _f$description,
     #questRequired: _f$questRequired,
     #maxWaves: _f$maxWaves,
     #difficultyLevel: _f$difficultyLevel,
+    #archwingRequired: _f$archwingRequired,
   };
   @override
   final bool ignoreNull = true;
@@ -339,16 +373,17 @@ class MissionMapper extends ClassMapperBase<Mission> {
     return Mission(
       type: data.dec(_f$type),
       faction: data.dec(_f$faction),
-      location: data.dec(_f$location),
+      node: data.dec(_f$node),
       override: data.dec(_f$override),
       enemySpec: data.dec(_f$enemySpec),
-      minLevel: data.dec(_f$minLevel),
-      maxLevel: data.dec(_f$maxLevel),
+      minEnemyLevel: data.dec(_f$minEnemyLevel),
+      maxEnemyLevel: data.dec(_f$maxEnemyLevel),
       reward: data.dec(_f$reward),
       description: data.dec(_f$description),
       questRequired: data.dec(_f$questRequired),
       maxWaves: data.dec(_f$maxWaves),
       difficultyLevel: data.dec(_f$difficultyLevel),
+      archwingRequired: data.dec(_f$archwingRequired),
     );
   }
 
@@ -413,16 +448,17 @@ abstract class MissionCopyWith<$R, $In extends Mission, $Out>
   $R call({
     String? type,
     String? faction,
-    String? location,
+    String? node,
     String? override,
     String? enemySpec,
-    int? minLevel,
-    int? maxLevel,
+    int? minEnemyLevel,
+    int? maxEnemyLevel,
     Reward? reward,
     String? description,
     String? questRequired,
     int? maxWaves,
     int? difficultyLevel,
+    bool? archwingRequired,
   });
   MissionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -442,46 +478,49 @@ class _MissionCopyWithImpl<$R, $Out>
   $R call({
     String? type,
     String? faction,
-    String? location,
+    String? node,
     Object? override = $none,
     String? enemySpec,
-    int? minLevel,
-    int? maxLevel,
+    int? minEnemyLevel,
+    int? maxEnemyLevel,
     Reward? reward,
     Object? description = $none,
     Object? questRequired = $none,
     Object? maxWaves = $none,
     int? difficultyLevel,
+    bool? archwingRequired,
   }) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
       if (faction != null) #faction: faction,
-      if (location != null) #location: location,
+      if (node != null) #node: node,
       if (override != $none) #override: override,
       if (enemySpec != null) #enemySpec: enemySpec,
-      if (minLevel != null) #minLevel: minLevel,
-      if (maxLevel != null) #maxLevel: maxLevel,
+      if (minEnemyLevel != null) #minEnemyLevel: minEnemyLevel,
+      if (maxEnemyLevel != null) #maxEnemyLevel: maxEnemyLevel,
       if (reward != null) #reward: reward,
       if (description != $none) #description: description,
       if (questRequired != $none) #questRequired: questRequired,
       if (maxWaves != $none) #maxWaves: maxWaves,
       if (difficultyLevel != null) #difficultyLevel: difficultyLevel,
+      if (archwingRequired != null) #archwingRequired: archwingRequired,
     }),
   );
   @override
   Mission $make(CopyWithData data) => Mission(
     type: data.get(#type, or: $value.type),
     faction: data.get(#faction, or: $value.faction),
-    location: data.get(#location, or: $value.location),
+    node: data.get(#node, or: $value.node),
     override: data.get(#override, or: $value.override),
     enemySpec: data.get(#enemySpec, or: $value.enemySpec),
-    minLevel: data.get(#minLevel, or: $value.minLevel),
-    maxLevel: data.get(#maxLevel, or: $value.maxLevel),
+    minEnemyLevel: data.get(#minEnemyLevel, or: $value.minEnemyLevel),
+    maxEnemyLevel: data.get(#maxEnemyLevel, or: $value.maxEnemyLevel),
     reward: data.get(#reward, or: $value.reward),
     description: data.get(#description, or: $value.description),
     questRequired: data.get(#questRequired, or: $value.questRequired),
     maxWaves: data.get(#maxWaves, or: $value.maxWaves),
     difficultyLevel: data.get(#difficultyLevel, or: $value.difficultyLevel),
+    archwingRequired: data.get(#archwingRequired, or: $value.archwingRequired),
   );
 
   @override

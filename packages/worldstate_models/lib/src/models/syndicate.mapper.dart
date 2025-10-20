@@ -444,12 +444,12 @@ class SyndicateMissionMapper extends ClassMapperBase<SyndicateMission> {
 
   static String _$id(SyndicateMission v) => v.id;
   static const Field<SyndicateMission, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(SyndicateMission v) => v.activation;
+  static DateTime _$activation(SyndicateMission v) => v.activation;
   static const Field<SyndicateMission, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(SyndicateMission v) => v.expiry;
+  static DateTime _$expiry(SyndicateMission v) => v.expiry;
   static const Field<SyndicateMission, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

@@ -468,12 +468,12 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
   @override
   final String id = 'Nightwave';
 
-  static DateTime? _$activation(Nightwave v) => v.activation;
+  static DateTime _$activation(Nightwave v) => v.activation;
   static const Field<Nightwave, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Nightwave v) => v.expiry;
+  static DateTime _$expiry(Nightwave v) => v.expiry;
   static const Field<Nightwave, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$tag(Nightwave v) => v.tag;
   static const Field<Nightwave, String> _f$tag = Field('tag', _$tag);

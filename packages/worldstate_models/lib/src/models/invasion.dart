@@ -125,8 +125,14 @@ class Invasion extends WorldstateObject with InvasionMappable {
   final List<String> rewardTypes;
 
   @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
   String? get eta {
-    final estimatedRemainingTime = _estimateRemainingTime(activation!, count, requiredRuns);
+    final estimatedRemainingTime = _estimateRemainingTime(activation, count, requiredRuns);
     return createEta(DateTime.fromMillisecondsSinceEpoch(estimatedRemainingTime));
   }
 

@@ -480,7 +480,7 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
 
   static String _$id(Invasion v) => v.id;
   static const Field<Invasion, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Invasion v) => v.activation;
+  static DateTime _$activation(Invasion v) => v.activation;
   static const Field<Invasion, DateTime> _f$activation = Field(
     'activation',
     _$activation,

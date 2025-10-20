@@ -67,4 +67,10 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
   final int value;
   final bool isExpired;
   final String description;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }

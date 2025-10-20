@@ -65,6 +65,12 @@ class Calendar extends WorldstateObject with CalendarMappable {
   final String season;
   final int loops;
   final List<CalendarDay> days;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }
 
 @MappableClass()

@@ -80,6 +80,12 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
   final String name;
   final List<String>? nodes;
   final List<SyndicateBounty>? bounties;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
 }
 
 @MappableClass()
