@@ -1,24 +1,11 @@
-name: main
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+name: run_check
 
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/main.yaml"
-      - "lib/**"
-      - "test/**"
-      - "pubspec.yaml"
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/main.yaml"
-      - "lib/**"
-      - "test/**"
-      - "pubspec.yaml"
+  workflow_call:
+    inputs:
+      working_directory:
+        required: true
+        type: string
 
 jobs:
   semantic-pull-request:
@@ -27,12 +14,14 @@ jobs:
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:
+      working_directory: working_directory
       dart_sdk: "3.9.0"
       min_coverage: 0 #Change this after actually making test
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
     with:
+      working_directory: working_directory
       includes: |
         **/*.md
         !brick/**/*.md

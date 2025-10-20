@@ -1,0 +1,33 @@
+name: main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/main.yaml"
+      - "lib/**"
+      - "test/**"
+      - "pubspec.yaml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/main.yaml"
+      - "lib/**"
+      - "test/**"
+      - "pubspec.yaml"
+
+jobs:
+  warframe_drop_data:
+    uses: ./.github/workflows/run_check.yaml
+  warframe_items:
+    uses: ./.github/workflows/run_check.yaml
+  warfram_worldstate_data:
+    uses: ./.github/workflows/run_check.yaml
+  worldstate_models:
+    uses: ./.github/workflows/run_check.yaml
+  worldstate_status:
+    uses: ./.github/workflows/run_check.yaml
