@@ -8,9 +8,6 @@ on:
         type: string
 
 jobs:
-  semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
   build:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
     with:

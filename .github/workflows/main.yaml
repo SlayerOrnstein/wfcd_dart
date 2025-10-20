@@ -21,6 +21,9 @@ on:
       - "pubspec.yaml"
 
 jobs:
+  semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
   warframe_drop_data:
     uses: ./.github/workflows/run_check.yaml
     with:
