@@ -23,11 +23,25 @@ on:
 jobs:
   warframe_drop_data:
     uses: ./.github/workflows/run_check.yaml
+    with:
+      working_directory: packages/warframe_drop_data
+
   warframe_items:
     uses: ./.github/workflows/run_check.yaml
+    with:
+      working_directory: packages/warframe_items
+
   warfram_worldstate_data:
     uses: ./.github/workflows/run_check.yaml
+    with:
+      working_directory: packages/warfram_worldstate_data
+
   worldstate_models:
     uses: ./.github/workflows/run_check.yaml
+    with:
+      working_directory: packages/worldstate_models
+
   worldstate_status:
     uses: ./.github/workflows/run_check.yaml
+    with:
+      working_directory: packages/worldstate_status
