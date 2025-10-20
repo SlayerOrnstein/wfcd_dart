@@ -12,7 +12,7 @@ dependencies:
   collection: ^1.19.1
   crypto: ^3.0.6
   dart_mappable: ^4.6.1
-  meta: ^1.17.0
+  meta: ">=1.16.0 <2.0.0"
   warframe_worldstate_data:
     path: ../warframe_worldstate_data
 
