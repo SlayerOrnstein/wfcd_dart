@@ -14,6 +14,9 @@ targets:
           input_file_pattern: .i18n.json
           output_directory: lib/src/i18n
           output_file_name: worldstate_langs.g.dart
+          format:
+            enabled: true
+            width: 120
           interfaces:
             ArchonShard: archonShards.shards.*
             SolNode: solNodes.nodes.*
@@ -46,4 +49,3 @@ targets:
                 - String mission
                 - String planet
                 - String type
-            

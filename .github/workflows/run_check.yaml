@@ -17,6 +17,7 @@ jobs:
       working_directory: ${{ inputs.working_directory }}
       dart_sdk: "3.9.0"
       min_coverage: 0 #Change this after actually making test
+      format_line_length: 120
 
   spell-check:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
