@@ -6,6 +6,14 @@ typedef CurrentDuviriPhase = ({DuviriState state, DateTime activation, DateTime 
 
 typedef CurrentCetusCycle = ({bool isDay, DateTime expiry, CetusState state, DateTime start});
 
+typedef CurrentVallisCycle = ({
+  VallisState state,
+  int toNextMinor,
+  int toNextFull,
+  DateTime timeAtPrevious,
+  DateTime timeAtNext,
+});
+
 typedef CurrentZarimanCycle = ({bool isCorpus, DateTime start, DateTime expiry, ZarimanState state});
 
 CurrentCetusCycle calculateCurrentCetusCycle(DateTime bountiesEnd) {
@@ -50,6 +58,41 @@ CurrentDuviriPhase calculateCurrentDuviriPhase() {
   final activation = DateTime.fromMillisecondsSinceEpoch(expiry.millisecondsSinceEpoch - stateTime * 1000);
 
   return (state: DuviriState.values.elementAt(stateInd), activation: activation, expiry: expiry);
+}
+
+CurrentVallisCycle calculateCurrentVallisCycle() {
+  final lStart = DateTime.parse('2018-11-10T08:13:48.000Z');
+  const loopTime = 16_000_00;
+  const warmTime = 400_000;
+  const coldTime = loopTime - warmTime;
+
+  final now = DateTime.timestamp();
+  final sinceLast = (now.millisecondsSinceEpoch - lStart.millisecondsSinceEpoch) % loopTime;
+  final toNextFull = loopTime - sinceLast;
+  final state = toNextFull > coldTime ? VallisState.warm : VallisState.cold;
+
+  final toNextMinor = toNextFull < coldTime ? toNextFull : toNextFull - coldTime;
+
+  final milliAtNext = now.add(Duration(milliseconds: toNextMinor));
+  final milliAtPrev = now.add(
+    Duration(milliseconds: toNextFull - (state == VallisState.warm ? loopTime : coldTime)),
+  );
+
+  final timeAtPrevious = DateTime.utc(
+    milliAtPrev.year,
+    milliAtPrev.month,
+    milliAtPrev.day,
+    milliAtPrev.hour,
+    milliAtPrev.minute,
+  );
+
+  return (
+    state: state,
+    toNextMinor: toNextMinor,
+    toNextFull: toNextFull,
+    timeAtNext: milliAtNext,
+    timeAtPrevious: timeAtPrevious,
+  );
 }
 
 CurrentZarimanCycle calculateCurrentZarimanCycle(DateTime bountiesEnd) {
