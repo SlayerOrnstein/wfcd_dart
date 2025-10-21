@@ -1,5 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:worldstate_models/src/models/models.dart';
+import 'package:worldstate_models/src/models/vallis_cycle.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'worldstate.mapper.dart';
@@ -82,6 +83,8 @@ class Worldstate with WorldstateMappable {
     required this.nightwave,
     required this.calendar,
     required this.archimedeas,
+    required this.cetusCycle,
+    required this.vallisCycle,
   });
 
   static const fromJson = WorldstateMapper.fromJson;
@@ -89,6 +92,8 @@ class Worldstate with WorldstateMappable {
   static const fromMap = WorldEventMapper.fromMap;
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
+    final cetusBounty = raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate');
+
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000),
       news: await parseArray(raw.events, (event) => News.fromRaw(event, locale)),
@@ -113,6 +118,8 @@ class Worldstate with WorldstateMappable {
       nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
       calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
       archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, locale)).toList(),
+      cetusCycle: CetusCycle.fromBountiesEndDate(parseDate(cetusBounty.expiry)),
+      vallisCycle: VallisCycle.init(),
     );
   }
 
@@ -136,4 +143,9 @@ class Worldstate with WorldstateMappable {
   final Nightwave? nightwave;
   final Calendar calendar;
   final List<Archimedea> archimedeas;
+  final CetusCycle cetusCycle;
+  final VallisCycle vallisCycle;
+
+  /// Cambion is Cetus share the same cycle this is just a short hand for people that don't know
+  CetusCycle get cambionCycle => cetusCycle;
 }

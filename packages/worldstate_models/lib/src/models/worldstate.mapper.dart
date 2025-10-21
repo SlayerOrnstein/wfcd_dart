@@ -677,6 +677,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       NightwaveMapper.ensureInitialized();
       CalendarMapper.ensureInitialized();
       ArchimedeaMapper.ensureInitialized();
+      CetusCycleMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -776,6 +777,11 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'archimedeas',
     _$archimedeas,
   );
+  static CetusCycle _$cetusCycle(Worldstate v) => v.cetusCycle;
+  static const Field<Worldstate, CetusCycle> _f$cetusCycle = Field(
+    'cetusCycle',
+    _$cetusCycle,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -799,6 +805,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #nightwave: _f$nightwave,
     #calendar: _f$calendar,
     #archimedeas: _f$archimedeas,
+    #cetusCycle: _f$cetusCycle,
   };
   @override
   final bool ignoreNull = true;
@@ -825,6 +832,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       nightwave: data.dec(_f$nightwave),
       calendar: data.dec(_f$calendar),
       archimedeas: data.dec(_f$archimedeas),
+      cetusCycle: data.dec(_f$cetusCycle),
     );
   }
 
@@ -928,6 +936,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   CalendarCopyWith<$R, Calendar, Calendar> get calendar;
   ListCopyWith<$R, Archimedea, ArchimedeaCopyWith<$R, Archimedea, Archimedea>>
   get archimedeas;
+  CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle;
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -949,6 +958,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     Nightwave? nightwave,
     Calendar? calendar,
     List<Archimedea>? archimedeas,
+    CetusCycle? cetusCycle,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1076,6 +1086,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
     (v) => call(archimedeas: v),
   );
   @override
+  CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle =>
+      $value.cetusCycle.copyWith.$chain((v) => call(cetusCycle: v));
+  @override
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -1097,6 +1110,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     Object? nightwave = $none,
     Calendar? calendar,
     List<Archimedea>? archimedeas,
+    CetusCycle? cetusCycle,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1120,6 +1134,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (nightwave != $none) #nightwave: nightwave,
       if (calendar != null) #calendar: calendar,
       if (archimedeas != null) #archimedeas: archimedeas,
+      if (cetusCycle != null) #cetusCycle: cetusCycle,
     }),
   );
   @override
@@ -1150,6 +1165,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     nightwave: data.get(#nightwave, or: $value.nightwave),
     calendar: data.get(#calendar, or: $value.calendar),
     archimedeas: data.get(#archimedeas, or: $value.archimedeas),
+    cetusCycle: data.get(#cetusCycle, or: $value.cetusCycle),
   );
 
   @override
