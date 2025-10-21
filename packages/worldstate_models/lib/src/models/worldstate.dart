@@ -113,7 +113,7 @@ class Worldstate with WorldstateMappable {
       inGameMarket: InGameMarket.fromRaw(raw.inGameMarket, locale),
       invasions: await parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, locale)),
       voidTraders: await parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, locale)),
-      vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, locale),
+      vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, locale, character: 'Varzia'),
       dailyDeals: await parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, locale)),
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),

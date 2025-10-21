@@ -4,7 +4,7 @@ import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
-part 'void_trader.mapper.dart';
+part 'trader.mapper.dart';
 
 @MappableRecord(caseStyle: CaseStyle.pascalCase)
 typedef RawTraderItem = ({String itemType, int? primePrice, int? regularPrice});
@@ -17,6 +17,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
     required super.expiry,
     required this.initialStartDate,
     required this.node,
+    required this.character,
     this.manifest = const [],
     this.evergreenManifest = const [],
   });
@@ -28,6 +29,8 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
   final JsonObject? initialStartDate;
 
   final String node;
+
+  final String? character;
 
   final List<RawTraderItem> manifest;
 
@@ -47,11 +50,12 @@ class Trader extends WorldstateObject with TraderMappable {
     required super.expiry,
     required this.initialStartDate,
     required this.node,
+    required this.character,
     required this.items,
     required this.evergreenItems,
   });
 
-  factory Trader.fromRaw(RawTrader raw, String locale) {
+  factory Trader.fromRaw(RawTrader raw, String locale, {String? character}) {
     final langs = languages(locale);
 
     TraderItem toItem(RawTraderItem item) {
@@ -68,6 +72,7 @@ class Trader extends WorldstateObject with TraderMappable {
       expiry: parseDate(raw.expiry),
       initialStartDate: raw.initialStartDate != null ? parseDate(raw.initialStartDate) : null,
       node: solNodes(locale).fetchNode(raw.node).name,
+      character: langs.fetchValue(raw.character ?? character ?? ''),
       items: raw.manifest.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
     );
@@ -75,6 +80,7 @@ class Trader extends WorldstateObject with TraderMappable {
 
   final DateTime? initialStartDate;
   final String node;
+  final String character;
   final List<TraderItem> items;
   final List<TraderItem>? evergreenItems;
 

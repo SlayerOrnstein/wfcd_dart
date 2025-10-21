@@ -18,7 +18,7 @@ export 'reward.dart';
 export 'sortie.dart';
 export 'syndicate.dart';
 export 'vallis_cycle.dart';
-export 'void_trader.dart';
+export 'trader.dart';
 export 'world_event.dart';
 export 'worldstate.dart';
 export 'worldstate_object.dart';

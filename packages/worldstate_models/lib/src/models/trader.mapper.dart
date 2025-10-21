@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
-part of 'void_trader.dart';
+part of 'trader.dart';
 
 class RawTraderMapper extends ClassMapperBase<RawTrader> {
   RawTraderMapper._();
@@ -50,6 +50,12 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     _$node,
     key: r'Node',
   );
+  static String? _$character(RawTrader v) => v.character;
+  static const Field<RawTrader, String> _f$character = Field(
+    'character',
+    _$character,
+    key: r'Character',
+  );
   static List<RawTraderItem> _$manifest(RawTrader v) => v.manifest;
   static const Field<RawTrader, List<RawTraderItem>> _f$manifest = Field(
     'manifest',
@@ -76,6 +82,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     #expiry: _f$expiry,
     #initialStartDate: _f$initialStartDate,
     #node: _f$node,
+    #character: _f$character,
     #manifest: _f$manifest,
     #evergreenManifest: _f$evergreenManifest,
   };
@@ -89,6 +96,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
       expiry: data.dec(_f$expiry),
       initialStartDate: data.dec(_f$initialStartDate),
       node: data.dec(_f$node),
+      character: data.dec(_f$character),
       manifest: data.dec(_f$manifest),
       evergreenManifest: data.dec(_f$evergreenManifest),
     );
@@ -178,6 +186,7 @@ abstract class RawTraderCopyWith<$R, $In extends RawTrader, $Out>
     Map<String, dynamic>? expiry,
     Map<String, dynamic>? initialStartDate,
     String? node,
+    String? character,
     List<RawTraderItem>? manifest,
     List<RawTraderItem>? evergreenManifest,
   });
@@ -257,6 +266,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     Object? expiry = $none,
     Object? initialStartDate = $none,
     String? node,
+    Object? character = $none,
     List<RawTraderItem>? manifest,
     Object? evergreenManifest = $none,
   }) => $apply(
@@ -266,6 +276,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
       if (expiry != $none) #expiry: expiry,
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
+      if (character != $none) #character: character,
       if (manifest != null) #manifest: manifest,
       if (evergreenManifest != $none) #evergreenManifest: evergreenManifest,
     }),
@@ -277,6 +288,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     expiry: data.get(#expiry, or: $value.expiry),
     initialStartDate: data.get(#initialStartDate, or: $value.initialStartDate),
     node: data.get(#node, or: $value.node),
+    character: data.get(#character, or: $value.character),
     manifest: data.get(#manifest, or: $value.manifest),
     evergreenManifest: data.get(
       #evergreenManifest,
@@ -447,6 +459,11 @@ class TraderMapper extends ClassMapperBase<Trader> {
   );
   static String _$node(Trader v) => v.node;
   static const Field<Trader, String> _f$node = Field('node', _$node);
+  static String _$character(Trader v) => v.character;
+  static const Field<Trader, String> _f$character = Field(
+    'character',
+    _$character,
+  );
   static List<TraderItem> _$items(Trader v) => v.items;
   static const Field<Trader, List<TraderItem>> _f$items = Field(
     'items',
@@ -465,6 +482,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     #expiry: _f$expiry,
     #initialStartDate: _f$initialStartDate,
     #node: _f$node,
+    #character: _f$character,
     #items: _f$items,
     #evergreenItems: _f$evergreenItems,
   };
@@ -478,6 +496,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
       expiry: data.dec(_f$expiry),
       initialStartDate: data.dec(_f$initialStartDate),
       node: data.dec(_f$node),
+      character: data.dec(_f$character),
       items: data.dec(_f$items),
       evergreenItems: data.dec(_f$evergreenItems),
     );
@@ -539,6 +558,7 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
     DateTime? expiry,
     DateTime? initialStartDate,
     String? node,
+    String? character,
     List<TraderItem>? items,
     List<TraderItem>? evergreenItems,
   });
@@ -574,6 +594,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     Object? expiry = $none,
     Object? initialStartDate = $none,
     String? node,
+    String? character,
     List<TraderItem>? items,
     Object? evergreenItems = $none,
   }) => $apply(
@@ -583,6 +604,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
       if (expiry != $none) #expiry: expiry,
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
+      if (character != null) #character: character,
       if (items != null) #items: items,
       if (evergreenItems != $none) #evergreenItems: evergreenItems,
     }),
@@ -594,6 +616,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     expiry: data.get(#expiry, or: $value.expiry),
     initialStartDate: data.get(#initialStartDate, or: $value.initialStartDate),
     node: data.get(#node, or: $value.node),
+    character: data.get(#character, or: $value.character),
     items: data.get(#items, or: $value.items),
     evergreenItems: data.get(#evergreenItems, or: $value.evergreenItems),
   );
