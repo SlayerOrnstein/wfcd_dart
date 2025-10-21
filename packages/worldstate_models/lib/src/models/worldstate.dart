@@ -1,7 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:worldstate_models/src/models/cambion_cycle.dart';
 import 'package:worldstate_models/src/models/models.dart';
-import 'package:worldstate_models/src/models/vallis_cycle.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'worldstate.mapper.dart';
