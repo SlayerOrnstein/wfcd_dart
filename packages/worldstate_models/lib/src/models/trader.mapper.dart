@@ -464,10 +464,10 @@ class TraderMapper extends ClassMapperBase<Trader> {
     'character',
     _$character,
   );
-  static List<TraderItem> _$items(Trader v) => v.items;
-  static const Field<Trader, List<TraderItem>> _f$items = Field(
-    'items',
-    _$items,
+  static List<TraderItem> _$inventory(Trader v) => v.inventory;
+  static const Field<Trader, List<TraderItem>> _f$inventory = Field(
+    'inventory',
+    _$inventory,
   );
   static List<TraderItem>? _$evergreenItems(Trader v) => v.evergreenItems;
   static const Field<Trader, List<TraderItem>> _f$evergreenItems = Field(
@@ -483,7 +483,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     #initialStartDate: _f$initialStartDate,
     #node: _f$node,
     #character: _f$character,
-    #items: _f$items,
+    #inventory: _f$inventory,
     #evergreenItems: _f$evergreenItems,
   };
   @override
@@ -497,7 +497,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
       initialStartDate: data.dec(_f$initialStartDate),
       node: data.dec(_f$node),
       character: data.dec(_f$character),
-      items: data.dec(_f$items),
+      inventory: data.dec(_f$inventory),
       evergreenItems: data.dec(_f$evergreenItems),
     );
   }
@@ -549,7 +549,7 @@ extension TraderValueCopy<$R, $Out> on ObjectCopyWith<$R, Trader, $Out> {
 abstract class TraderCopyWith<$R, $In extends Trader, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>
-  get items;
+  get inventory;
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems;
   $R call({
@@ -559,7 +559,7 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
     DateTime? initialStartDate,
     String? node,
     String? character,
-    List<TraderItem>? items,
+    List<TraderItem>? inventory,
     List<TraderItem>? evergreenItems,
   });
   TraderCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -573,10 +573,10 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
   late final ClassMapperBase<Trader> $mapper = TraderMapper.ensureInitialized();
   @override
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>
-  get items => ListCopyWith(
-    $value.items,
+  get inventory => ListCopyWith(
+    $value.inventory,
     (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(items: v),
+    (v) => call(inventory: v),
   );
   @override
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
@@ -595,7 +595,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     Object? initialStartDate = $none,
     String? node,
     String? character,
-    List<TraderItem>? items,
+    List<TraderItem>? inventory,
     Object? evergreenItems = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -605,7 +605,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
       if (character != null) #character: character,
-      if (items != null) #items: items,
+      if (inventory != null) #inventory: inventory,
       if (evergreenItems != $none) #evergreenItems: evergreenItems,
     }),
   );
@@ -617,7 +617,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     initialStartDate: data.get(#initialStartDate, or: $value.initialStartDate),
     node: data.get(#node, or: $value.node),
     character: data.get(#character, or: $value.character),
-    items: data.get(#items, or: $value.items),
+    inventory: data.get(#inventory, or: $value.inventory),
     evergreenItems: data.get(#evergreenItems, or: $value.evergreenItems),
   );
 

@@ -51,7 +51,7 @@ class Trader extends WorldstateObject with TraderMappable {
     required this.initialStartDate,
     required this.node,
     required this.character,
-    required this.items,
+    required this.inventory,
     required this.evergreenItems,
   });
 
@@ -73,7 +73,7 @@ class Trader extends WorldstateObject with TraderMappable {
       initialStartDate: raw.initialStartDate != null ? parseDate(raw.initialStartDate) : null,
       node: solNodes(locale).fetchNode(raw.node).name,
       character: langs.fetchValue(raw.character ?? character ?? ''),
-      items: raw.manifest.map(toItem).toList(),
+      inventory: raw.manifest.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
     );
   }
@@ -81,7 +81,7 @@ class Trader extends WorldstateObject with TraderMappable {
   final DateTime? initialStartDate;
   final String node;
   final String character;
-  final List<TraderItem> items;
+  final List<TraderItem> inventory;
   final List<TraderItem>? evergreenItems;
 
   @override
