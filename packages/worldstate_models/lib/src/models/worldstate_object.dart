@@ -30,4 +30,14 @@ abstract class WorldstateObject {
     if (expiry == null) return null;
     return createEta(expiry);
   }
+
+  bool? get isActive {
+    if (activation == null && expiry == null) return null;
+
+    final now = DateTime.timestamp();
+    if (activation != null && expiry == null) return now.isAfter(activation!);
+    if (activation == null && expiry != null) return now.isBefore(expiry!);
+
+    return now.isAfter(activation!) && now.isBefore(expiry!);
+  }
 }
