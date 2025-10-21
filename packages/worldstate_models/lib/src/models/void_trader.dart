@@ -21,6 +21,10 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
     this.evergreenManifest = const [],
   });
 
+  static const fromJson = RawTraderMapper.fromJson;
+
+  static const fromMap = RawTraderMapper.fromMap;
+
   final JsonObject? initialStartDate;
 
   final String node;
@@ -28,6 +32,8 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
   final List<RawTraderItem> manifest;
 
   final List<RawTraderItem>? evergreenManifest;
+
+  Trader toTrader([String locale = 'en']) => Trader.fromRaw(this, locale);
 }
 
 @MappableRecord()

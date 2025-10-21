@@ -26,6 +26,8 @@ class RawDailyDeal extends BaseContentObject with RawDailyDealMappable {
   final int salePrice;
   final int amountTotal;
   final int amountSold;
+
+  DailyDeal toDeal([String locale = 'en']) => DailyDeal.fromRaw(this, locale);
 }
 
 @MappableClass()

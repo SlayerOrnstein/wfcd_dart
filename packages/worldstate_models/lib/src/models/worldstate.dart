@@ -55,6 +55,8 @@ class RawWorldstate with RawWorldstateMappable {
   final RawSeasonInfo seasonInfo;
   final List<RawCalendar> knownCalendarSeasons;
   final List<RawConquest> conquests;
+
+  Future<Worldstate> toWorldstate([String locale = 'en']) => Worldstate.fromRaw(this, locale);
 }
 
 @MappableClass()

@@ -12,6 +12,8 @@ class RawInGameMarket with RawInGameMarketMappable {
 
   final RawLandingPage landingPage;
 
+  static const fromMap = RawInGameMarketMapper.fromMap;
+
   InGameMarket toInGameMarket([String locale = 'en']) => InGameMarket.fromRaw(this, locale);
 }
 
