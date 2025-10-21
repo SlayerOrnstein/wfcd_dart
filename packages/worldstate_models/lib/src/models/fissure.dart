@@ -36,11 +36,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required super.activation,
     required super.expiry,
     required this.node,
-    required this.nodeKey,
     required this.missionType,
-    required this.missionKey,
     required this.faction,
-    required this.factionKey,
     required this.tier,
     required this.tierNum,
     required this.isStorm,
@@ -49,7 +46,6 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   factory VoidFissure.fromRaw(RawActiveMission raw, String locale) {
     final node = solNodes(locale).fetchNode(raw.node);
-    final nodeKey = solNodes().fetchNode(raw.node);
     final tier = fissure(raw.modifier ?? raw.activeMissionTier!, locale);
 
     return VoidFissure(
@@ -57,11 +53,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       node: node.name,
-      nodeKey: nodeKey.name,
       missionType: node.type ?? raw.missionType ?? raw.node,
-      missionKey: nodeKey.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
-      factionKey: nodeKey.enemy ?? raw.node,
       tier: tier.name,
       tierNum: tier.tier,
       isStorm: raw.node.contains('CrewBattle'),
@@ -70,11 +63,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   }
 
   final String node;
-  final String nodeKey;
   final String missionType;
-  final String missionKey;
   final String faction;
-  final String factionKey;
   final String tier;
   final int tierNum;
   final bool isStorm;

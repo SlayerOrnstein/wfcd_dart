@@ -280,30 +280,15 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
   );
   static String _$node(VoidFissure v) => v.node;
   static const Field<VoidFissure, String> _f$node = Field('node', _$node);
-  static String _$nodeKey(VoidFissure v) => v.nodeKey;
-  static const Field<VoidFissure, String> _f$nodeKey = Field(
-    'nodeKey',
-    _$nodeKey,
-  );
   static String _$missionType(VoidFissure v) => v.missionType;
   static const Field<VoidFissure, String> _f$missionType = Field(
     'missionType',
     _$missionType,
   );
-  static String _$missionKey(VoidFissure v) => v.missionKey;
-  static const Field<VoidFissure, String> _f$missionKey = Field(
-    'missionKey',
-    _$missionKey,
-  );
   static String _$faction(VoidFissure v) => v.faction;
   static const Field<VoidFissure, String> _f$faction = Field(
     'faction',
     _$faction,
-  );
-  static String _$factionKey(VoidFissure v) => v.factionKey;
-  static const Field<VoidFissure, String> _f$factionKey = Field(
-    'factionKey',
-    _$factionKey,
   );
   static String _$tier(VoidFissure v) => v.tier;
   static const Field<VoidFissure, String> _f$tier = Field('tier', _$tier);
@@ -326,11 +311,8 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     #activation: _f$activation,
     #expiry: _f$expiry,
     #node: _f$node,
-    #nodeKey: _f$nodeKey,
     #missionType: _f$missionType,
-    #missionKey: _f$missionKey,
     #faction: _f$faction,
-    #factionKey: _f$factionKey,
     #tier: _f$tier,
     #tierNum: _f$tierNum,
     #isStorm: _f$isStorm,
@@ -345,11 +327,8 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
       activation: data.dec(_f$activation),
       expiry: data.dec(_f$expiry),
       node: data.dec(_f$node),
-      nodeKey: data.dec(_f$nodeKey),
       missionType: data.dec(_f$missionType),
-      missionKey: data.dec(_f$missionKey),
       faction: data.dec(_f$faction),
-      factionKey: data.dec(_f$factionKey),
       tier: data.dec(_f$tier),
       tierNum: data.dec(_f$tierNum),
       isStorm: data.dec(_f$isStorm),
@@ -422,11 +401,8 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     DateTime? activation,
     DateTime? expiry,
     String? node,
-    String? nodeKey,
     String? missionType,
-    String? missionKey,
     String? faction,
-    String? factionKey,
     String? tier,
     int? tierNum,
     bool? isStorm,
@@ -449,11 +425,8 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     Object? activation = $none,
     Object? expiry = $none,
     String? node,
-    String? nodeKey,
     String? missionType,
-    String? missionKey,
     String? faction,
-    String? factionKey,
     String? tier,
     int? tierNum,
     bool? isStorm,
@@ -464,11 +437,8 @@ class _VoidFissureCopyWithImpl<$R, $Out>
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (node != null) #node: node,
-      if (nodeKey != null) #nodeKey: nodeKey,
       if (missionType != null) #missionType: missionType,
-      if (missionKey != null) #missionKey: missionKey,
       if (faction != null) #faction: faction,
-      if (factionKey != null) #factionKey: factionKey,
       if (tier != null) #tier: tier,
       if (tierNum != null) #tierNum: tierNum,
       if (isStorm != null) #isStorm: isStorm,
@@ -481,11 +451,8 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     activation: data.get(#activation, or: $value.activation),
     expiry: data.get(#expiry, or: $value.expiry),
     node: data.get(#node, or: $value.node),
-    nodeKey: data.get(#nodeKey, or: $value.nodeKey),
     missionType: data.get(#missionType, or: $value.missionType),
-    missionKey: data.get(#missionKey, or: $value.missionKey),
     faction: data.get(#faction, or: $value.faction),
-    factionKey: data.get(#factionKey, or: $value.factionKey),
     tier: data.get(#tier, or: $value.tier),
     tierNum: data.get(#tierNum, or: $value.tierNum),
     isStorm: data.get(#isStorm, or: $value.isStorm),
