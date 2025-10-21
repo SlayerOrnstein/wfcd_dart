@@ -20,11 +20,10 @@ Future<DropData> build([Client? client]) async {
   final body = parse(res.body).body;
   if (body == null) throw Exception('failed to parse body');
 
-  return DropData(
-    blueprintLocations: parseBlueprintLocations(body),
-    bountyRewards: BountyRewardIds.values
-        .map((v) => parseBountyRewards(body, v.id))
-        .nonNulls
-        .reduce((p, n) => [...p, ...n]),
-  );
+  final bountyRewards = BountyRewardIds.values
+      .map((v) => parseBountyRewards(body, v.id))
+      .nonNulls
+      .reduce((p, n) => [...p, ...n]);
+
+  return DropData(blueprintLocations: parseBlueprintLocations(body), bountyRewards: bountyRewards);
 }

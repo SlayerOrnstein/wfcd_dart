@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
@@ -35,13 +36,15 @@ String? createEta(DateTime? date) {
   return '${!is24hrs ? '${days}d ' : ''}${hours.abs()}h ${minutes.abs().toString().padLeft(2, '0')}m ${seconds.abs().toString().padLeft(2, '0')}s';
 }
 
-Future<List<S>> parseArray<T, S>(List<T> array, S Function(T) transformer) async {
+Future<List<S>> parseArray<T, S>(List<T> array, FutureOr<S> Function(T) transformer) async {
   final isLarge = array.length > 10;
-  if (!isLarge) return array.map(transformer).toList();
+  if (!isLarge) return Future.wait(array.map((s) async => transformer(s)));
 
   final length = (array.length / (Platform.numberOfProcessors - 1)).floor();
   final slices = array.slices(length);
-  final mapped = await Future.wait(slices.map((s) async => Isolate.run(() => s.map(transformer))));
+  final mapped = await Future.wait(
+    slices.map((s) async => Isolate.run(() => Future.wait(s.map((s) async => transformer(s))))),
+  );
 
   return mapped.flattenedToList;
 }

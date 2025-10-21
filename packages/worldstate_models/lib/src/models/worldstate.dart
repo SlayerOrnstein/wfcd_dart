@@ -105,7 +105,7 @@ class Worldstate with WorldstateMappable {
       archonHunt: Sortie.fromRaw(raw.liteSorties.first, locale),
       syndicateMissions: await parseArray(
         raw.syndicateMissions,
-        (mission) => SyndicateMission.fromRaw(mission, locale),
+        (mission) async => SyndicateMission.fromRaw(mission, locale),
       ),
       fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, locale)),
       globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, locale)),

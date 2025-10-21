@@ -16,7 +16,7 @@ List<BlueprintLocation> parseBlueprintLocations(Element body) {
       if (item != null) items.add(item);
 
       item = BlueprintLocation(
-        id: createHash(text),
+        id: hash(text),
         // Don't have to but "Mk Iii" and 'Mk Ii" was triggering me
         name: text.replaceAllMapped(RegExp(r'Mk I(?:i+$)?'), (m) => m[0]!.toUpperCase()),
         enemies: <BlueprintLocationEnemy>[],
@@ -29,7 +29,7 @@ List<BlueprintLocation> parseBlueprintLocations(Element body) {
 
       item?.addEnemy(
         BlueprintLocationEnemy(
-          id: createHash(text),
+          id: hash(text),
           name: text,
           dropChance: double.parse(itemDropChance.substring(0, itemDropChance.length - 1)),
           rarity: chance?.rarity,

@@ -51,7 +51,7 @@ List<BountyReward>? parseBountyRewards(Element body, String id) {
       } else {
         if (bountyReward != null) rewards.add(bountyReward);
 
-        bountyReward = BountyReward(id: createHash(text), level: text, rewards: Rotations());
+        bountyReward = BountyReward(id: hash(text), level: text, rewards: Rotations());
       }
     } else if (element.localName == 'td' && !element.classes.contains('blank-row')) {
       if (row.children.length == 2) stage = row.children[1].text;
@@ -65,7 +65,7 @@ List<BountyReward>? parseBountyRewards(Element body, String id) {
           rewards: bountyReward.rewards.addReward(
             rotation,
             RotationReward(
-              id: createHash(text),
+              id: hash(text),
               name: text,
               rarity: chance?.rarity,
               chance: chance?.chance,

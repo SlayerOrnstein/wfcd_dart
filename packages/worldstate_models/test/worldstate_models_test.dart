@@ -42,10 +42,11 @@ void main() {
         }
       });
 
-      test('RawSyndicate -> SyndicateMission', () {
+      test('RawSyndicate -> SyndicateMission', () async {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
+        final missions = await Future.wait(syndicateMissions.map((s) => RawSyndicate.fromMap(s).toSyndicate()));
 
-        expect(syndicateMissions.map((s) => RawSyndicate.fromMap(s).toSyndicate()), isA<Iterable<SyndicateMission>>());
+        expect(missions.toList(), isA<List<SyndicateMission>>());
       });
 
       test('ActiveMission & VoidStorm -> VoidFissure', () {
