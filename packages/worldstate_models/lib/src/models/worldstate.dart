@@ -66,7 +66,7 @@ class Worldstate with WorldstateMappable {
     required this.news,
     required this.events,
     required this.alerts,
-    required this.sorite,
+    required this.sortie,
     required this.archonHunt,
     required this.syndicateMissions,
     required this.fissures,
@@ -101,7 +101,7 @@ class Worldstate with WorldstateMappable {
       news: await parseArray(raw.events, (event) => News.fromRaw(event, locale)),
       events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, locale)),
       alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, locale)),
-      sorite: Sortie.fromRaw(raw.sorties.first, locale),
+      sortie: Sortie.fromRaw(raw.sorties.first, locale),
       archonHunt: Sortie.fromRaw(raw.liteSorties.first, locale),
       syndicateMissions: await parseArray(
         raw.syndicateMissions,
@@ -131,7 +131,7 @@ class Worldstate with WorldstateMappable {
   final List<News> news;
   final List<WorldEvent> events;
   final List<Alert> alerts;
-  final Sortie sorite;
+  final Sortie sortie;
   final Sortie archonHunt;
   final List<SyndicateMission> syndicateMissions;
   final List<VoidFissure> fissures;

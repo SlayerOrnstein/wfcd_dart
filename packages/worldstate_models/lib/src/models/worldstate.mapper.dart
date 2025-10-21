@@ -704,8 +704,8 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'alerts',
     _$alerts,
   );
-  static Sortie _$sorite(Worldstate v) => v.sorite;
-  static const Field<Worldstate, Sortie> _f$sorite = Field('sorite', _$sorite);
+  static Sortie _$sortie(Worldstate v) => v.sortie;
+  static const Field<Worldstate, Sortie> _f$sortie = Field('sortie', _$sortie);
   static Sortie _$archonHunt(Worldstate v) => v.archonHunt;
   static const Field<Worldstate, Sortie> _f$archonHunt = Field(
     'archonHunt',
@@ -806,7 +806,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #news: _f$news,
     #events: _f$events,
     #alerts: _f$alerts,
-    #sorite: _f$sorite,
+    #sortie: _f$sortie,
     #archonHunt: _f$archonHunt,
     #syndicateMissions: _f$syndicateMissions,
     #fissures: _f$fissures,
@@ -836,7 +836,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       news: data.dec(_f$news),
       events: data.dec(_f$events),
       alerts: data.dec(_f$alerts),
-      sorite: data.dec(_f$sorite),
+      sortie: data.dec(_f$sortie),
       archonHunt: data.dec(_f$archonHunt),
       syndicateMissions: data.dec(_f$syndicateMissions),
       fissures: data.dec(_f$fissures),
@@ -923,7 +923,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   ListCopyWith<$R, WorldEvent, WorldEventCopyWith<$R, WorldEvent, WorldEvent>>
   get events;
   ListCopyWith<$R, Alert, AlertCopyWith<$R, Alert, Alert>> get alerts;
-  SortieCopyWith<$R, Sortie, Sortie> get sorite;
+  SortieCopyWith<$R, Sortie, Sortie> get sortie;
   SortieCopyWith<$R, Sortie, Sortie> get archonHunt;
   ListCopyWith<
     $R,
@@ -967,7 +967,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     List<News>? news,
     List<WorldEvent>? events,
     List<Alert>? alerts,
-    Sortie? sorite,
+    Sortie? sortie,
     Sortie? archonHunt,
     List<SyndicateMission>? syndicateMissions,
     List<VoidFissure>? fissures,
@@ -1020,8 +1020,8 @@ class _WorldstateCopyWithImpl<$R, $Out>
         (v) => call(alerts: v),
       );
   @override
-  SortieCopyWith<$R, Sortie, Sortie> get sorite =>
-      $value.sorite.copyWith.$chain((v) => call(sorite: v));
+  SortieCopyWith<$R, Sortie, Sortie> get sortie =>
+      $value.sortie.copyWith.$chain((v) => call(sortie: v));
   @override
   SortieCopyWith<$R, Sortie, Sortie> get archonHunt =>
       $value.archonHunt.copyWith.$chain((v) => call(archonHunt: v));
@@ -1128,7 +1128,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     List<News>? news,
     List<WorldEvent>? events,
     List<Alert>? alerts,
-    Sortie? sorite,
+    Sortie? sortie,
     Sortie? archonHunt,
     List<SyndicateMission>? syndicateMissions,
     List<VoidFissure>? fissures,
@@ -1154,7 +1154,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (news != null) #news: news,
       if (events != null) #events: events,
       if (alerts != null) #alerts: alerts,
-      if (sorite != null) #sorite: sorite,
+      if (sortie != null) #sortie: sortie,
       if (archonHunt != null) #archonHunt: archonHunt,
       if (syndicateMissions != null) #syndicateMissions: syndicateMissions,
       if (fissures != null) #fissures: fissures,
@@ -1183,7 +1183,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     news: data.get(#news, or: $value.news),
     events: data.get(#events, or: $value.events),
     alerts: data.get(#alerts, or: $value.alerts),
-    sorite: data.get(#sorite, or: $value.sorite),
+    sortie: data.get(#sortie, or: $value.sortie),
     archonHunt: data.get(#archonHunt, or: $value.archonHunt),
     syndicateMissions: data.get(
       #syndicateMissions,
