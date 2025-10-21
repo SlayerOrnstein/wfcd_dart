@@ -75,18 +75,18 @@ class Sortie extends WorldstateObject with SortieMappable {
 
 @MappableClass()
 class Variant with VariantMappable {
-  Variant({required this.mission, required this.modifier, required this.node, required this.tileset});
+  Variant({required this.type, required this.modifier, required this.node, required this.tileset});
 
   factory Variant.fromRaw(RawVariant raw, [String locale = 'en']) {
     return Variant(
-      mission: missionType(raw.missionType, locale),
+      type: missionType(raw.missionType, locale),
       modifier: raw.modifierType != null ? sortieModifier(raw.modifierType!, locale) : null,
       node: solNodes(locale).fetchNode(raw.node).name,
       tileset: raw.tileset != null ? normalizeResourceName(raw.tileset!) : null,
     );
   }
 
-  final String mission;
+  final String type;
   final SortieModifier? modifier;
   final String node;
   final String? tileset;

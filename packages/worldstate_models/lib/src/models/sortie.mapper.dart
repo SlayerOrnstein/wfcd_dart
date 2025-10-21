@@ -578,8 +578,8 @@ class VariantMapper extends ClassMapperBase<Variant> {
   @override
   final String id = 'Variant';
 
-  static String _$mission(Variant v) => v.mission;
-  static const Field<Variant, String> _f$mission = Field('mission', _$mission);
+  static String _$type(Variant v) => v.type;
+  static const Field<Variant, String> _f$type = Field('type', _$type);
   static SortieModifier? _$modifier(Variant v) => v.modifier;
   static const Field<Variant, SortieModifier> _f$modifier = Field(
     'modifier',
@@ -592,7 +592,7 @@ class VariantMapper extends ClassMapperBase<Variant> {
 
   @override
   final MappableFields<Variant> fields = const {
-    #mission: _f$mission,
+    #type: _f$type,
     #modifier: _f$modifier,
     #node: _f$node,
     #tileset: _f$tileset,
@@ -602,7 +602,7 @@ class VariantMapper extends ClassMapperBase<Variant> {
 
   static Variant _instantiate(DecodingData data) {
     return Variant(
-      mission: data.dec(_f$mission),
+      type: data.dec(_f$type),
       modifier: data.dec(_f$modifier),
       node: data.dec(_f$node),
       tileset: data.dec(_f$tileset),
@@ -667,7 +667,7 @@ extension VariantValueCopy<$R, $Out> on ObjectCopyWith<$R, Variant, $Out> {
 abstract class VariantCopyWith<$R, $In extends Variant, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call({
-    String? mission,
+    String? type,
     SortieModifier? modifier,
     String? node,
     String? tileset,
@@ -685,13 +685,13 @@ class _VariantCopyWithImpl<$R, $Out>
       VariantMapper.ensureInitialized();
   @override
   $R call({
-    String? mission,
+    String? type,
     Object? modifier = $none,
     String? node,
     Object? tileset = $none,
   }) => $apply(
     FieldCopyWithData({
-      if (mission != null) #mission: mission,
+      if (type != null) #type: type,
       if (modifier != $none) #modifier: modifier,
       if (node != null) #node: node,
       if (tileset != $none) #tileset: tileset,
@@ -699,7 +699,7 @@ class _VariantCopyWithImpl<$R, $Out>
   );
   @override
   Variant $make(CopyWithData data) => Variant(
-    mission: data.get(#mission, or: $value.mission),
+    type: data.get(#type, or: $value.type),
     modifier: data.get(#modifier, or: $value.modifier),
     node: data.get(#node, or: $value.node),
     tileset: data.get(#tileset, or: $value.tileset),
