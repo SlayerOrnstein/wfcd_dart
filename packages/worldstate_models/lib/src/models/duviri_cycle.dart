@@ -48,6 +48,9 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 @MappableClass()

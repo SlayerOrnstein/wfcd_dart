@@ -55,6 +55,15 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
 
   final String type;
   final List<ArchimedeaMission> missions;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 typedef ArchimedeaRisk = ({String title, String description, bool isElite});

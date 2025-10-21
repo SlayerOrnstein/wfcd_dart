@@ -647,12 +647,12 @@ class NightwaveChallengeMapper extends ClassMapperBase<NightwaveChallenge> {
 
   static String _$id(NightwaveChallenge v) => v.id;
   static const Field<NightwaveChallenge, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(NightwaveChallenge v) => v.activation;
+  static DateTime _$activation(NightwaveChallenge v) => v.activation;
   static const Field<NightwaveChallenge, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(NightwaveChallenge v) => v.expiry;
+  static DateTime _$expiry(NightwaveChallenge v) => v.expiry;
   static const Field<NightwaveChallenge, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

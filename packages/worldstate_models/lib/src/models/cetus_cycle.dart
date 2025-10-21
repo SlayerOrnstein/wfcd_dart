@@ -31,4 +31,13 @@ class CetusCycle extends WorldstateObject with CetusCycleMappable {
 
   final bool isDay;
   final CetusState state;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

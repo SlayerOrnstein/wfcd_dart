@@ -528,12 +528,12 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
 
   static String _$id(Archimedea v) => v.id;
   static const Field<Archimedea, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(Archimedea v) => v.activation;
+  static DateTime _$activation(Archimedea v) => v.activation;
   static const Field<Archimedea, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(Archimedea v) => v.expiry;
+  static DateTime _$expiry(Archimedea v) => v.expiry;
   static const Field<Archimedea, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

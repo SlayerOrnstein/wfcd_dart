@@ -70,12 +70,12 @@ class CetusCycleMapper extends ClassMapperBase<CetusCycle> {
 
   static String _$id(CetusCycle v) => v.id;
   static const Field<CetusCycle, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(CetusCycle v) => v.activation;
+  static DateTime _$activation(CetusCycle v) => v.activation;
   static const Field<CetusCycle, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(CetusCycle v) => v.expiry;
+  static DateTime _$expiry(CetusCycle v) => v.expiry;
   static const Field<CetusCycle, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

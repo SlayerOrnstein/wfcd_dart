@@ -69,4 +69,13 @@ class VallisCycle extends WorldstateObject {
       timeAtPrevious: timeAtPrevious,
     );
   }
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

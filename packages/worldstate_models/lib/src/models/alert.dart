@@ -61,4 +61,7 @@ class Alert extends WorldstateObject with AlertMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

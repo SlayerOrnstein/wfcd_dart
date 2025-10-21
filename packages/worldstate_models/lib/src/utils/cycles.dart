@@ -1,6 +1,6 @@
 // Keeping cycle calculations here because DE from time to time reuse cyc
-import 'package:worldstate_models/src/models/models.dart';
 import 'package:time/time.dart';
+import 'package:worldstate_models/src/models/models.dart';
 
 typedef CurrentDuviriPhase = ({DuviriState state, DateTime activation, DateTime expiry});
 

@@ -23,12 +23,12 @@ class ZarimanCycleMapper extends ClassMapperBase<ZarimanCycle> {
 
   static String _$id(ZarimanCycle v) => v.id;
   static const Field<ZarimanCycle, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(ZarimanCycle v) => v.activation;
+  static DateTime _$activation(ZarimanCycle v) => v.activation;
   static const Field<ZarimanCycle, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(ZarimanCycle v) => v.expiry;
+  static DateTime _$expiry(ZarimanCycle v) => v.expiry;
   static const Field<ZarimanCycle, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

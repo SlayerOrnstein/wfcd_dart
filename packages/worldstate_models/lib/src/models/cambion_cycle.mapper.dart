@@ -23,12 +23,12 @@ class CambionCycleMapper extends ClassMapperBase<CambionCycle> {
 
   static String _$id(CambionCycle v) => v.id;
   static const Field<CambionCycle, String> _f$id = Field('id', _$id);
-  static DateTime? _$activation(CambionCycle v) => v.activation;
+  static DateTime _$activation(CambionCycle v) => v.activation;
   static const Field<CambionCycle, DateTime> _f$activation = Field(
     'activation',
     _$activation,
   );
-  static DateTime? _$expiry(CambionCycle v) => v.expiry;
+  static DateTime _$expiry(CambionCycle v) => v.expiry;
   static const Field<CambionCycle, DateTime> _f$expiry = Field(
     'expiry',
     _$expiry,

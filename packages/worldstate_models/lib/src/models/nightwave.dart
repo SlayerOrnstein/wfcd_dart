@@ -64,6 +64,9 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 @MappableClass()
@@ -102,4 +105,13 @@ class NightwaveChallenge extends WorldstateObject with NightwaveChallengeMappabl
     if (isElite) return 7_000;
     return isDaily ? 1_000 : 4_500;
   }
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

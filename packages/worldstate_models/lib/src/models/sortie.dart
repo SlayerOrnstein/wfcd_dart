@@ -71,6 +71,9 @@ class Sortie extends WorldstateObject with SortieMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 @MappableClass()

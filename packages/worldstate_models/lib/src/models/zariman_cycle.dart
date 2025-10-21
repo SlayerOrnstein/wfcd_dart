@@ -30,4 +30,13 @@ class ZarimanCycle extends WorldstateObject with ZarimanCycleMappable {
 
   final bool isCorpus;
   final ZarimanState state;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

@@ -72,4 +72,7 @@ class DailyDeal extends WorldstateObject with DailyDealMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

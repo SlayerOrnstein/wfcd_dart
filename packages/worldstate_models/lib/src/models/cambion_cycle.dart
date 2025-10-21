@@ -31,4 +31,13 @@ class CambionCycle extends WorldstateObject with CambionCycleMappable {
 
   final bool isFass;
   final CambionState state;
+
+  @override
+  DateTime get activation => super.activation!;
+
+  @override
+  DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

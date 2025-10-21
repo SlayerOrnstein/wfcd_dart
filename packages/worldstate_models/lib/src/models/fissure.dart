@@ -75,4 +75,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

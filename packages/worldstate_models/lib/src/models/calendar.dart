@@ -71,6 +71,9 @@ class Calendar extends WorldstateObject with CalendarMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 @MappableClass()

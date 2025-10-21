@@ -86,6 +86,9 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
 
 @MappableClass()

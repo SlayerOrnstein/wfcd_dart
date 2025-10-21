@@ -81,4 +81,7 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

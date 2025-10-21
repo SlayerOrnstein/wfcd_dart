@@ -83,4 +83,7 @@ class Trader extends WorldstateObject with TraderMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }

@@ -145,4 +145,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   @override
   DateTime get expiry => super.expiry!;
+
+  @override
+  bool get isActive => super.isActive!;
 }
