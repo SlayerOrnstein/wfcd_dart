@@ -678,6 +678,8 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       CalendarMapper.ensureInitialized();
       ArchimedeaMapper.ensureInitialized();
       CetusCycleMapper.ensureInitialized();
+      CambionCycleMapper.ensureInitialized();
+      ZarimanCycleMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -782,6 +784,21 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'cetusCycle',
     _$cetusCycle,
   );
+  static VallisCycle _$vallisCycle(Worldstate v) => v.vallisCycle;
+  static const Field<Worldstate, VallisCycle> _f$vallisCycle = Field(
+    'vallisCycle',
+    _$vallisCycle,
+  );
+  static CambionCycle _$cambionCycle(Worldstate v) => v.cambionCycle;
+  static const Field<Worldstate, CambionCycle> _f$cambionCycle = Field(
+    'cambionCycle',
+    _$cambionCycle,
+  );
+  static ZarimanCycle _$zarimanCycle(Worldstate v) => v.zarimanCycle;
+  static const Field<Worldstate, ZarimanCycle> _f$zarimanCycle = Field(
+    'zarimanCycle',
+    _$zarimanCycle,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -806,6 +823,9 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #calendar: _f$calendar,
     #archimedeas: _f$archimedeas,
     #cetusCycle: _f$cetusCycle,
+    #vallisCycle: _f$vallisCycle,
+    #cambionCycle: _f$cambionCycle,
+    #zarimanCycle: _f$zarimanCycle,
   };
   @override
   final bool ignoreNull = true;
@@ -833,6 +853,9 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       calendar: data.dec(_f$calendar),
       archimedeas: data.dec(_f$archimedeas),
       cetusCycle: data.dec(_f$cetusCycle),
+      vallisCycle: data.dec(_f$vallisCycle),
+      cambionCycle: data.dec(_f$cambionCycle),
+      zarimanCycle: data.dec(_f$zarimanCycle),
     );
   }
 
@@ -937,6 +960,8 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   ListCopyWith<$R, Archimedea, ArchimedeaCopyWith<$R, Archimedea, Archimedea>>
   get archimedeas;
   CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle;
+  CambionCycleCopyWith<$R, CambionCycle, CambionCycle> get cambionCycle;
+  ZarimanCycleCopyWith<$R, ZarimanCycle, ZarimanCycle> get zarimanCycle;
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -959,6 +984,9 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     Calendar? calendar,
     List<Archimedea>? archimedeas,
     CetusCycle? cetusCycle,
+    VallisCycle? vallisCycle,
+    CambionCycle? cambionCycle,
+    ZarimanCycle? zarimanCycle,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1089,6 +1117,12 @@ class _WorldstateCopyWithImpl<$R, $Out>
   CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle =>
       $value.cetusCycle.copyWith.$chain((v) => call(cetusCycle: v));
   @override
+  CambionCycleCopyWith<$R, CambionCycle, CambionCycle> get cambionCycle =>
+      $value.cambionCycle.copyWith.$chain((v) => call(cambionCycle: v));
+  @override
+  ZarimanCycleCopyWith<$R, ZarimanCycle, ZarimanCycle> get zarimanCycle =>
+      $value.zarimanCycle.copyWith.$chain((v) => call(zarimanCycle: v));
+  @override
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -1111,6 +1145,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
     Calendar? calendar,
     List<Archimedea>? archimedeas,
     CetusCycle? cetusCycle,
+    VallisCycle? vallisCycle,
+    CambionCycle? cambionCycle,
+    ZarimanCycle? zarimanCycle,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1135,6 +1172,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (calendar != null) #calendar: calendar,
       if (archimedeas != null) #archimedeas: archimedeas,
       if (cetusCycle != null) #cetusCycle: cetusCycle,
+      if (vallisCycle != null) #vallisCycle: vallisCycle,
+      if (cambionCycle != null) #cambionCycle: cambionCycle,
+      if (zarimanCycle != null) #zarimanCycle: zarimanCycle,
     }),
   );
   @override
@@ -1166,6 +1206,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
     calendar: data.get(#calendar, or: $value.calendar),
     archimedeas: data.get(#archimedeas, or: $value.archimedeas),
     cetusCycle: data.get(#cetusCycle, or: $value.cetusCycle),
+    vallisCycle: data.get(#vallisCycle, or: $value.vallisCycle),
+    cambionCycle: data.get(#cambionCycle, or: $value.cambionCycle),
+    zarimanCycle: data.get(#zarimanCycle, or: $value.zarimanCycle),
   );
 
   @override

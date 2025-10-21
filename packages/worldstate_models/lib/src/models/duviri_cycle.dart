@@ -1,7 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
-import 'package:worldstate_models/src/utils/worldstate_utils.dart';
+import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'duviri_cycle.mapper.dart';
 
@@ -27,13 +27,13 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
   });
 
   factory DuviriCycle.fromRaw(List<RawCircuitChoice> raw) {
-    final (state, activation, expiry) = _getStageInfo();
+    final phase = calculateCurrentDuviriPhase();
 
     return DuviriCycle(
-      id: hash(activation.toIso8601String() + expiry.toIso8601String()),
-      activation: activation,
-      expiry: expiry,
-      state: state,
+      id: hash(phase.activation.toIso8601String() + phase.expiry.toIso8601String()),
+      activation: phase.activation,
+      expiry: phase.expiry,
+      state: phase.state,
       choices: raw
           .map((c) => CircuitChoice(key: c.category, choices: c.choices.map(normalizeResourceName).toList()))
           .toList(),
@@ -48,21 +48,6 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
 
   @override
   DateTime get expiry => super.expiry!;
-
-  static (DuviriState state, DateTime activation, DateTime expiry) _getStageInfo() {
-    const cycleTime = 36000;
-    const stateTime = 7200;
-
-    final timestamp = DateTime.timestamp();
-    final cycleDelta = ((timestamp.millisecondsSinceEpoch / 1000).floor() - 52) % cycleTime;
-    final stateInd = (cycleDelta / stateTime).floor();
-    final stateDelta = cycleDelta % stateTime;
-    final untilNext = stateTime - stateDelta;
-    final expiry = timestamp.add(Duration(milliseconds: untilNext * 1000));
-    final activation = DateTime.fromMillisecondsSinceEpoch(expiry.millisecondsSinceEpoch - stateTime * 1000);
-
-    return (DuviriState.values.elementAt(stateInd), activation, expiry);
-  }
 }
 
 @MappableClass()

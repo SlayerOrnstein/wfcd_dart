@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:worldstate_models/src/models/cambion_cycle.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/models/vallis_cycle.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
@@ -85,6 +86,8 @@ class Worldstate with WorldstateMappable {
     required this.archimedeas,
     required this.cetusCycle,
     required this.vallisCycle,
+    required this.cambionCycle,
+    required this.zarimanCycle,
   });
 
   static const fromJson = WorldstateMapper.fromJson;
@@ -92,7 +95,8 @@ class Worldstate with WorldstateMappable {
   static const fromMap = WorldEventMapper.fromMap;
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
-    final cetusBounty = raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate');
+    // Bounties all have the same 2 hour cycle so safe to just reuse one.
+    final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000),
@@ -118,8 +122,10 @@ class Worldstate with WorldstateMappable {
       nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
       calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
       archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, locale)).toList(),
-      cetusCycle: CetusCycle.fromBountiesEndDate(parseDate(cetusBounty.expiry)),
+      cetusCycle: CetusCycle.fromBountiesEndDate(cetusBountyEnd),
       vallisCycle: VallisCycle.init(),
+      cambionCycle: CambionCycle.fromBountiesEndDate(cetusBountyEnd),
+      zarimanCycle: ZarimanCycle.fromBountiesEndDate(cetusBountyEnd),
     );
   }
 
@@ -145,7 +151,6 @@ class Worldstate with WorldstateMappable {
   final List<Archimedea> archimedeas;
   final CetusCycle cetusCycle;
   final VallisCycle vallisCycle;
-
-  /// Cambion is Cetus share the same cycle this is just a short hand for people that don't know
-  CetusCycle get cambionCycle => cetusCycle;
+  final CambionCycle cambionCycle;
+  final ZarimanCycle zarimanCycle;
 }
