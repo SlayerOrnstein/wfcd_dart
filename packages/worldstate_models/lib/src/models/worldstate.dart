@@ -1,5 +1,4 @@
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:worldstate_models/src/models/construction_progress.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
@@ -28,6 +27,7 @@ class RawWorldstate with RawWorldstateMappable {
     required this.endlessXpChoices,
     required this.seasonInfo,
     required this.knownCalendarSeasons,
+    required this.conquests,
   });
 
   static const fromJson = RawWorldstateMapper.fromJson;
@@ -54,6 +54,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawCircuitChoice> endlessXpChoices;
   final RawSeasonInfo seasonInfo;
   final List<RawCalendar> knownCalendarSeasons;
+  final List<RawConquest> conquests;
 }
 
 @MappableClass()
@@ -78,7 +79,12 @@ class Worldstate with WorldstateMappable {
     required this.duviriCycle,
     required this.nightwave,
     required this.calendar,
+    required this.archimedeas,
   });
+
+  static const fromJson = WorldstateMapper.fromJson;
+
+  static const fromMap = WorldEventMapper.fromMap;
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
     return Worldstate(
@@ -104,6 +110,7 @@ class Worldstate with WorldstateMappable {
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
       nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
       calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
+      archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, locale)).toList(),
     );
   }
 
@@ -126,4 +133,5 @@ class Worldstate with WorldstateMappable {
   final DuviriCycle duviriCycle;
   final Nightwave? nightwave;
   final Calendar calendar;
+  final List<Archimedea> archimedeas;
 }

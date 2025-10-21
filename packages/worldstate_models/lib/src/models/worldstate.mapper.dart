@@ -29,6 +29,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       RawCircuitChoiceMapper.ensureInitialized();
       RawSeasonInfoMapper.ensureInitialized();
       RawCalendarMapper.ensureInitialized();
+      RawConquestMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -157,6 +158,12 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
         _$knownCalendarSeasons,
         key: r'KnownCalendarSeasons',
       );
+  static List<RawConquest> _$conquests(RawWorldstate v) => v.conquests;
+  static const Field<RawWorldstate, List<RawConquest>> _f$conquests = Field(
+    'conquests',
+    _$conquests,
+    key: r'Conquests',
+  );
 
   @override
   final MappableFields<RawWorldstate> fields = const {
@@ -180,6 +187,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     #endlessXpChoices: _f$endlessXpChoices,
     #seasonInfo: _f$seasonInfo,
     #knownCalendarSeasons: _f$knownCalendarSeasons,
+    #conquests: _f$conquests,
   };
   @override
   final bool ignoreNull = true;
@@ -206,6 +214,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       endlessXpChoices: data.dec(_f$endlessXpChoices),
       seasonInfo: data.dec(_f$seasonInfo),
       knownCalendarSeasons: data.dec(_f$knownCalendarSeasons),
+      conquests: data.dec(_f$conquests),
     );
   }
 
@@ -342,6 +351,12 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     RawCalendarCopyWith<$R, RawCalendar, RawCalendar>
   >
   get knownCalendarSeasons;
+  ListCopyWith<
+    $R,
+    RawConquest,
+    RawConquestCopyWith<$R, RawConquest, RawConquest>
+  >
+  get conquests;
   $R call({
     int? time,
     List<RawEvent>? events,
@@ -363,6 +378,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     List<RawCircuitChoice>? endlessXpChoices,
     RawSeasonInfo? seasonInfo,
     List<RawCalendar>? knownCalendarSeasons,
+    List<RawConquest>? conquests,
   });
   RawWorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -538,6 +554,17 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     (v) => call(knownCalendarSeasons: v),
   );
   @override
+  ListCopyWith<
+    $R,
+    RawConquest,
+    RawConquestCopyWith<$R, RawConquest, RawConquest>
+  >
+  get conquests => ListCopyWith(
+    $value.conquests,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(conquests: v),
+  );
+  @override
   $R call({
     int? time,
     List<RawEvent>? events,
@@ -559,6 +586,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     List<RawCircuitChoice>? endlessXpChoices,
     RawSeasonInfo? seasonInfo,
     List<RawCalendar>? knownCalendarSeasons,
+    List<RawConquest>? conquests,
   }) => $apply(
     FieldCopyWithData({
       if (time != null) #time: time,
@@ -582,6 +610,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       if (seasonInfo != null) #seasonInfo: seasonInfo,
       if (knownCalendarSeasons != null)
         #knownCalendarSeasons: knownCalendarSeasons,
+      if (conquests != null) #conquests: conquests,
     }),
   );
   @override
@@ -615,6 +644,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       #knownCalendarSeasons,
       or: $value.knownCalendarSeasons,
     ),
+    conquests: data.get(#conquests, or: $value.conquests),
   );
 
   @override
@@ -646,6 +676,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       DuviriCycleMapper.ensureInitialized();
       NightwaveMapper.ensureInitialized();
       CalendarMapper.ensureInitialized();
+      ArchimedeaMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -740,6 +771,11 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'calendar',
     _$calendar,
   );
+  static List<Archimedea> _$archimedeas(Worldstate v) => v.archimedeas;
+  static const Field<Worldstate, List<Archimedea>> _f$archimedeas = Field(
+    'archimedeas',
+    _$archimedeas,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -762,6 +798,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #duviriCycle: _f$duviriCycle,
     #nightwave: _f$nightwave,
     #calendar: _f$calendar,
+    #archimedeas: _f$archimedeas,
   };
   @override
   final bool ignoreNull = true;
@@ -787,6 +824,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       duviriCycle: data.dec(_f$duviriCycle),
       nightwave: data.dec(_f$nightwave),
       calendar: data.dec(_f$calendar),
+      archimedeas: data.dec(_f$archimedeas),
     );
   }
 
@@ -888,6 +926,8 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   DuviriCycleCopyWith<$R, DuviriCycle, DuviriCycle> get duviriCycle;
   NightwaveCopyWith<$R, Nightwave, Nightwave>? get nightwave;
   CalendarCopyWith<$R, Calendar, Calendar> get calendar;
+  ListCopyWith<$R, Archimedea, ArchimedeaCopyWith<$R, Archimedea, Archimedea>>
+  get archimedeas;
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -908,6 +948,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     DuviriCycle? duviriCycle,
     Nightwave? nightwave,
     Calendar? calendar,
+    List<Archimedea>? archimedeas,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1028,6 +1069,13 @@ class _WorldstateCopyWithImpl<$R, $Out>
   CalendarCopyWith<$R, Calendar, Calendar> get calendar =>
       $value.calendar.copyWith.$chain((v) => call(calendar: v));
   @override
+  ListCopyWith<$R, Archimedea, ArchimedeaCopyWith<$R, Archimedea, Archimedea>>
+  get archimedeas => ListCopyWith(
+    $value.archimedeas,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(archimedeas: v),
+  );
+  @override
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -1048,6 +1096,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     DuviriCycle? duviriCycle,
     Object? nightwave = $none,
     Calendar? calendar,
+    List<Archimedea>? archimedeas,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1070,6 +1119,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (duviriCycle != null) #duviriCycle: duviriCycle,
       if (nightwave != $none) #nightwave: nightwave,
       if (calendar != null) #calendar: calendar,
+      if (archimedeas != null) #archimedeas: archimedeas,
     }),
   );
   @override
@@ -1099,6 +1149,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     duviriCycle: data.get(#duviriCycle, or: $value.duviriCycle),
     nightwave: data.get(#nightwave, or: $value.nightwave),
     calendar: data.get(#calendar, or: $value.calendar),
+    archimedeas: data.get(#archimedeas, or: $value.archimedeas),
   );
 
   @override
@@ -1149,6 +1200,130 @@ class _t$_R1Mapper extends RecordMapperBase<_t$_R1> {
 
   static _t$_R1<A> fromJson<A>(String json) {
     return ensureInitialized().decodeJson<_t$_R1<A>>(json);
+  }
+}
+
+typedef _t$_R3<A, B, C> = ({A description, B isElite, C title});
+
+class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
+  static _t$_R3Mapper? _instance;
+  _t$_R3Mapper._();
+
+  static _t$_R3Mapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = _t$_R3Mapper._());
+      MapperBase.addType(
+        <A, B, C>(f) => f<({A description, B isElite, C title})>(),
+      );
+    }
+    return _instance!;
+  }
+
+  static dynamic _$description(_t$_R3 v) => v.description;
+  static dynamic _arg$description<A, B, C>(f) => f<A>();
+  static const Field<_t$_R3, dynamic> _f$description = Field(
+    'description',
+    _$description,
+    arg: _arg$description,
+  );
+  static dynamic _$isElite(_t$_R3 v) => v.isElite;
+  static dynamic _arg$isElite<A, B, C>(f) => f<B>();
+  static const Field<_t$_R3, dynamic> _f$isElite = Field(
+    'isElite',
+    _$isElite,
+    arg: _arg$isElite,
+  );
+  static dynamic _$title(_t$_R3 v) => v.title;
+  static dynamic _arg$title<A, B, C>(f) => f<C>();
+  static const Field<_t$_R3, dynamic> _f$title = Field(
+    'title',
+    _$title,
+    arg: _arg$title,
+  );
+
+  @override
+  final MappableFields<_t$_R3> fields = const {
+    #description: _f$description,
+    #isElite: _f$isElite,
+    #title: _f$title,
+  };
+
+  @override
+  Function get typeFactory =>
+      <A, B, C>(f) => f<_t$_R3<A, B, C>>();
+
+  static _t$_R3<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R3> data) {
+    return (
+      description: data.dec(_f$description),
+      isElite: data.dec(_f$isElite),
+      title: data.dec(_f$title),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static _t$_R3<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R3<A, B, C>>(map);
+  }
+
+  static _t$_R3<A, B, C> fromJson<A, B, C>(String json) {
+    return ensureInitialized().decodeJson<_t$_R3<A, B, C>>(json);
+  }
+}
+
+typedef _t$_R2<A, B> = ({A description, B title});
+
+class _t$_R2Mapper extends RecordMapperBase<_t$_R2> {
+  static _t$_R2Mapper? _instance;
+  _t$_R2Mapper._();
+
+  static _t$_R2Mapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = _t$_R2Mapper._());
+      MapperBase.addType(<A, B>(f) => f<({A description, B title})>());
+    }
+    return _instance!;
+  }
+
+  static dynamic _$description(_t$_R2 v) => v.description;
+  static dynamic _arg$description<A, B>(f) => f<A>();
+  static const Field<_t$_R2, dynamic> _f$description = Field(
+    'description',
+    _$description,
+    arg: _arg$description,
+  );
+  static dynamic _$title(_t$_R2 v) => v.title;
+  static dynamic _arg$title<A, B>(f) => f<B>();
+  static const Field<_t$_R2, dynamic> _f$title = Field(
+    'title',
+    _$title,
+    arg: _arg$title,
+  );
+
+  @override
+  final MappableFields<_t$_R2> fields = const {
+    #description: _f$description,
+    #title: _f$title,
+  };
+
+  @override
+  Function get typeFactory =>
+      <A, B>(f) => f<_t$_R2<A, B>>();
+
+  static _t$_R2<A, B> _instantiate<A, B>(DecodingData<_t$_R2> data) {
+    return (description: data.dec(_f$description), title: data.dec(_f$title));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static _t$_R2<A, B> fromMap<A, B>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R2<A, B>>(map);
+  }
+
+  static _t$_R2<A, B> fromJson<A, B>(String json) {
+    return ensureInitialized().decodeJson<_t$_R2<A, B>>(json);
   }
 }
 
