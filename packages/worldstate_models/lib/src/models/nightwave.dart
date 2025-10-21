@@ -38,11 +38,17 @@ class RawActiveChallenge extends BaseContentObject with RawActiveChallengeMappab
 
 @MappableClass()
 class Nightwave extends WorldstateObject with NightwaveMappable {
-  Nightwave({required super.activation, required super.expiry, required this.tag, required this.challenges})
-    : super(id: '');
+  Nightwave({
+    required super.id,
+    required super.activation,
+    required super.expiry,
+    required this.tag,
+    required this.challenges,
+  });
 
   factory Nightwave.fromRaw(RawSeasonInfo raw, String locale) {
     return Nightwave(
+      id: hash(raw.affiliationTag + raw.activation.toString() + raw.expiry.toString()),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       tag: languages(locale).fetchValue(raw.affiliationTag),
@@ -52,9 +58,6 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
 
   final String tag;
   final List<NightwaveChallenge> challenges;
-
-  @override
-  String get id => hash(tag + activation.toIso8601String() + expiry.toIso8601String());
 
   @override
   DateTime get activation => super.activation!;

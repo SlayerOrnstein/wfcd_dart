@@ -468,6 +468,8 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
   @override
   final String id = 'Nightwave';
 
+  static String _$id(Nightwave v) => v.id;
+  static const Field<Nightwave, String> _f$id = Field('id', _$id);
   static DateTime _$activation(Nightwave v) => v.activation;
   static const Field<Nightwave, DateTime> _f$activation = Field(
     'activation',
@@ -485,6 +487,7 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
 
   @override
   final MappableFields<Nightwave> fields = const {
+    #id: _f$id,
     #activation: _f$activation,
     #expiry: _f$expiry,
     #tag: _f$tag,
@@ -495,6 +498,7 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
 
   static Nightwave _instantiate(DecodingData data) {
     return Nightwave(
+      id: data.dec(_f$id),
       activation: data.dec(_f$activation),
       expiry: data.dec(_f$expiry),
       tag: data.dec(_f$tag),
@@ -568,6 +572,7 @@ abstract class NightwaveCopyWith<$R, $In extends Nightwave, $Out>
   >
   get challenges;
   $R call({
+    String? id,
     DateTime? activation,
     DateTime? expiry,
     String? tag,
@@ -597,12 +602,14 @@ class _NightwaveCopyWithImpl<$R, $Out>
   );
   @override
   $R call({
+    String? id,
     Object? activation = $none,
     Object? expiry = $none,
     String? tag,
     List<NightwaveChallenge>? challenges,
   }) => $apply(
     FieldCopyWithData({
+      if (id != null) #id: id,
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (tag != null) #tag: tag,
@@ -611,6 +618,7 @@ class _NightwaveCopyWithImpl<$R, $Out>
   );
   @override
   Nightwave $make(CopyWithData data) => Nightwave(
+    id: data.get(#id, or: $value.id),
     activation: data.get(#activation, or: $value.activation),
     expiry: data.get(#expiry, or: $value.expiry),
     tag: data.get(#tag, or: $value.tag),
