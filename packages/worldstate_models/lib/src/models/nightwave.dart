@@ -43,6 +43,7 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
     required super.activation,
     required super.expiry,
     required this.tag,
+    required this.season,
     required this.challenges,
   });
 
@@ -52,11 +53,13 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       tag: languages(locale).fetchValue(raw.affiliationTag),
+      season: raw.season,
       challenges: raw.activeChallenges.map((challenge) => NightwaveChallenge.fromRaw(challenge, locale)).toList(),
     );
   }
 
   final String tag;
+  final int season;
   final List<NightwaveChallenge> challenges;
 
   @override

@@ -479,6 +479,8 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
   static const Field<Nightwave, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$tag(Nightwave v) => v.tag;
   static const Field<Nightwave, String> _f$tag = Field('tag', _$tag);
+  static int _$season(Nightwave v) => v.season;
+  static const Field<Nightwave, int> _f$season = Field('season', _$season);
   static List<NightwaveChallenge> _$challenges(Nightwave v) => v.challenges;
   static const Field<Nightwave, List<NightwaveChallenge>> _f$challenges = Field(
     'challenges',
@@ -491,6 +493,7 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
     #activation: _f$activation,
     #expiry: _f$expiry,
     #tag: _f$tag,
+    #season: _f$season,
     #challenges: _f$challenges,
   };
   @override
@@ -502,6 +505,7 @@ class NightwaveMapper extends ClassMapperBase<Nightwave> {
       activation: data.dec(_f$activation),
       expiry: data.dec(_f$expiry),
       tag: data.dec(_f$tag),
+      season: data.dec(_f$season),
       challenges: data.dec(_f$challenges),
     );
   }
@@ -576,6 +580,7 @@ abstract class NightwaveCopyWith<$R, $In extends Nightwave, $Out>
     DateTime? activation,
     DateTime? expiry,
     String? tag,
+    int? season,
     List<NightwaveChallenge>? challenges,
   });
   NightwaveCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -606,6 +611,7 @@ class _NightwaveCopyWithImpl<$R, $Out>
     Object? activation = $none,
     Object? expiry = $none,
     String? tag,
+    int? season,
     List<NightwaveChallenge>? challenges,
   }) => $apply(
     FieldCopyWithData({
@@ -613,6 +619,7 @@ class _NightwaveCopyWithImpl<$R, $Out>
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (tag != null) #tag: tag,
+      if (season != null) #season: season,
       if (challenges != null) #challenges: challenges,
     }),
   );
@@ -622,6 +629,7 @@ class _NightwaveCopyWithImpl<$R, $Out>
     activation: data.get(#activation, or: $value.activation),
     expiry: data.get(#expiry, or: $value.expiry),
     tag: data.get(#tag, or: $value.tag),
+    season: data.get(#season, or: $value.season),
     challenges: data.get(#challenges, or: $value.challenges),
   );
 
