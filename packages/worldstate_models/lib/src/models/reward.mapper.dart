@@ -203,18 +203,12 @@ class RewardMapper extends ClassMapperBase<Reward> {
   );
   static int? _$credits(Reward v) => v.credits;
   static const Field<Reward, int> _f$credits = Field('credits', _$credits);
-  static String? _$itemString(Reward v) => v.itemString;
-  static const Field<Reward, String> _f$itemString = Field(
-    'itemString',
-    _$itemString,
-  );
 
   @override
   final MappableFields<Reward> fields = const {
     #items: _f$items,
     #countedItems: _f$countedItems,
     #credits: _f$credits,
-    #itemString: _f$itemString,
   };
   @override
   final bool ignoreNull = true;
@@ -224,7 +218,6 @@ class RewardMapper extends ClassMapperBase<Reward> {
       items: data.dec(_f$items),
       countedItems: data.dec(_f$countedItems),
       credits: data.dec(_f$credits),
-      itemString: data.dec(_f$itemString),
     );
   }
 
@@ -277,12 +270,7 @@ abstract class RewardCopyWith<$R, $In extends Reward, $Out>
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get items;
   ListCopyWith<$R, CountedItem, ObjectCopyWith<$R, CountedItem, CountedItem>>?
   get countedItems;
-  $R call({
-    List<String>? items,
-    List<CountedItem>? countedItems,
-    int? credits,
-    String? itemString,
-  });
+  $R call({List<String>? items, List<CountedItem>? countedItems, int? credits});
   RewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -315,13 +303,11 @@ class _RewardCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Reward, $Out>
     Object? items = $none,
     Object? countedItems = $none,
     Object? credits = $none,
-    Object? itemString = $none,
   }) => $apply(
     FieldCopyWithData({
       if (items != $none) #items: items,
       if (countedItems != $none) #countedItems: countedItems,
       if (credits != $none) #credits: credits,
-      if (itemString != $none) #itemString: itemString,
     }),
   );
   @override
@@ -329,7 +315,6 @@ class _RewardCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Reward, $Out>
     items: data.get(#items, or: $value.items),
     countedItems: data.get(#countedItems, or: $value.countedItems),
     credits: data.get(#credits, or: $value.credits),
-    itemString: data.get(#itemString, or: $value.itemString),
   );
 
   @override
