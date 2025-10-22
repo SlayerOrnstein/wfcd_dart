@@ -216,13 +216,13 @@ class RewardDrop with RewardDropMappable {
   factory RewardDrop.fromDrop(String item, String rarity, num chance) {
     // Don't usually see drop counts this high but you know, cast a wide net
     final countReg = RegExp('([0-9]{1,10})X');
-    final count = countReg.stringMatch(item);
+    final count = countReg.allMatches(item);
 
     return RewardDrop(
       item: item.replaceAll(countReg, ''),
       rarity: rarity,
       chance: chance,
-      count: count != null ? int.parse(count) : 1,
+      count: count.isNotEmpty ? int.parse(count.first.group(1)!) : 1,
     );
   }
 
