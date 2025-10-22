@@ -93,9 +93,9 @@ class CalendarDay with CalendarDayMappable {
   final List<CalendarDayEvent> events;
 }
 
-@MappableClass(discriminatorKey: 'type')
+@MappableClass(discriminatorKey: 'key')
 sealed class CalendarDayEvent with CalendarDayEventMappable {
-  CalendarDayEvent({required this.type});
+  CalendarDayEvent({required this.key, required this.type});
 
   factory CalendarDayEvent.fromType(RawCalendarDayEvent event, String locale) {
     final langs = languages(locale);
@@ -119,12 +119,14 @@ sealed class CalendarDayEvent with CalendarDayEventMappable {
     };
   }
 
+  final String key;
   final String type;
 }
 
 @MappableClass(discriminatorValue: 'CET_CHALLENGE')
 final class CalendarDayChallenge extends CalendarDayEvent with CalendarDayChallengeMappable {
-  CalendarDayChallenge({required super.type, required this.title, required this.description});
+  CalendarDayChallenge({required super.type, required this.title, required this.description})
+    : super(key: 'CET_CHALLENGE');
 
   final String title;
   final String description;
@@ -132,14 +134,14 @@ final class CalendarDayChallenge extends CalendarDayEvent with CalendarDayChalle
 
 @MappableClass(discriminatorValue: 'CET_REWARD')
 final class CalendarDayReward extends CalendarDayEvent with CalendarDayRewardMappable {
-  CalendarDayReward({required super.type, required this.reward});
+  CalendarDayReward({required super.type, required this.reward}) : super(key: 'CET_REWARD');
 
   final String reward;
 }
 
 @MappableClass(discriminatorValue: 'CET_UPGRADE')
 final class CalendarDayUpgrade extends CalendarDayEvent with CalendarDayUpgradeMappable {
-  CalendarDayUpgrade({required super.type, required this.name, required this.description});
+  CalendarDayUpgrade({required super.type, required this.name, required this.description}) : super(key: 'CET_UPGRADE');
 
   final String name;
   final String description;
@@ -147,7 +149,7 @@ final class CalendarDayUpgrade extends CalendarDayEvent with CalendarDayUpgradeM
 
 @MappableClass(discriminatorValue: 'CET_PLOT')
 final class CalendarDayBirthday extends CalendarDayEvent with CalendarDayBirthdayMappable {
-  CalendarDayBirthday({required super.type, required this.name, required this.conversation});
+  CalendarDayBirthday({required super.type, required this.name, required this.conversation}) : super(key: 'CET_PLOT');
 
   final String name;
   final String conversation;

@@ -899,19 +899,24 @@ class CalendarDayEventMapper extends ClassMapperBase<CalendarDayEvent> {
   @override
   final String id = 'CalendarDayEvent';
 
+  static String _$key(CalendarDayEvent v) => v.key;
+  static const Field<CalendarDayEvent, String> _f$key = Field('key', _$key);
   static String _$type(CalendarDayEvent v) => v.type;
   static const Field<CalendarDayEvent, String> _f$type = Field('type', _$type);
 
   @override
-  final MappableFields<CalendarDayEvent> fields = const {#type: _f$type};
+  final MappableFields<CalendarDayEvent> fields = const {
+    #key: _f$key,
+    #type: _f$type,
+  };
   @override
   final bool ignoreNull = true;
 
   static CalendarDayEvent _instantiate(DecodingData data) {
     throw MapperException.missingSubclass(
       'CalendarDayEvent',
-      'type',
-      '${data.value['type']}',
+      'key',
+      '${data.value['key']}',
     );
   }
 
@@ -973,18 +978,25 @@ class CalendarDayChallengeMapper
     'description',
     _$description,
   );
+  static String _$key(CalendarDayChallenge v) => v.key;
+  static const Field<CalendarDayChallenge, String> _f$key = Field(
+    'key',
+    _$key,
+    mode: FieldMode.member,
+  );
 
   @override
   final MappableFields<CalendarDayChallenge> fields = const {
     #type: _f$type,
     #title: _f$title,
     #description: _f$description,
+    #key: _f$key,
   };
   @override
   final bool ignoreNull = true;
 
   @override
-  final String discriminatorKey = 'type';
+  final String discriminatorKey = 'key';
   @override
   final dynamic discriminatorValue = 'CET_CHALLENGE';
   @override
@@ -1127,17 +1139,24 @@ class CalendarDayRewardMapper extends SubClassMapperBase<CalendarDayReward> {
     'reward',
     _$reward,
   );
+  static String _$key(CalendarDayReward v) => v.key;
+  static const Field<CalendarDayReward, String> _f$key = Field(
+    'key',
+    _$key,
+    mode: FieldMode.member,
+  );
 
   @override
   final MappableFields<CalendarDayReward> fields = const {
     #type: _f$type,
     #reward: _f$reward,
+    #key: _f$key,
   };
   @override
   final bool ignoreNull = true;
 
   @override
-  final String discriminatorKey = 'type';
+  final String discriminatorKey = 'key';
   @override
   final dynamic discriminatorValue = 'CET_REWARD';
   @override
@@ -1286,18 +1305,25 @@ class CalendarDayUpgradeMapper extends SubClassMapperBase<CalendarDayUpgrade> {
     'description',
     _$description,
   );
+  static String _$key(CalendarDayUpgrade v) => v.key;
+  static const Field<CalendarDayUpgrade, String> _f$key = Field(
+    'key',
+    _$key,
+    mode: FieldMode.member,
+  );
 
   @override
   final MappableFields<CalendarDayUpgrade> fields = const {
     #type: _f$type,
     #name: _f$name,
     #description: _f$description,
+    #key: _f$key,
   };
   @override
   final bool ignoreNull = true;
 
   @override
-  final String discriminatorKey = 'type';
+  final String discriminatorKey = 'key';
   @override
   final dynamic discriminatorValue = 'CET_UPGRADE';
   @override
@@ -1450,18 +1476,25 @@ class CalendarDayBirthdayMapper
     'conversation',
     _$conversation,
   );
+  static String _$key(CalendarDayBirthday v) => v.key;
+  static const Field<CalendarDayBirthday, String> _f$key = Field(
+    'key',
+    _$key,
+    mode: FieldMode.member,
+  );
 
   @override
   final MappableFields<CalendarDayBirthday> fields = const {
     #type: _f$type,
     #name: _f$name,
     #conversation: _f$conversation,
+    #key: _f$key,
   };
   @override
   final bool ignoreNull = true;
 
   @override
-  final String discriminatorKey = 'type';
+  final String discriminatorKey = 'key';
   @override
   final dynamic discriminatorValue = 'CET_PLOT';
   @override
