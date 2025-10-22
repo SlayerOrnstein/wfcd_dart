@@ -96,7 +96,7 @@ class Worldstate with WorldstateMappable {
 
   static const fromJson = WorldstateMapper.fromJson;
 
-  static const fromMap = WorldEventMapper.fromMap;
+  static const fromMap = WorldstateMapper.fromMap;
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
