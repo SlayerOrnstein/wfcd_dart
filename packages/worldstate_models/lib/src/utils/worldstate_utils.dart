@@ -40,7 +40,7 @@ Future<List<S>> parseArray<T, S>(List<T> array, FutureOr<S> Function(T) transfor
   final isLarge = array.length > 10;
   if (!isLarge) return Future.wait(array.map((s) async => transformer(s)));
 
-  final length = (array.length / (Platform.numberOfProcessors - 1)).floor();
+  final length = (array.length / (Platform.numberOfProcessors / 2)).floor();
   final slices = array.slices(length);
   final mapped = await Future.wait(
     slices.map((s) async => Isolate.run(() => Future.wait(s.map((s) async => transformer(s))))),
