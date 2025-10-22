@@ -7,6 +7,52 @@
 
 part of 'cambion_cycle.dart';
 
+class CambionStateMapper extends EnumMapper<CambionState> {
+  CambionStateMapper._();
+
+  static CambionStateMapper? _instance;
+  static CambionStateMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = CambionStateMapper._());
+    }
+    return _instance!;
+  }
+
+  static CambionState fromValue(dynamic value) {
+    ensureInitialized();
+    return MapperContainer.globals.fromValue(value);
+  }
+
+  @override
+  CambionState decode(dynamic value) {
+    switch (value) {
+      case r'fass':
+        return CambionState.fass;
+      case r'vome':
+        return CambionState.vome;
+      default:
+        throw MapperException.unknownEnumValue(value);
+    }
+  }
+
+  @override
+  dynamic encode(CambionState self) {
+    switch (self) {
+      case CambionState.fass:
+        return r'fass';
+      case CambionState.vome:
+        return r'vome';
+    }
+  }
+}
+
+extension CambionStateMapperExtension on CambionState {
+  String toValue() {
+    CambionStateMapper.ensureInitialized();
+    return MapperContainer.globals.toValue<CambionState>(this) as String;
+  }
+}
+
 class CambionCycleMapper extends ClassMapperBase<CambionCycle> {
   CambionCycleMapper._();
 
@@ -14,6 +60,7 @@ class CambionCycleMapper extends ClassMapperBase<CambionCycle> {
   static CambionCycleMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = CambionCycleMapper._());
+      CambionStateMapper.ensureInitialized();
     }
     return _instance!;
   }

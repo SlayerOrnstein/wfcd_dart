@@ -1,9 +1,14 @@
+import 'package:dart_mappable/dart_mappable.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
+part 'vallis_cycle.mapper.dart';
+
+@MappableEnum()
 enum VallisState { warm, cold }
 
-class VallisCycle extends WorldstateObject {
+@MappableClass()
+class VallisCycle extends WorldstateObject with VallisCycleMappable {
   VallisCycle({
     required super.id,
     required super.activation,

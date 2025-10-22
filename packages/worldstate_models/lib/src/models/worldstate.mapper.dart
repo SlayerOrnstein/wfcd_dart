@@ -690,6 +690,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       CalendarMapper.ensureInitialized();
       ArchimedeaMapper.ensureInitialized();
       CetusCycleMapper.ensureInitialized();
+      VallisCycleMapper.ensureInitialized();
       CambionCycleMapper.ensureInitialized();
       ZarimanCycleMapper.ensureInitialized();
       SentientOutpostMapper.ensureInitialized();
@@ -988,6 +989,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   ListCopyWith<$R, Archimedea, ArchimedeaCopyWith<$R, Archimedea, Archimedea>>
   get archimedeas;
   CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle;
+  VallisCycleCopyWith<$R, VallisCycle, VallisCycle> get vallisCycle;
   CambionCycleCopyWith<$R, CambionCycle, CambionCycle> get cambionCycle;
   ZarimanCycleCopyWith<$R, ZarimanCycle, ZarimanCycle> get zarimanCycle;
   SentientOutpostCopyWith<$R, SentientOutpost, SentientOutpost>
@@ -1149,6 +1151,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
   @override
   CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle =>
       $value.cetusCycle.copyWith.$chain((v) => call(cetusCycle: v));
+  @override
+  VallisCycleCopyWith<$R, VallisCycle, VallisCycle> get vallisCycle =>
+      $value.vallisCycle.copyWith.$chain((v) => call(vallisCycle: v));
   @override
   CambionCycleCopyWith<$R, CambionCycle, CambionCycle> get cambionCycle =>
       $value.cambionCycle.copyWith.$chain((v) => call(cambionCycle: v));

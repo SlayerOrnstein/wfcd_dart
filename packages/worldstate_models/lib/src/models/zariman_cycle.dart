@@ -4,6 +4,7 @@ import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'zariman_cycle.mapper.dart';
 
+@MappableEnum()
 enum ZarimanState { corpus, grineer }
 
 @MappableClass()

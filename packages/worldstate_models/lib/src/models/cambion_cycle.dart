@@ -5,6 +5,7 @@ import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'cambion_cycle.mapper.dart';
 
+@MappableEnum()
 enum CambionState { fass, vome }
 
 @MappableClass()

@@ -7,6 +7,52 @@
 
 part of 'zariman_cycle.dart';
 
+class ZarimanStateMapper extends EnumMapper<ZarimanState> {
+  ZarimanStateMapper._();
+
+  static ZarimanStateMapper? _instance;
+  static ZarimanStateMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ZarimanStateMapper._());
+    }
+    return _instance!;
+  }
+
+  static ZarimanState fromValue(dynamic value) {
+    ensureInitialized();
+    return MapperContainer.globals.fromValue(value);
+  }
+
+  @override
+  ZarimanState decode(dynamic value) {
+    switch (value) {
+      case r'corpus':
+        return ZarimanState.corpus;
+      case r'grineer':
+        return ZarimanState.grineer;
+      default:
+        throw MapperException.unknownEnumValue(value);
+    }
+  }
+
+  @override
+  dynamic encode(ZarimanState self) {
+    switch (self) {
+      case ZarimanState.corpus:
+        return r'corpus';
+      case ZarimanState.grineer:
+        return r'grineer';
+    }
+  }
+}
+
+extension ZarimanStateMapperExtension on ZarimanState {
+  String toValue() {
+    ZarimanStateMapper.ensureInitialized();
+    return MapperContainer.globals.toValue<ZarimanState>(this) as String;
+  }
+}
+
 class ZarimanCycleMapper extends ClassMapperBase<ZarimanCycle> {
   ZarimanCycleMapper._();
 
@@ -14,6 +60,7 @@ class ZarimanCycleMapper extends ClassMapperBase<ZarimanCycle> {
   static ZarimanCycleMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = ZarimanCycleMapper._());
+      ZarimanStateMapper.ensureInitialized();
     }
     return _instance!;
   }
