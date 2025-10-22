@@ -3,9 +3,6 @@ import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 
 part 'in_game_market.mapper.dart';
 
-@MappableRecord(caseStyle: CaseStyle.pascalCase)
-typedef RawLandingPage = ({List<RawCategory> categories});
-
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawInGameMarket with RawInGameMarketMappable {
   RawInGameMarket({required this.landingPage});
@@ -15,6 +12,13 @@ class RawInGameMarket with RawInGameMarketMappable {
   static const fromMap = RawInGameMarketMapper.fromMap;
 
   InGameMarket toInGameMarket([String locale = 'en']) => InGameMarket.fromRaw(this, locale);
+}
+
+@MappableClass(caseStyle: CaseStyle.pascalCase)
+class RawLandingPage with RawLandingPageMappable {
+  RawLandingPage({required this.categories});
+
+  final List<RawCategory> categories;
 }
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)

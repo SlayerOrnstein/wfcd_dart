@@ -102,6 +102,7 @@ extension RawInGameMarketValueCopy<$R, $Out>
 
 abstract class RawInGameMarketCopyWith<$R, $In extends RawInGameMarket, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  RawLandingPageCopyWith<$R, RawLandingPage, RawLandingPage> get landingPage;
   $R call({RawLandingPage? landingPage});
   RawInGameMarketCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -117,6 +118,9 @@ class _RawInGameMarketCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawInGameMarket> $mapper =
       RawInGameMarketMapper.ensureInitialized();
   @override
+  RawLandingPageCopyWith<$R, RawLandingPage, RawLandingPage> get landingPage =>
+      $value.landingPage.copyWith.$chain((v) => call(landingPage: v));
+  @override
   $R call({RawLandingPage? landingPage}) => $apply(
     FieldCopyWithData({if (landingPage != null) #landingPage: landingPage}),
   );
@@ -131,18 +135,20 @@ class _RawInGameMarketCopyWithImpl<$R, $Out>
   ) => _RawInGameMarketCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
-class RawLandingPageMapper extends RecordMapperBase<RawLandingPage> {
-  static RawLandingPageMapper? _instance;
+class RawLandingPageMapper extends ClassMapperBase<RawLandingPage> {
   RawLandingPageMapper._();
 
+  static RawLandingPageMapper? _instance;
   static RawLandingPageMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = RawLandingPageMapper._());
-      MapperBase.addType(<A>(f) => f<({A categories})>());
       RawCategoryMapper.ensureInitialized();
     }
     return _instance!;
   }
+
+  @override
+  final String id = 'RawLandingPage';
 
   static List<RawCategory> _$categories(RawLandingPage v) => v.categories;
   static const Field<RawLandingPage, List<RawCategory>> _f$categories = Field(
@@ -155,18 +161,11 @@ class RawLandingPageMapper extends RecordMapperBase<RawLandingPage> {
   final MappableFields<RawLandingPage> fields = const {
     #categories: _f$categories,
   };
-
   @override
-  Function get typeFactory =>
-      (f) => f<RawLandingPage>();
+  final bool ignoreNull = true;
 
-  @override
-  List<Type> apply(MappingContext context) {
-    return [];
-  }
-
-  static RawLandingPage _instantiate(DecodingData<RawLandingPage> data) {
-    return (categories: data.dec(_f$categories));
+  static RawLandingPage _instantiate(DecodingData data) {
+    return RawLandingPage(categories: data.dec(_f$categories));
   }
 
   @override
@@ -181,50 +180,99 @@ class RawLandingPageMapper extends RecordMapperBase<RawLandingPage> {
   }
 }
 
-extension RawLandingPageMappable on RawLandingPage {
-  Map<String, dynamic> toMap() {
-    return RawLandingPageMapper.ensureInitialized().encodeMap(this);
-  }
-
+mixin RawLandingPageMappable {
   String toJson() {
-    return RawLandingPageMapper.ensureInitialized().encodeJson(this);
+    return RawLandingPageMapper.ensureInitialized().encodeJson<RawLandingPage>(
+      this as RawLandingPage,
+    );
   }
 
-  RawLandingPageCopyWith<RawLandingPage> get copyWith =>
-      _RawLandingPageCopyWithImpl(this, $identity, $identity);
+  Map<String, dynamic> toMap() {
+    return RawLandingPageMapper.ensureInitialized().encodeMap<RawLandingPage>(
+      this as RawLandingPage,
+    );
+  }
+
+  RawLandingPageCopyWith<RawLandingPage, RawLandingPage, RawLandingPage>
+  get copyWith => _RawLandingPageCopyWithImpl<RawLandingPage, RawLandingPage>(
+    this as RawLandingPage,
+    $identity,
+    $identity,
+  );
+  @override
+  String toString() {
+    return RawLandingPageMapper.ensureInitialized().stringifyValue(
+      this as RawLandingPage,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return RawLandingPageMapper.ensureInitialized().equalsValue(
+      this as RawLandingPage,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return RawLandingPageMapper.ensureInitialized().hashValue(
+      this as RawLandingPage,
+    );
+  }
 }
 
-extension RawLandingPageValueCopy<$R>
-    on ObjectCopyWith<$R, RawLandingPage, RawLandingPage> {
-  RawLandingPageCopyWith<$R> get $asRawLandingPage =>
-      $base.as((v, t, t2) => _RawLandingPageCopyWithImpl(v, t, t2));
+extension RawLandingPageValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, RawLandingPage, $Out> {
+  RawLandingPageCopyWith<$R, RawLandingPage, $Out> get $asRawLandingPage =>
+      $base.as((v, t, t2) => _RawLandingPageCopyWithImpl<$R, $Out>(v, t, t2));
 }
 
-abstract class RawLandingPageCopyWith<$R>
-    implements RecordCopyWith<$R, RawLandingPage> {
+abstract class RawLandingPageCopyWith<$R, $In extends RawLandingPage, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  ListCopyWith<
+    $R,
+    RawCategory,
+    RawCategoryCopyWith<$R, RawCategory, RawCategory>
+  >
+  get categories;
   $R call({List<RawCategory>? categories});
-  RawLandingPageCopyWith<$R2> $chain<$R2>(Then<RawLandingPage, $R2> t);
+  RawLandingPageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
 }
 
-class _RawLandingPageCopyWithImpl<$R>
-    extends RecordCopyWithBase<$R, RawLandingPage>
-    implements RawLandingPageCopyWith<$R> {
+class _RawLandingPageCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, RawLandingPage, $Out>
+    implements RawLandingPageCopyWith<$R, RawLandingPage, $Out> {
   _RawLandingPageCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final RecordMapperBase<RawLandingPage> $mapper =
+  late final ClassMapperBase<RawLandingPage> $mapper =
       RawLandingPageMapper.ensureInitialized();
+  @override
+  ListCopyWith<
+    $R,
+    RawCategory,
+    RawCategoryCopyWith<$R, RawCategory, RawCategory>
+  >
+  get categories => ListCopyWith(
+    $value.categories,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(categories: v),
+  );
   @override
   $R call({List<RawCategory>? categories}) => $apply(
     FieldCopyWithData({if (categories != null) #categories: categories}),
   );
   @override
   RawLandingPage $make(CopyWithData data) =>
-      (categories: data.get(#categories, or: $value.categories));
+      RawLandingPage(categories: data.get(#categories, or: $value.categories));
 
   @override
-  RawLandingPageCopyWith<$R2> $chain<$R2>(Then<RawLandingPage, $R2> t) =>
-      _RawLandingPageCopyWithImpl($value, $cast, t);
+  RawLandingPageCopyWith<$R2, RawLandingPage, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _RawLandingPageCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
 class RawCategoryMapper extends ClassMapperBase<RawCategory> {
