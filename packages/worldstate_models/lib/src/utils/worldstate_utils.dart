@@ -25,15 +25,15 @@ String parseId(JsonObject json) {
 String? createEta(DateTime? date) {
   if (date == null) return null;
 
-  final eta = date.difference(DateTime.timestamp());
+  final eta = date.difference(DateTime.timestamp()).abs();
   final days = eta.inDays;
   final hours = eta.inHours.remainder(24);
   final minutes = eta.inMinutes.remainder(60);
   final seconds = eta.inSeconds.remainder(60);
 
-  final is24hrs = eta.abs() < const Duration(days: 1);
+  final is24hrs = eta < const Duration(hours: Duration.hoursPerDay);
 
-  return '${!is24hrs ? '${days}d ' : ''}${hours.abs()}h ${minutes.abs().toString().padLeft(2, '0')}m ${seconds.abs().toString().padLeft(2, '0')}s';
+  return '${!is24hrs ? '${days}d ' : ''}${hours}h ${minutes.toString().padLeft(2, '0')}m ${seconds.toString().padLeft(2, '0')}s';
 }
 
 Future<List<S>> parseArray<T, S>(List<T> array, FutureOr<S> Function(T) transformer) async {

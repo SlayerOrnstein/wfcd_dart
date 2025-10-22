@@ -136,7 +136,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
   @override
   String? get eta {
     final estimatedRemainingTime = _estimateRemainingTime(activation, count, requiredRuns);
-    return createEta(DateTime.fromMillisecondsSinceEpoch(estimatedRemainingTime));
+    return createEta(DateTime.fromMillisecondsSinceEpoch(estimatedRemainingTime, isUtc: true));
   }
 
   static int _estimateRemainingTime(DateTime activation, int count, int requiredRuns) {
@@ -144,7 +144,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
     final elapsedMs = DateTime.timestamp().difference(activation).inMilliseconds;
     final remaningRuns = requiredRuns - completedRuns;
 
-    return remaningRuns * (elapsedMs ~/ completedRuns);
+    return remaningRuns * (elapsedMs / completedRuns).floor();
   }
 }
 
