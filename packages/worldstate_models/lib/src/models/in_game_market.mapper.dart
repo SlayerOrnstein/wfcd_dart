@@ -465,8 +465,7 @@ class InGameMarketMapper extends ClassMapperBase<InGameMarket> {
   static InGameMarketMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = InGameMarketMapper._());
-      _t$_R0Mapper.ensureInitialized();
-      CategoryMapper.ensureInitialized();
+      LandingPageMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -474,9 +473,11 @@ class InGameMarketMapper extends ClassMapperBase<InGameMarket> {
   @override
   final String id = 'InGameMarket';
 
-  static _t$_R0<List<Category>> _$landingPage(InGameMarket v) => v.landingPage;
-  static const Field<InGameMarket, _t$_R0<List<Category>>> _f$landingPage =
-      Field('landingPage', _$landingPage);
+  static LandingPage _$landingPage(InGameMarket v) => v.landingPage;
+  static const Field<InGameMarket, LandingPage> _f$landingPage = Field(
+    'landingPage',
+    _$landingPage,
+  );
 
   @override
   final MappableFields<InGameMarket> fields = const {
@@ -551,7 +552,8 @@ extension InGameMarketValueCopy<$R, $Out>
 
 abstract class InGameMarketCopyWith<$R, $In extends InGameMarket, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({_t$_R0<List<Category>>? landingPage});
+  LandingPageCopyWith<$R, LandingPage, LandingPage> get landingPage;
+  $R call({LandingPage? landingPage});
   InGameMarketCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -564,7 +566,10 @@ class _InGameMarketCopyWithImpl<$R, $Out>
   late final ClassMapperBase<InGameMarket> $mapper =
       InGameMarketMapper.ensureInitialized();
   @override
-  $R call({_t$_R0<List<Category>>? landingPage}) => $apply(
+  LandingPageCopyWith<$R, LandingPage, LandingPage> get landingPage =>
+      $value.landingPage.copyWith.$chain((v) => call(landingPage: v));
+  @override
+  $R call({LandingPage? landingPage}) => $apply(
     FieldCopyWithData({if (landingPage != null) #landingPage: landingPage}),
   );
   @override
@@ -575,6 +580,131 @@ class _InGameMarketCopyWithImpl<$R, $Out>
   InGameMarketCopyWith<$R2, InGameMarket, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   ) => _InGameMarketCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class LandingPageMapper extends ClassMapperBase<LandingPage> {
+  LandingPageMapper._();
+
+  static LandingPageMapper? _instance;
+  static LandingPageMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = LandingPageMapper._());
+      CategoryMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'LandingPage';
+
+  static List<Category> _$categories(LandingPage v) => v.categories;
+  static const Field<LandingPage, List<Category>> _f$categories = Field(
+    'categories',
+    _$categories,
+  );
+
+  @override
+  final MappableFields<LandingPage> fields = const {#categories: _f$categories};
+  @override
+  final bool ignoreNull = true;
+
+  static LandingPage _instantiate(DecodingData data) {
+    return LandingPage(categories: data.dec(_f$categories));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static LandingPage fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<LandingPage>(map);
+  }
+
+  static LandingPage fromJson(String json) {
+    return ensureInitialized().decodeJson<LandingPage>(json);
+  }
+}
+
+mixin LandingPageMappable {
+  String toJson() {
+    return LandingPageMapper.ensureInitialized().encodeJson<LandingPage>(
+      this as LandingPage,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return LandingPageMapper.ensureInitialized().encodeMap<LandingPage>(
+      this as LandingPage,
+    );
+  }
+
+  LandingPageCopyWith<LandingPage, LandingPage, LandingPage> get copyWith =>
+      _LandingPageCopyWithImpl<LandingPage, LandingPage>(
+        this as LandingPage,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return LandingPageMapper.ensureInitialized().stringifyValue(
+      this as LandingPage,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return LandingPageMapper.ensureInitialized().equalsValue(
+      this as LandingPage,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return LandingPageMapper.ensureInitialized().hashValue(this as LandingPage);
+  }
+}
+
+extension LandingPageValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, LandingPage, $Out> {
+  LandingPageCopyWith<$R, LandingPage, $Out> get $asLandingPage =>
+      $base.as((v, t, t2) => _LandingPageCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class LandingPageCopyWith<$R, $In extends LandingPage, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  ListCopyWith<$R, Category, CategoryCopyWith<$R, Category, Category>>
+  get categories;
+  $R call({List<Category>? categories});
+  LandingPageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+}
+
+class _LandingPageCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, LandingPage, $Out>
+    implements LandingPageCopyWith<$R, LandingPage, $Out> {
+  _LandingPageCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<LandingPage> $mapper =
+      LandingPageMapper.ensureInitialized();
+  @override
+  ListCopyWith<$R, Category, CategoryCopyWith<$R, Category, Category>>
+  get categories => ListCopyWith(
+    $value.categories,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(categories: v),
+  );
+  @override
+  $R call({List<Category>? categories}) => $apply(
+    FieldCopyWithData({if (categories != null) #categories: categories}),
+  );
+  @override
+  LandingPage $make(CopyWithData data) =>
+      LandingPage(categories: data.get(#categories, or: $value.categories));
+
+  @override
+  LandingPageCopyWith<$R2, LandingPage, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _LandingPageCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
 class CategoryMapper extends ClassMapperBase<Category> {
@@ -741,50 +871,5 @@ class _CategoryCopyWithImpl<$R, $Out>
   CategoryCopyWith<$R2, Category, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   ) => _CategoryCopyWithImpl<$R2, $Out2>($value, $cast, t);
-}
-
-typedef _t$_R0<A> = ({A categories});
-
-class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
-  static _t$_R0Mapper? _instance;
-  _t$_R0Mapper._();
-
-  static _t$_R0Mapper ensureInitialized() {
-    if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R0Mapper._());
-      MapperBase.addType(<A>(f) => f<({A categories})>());
-    }
-    return _instance!;
-  }
-
-  static dynamic _$categories(_t$_R0 v) => v.categories;
-  static dynamic _arg$categories<A>(f) => f<A>();
-  static const Field<_t$_R0, dynamic> _f$categories = Field(
-    'categories',
-    _$categories,
-    arg: _arg$categories,
-  );
-
-  @override
-  final MappableFields<_t$_R0> fields = const {#categories: _f$categories};
-
-  @override
-  Function get typeFactory =>
-      <A>(f) => f<_t$_R0<A>>();
-
-  static _t$_R0<A> _instantiate<A>(DecodingData<_t$_R0> data) {
-    return (categories: data.dec(_f$categories));
-  }
-
-  @override
-  final Function instantiate = _instantiate;
-
-  static _t$_R0<A> fromMap<A>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R0<A>>(map);
-  }
-
-  static _t$_R0<A> fromJson<A>(String json) {
-    return ensureInitialized().decodeJson<_t$_R0<A>>(json);
-  }
 }
 

@@ -47,10 +47,17 @@ class InGameMarket with InGameMarketMappable {
   factory InGameMarket.fromRaw(RawInGameMarket raw, String locale) {
     final rawCategories = raw.landingPage.categories.map((c) => Category.fromRaw(c, locale));
 
-    return InGameMarket(landingPage: (categories: rawCategories.toList()));
+    return InGameMarket(landingPage: LandingPage(categories: rawCategories.toList()));
   }
 
-  final ({List<Category> categories}) landingPage;
+  final LandingPage landingPage;
+}
+
+@MappableClass()
+class LandingPage with LandingPageMappable {
+  LandingPage({required this.categories});
+
+  final List<Category> categories;
 }
 
 @MappableClass()

@@ -1268,112 +1268,67 @@ class _WorldstateCopyWithImpl<$R, $Out>
   ) => _WorldstateCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
-typedef _t$_R1<A> = ({A categories});
+typedef _t$_R4<A, B> = ({A cost, B name});
 
-class _t$_R1Mapper extends RecordMapperBase<_t$_R1> {
-  static _t$_R1Mapper? _instance;
-  _t$_R1Mapper._();
+class _t$_R4Mapper extends RecordMapperBase<_t$_R4> {
+  static _t$_R4Mapper? _instance;
+  _t$_R4Mapper._();
 
-  static _t$_R1Mapper ensureInitialized() {
+  static _t$_R4Mapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R1Mapper._());
-      MapperBase.addType(<A>(f) => f<({A categories})>());
-    }
-    return _instance!;
-  }
-
-  static dynamic _$categories(_t$_R1 v) => v.categories;
-  static dynamic _arg$categories<A>(f) => f<A>();
-  static const Field<_t$_R1, dynamic> _f$categories = Field(
-    'categories',
-    _$categories,
-    arg: _arg$categories,
-  );
-
-  @override
-  final MappableFields<_t$_R1> fields = const {#categories: _f$categories};
-
-  @override
-  Function get typeFactory =>
-      <A>(f) => f<_t$_R1<A>>();
-
-  static _t$_R1<A> _instantiate<A>(DecodingData<_t$_R1> data) {
-    return (categories: data.dec(_f$categories));
-  }
-
-  @override
-  final Function instantiate = _instantiate;
-
-  static _t$_R1<A> fromMap<A>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R1<A>>(map);
-  }
-
-  static _t$_R1<A> fromJson<A>(String json) {
-    return ensureInitialized().decodeJson<_t$_R1<A>>(json);
-  }
-}
-
-typedef _t$_R5<A, B> = ({A cost, B name});
-
-class _t$_R5Mapper extends RecordMapperBase<_t$_R5> {
-  static _t$_R5Mapper? _instance;
-  _t$_R5Mapper._();
-
-  static _t$_R5Mapper ensureInitialized() {
-    if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R5Mapper._());
+      MapperContainer.globals.use(_instance = _t$_R4Mapper._());
       MapperBase.addType(<A, B>(f) => f<({A cost, B name})>());
     }
     return _instance!;
   }
 
-  static dynamic _$cost(_t$_R5 v) => v.cost;
+  static dynamic _$cost(_t$_R4 v) => v.cost;
   static dynamic _arg$cost<A, B>(f) => f<A>();
-  static const Field<_t$_R5, dynamic> _f$cost = Field(
+  static const Field<_t$_R4, dynamic> _f$cost = Field(
     'cost',
     _$cost,
     arg: _arg$cost,
   );
-  static dynamic _$name(_t$_R5 v) => v.name;
+  static dynamic _$name(_t$_R4 v) => v.name;
   static dynamic _arg$name<A, B>(f) => f<B>();
-  static const Field<_t$_R5, dynamic> _f$name = Field(
+  static const Field<_t$_R4, dynamic> _f$name = Field(
     'name',
     _$name,
     arg: _arg$name,
   );
 
   @override
-  final MappableFields<_t$_R5> fields = const {#cost: _f$cost, #name: _f$name};
+  final MappableFields<_t$_R4> fields = const {#cost: _f$cost, #name: _f$name};
 
   @override
   Function get typeFactory =>
-      <A, B>(f) => f<_t$_R5<A, B>>();
+      <A, B>(f) => f<_t$_R4<A, B>>();
 
-  static _t$_R5<A, B> _instantiate<A, B>(DecodingData<_t$_R5> data) {
+  static _t$_R4<A, B> _instantiate<A, B>(DecodingData<_t$_R4> data) {
     return (cost: data.dec(_f$cost), name: data.dec(_f$name));
   }
 
   @override
   final Function instantiate = _instantiate;
 
-  static _t$_R5<A, B> fromMap<A, B>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R5<A, B>>(map);
+  static _t$_R4<A, B> fromMap<A, B>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R4<A, B>>(map);
   }
 
-  static _t$_R5<A, B> fromJson<A, B>(String json) {
-    return ensureInitialized().decodeJson<_t$_R5<A, B>>(json);
+  static _t$_R4<A, B> fromJson<A, B>(String json) {
+    return ensureInitialized().decodeJson<_t$_R4<A, B>>(json);
   }
 }
 
-typedef _t$_R3<A, B, C> = ({A description, B isElite, C title});
+typedef _t$_R2<A, B, C> = ({A description, B isElite, C title});
 
-class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
-  static _t$_R3Mapper? _instance;
-  _t$_R3Mapper._();
+class _t$_R2Mapper extends RecordMapperBase<_t$_R2> {
+  static _t$_R2Mapper? _instance;
+  _t$_R2Mapper._();
 
-  static _t$_R3Mapper ensureInitialized() {
+  static _t$_R2Mapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R3Mapper._());
+      MapperContainer.globals.use(_instance = _t$_R2Mapper._());
       MapperBase.addType(
         <A, B, C>(f) => f<({A description, B isElite, C title})>(),
       );
@@ -1381,30 +1336,30 @@ class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
     return _instance!;
   }
 
-  static dynamic _$description(_t$_R3 v) => v.description;
+  static dynamic _$description(_t$_R2 v) => v.description;
   static dynamic _arg$description<A, B, C>(f) => f<A>();
-  static const Field<_t$_R3, dynamic> _f$description = Field(
+  static const Field<_t$_R2, dynamic> _f$description = Field(
     'description',
     _$description,
     arg: _arg$description,
   );
-  static dynamic _$isElite(_t$_R3 v) => v.isElite;
+  static dynamic _$isElite(_t$_R2 v) => v.isElite;
   static dynamic _arg$isElite<A, B, C>(f) => f<B>();
-  static const Field<_t$_R3, dynamic> _f$isElite = Field(
+  static const Field<_t$_R2, dynamic> _f$isElite = Field(
     'isElite',
     _$isElite,
     arg: _arg$isElite,
   );
-  static dynamic _$title(_t$_R3 v) => v.title;
+  static dynamic _$title(_t$_R2 v) => v.title;
   static dynamic _arg$title<A, B, C>(f) => f<C>();
-  static const Field<_t$_R3, dynamic> _f$title = Field(
+  static const Field<_t$_R2, dynamic> _f$title = Field(
     'title',
     _$title,
     arg: _arg$title,
   );
 
   @override
-  final MappableFields<_t$_R3> fields = const {
+  final MappableFields<_t$_R2> fields = const {
     #description: _f$description,
     #isElite: _f$isElite,
     #title: _f$title,
@@ -1412,9 +1367,9 @@ class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
 
   @override
   Function get typeFactory =>
-      <A, B, C>(f) => f<_t$_R3<A, B, C>>();
+      <A, B, C>(f) => f<_t$_R2<A, B, C>>();
 
-  static _t$_R3<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R3> data) {
+  static _t$_R2<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R2> data) {
     return (
       description: data.dec(_f$description),
       isElite: data.dec(_f$isElite),
@@ -1425,67 +1380,67 @@ class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
   @override
   final Function instantiate = _instantiate;
 
-  static _t$_R3<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R3<A, B, C>>(map);
+  static _t$_R2<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R2<A, B, C>>(map);
   }
 
-  static _t$_R3<A, B, C> fromJson<A, B, C>(String json) {
-    return ensureInitialized().decodeJson<_t$_R3<A, B, C>>(json);
+  static _t$_R2<A, B, C> fromJson<A, B, C>(String json) {
+    return ensureInitialized().decodeJson<_t$_R2<A, B, C>>(json);
   }
 }
 
-typedef _t$_R2<A, B> = ({A description, B title});
+typedef _t$_R1<A, B> = ({A description, B title});
 
-class _t$_R2Mapper extends RecordMapperBase<_t$_R2> {
-  static _t$_R2Mapper? _instance;
-  _t$_R2Mapper._();
+class _t$_R1Mapper extends RecordMapperBase<_t$_R1> {
+  static _t$_R1Mapper? _instance;
+  _t$_R1Mapper._();
 
-  static _t$_R2Mapper ensureInitialized() {
+  static _t$_R1Mapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R2Mapper._());
+      MapperContainer.globals.use(_instance = _t$_R1Mapper._());
       MapperBase.addType(<A, B>(f) => f<({A description, B title})>());
     }
     return _instance!;
   }
 
-  static dynamic _$description(_t$_R2 v) => v.description;
+  static dynamic _$description(_t$_R1 v) => v.description;
   static dynamic _arg$description<A, B>(f) => f<A>();
-  static const Field<_t$_R2, dynamic> _f$description = Field(
+  static const Field<_t$_R1, dynamic> _f$description = Field(
     'description',
     _$description,
     arg: _arg$description,
   );
-  static dynamic _$title(_t$_R2 v) => v.title;
+  static dynamic _$title(_t$_R1 v) => v.title;
   static dynamic _arg$title<A, B>(f) => f<B>();
-  static const Field<_t$_R2, dynamic> _f$title = Field(
+  static const Field<_t$_R1, dynamic> _f$title = Field(
     'title',
     _$title,
     arg: _arg$title,
   );
 
   @override
-  final MappableFields<_t$_R2> fields = const {
+  final MappableFields<_t$_R1> fields = const {
     #description: _f$description,
     #title: _f$title,
   };
 
   @override
   Function get typeFactory =>
-      <A, B>(f) => f<_t$_R2<A, B>>();
+      <A, B>(f) => f<_t$_R1<A, B>>();
 
-  static _t$_R2<A, B> _instantiate<A, B>(DecodingData<_t$_R2> data) {
+  static _t$_R1<A, B> _instantiate<A, B>(DecodingData<_t$_R1> data) {
     return (description: data.dec(_f$description), title: data.dec(_f$title));
   }
 
   @override
   final Function instantiate = _instantiate;
 
-  static _t$_R2<A, B> fromMap<A, B>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R2<A, B>>(map);
+  static _t$_R1<A, B> fromMap<A, B>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R1<A, B>>(map);
   }
 
-  static _t$_R2<A, B> fromJson<A, B>(String json) {
-    return ensureInitialized().decodeJson<_t$_R2<A, B>>(json);
+  static _t$_R1<A, B> fromJson<A, B>(String json) {
+    return ensureInitialized().decodeJson<_t$_R1<A, B>>(json);
   }
 }
 
@@ -1544,44 +1499,44 @@ class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
   }
 }
 
-typedef _t$_R4<A, B, C> = ({A enemy, B name, C type});
+typedef _t$_R3<A, B, C> = ({A enemy, B name, C type});
 
-class _t$_R4Mapper extends RecordMapperBase<_t$_R4> {
-  static _t$_R4Mapper? _instance;
-  _t$_R4Mapper._();
+class _t$_R3Mapper extends RecordMapperBase<_t$_R3> {
+  static _t$_R3Mapper? _instance;
+  _t$_R3Mapper._();
 
-  static _t$_R4Mapper ensureInitialized() {
+  static _t$_R3Mapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = _t$_R4Mapper._());
+      MapperContainer.globals.use(_instance = _t$_R3Mapper._());
       MapperBase.addType(<A, B, C>(f) => f<({A enemy, B name, C type})>());
     }
     return _instance!;
   }
 
-  static dynamic _$enemy(_t$_R4 v) => v.enemy;
+  static dynamic _$enemy(_t$_R3 v) => v.enemy;
   static dynamic _arg$enemy<A, B, C>(f) => f<A>();
-  static const Field<_t$_R4, dynamic> _f$enemy = Field(
+  static const Field<_t$_R3, dynamic> _f$enemy = Field(
     'enemy',
     _$enemy,
     arg: _arg$enemy,
   );
-  static dynamic _$name(_t$_R4 v) => v.name;
+  static dynamic _$name(_t$_R3 v) => v.name;
   static dynamic _arg$name<A, B, C>(f) => f<B>();
-  static const Field<_t$_R4, dynamic> _f$name = Field(
+  static const Field<_t$_R3, dynamic> _f$name = Field(
     'name',
     _$name,
     arg: _arg$name,
   );
-  static dynamic _$type(_t$_R4 v) => v.type;
+  static dynamic _$type(_t$_R3 v) => v.type;
   static dynamic _arg$type<A, B, C>(f) => f<C>();
-  static const Field<_t$_R4, dynamic> _f$type = Field(
+  static const Field<_t$_R3, dynamic> _f$type = Field(
     'type',
     _$type,
     arg: _arg$type,
   );
 
   @override
-  final MappableFields<_t$_R4> fields = const {
+  final MappableFields<_t$_R3> fields = const {
     #enemy: _f$enemy,
     #name: _f$name,
     #type: _f$type,
@@ -1589,9 +1544,9 @@ class _t$_R4Mapper extends RecordMapperBase<_t$_R4> {
 
   @override
   Function get typeFactory =>
-      <A, B, C>(f) => f<_t$_R4<A, B, C>>();
+      <A, B, C>(f) => f<_t$_R3<A, B, C>>();
 
-  static _t$_R4<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R4> data) {
+  static _t$_R3<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R3> data) {
     return (
       enemy: data.dec(_f$enemy),
       name: data.dec(_f$name),
@@ -1602,12 +1557,12 @@ class _t$_R4Mapper extends RecordMapperBase<_t$_R4> {
   @override
   final Function instantiate = _instantiate;
 
-  static _t$_R4<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<_t$_R4<A, B, C>>(map);
+  static _t$_R3<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R3<A, B, C>>(map);
   }
 
-  static _t$_R4<A, B, C> fromJson<A, B, C>(String json) {
-    return ensureInitialized().decodeJson<_t$_R4<A, B, C>>(json);
+  static _t$_R3<A, B, C> fromJson<A, B, C>(String json) {
+    return ensureInitialized().decodeJson<_t$_R3<A, B, C>>(json);
   }
 }
 
