@@ -17,6 +17,7 @@ export 'nightwave.dart';
 export 'reward.dart';
 export 'sentient_outpost.dart';
 export 'sortie.dart';
+export 'steel_path.dart';
 export 'syndicate.dart';
 export 'trader.dart';
 export 'vallis_cycle.dart';

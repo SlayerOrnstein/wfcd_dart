@@ -47,7 +47,7 @@ SortieModifier sortieModifier(String resource, [String locale = 'en']) {
 }
 
 /// Get Steel path rotation and evergreen items
-SteelPathData steelPath([String locale = 'en']) {
+SteelPathData steelPathOfferings([String locale = 'en']) {
   final data = i18n(locale).steelPath;
 
   return (

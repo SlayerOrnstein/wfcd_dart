@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
@@ -28,6 +30,7 @@ class RawWorldstate with RawWorldstateMappable {
     required this.seasonInfo,
     required this.knownCalendarSeasons,
     required this.conquests,
+    required this.tmp,
   });
 
   static const fromJson = RawWorldstateMapper.fromJson;
@@ -55,6 +58,7 @@ class RawWorldstate with RawWorldstateMappable {
   final RawSeasonInfo seasonInfo;
   final List<RawCalendar> knownCalendarSeasons;
   final List<RawConquest> conquests;
+  final String tmp;
 
   Future<Worldstate> toWorldstate([String locale = 'en']) => Worldstate.fromRaw(this, locale);
 }
@@ -86,6 +90,8 @@ class Worldstate with WorldstateMappable {
     required this.vallisCycle,
     required this.cambionCycle,
     required this.zarimanCycle,
+    required this.sentientOutpost,
+    required this.steelPath,
   });
 
   static const fromJson = WorldstateMapper.fromJson;
@@ -93,6 +99,7 @@ class Worldstate with WorldstateMappable {
   static const fromMap = WorldEventMapper.fromMap;
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
+    final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
     final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
 
@@ -124,6 +131,8 @@ class Worldstate with WorldstateMappable {
       vallisCycle: VallisCycle.init(),
       cambionCycle: CambionCycle.fromBountiesEndDate(cetusBountyEnd),
       zarimanCycle: ZarimanCycle.fromBountiesEndDate(cetusBountyEnd),
+      sentientOutpost: SentientOutpost.fromSfn(tmp['sfn'] as int?),
+      steelPath: SteelPath.init(),
     );
   }
 
@@ -151,4 +160,6 @@ class Worldstate with WorldstateMappable {
   final VallisCycle vallisCycle;
   final CambionCycle cambionCycle;
   final ZarimanCycle zarimanCycle;
+  final SentientOutpost sentientOutpost;
+  final SteelPath steelPath;
 }

@@ -164,6 +164,12 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$conquests,
     key: r'Conquests',
   );
+  static String _$tmp(RawWorldstate v) => v.tmp;
+  static const Field<RawWorldstate, String> _f$tmp = Field(
+    'tmp',
+    _$tmp,
+    key: r'Tmp',
+  );
 
   @override
   final MappableFields<RawWorldstate> fields = const {
@@ -188,6 +194,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     #seasonInfo: _f$seasonInfo,
     #knownCalendarSeasons: _f$knownCalendarSeasons,
     #conquests: _f$conquests,
+    #tmp: _f$tmp,
   };
   @override
   final bool ignoreNull = true;
@@ -215,6 +222,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       seasonInfo: data.dec(_f$seasonInfo),
       knownCalendarSeasons: data.dec(_f$knownCalendarSeasons),
       conquests: data.dec(_f$conquests),
+      tmp: data.dec(_f$tmp),
     );
   }
 
@@ -379,6 +387,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     RawSeasonInfo? seasonInfo,
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
+    String? tmp,
   });
   RawWorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -587,6 +596,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     RawSeasonInfo? seasonInfo,
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
+    String? tmp,
   }) => $apply(
     FieldCopyWithData({
       if (time != null) #time: time,
@@ -611,6 +621,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       if (knownCalendarSeasons != null)
         #knownCalendarSeasons: knownCalendarSeasons,
       if (conquests != null) #conquests: conquests,
+      if (tmp != null) #tmp: tmp,
     }),
   );
   @override
@@ -645,6 +656,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       or: $value.knownCalendarSeasons,
     ),
     conquests: data.get(#conquests, or: $value.conquests),
+    tmp: data.get(#tmp, or: $value.tmp),
   );
 
   @override
@@ -680,6 +692,8 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       CetusCycleMapper.ensureInitialized();
       CambionCycleMapper.ensureInitialized();
       ZarimanCycleMapper.ensureInitialized();
+      SentientOutpostMapper.ensureInitialized();
+      SteelPathMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -799,6 +813,16 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'zarimanCycle',
     _$zarimanCycle,
   );
+  static SentientOutpost _$sentientOutpost(Worldstate v) => v.sentientOutpost;
+  static const Field<Worldstate, SentientOutpost> _f$sentientOutpost = Field(
+    'sentientOutpost',
+    _$sentientOutpost,
+  );
+  static SteelPath _$steelPath(Worldstate v) => v.steelPath;
+  static const Field<Worldstate, SteelPath> _f$steelPath = Field(
+    'steelPath',
+    _$steelPath,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -826,6 +850,8 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #vallisCycle: _f$vallisCycle,
     #cambionCycle: _f$cambionCycle,
     #zarimanCycle: _f$zarimanCycle,
+    #sentientOutpost: _f$sentientOutpost,
+    #steelPath: _f$steelPath,
   };
   @override
   final bool ignoreNull = true;
@@ -856,6 +882,8 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       vallisCycle: data.dec(_f$vallisCycle),
       cambionCycle: data.dec(_f$cambionCycle),
       zarimanCycle: data.dec(_f$zarimanCycle),
+      sentientOutpost: data.dec(_f$sentientOutpost),
+      steelPath: data.dec(_f$steelPath),
     );
   }
 
@@ -962,6 +990,9 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   CetusCycleCopyWith<$R, CetusCycle, CetusCycle> get cetusCycle;
   CambionCycleCopyWith<$R, CambionCycle, CambionCycle> get cambionCycle;
   ZarimanCycleCopyWith<$R, ZarimanCycle, ZarimanCycle> get zarimanCycle;
+  SentientOutpostCopyWith<$R, SentientOutpost, SentientOutpost>
+  get sentientOutpost;
+  SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath;
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -987,6 +1018,8 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     VallisCycle? vallisCycle,
     CambionCycle? cambionCycle,
     ZarimanCycle? zarimanCycle,
+    SentientOutpost? sentientOutpost,
+    SteelPath? steelPath,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1123,6 +1156,13 @@ class _WorldstateCopyWithImpl<$R, $Out>
   ZarimanCycleCopyWith<$R, ZarimanCycle, ZarimanCycle> get zarimanCycle =>
       $value.zarimanCycle.copyWith.$chain((v) => call(zarimanCycle: v));
   @override
+  SentientOutpostCopyWith<$R, SentientOutpost, SentientOutpost>
+  get sentientOutpost =>
+      $value.sentientOutpost.copyWith.$chain((v) => call(sentientOutpost: v));
+  @override
+  SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath =>
+      $value.steelPath.copyWith.$chain((v) => call(steelPath: v));
+  @override
   $R call({
     DateTime? timestamp,
     List<News>? news,
@@ -1148,6 +1188,8 @@ class _WorldstateCopyWithImpl<$R, $Out>
     VallisCycle? vallisCycle,
     CambionCycle? cambionCycle,
     ZarimanCycle? zarimanCycle,
+    SentientOutpost? sentientOutpost,
+    SteelPath? steelPath,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1175,6 +1217,8 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (vallisCycle != null) #vallisCycle: vallisCycle,
       if (cambionCycle != null) #cambionCycle: cambionCycle,
       if (zarimanCycle != null) #zarimanCycle: zarimanCycle,
+      if (sentientOutpost != null) #sentientOutpost: sentientOutpost,
+      if (steelPath != null) #steelPath: steelPath,
     }),
   );
   @override
@@ -1209,6 +1253,8 @@ class _WorldstateCopyWithImpl<$R, $Out>
     vallisCycle: data.get(#vallisCycle, or: $value.vallisCycle),
     cambionCycle: data.get(#cambionCycle, or: $value.cambionCycle),
     zarimanCycle: data.get(#zarimanCycle, or: $value.zarimanCycle),
+    sentientOutpost: data.get(#sentientOutpost, or: $value.sentientOutpost),
+    steelPath: data.get(#steelPath, or: $value.steelPath),
   );
 
   @override
@@ -1259,6 +1305,58 @@ class _t$_R1Mapper extends RecordMapperBase<_t$_R1> {
 
   static _t$_R1<A> fromJson<A>(String json) {
     return ensureInitialized().decodeJson<_t$_R1<A>>(json);
+  }
+}
+
+typedef _t$_R5<A, B> = ({A cost, B name});
+
+class _t$_R5Mapper extends RecordMapperBase<_t$_R5> {
+  static _t$_R5Mapper? _instance;
+  _t$_R5Mapper._();
+
+  static _t$_R5Mapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = _t$_R5Mapper._());
+      MapperBase.addType(<A, B>(f) => f<({A cost, B name})>());
+    }
+    return _instance!;
+  }
+
+  static dynamic _$cost(_t$_R5 v) => v.cost;
+  static dynamic _arg$cost<A, B>(f) => f<A>();
+  static const Field<_t$_R5, dynamic> _f$cost = Field(
+    'cost',
+    _$cost,
+    arg: _arg$cost,
+  );
+  static dynamic _$name(_t$_R5 v) => v.name;
+  static dynamic _arg$name<A, B>(f) => f<B>();
+  static const Field<_t$_R5, dynamic> _f$name = Field(
+    'name',
+    _$name,
+    arg: _arg$name,
+  );
+
+  @override
+  final MappableFields<_t$_R5> fields = const {#cost: _f$cost, #name: _f$name};
+
+  @override
+  Function get typeFactory =>
+      <A, B>(f) => f<_t$_R5<A, B>>();
+
+  static _t$_R5<A, B> _instantiate<A, B>(DecodingData<_t$_R5> data) {
+    return (cost: data.dec(_f$cost), name: data.dec(_f$name));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static _t$_R5<A, B> fromMap<A, B>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R5<A, B>>(map);
+  }
+
+  static _t$_R5<A, B> fromJson<A, B>(String json) {
+    return ensureInitialized().decodeJson<_t$_R5<A, B>>(json);
   }
 }
 
@@ -1438,6 +1536,73 @@ class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
 
   static _t$_R0<A, B> fromJson<A, B>(String json) {
     return ensureInitialized().decodeJson<_t$_R0<A, B>>(json);
+  }
+}
+
+typedef _t$_R4<A, B, C> = ({A enemy, B name, C type});
+
+class _t$_R4Mapper extends RecordMapperBase<_t$_R4> {
+  static _t$_R4Mapper? _instance;
+  _t$_R4Mapper._();
+
+  static _t$_R4Mapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = _t$_R4Mapper._());
+      MapperBase.addType(<A, B, C>(f) => f<({A enemy, B name, C type})>());
+    }
+    return _instance!;
+  }
+
+  static dynamic _$enemy(_t$_R4 v) => v.enemy;
+  static dynamic _arg$enemy<A, B, C>(f) => f<A>();
+  static const Field<_t$_R4, dynamic> _f$enemy = Field(
+    'enemy',
+    _$enemy,
+    arg: _arg$enemy,
+  );
+  static dynamic _$name(_t$_R4 v) => v.name;
+  static dynamic _arg$name<A, B, C>(f) => f<B>();
+  static const Field<_t$_R4, dynamic> _f$name = Field(
+    'name',
+    _$name,
+    arg: _arg$name,
+  );
+  static dynamic _$type(_t$_R4 v) => v.type;
+  static dynamic _arg$type<A, B, C>(f) => f<C>();
+  static const Field<_t$_R4, dynamic> _f$type = Field(
+    'type',
+    _$type,
+    arg: _arg$type,
+  );
+
+  @override
+  final MappableFields<_t$_R4> fields = const {
+    #enemy: _f$enemy,
+    #name: _f$name,
+    #type: _f$type,
+  };
+
+  @override
+  Function get typeFactory =>
+      <A, B, C>(f) => f<_t$_R4<A, B, C>>();
+
+  static _t$_R4<A, B, C> _instantiate<A, B, C>(DecodingData<_t$_R4> data) {
+    return (
+      enemy: data.dec(_f$enemy),
+      name: data.dec(_f$name),
+      type: data.dec(_f$type),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static _t$_R4<A, B, C> fromMap<A, B, C>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<_t$_R4<A, B, C>>(map);
+  }
+
+  static _t$_R4<A, B, C> fromJson<A, B, C>(String json) {
+    return ensureInitialized().decodeJson<_t$_R4<A, B, C>>(json);
   }
 }
 

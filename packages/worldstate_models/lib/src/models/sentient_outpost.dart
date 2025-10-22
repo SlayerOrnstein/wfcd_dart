@@ -9,8 +9,8 @@ part 'sentient_outpost.mapper.dart';
 class SentientOutpost extends WorldstateObject with SentientOutpostMappable {
   SentientOutpost({required super.id, required super.activation, required super.expiry, required this.node});
 
-  factory SentientOutpost.fromSfn(String? sfn, [String locale = 'en']) {
-    final node = sfn ?? '000';
+  factory SentientOutpost.fromSfn(int? sfn, [String locale = 'en']) {
+    final node = sfn?.toString() ?? '000';
     final cycle = calculateSentientOutpost();
 
     return SentientOutpost(

@@ -167,8 +167,8 @@ void main() {
   });
 
   test('steelPath() => get steel path item data', () {
-    expect(steelPath().rotation, isNotEmpty);
-    expect(steelPath().evergreen, isNotEmpty);
+    expect(steelPathOfferings().rotation, isNotEmpty);
+    expect(steelPathOfferings().evergreen, isNotEmpty);
   });
 
   // I want to test this anyways
