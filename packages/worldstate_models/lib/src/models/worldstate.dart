@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
@@ -100,8 +101,10 @@ class Worldstate with WorldstateMappable {
 
   static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
+
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
     final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
+    raw.events.retainWhere((n) => n.messages.firstWhereOrNull((m) => m['LanguageCode'] == locale) != null);
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),

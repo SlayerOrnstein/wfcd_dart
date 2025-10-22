@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
@@ -63,7 +64,7 @@ class News with NewsMappable {
       link: event.prop ?? 'https://www.warframe.com/',
       imageLink: event.imageUrl ?? 'https://cdn.warframestat.us/genesis/img/news-placeholder.png',
       date: date,
-      translations: messages..remove(locale),
+      translations: messages,
       isPriority: event.priority,
       isUpdate: event.prop?.contains(updateRegEx) ?? false,
       isPrimeAccess: event.prop?.contains(primeAccessRegEx) ?? false,
@@ -112,13 +113,24 @@ class News with NewsMappable {
   final bool isCommunity;
 
   static String _getMessage(Map<String, String> messages, String langCode) {
-    return messages[langCode] ?? messages.entries.firstOrNull?.value ?? '';
+    final message = messages[langCode] ?? messages.entries.firstOrNull?.value ?? '';
+    if (message.contains('/Lotus/')) return normalizeResourceName(message);
+
+    return message;
   }
 
   static Map<String, String> _buildTranslations(List<JsonObject> messages) {
     return List<Map<String, dynamic>>.from(messages).fold(
       <String, String>{},
-      (prev, next) => prev..putIfAbsent(next['LanguageCode']! as String, () => next['Message']! as String),
+      (prev, next) => prev
+        ..putIfAbsent(
+          next['LanguageCode']! as String,
+          () {
+            final message = next['Message']! as String;
+            if (message.contains('/Lotus/')) return normalizeResourceName(message);
+            return message;
+          },
+        ),
     );
   }
 }
