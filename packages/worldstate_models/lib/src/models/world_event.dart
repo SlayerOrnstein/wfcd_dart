@@ -40,7 +40,11 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final int count;
   final double? healthPct;
   final String desc;
+
+  // Mappable converts tooltip to Tooltip
+  @MappableField(key: 'ToolTip')
   final String? tooltip;
+
   final bool? optionalInMission;
   final bool personal;
   final bool? community;

@@ -86,7 +86,7 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
   static const Field<RawGoal, String> _f$tooltip = Field(
     'tooltip',
     _$tooltip,
-    key: r'Tooltip',
+    key: r'ToolTip',
   );
   static bool? _$optionalInMission(RawGoal v) => v.optionalInMission;
   static const Field<RawGoal, bool> _f$optionalInMission = Field(
