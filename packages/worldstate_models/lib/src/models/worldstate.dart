@@ -104,7 +104,7 @@ class Worldstate with WorldstateMappable {
     final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
 
     return Worldstate(
-      timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000),
+      timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),
       news: await parseArray(raw.events, (event) => News.fromRaw(event, locale)),
       events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, locale)),
       alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, locale)),
