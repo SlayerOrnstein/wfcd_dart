@@ -151,7 +151,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     final isVallis = resource.contains('VenusJob');
     final isDeimos = resource.contains('DeimosMissionRewards');
 
-    final rotation = isBounty ? bountyMatchs.group(1) ?? '' : '';
+    final rotation = isBounty ? bountyMatchs.group(2) ?? '' : '';
     final levelString = '${raw.minEnemyLevel} - ${raw.maxEnemyLevel}';
 
     late String location;
