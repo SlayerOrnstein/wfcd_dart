@@ -21,7 +21,7 @@ class VallisCycle extends WorldstateObject with VallisCycleMappable {
     final cycle = calculateCurrentVallisCycle();
 
     return VallisCycle(
-      id: hash('VallisCycle${cycle.timeAtNext}'),
+      id: hash('VallisCycle${cycle.state}${cycle.timeAtNext.copyWith(millisecond: 0, microsecond: 0)}'),
       activation: cycle.timeAtPrevious,
       expiry: cycle.timeAtNext,
       isWarm: cycle.state == VallisState.warm,

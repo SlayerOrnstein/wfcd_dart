@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/retry.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
@@ -190,8 +191,10 @@ class SyndicateBounty with SyndicateBountyMappable {
     }
 
     final url = '$apiBase/drops/search/${Uri.encodeComponent(location)}?grouped_by=location';
-    final res = json.decode((await http.get(Uri.parse(url))).body) as Map<String, dynamic>;
-    final pool = res[locationRotation] as Map<String, dynamic>?;
+
+    final res = await RetryClient(http.Client()).get(Uri.parse(url));
+    final data = json.decode(res.body) as Map<String, dynamic>;
+    final pool = data[locationRotation] as Map<String, dynamic>?;
     if (pool == null) return null;
 
     final rewards = List<JsonObject>.from(pool['rewards'] as List<dynamic>? ?? []);

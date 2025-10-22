@@ -33,6 +33,7 @@ CurrentCetusCycle calculateCurrentCetusCycle(DateTime bountiesEnd) {
 
   final expiry = DateTime.fromMillisecondsSinceEpoch(
     (((now.millisecondsSinceEpoch + millisLeft) / minutesCoef) * minutesCoef).round(),
+    isUtc: true,
   );
 
   final state = isDay ? CetusState.day : CetusState.night;
@@ -55,7 +56,7 @@ CurrentDuviriPhase calculateCurrentDuviriPhase() {
   final stateDelta = cycleDelta % stateTime;
   final untilNext = stateTime - stateDelta;
   final expiry = timestamp + Duration(milliseconds: untilNext * 1_000);
-  final activation = DateTime.fromMillisecondsSinceEpoch(expiry.millisecondsSinceEpoch - stateTime * 1000);
+  final activation = DateTime.fromMillisecondsSinceEpoch(expiry.millisecondsSinceEpoch - stateTime * 1000, isUtc: true);
 
   return (state: DuviriState.values.elementAt(stateInd), activation: activation, expiry: expiry);
 }
@@ -117,6 +118,7 @@ CurrentZarimanCycle calculateCurrentZarimanCycle(DateTime bountiesEnd) {
   const minutesCoef = 1_000 * 60;
   final expiry = DateTime.fromMillisecondsSinceEpoch(
     ((now.millisecondsSinceEpoch + millisLeft) / minutesCoef).round() * minutesCoef,
+    isUtc: true,
   );
 
   return (
@@ -137,7 +139,7 @@ CurrentZarimanCycle calculateCurrentZarimanCycle(DateTime bountiesEnd) {
   final expiry = (now - cycleSeconds + duration) * 1000;
 
   return (
-    activation: DateTime.fromMillisecondsSinceEpoch(activation),
-    expiry: DateTime.fromMillisecondsSinceEpoch(expiry),
+    activation: DateTime.fromMillisecondsSinceEpoch(activation, isUtc: true),
+    expiry: DateTime.fromMillisecondsSinceEpoch(expiry, isUtc: true),
   );
 }
