@@ -30,7 +30,7 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
     final phase = calculateCurrentDuviriPhase();
 
     return DuviriCycle(
-      id: hash(phase.activation.toIso8601String() + phase.expiry.toIso8601String()),
+      id: hash('DuviriCycle${phase.state.name}${phase.expiry}'),
       activation: phase.activation,
       expiry: phase.expiry,
       state: phase.state,
