@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 /// Represents a Node
@@ -10,5 +11,7 @@ Map<String, Node> solNodes([String locale = 'en']) =>
 /// Extensions on [Map<String, SolNode>]
 extension SolNodeExtension on Map<String, Node> {
   /// Get in-game Node name.
-  Node fetchNode(String node) => this[node] ?? (name: node, enemy: null, type: null);
+  Node fetchNode(String node) {
+    return this[node] ?? this[keys.firstWhereOrNull((n) => n.contains(node))] ?? (name: node, enemy: null, type: null);
+  }
 }

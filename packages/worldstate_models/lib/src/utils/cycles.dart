@@ -126,3 +126,18 @@ CurrentZarimanCycle calculateCurrentZarimanCycle(DateTime bountiesEnd) {
     state: isCorpus ? ZarimanState.corpus : ZarimanState.grineer,
   );
 }
+
+({DateTime activation, DateTime expiry}) calculateSentientOutpost() {
+  const duration = 1_800;
+
+  final now = (DateTime.timestamp().millisecondsSinceEpoch / 1000).floor();
+  final cycleSeconds = now % duration;
+
+  final activation = (now - cycleSeconds) * 1000;
+  final expiry = (now - cycleSeconds + duration) * 1000;
+
+  return (
+    activation: DateTime.fromMillisecondsSinceEpoch(activation),
+    expiry: DateTime.fromMillisecondsSinceEpoch(expiry),
+  );
+}
