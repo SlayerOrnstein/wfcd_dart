@@ -22,7 +22,7 @@ class RawReward with RawRewardMappable {
 
 @MappableClass()
 class Reward with RewardMappable {
-  Reward({required this.items, required this.countedItems, required this.credits, required this.itemString});
+  Reward({required this.items, required this.countedItems, required this.credits});
 
   factory Reward.fromRaw(RawReward raw, [String locale = 'en']) {
     final countedItems = raw.countedItems?.map<CountedItem>((i) => _toCountedItem(i, locale)).toList();
@@ -31,7 +31,6 @@ class Reward with RewardMappable {
       items: raw.items?.map(languages(locale).fetchValue).toList(),
       countedItems: countedItems,
       credits: raw.credits,
-      itemString: countedItems?.fold('', (p, n) => '${p.isNotEmpty ? '$p +' : ''} ${n.count} ${n.key}').trim(),
     );
   }
 
@@ -45,7 +44,8 @@ class Reward with RewardMappable {
   final int? credits;
 
   /// Items being rewarded in string format
-  final String? itemString;
+  String? get itemString =>
+      countedItems?.fold('', (p, n) => '${p.isNotEmpty ? '$p +' : ''} ${n.count} ${n.key}').trim() ?? items?.join('+');
 
   static CountedItem _toCountedItem(Map<String, dynamic> item, String locale) {
     final type = item['ItemType'] as String;
