@@ -641,7 +641,7 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
   static SyndicateBountyMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = SyndicateBountyMapper._());
-      BountyRewardMapper.ensureInitialized();
+      RewardDropMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -686,8 +686,8 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     'isVault',
     _$isVault,
   );
-  static List<BountyReward> _$rewardPool(SyndicateBounty v) => v.rewardPool;
-  static const Field<SyndicateBounty, List<BountyReward>> _f$rewardPool = Field(
+  static List<RewardDrop> _$rewardPool(SyndicateBounty v) => v.rewardPool;
+  static const Field<SyndicateBounty, List<RewardDrop>> _f$rewardPool = Field(
     'rewardPool',
     _$rewardPool,
     opt: true,
@@ -786,7 +786,7 @@ extension SyndicateBountyValueCopy<$R, $Out>
 abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get rewards;
-  ListCopyWith<$R, BountyReward, ObjectCopyWith<$R, BountyReward, BountyReward>>
+  ListCopyWith<$R, RewardDrop, RewardDropCopyWith<$R, RewardDrop, RewardDrop>>
   get rewardPool;
   $R call({
     String? type,
@@ -797,7 +797,7 @@ abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     bool? isEndless,
     int? standing,
     bool? isVault,
-    List<BountyReward>? rewardPool,
+    List<RewardDrop>? rewardPool,
   });
   SyndicateBountyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -820,10 +820,10 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
         (v) => call(rewards: v),
       );
   @override
-  ListCopyWith<$R, BountyReward, ObjectCopyWith<$R, BountyReward, BountyReward>>
+  ListCopyWith<$R, RewardDrop, RewardDropCopyWith<$R, RewardDrop, RewardDrop>>
   get rewardPool => ListCopyWith(
     $value.rewardPool,
-    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v, t) => v.copyWith.$chain(t),
     (v) => call(rewardPool: v),
   );
   @override
@@ -836,7 +836,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     Object? isEndless = $none,
     int? standing,
     Object? isVault = $none,
-    List<BountyReward>? rewardPool,
+    List<RewardDrop>? rewardPool,
   }) => $apply(
     FieldCopyWithData({
       if (type != $none) #type: type,
@@ -872,113 +872,140 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   ) => _SyndicateBountyCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
-class BountyRewardMapper extends RecordMapperBase<BountyReward> {
-  static BountyRewardMapper? _instance;
-  BountyRewardMapper._();
+class RewardDropMapper extends ClassMapperBase<RewardDrop> {
+  RewardDropMapper._();
 
-  static BountyRewardMapper ensureInitialized() {
+  static RewardDropMapper? _instance;
+  static RewardDropMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = BountyRewardMapper._());
-      MapperBase.addType(<A, B, C>(f) => f<({A chance, B item, C rarity})>());
+      MapperContainer.globals.use(_instance = RewardDropMapper._());
     }
     return _instance!;
   }
 
-  static String _$item(BountyReward v) => v.item;
-  static const Field<BountyReward, String> _f$item = Field('item', _$item);
-  static String _$rarity(BountyReward v) => v.rarity;
-  static const Field<BountyReward, String> _f$rarity = Field(
-    'rarity',
-    _$rarity,
-  );
-  static num _$chance(BountyReward v) => v.chance;
-  static const Field<BountyReward, num> _f$chance = Field('chance', _$chance);
+  @override
+  final String id = 'RewardDrop';
+
+  static String _$item(RewardDrop v) => v.item;
+  static const Field<RewardDrop, String> _f$item = Field('item', _$item);
+  static String _$rarity(RewardDrop v) => v.rarity;
+  static const Field<RewardDrop, String> _f$rarity = Field('rarity', _$rarity);
+  static num _$chance(RewardDrop v) => v.chance;
+  static const Field<RewardDrop, num> _f$chance = Field('chance', _$chance);
+  static int _$count(RewardDrop v) => v.count;
+  static const Field<RewardDrop, int> _f$count = Field('count', _$count);
 
   @override
-  final MappableFields<BountyReward> fields = const {
+  final MappableFields<RewardDrop> fields = const {
     #item: _f$item,
     #rarity: _f$rarity,
     #chance: _f$chance,
+    #count: _f$count,
   };
-
   @override
-  Function get typeFactory =>
-      (f) => f<BountyReward>();
+  final bool ignoreNull = true;
 
-  @override
-  List<Type> apply(MappingContext context) {
-    return [];
-  }
-
-  static BountyReward _instantiate(DecodingData<BountyReward> data) {
-    return (
+  static RewardDrop _instantiate(DecodingData data) {
+    return RewardDrop(
       item: data.dec(_f$item),
       rarity: data.dec(_f$rarity),
       chance: data.dec(_f$chance),
+      count: data.dec(_f$count),
     );
   }
 
   @override
   final Function instantiate = _instantiate;
 
-  static BountyReward fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<BountyReward>(map);
+  static RewardDrop fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<RewardDrop>(map);
   }
 
-  static BountyReward fromJson(String json) {
-    return ensureInitialized().decodeJson<BountyReward>(json);
+  static RewardDrop fromJson(String json) {
+    return ensureInitialized().decodeJson<RewardDrop>(json);
   }
 }
 
-extension BountyRewardMappable on BountyReward {
-  Map<String, dynamic> toMap() {
-    return BountyRewardMapper.ensureInitialized().encodeMap(this);
-  }
-
+mixin RewardDropMappable {
   String toJson() {
-    return BountyRewardMapper.ensureInitialized().encodeJson(this);
+    return RewardDropMapper.ensureInitialized().encodeJson<RewardDrop>(
+      this as RewardDrop,
+    );
   }
 
-  BountyRewardCopyWith<BountyReward> get copyWith =>
-      _BountyRewardCopyWithImpl(this, $identity, $identity);
-}
+  Map<String, dynamic> toMap() {
+    return RewardDropMapper.ensureInitialized().encodeMap<RewardDrop>(
+      this as RewardDrop,
+    );
+  }
 
-extension BountyRewardValueCopy<$R>
-    on ObjectCopyWith<$R, BountyReward, BountyReward> {
-  BountyRewardCopyWith<$R> get $asBountyReward =>
-      $base.as((v, t, t2) => _BountyRewardCopyWithImpl(v, t, t2));
-}
-
-abstract class BountyRewardCopyWith<$R>
-    implements RecordCopyWith<$R, BountyReward> {
-  $R call({String? item, String? rarity, num? chance});
-  BountyRewardCopyWith<$R2> $chain<$R2>(Then<BountyReward, $R2> t);
-}
-
-class _BountyRewardCopyWithImpl<$R> extends RecordCopyWithBase<$R, BountyReward>
-    implements BountyRewardCopyWith<$R> {
-  _BountyRewardCopyWithImpl(super.value, super.then, super.then2);
+  RewardDropCopyWith<RewardDrop, RewardDrop, RewardDrop> get copyWith =>
+      _RewardDropCopyWithImpl<RewardDrop, RewardDrop>(
+        this as RewardDrop,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return RewardDropMapper.ensureInitialized().stringifyValue(
+      this as RewardDrop,
+    );
+  }
 
   @override
-  late final RecordMapperBase<BountyReward> $mapper =
-      BountyRewardMapper.ensureInitialized();
+  bool operator ==(Object other) {
+    return RewardDropMapper.ensureInitialized().equalsValue(
+      this as RewardDrop,
+      other,
+    );
+  }
+
   @override
-  $R call({String? item, String? rarity, num? chance}) => $apply(
+  int get hashCode {
+    return RewardDropMapper.ensureInitialized().hashValue(this as RewardDrop);
+  }
+}
+
+extension RewardDropValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, RewardDrop, $Out> {
+  RewardDropCopyWith<$R, RewardDrop, $Out> get $asRewardDrop =>
+      $base.as((v, t, t2) => _RewardDropCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class RewardDropCopyWith<$R, $In extends RewardDrop, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  $R call({String? item, String? rarity, num? chance, int? count});
+  RewardDropCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+}
+
+class _RewardDropCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, RewardDrop, $Out>
+    implements RewardDropCopyWith<$R, RewardDrop, $Out> {
+  _RewardDropCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<RewardDrop> $mapper =
+      RewardDropMapper.ensureInitialized();
+  @override
+  $R call({String? item, String? rarity, num? chance, int? count}) => $apply(
     FieldCopyWithData({
       if (item != null) #item: item,
       if (rarity != null) #rarity: rarity,
       if (chance != null) #chance: chance,
+      if (count != null) #count: count,
     }),
   );
   @override
-  BountyReward $make(CopyWithData data) => (
+  RewardDrop $make(CopyWithData data) => RewardDrop(
     item: data.get(#item, or: $value.item),
     rarity: data.get(#rarity, or: $value.rarity),
     chance: data.get(#chance, or: $value.chance),
+    count: data.get(#count, or: $value.count),
   );
 
   @override
-  BountyRewardCopyWith<$R2> $chain<$R2>(Then<BountyReward, $R2> t) =>
-      _BountyRewardCopyWithImpl($value, $cast, t);
+  RewardDropCopyWith<$R2, RewardDrop, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _RewardDropCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 

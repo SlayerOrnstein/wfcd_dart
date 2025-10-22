@@ -94,8 +94,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
   bool get isActive => super.isActive!;
 }
 
-@MappableRecord()
-typedef BountyReward = ({String item, String rarity, num chance});
+typedef _BountyReward = ({String item, String rarity, num chance});
 
 @MappableClass()
 class SyndicateBounty with SyndicateBountyMappable {
@@ -113,11 +112,12 @@ class SyndicateBounty with SyndicateBountyMappable {
 
   static Future<SyndicateBounty> fromRaw(RawJob raw, [String locale = 'en']) async {
     final rewards = await _fetchBountyRewards(raw.rewards, raw, raw.isVault ?? false);
+    final drops = rewards?.map((r) => RewardDrop.fromDrop(r.item, r.rarity, r.chance)).toList();
 
     return SyndicateBounty(
       type: raw.jobType != null ? languages(locale).fetchValue(raw.jobType!) : null,
       rewards: rewards?.isNotEmpty ?? false ? rewards!.map((r) => r.item).toSet().toList() : <String>[],
-      rewardPool: rewards?.isNotEmpty ?? false ? rewards! : [],
+      rewardPool: rewards?.isNotEmpty ?? false ? drops! : [],
       masteryRequirment: raw.masteryReq,
       minLevel: raw.minEnemyLevel,
       maxLevel: raw.maxEnemyLevel,
@@ -129,7 +129,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
   final String? type;
   final List<String> rewards;
-  final List<BountyReward> rewardPool;
+  final List<RewardDrop> rewardPool;
   final int masteryRequirment;
   final int minLevel;
   final int maxLevel;
@@ -177,7 +177,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     return (location, locationRotation);
   }
 
-  static Future<List<BountyReward>?> _fetchBountyRewards(String resource, RawJob raw, bool isVault) async {
+  static Future<List<_BountyReward>?> _fetchBountyRewards(String resource, RawJob raw, bool isVault) async {
     const apiBase = 'https://api.warframestat.us';
 
     String location;
@@ -197,6 +197,44 @@ class SyndicateBounty with SyndicateBountyMappable {
     final rewards = List<JsonObject>.from(pool['rewards'] as List<dynamic>? ?? []);
     if (rewards.isEmpty) return [];
 
-    return rewards.map<BountyReward>(BountyRewardMapper.fromMap).toList();
+    return rewards
+        .map<_BountyReward>(
+          (r) => (item: r['item'] as String, rarity: r['rarity'] as String, chance: r['chance'] as num),
+        )
+        .toList();
   }
+}
+
+/// {@template reward_drop}
+/// A bounty reward drop
+/// {@endtemplate}
+@MappableClass()
+class RewardDrop with RewardDropMappable {
+  /// {@macro reward_drop}
+  const RewardDrop({required this.item, required this.rarity, required this.chance, required this.count});
+
+  factory RewardDrop.fromDrop(String item, String rarity, num chance) {
+    // Don't usually see drop counts this high but you know, cast a wide net
+    final countReg = RegExp('([0-9]{1,10})X');
+    final count = countReg.stringMatch(item);
+
+    return RewardDrop(
+      item: item.replaceAll(countReg, ''),
+      rarity: rarity,
+      chance: chance,
+      count: count != null ? int.parse(count) : 1,
+    );
+  }
+
+  /// Item name
+  final String item;
+
+  /// Item rarity
+  final String rarity;
+
+  /// Drop chance
+  final num chance;
+
+  /// How many of this item the player will get
+  final int count;
 }
