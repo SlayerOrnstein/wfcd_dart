@@ -19,6 +19,6 @@ String normalizeResourceName(String uniqueName) => toTitleCase(splitResourceName
 WorldstateData i18n([String locale = 'en']) {
   return switch (locale) {
     'en' => WorldstateLocale.en.buildSync(),
-    _ => throw Exception('$locale is not supported'),
+    _ => WorldstateLocale.en.buildSync(),
   };
 }
