@@ -39,12 +39,6 @@ class RawEventMapper extends ClassMapperBase<RawEvent> {
     _$date,
     key: r'Date',
   );
-  static bool _$priority(RawEvent v) => v.priority;
-  static const Field<RawEvent, bool> _f$priority = Field(
-    'priority',
-    _$priority,
-    key: r'Priority',
-  );
   static String? _$prop(RawEvent v) => v.prop;
   static const Field<RawEvent, String> _f$prop = Field(
     'prop',
@@ -57,15 +51,41 @@ class RawEventMapper extends ClassMapperBase<RawEvent> {
     _$imageUrl,
     key: r'ImageUrl',
   );
+  static bool _$priority(RawEvent v) => v.priority;
+  static const Field<RawEvent, bool> _f$priority = Field(
+    'priority',
+    _$priority,
+    key: r'Priority',
+    opt: true,
+    def: false,
+  );
+  static bool _$mobileOnly(RawEvent v) => v.mobileOnly;
+  static const Field<RawEvent, bool> _f$mobileOnly = Field(
+    'mobileOnly',
+    _$mobileOnly,
+    key: r'MobileOnly',
+    opt: true,
+    def: false,
+  );
+  static bool _$community(RawEvent v) => v.community;
+  static const Field<RawEvent, bool> _f$community = Field(
+    'community',
+    _$community,
+    key: r'Community',
+    opt: true,
+    def: false,
+  );
 
   @override
   final MappableFields<RawEvent> fields = const {
     #id: _f$id,
     #messages: _f$messages,
     #date: _f$date,
-    #priority: _f$priority,
     #prop: _f$prop,
     #imageUrl: _f$imageUrl,
+    #priority: _f$priority,
+    #mobileOnly: _f$mobileOnly,
+    #community: _f$community,
   };
   @override
   final bool ignoreNull = true;
@@ -75,9 +95,11 @@ class RawEventMapper extends ClassMapperBase<RawEvent> {
       id: data.dec(_f$id),
       messages: data.dec(_f$messages),
       date: data.dec(_f$date),
-      priority: data.dec(_f$priority),
       prop: data.dec(_f$prop),
       imageUrl: data.dec(_f$imageUrl),
+      priority: data.dec(_f$priority),
+      mobileOnly: data.dec(_f$mobileOnly),
+      community: data.dec(_f$community),
     );
   }
 
@@ -151,9 +173,11 @@ abstract class RawEventCopyWith<$R, $In extends RawEvent, $Out>
     Map<String, dynamic>? id,
     List<Map<String, dynamic>>? messages,
     Map<String, dynamic>? date,
-    bool? priority,
     String? prop,
     String? imageUrl,
+    bool? priority,
+    bool? mobileOnly,
+    bool? community,
   });
   RawEventCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -198,17 +222,21 @@ class _RawEventCopyWithImpl<$R, $Out>
     Map<String, dynamic>? id,
     List<Map<String, dynamic>>? messages,
     Object? date = $none,
-    bool? priority,
     Object? prop = $none,
     Object? imageUrl = $none,
+    bool? priority,
+    bool? mobileOnly,
+    bool? community,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (messages != null) #messages: messages,
       if (date != $none) #date: date,
-      if (priority != null) #priority: priority,
       if (prop != $none) #prop: prop,
       if (imageUrl != $none) #imageUrl: imageUrl,
+      if (priority != null) #priority: priority,
+      if (mobileOnly != null) #mobileOnly: mobileOnly,
+      if (community != null) #community: community,
     }),
   );
   @override
@@ -216,9 +244,11 @@ class _RawEventCopyWithImpl<$R, $Out>
     id: data.get(#id, or: $value.id),
     messages: data.get(#messages, or: $value.messages),
     date: data.get(#date, or: $value.date),
-    priority: data.get(#priority, or: $value.priority),
     prop: data.get(#prop, or: $value.prop),
     imageUrl: data.get(#imageUrl, or: $value.imageUrl),
+    priority: data.get(#priority, or: $value.priority),
+    mobileOnly: data.get(#mobileOnly, or: $value.mobileOnly),
+    community: data.get(#community, or: $value.community),
   );
 
   @override
@@ -254,21 +284,34 @@ class NewsMapper extends ClassMapperBase<News> {
   );
   static DateTime _$date(News v) => v.date;
   static const Field<News, DateTime> _f$date = Field('date', _$date);
-  static bool _$priority(News v) => v.priority;
-  static const Field<News, bool> _f$priority = Field('priority', _$priority);
-  static bool _$update(News v) => v.update;
-  static const Field<News, bool> _f$update = Field('update', _$update);
-  static bool _$primeAccess(News v) => v.primeAccess;
-  static const Field<News, bool> _f$primeAccess = Field(
-    'primeAccess',
-    _$primeAccess,
-  );
-  static bool _$stream(News v) => v.stream;
-  static const Field<News, bool> _f$stream = Field('stream', _$stream);
   static Map<String, String> _$translations(News v) => v.translations;
   static const Field<News, Map<String, String>> _f$translations = Field(
     'translations',
     _$translations,
+  );
+  static bool _$isPriority(News v) => v.isPriority;
+  static const Field<News, bool> _f$isPriority = Field(
+    'isPriority',
+    _$isPriority,
+  );
+  static bool _$isUpdate(News v) => v.isUpdate;
+  static const Field<News, bool> _f$isUpdate = Field('isUpdate', _$isUpdate);
+  static bool _$isPrimeAccess(News v) => v.isPrimeAccess;
+  static const Field<News, bool> _f$isPrimeAccess = Field(
+    'isPrimeAccess',
+    _$isPrimeAccess,
+  );
+  static bool _$isStream(News v) => v.isStream;
+  static const Field<News, bool> _f$isStream = Field('isStream', _$isStream);
+  static bool _$isMobileOnly(News v) => v.isMobileOnly;
+  static const Field<News, bool> _f$isMobileOnly = Field(
+    'isMobileOnly',
+    _$isMobileOnly,
+  );
+  static bool _$isCommunity(News v) => v.isCommunity;
+  static const Field<News, bool> _f$isCommunity = Field(
+    'isCommunity',
+    _$isCommunity,
   );
 
   @override
@@ -278,11 +321,13 @@ class NewsMapper extends ClassMapperBase<News> {
     #link: _f$link,
     #imageLink: _f$imageLink,
     #date: _f$date,
-    #priority: _f$priority,
-    #update: _f$update,
-    #primeAccess: _f$primeAccess,
-    #stream: _f$stream,
     #translations: _f$translations,
+    #isPriority: _f$isPriority,
+    #isUpdate: _f$isUpdate,
+    #isPrimeAccess: _f$isPrimeAccess,
+    #isStream: _f$isStream,
+    #isMobileOnly: _f$isMobileOnly,
+    #isCommunity: _f$isCommunity,
   };
   @override
   final bool ignoreNull = true;
@@ -294,11 +339,13 @@ class NewsMapper extends ClassMapperBase<News> {
       link: data.dec(_f$link),
       imageLink: data.dec(_f$imageLink),
       date: data.dec(_f$date),
-      priority: data.dec(_f$priority),
-      update: data.dec(_f$update),
-      primeAccess: data.dec(_f$primeAccess),
-      stream: data.dec(_f$stream),
       translations: data.dec(_f$translations),
+      isPriority: data.dec(_f$isPriority),
+      isUpdate: data.dec(_f$isUpdate),
+      isPrimeAccess: data.dec(_f$isPrimeAccess),
+      isStream: data.dec(_f$isStream),
+      isMobileOnly: data.dec(_f$isMobileOnly),
+      isCommunity: data.dec(_f$isCommunity),
     );
   }
 
@@ -356,11 +403,13 @@ abstract class NewsCopyWith<$R, $In extends News, $Out>
     String? link,
     String? imageLink,
     DateTime? date,
-    bool? priority,
-    bool? update,
-    bool? primeAccess,
-    bool? stream,
     Map<String, String>? translations,
+    bool? isPriority,
+    bool? isUpdate,
+    bool? isPrimeAccess,
+    bool? isStream,
+    bool? isMobileOnly,
+    bool? isCommunity,
   });
   NewsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -385,11 +434,13 @@ class _NewsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, News, $Out>
     String? link,
     String? imageLink,
     DateTime? date,
-    bool? priority,
-    bool? update,
-    bool? primeAccess,
-    bool? stream,
     Map<String, String>? translations,
+    bool? isPriority,
+    bool? isUpdate,
+    bool? isPrimeAccess,
+    bool? isStream,
+    bool? isMobileOnly,
+    bool? isCommunity,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -397,11 +448,13 @@ class _NewsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, News, $Out>
       if (link != null) #link: link,
       if (imageLink != null) #imageLink: imageLink,
       if (date != null) #date: date,
-      if (priority != null) #priority: priority,
-      if (update != null) #update: update,
-      if (primeAccess != null) #primeAccess: primeAccess,
-      if (stream != null) #stream: stream,
       if (translations != null) #translations: translations,
+      if (isPriority != null) #isPriority: isPriority,
+      if (isUpdate != null) #isUpdate: isUpdate,
+      if (isPrimeAccess != null) #isPrimeAccess: isPrimeAccess,
+      if (isStream != null) #isStream: isStream,
+      if (isMobileOnly != null) #isMobileOnly: isMobileOnly,
+      if (isCommunity != null) #isCommunity: isCommunity,
     }),
   );
   @override
@@ -411,11 +464,13 @@ class _NewsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, News, $Out>
     link: data.get(#link, or: $value.link),
     imageLink: data.get(#imageLink, or: $value.imageLink),
     date: data.get(#date, or: $value.date),
-    priority: data.get(#priority, or: $value.priority),
-    update: data.get(#update, or: $value.update),
-    primeAccess: data.get(#primeAccess, or: $value.primeAccess),
-    stream: data.get(#stream, or: $value.stream),
     translations: data.get(#translations, or: $value.translations),
+    isPriority: data.get(#isPriority, or: $value.isPriority),
+    isUpdate: data.get(#isUpdate, or: $value.isUpdate),
+    isPrimeAccess: data.get(#isPrimeAccess, or: $value.isPrimeAccess),
+    isStream: data.get(#isStream, or: $value.isStream),
+    isMobileOnly: data.get(#isMobileOnly, or: $value.isMobileOnly),
+    isCommunity: data.get(#isCommunity, or: $value.isCommunity),
   );
 
   @override
