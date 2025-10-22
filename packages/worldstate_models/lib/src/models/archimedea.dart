@@ -8,11 +8,17 @@ part 'archimedea.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawConquest extends BaseContentObject with RawConquestMappable {
-  RawConquest({required super.activation, required super.expiry, required this.type, required this.missions})
-    : super(id: {});
+  RawConquest({
+    required super.activation,
+    required super.expiry,
+    required this.type,
+    required this.missions,
+    required this.variables,
+  }) : super(id: {});
 
   final String type;
   final List<RawConquestMission> missions;
+  final List<String> variables;
 }
 
 @MappableRecord()
@@ -27,6 +33,8 @@ class RawConquestMission with RawConquestMissionMappable {
   final List<RawConquestDifficulty> difficulties;
 }
 
+typedef PersonalModifiers = ({String title, String description});
+
 @MappableClass()
 class Archimedea extends WorldstateObject with ArchimedeaMappable {
   Archimedea({
@@ -35,9 +43,11 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
     required super.expiry,
     required this.type,
     required this.missions,
+    required this.personalModifiers,
   });
 
   factory Archimedea.fromRaw(RawConquest raw, String locale) {
+    final langs = data.languages(locale);
     final id = hash(raw.type + raw.activation.toString());
 
     return Archimedea(
@@ -50,11 +60,15 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
         _ => raw.type,
       },
       missions: raw.missions.map((m) => ArchimedeaMission.fromRaw(m, locale)).toList(),
+      personalModifiers: raw.variables
+          .map((r) => (title: langs.fetchValue(r), description: langs.fetchDescription(r)))
+          .toList(),
     );
   }
 
   final String type;
   final List<ArchimedeaMission> missions;
+  final List<PersonalModifiers> personalModifiers;
 
   @override
   DateTime get activation => super.activation!;

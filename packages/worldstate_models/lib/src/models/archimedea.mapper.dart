@@ -46,6 +46,12 @@ class RawConquestMapper extends ClassMapperBase<RawConquest> {
     _$missions,
     key: r'Missions',
   );
+  static List<String> _$variables(RawConquest v) => v.variables;
+  static const Field<RawConquest, List<String>> _f$variables = Field(
+    'variables',
+    _$variables,
+    key: r'Variables',
+  );
 
   @override
   final MappableFields<RawConquest> fields = const {
@@ -53,6 +59,7 @@ class RawConquestMapper extends ClassMapperBase<RawConquest> {
     #expiry: _f$expiry,
     #type: _f$type,
     #missions: _f$missions,
+    #variables: _f$variables,
   };
   @override
   final bool ignoreNull = true;
@@ -63,6 +70,7 @@ class RawConquestMapper extends ClassMapperBase<RawConquest> {
       expiry: data.dec(_f$expiry),
       type: data.dec(_f$type),
       missions: data.dec(_f$missions),
+      variables: data.dec(_f$variables),
     );
   }
 
@@ -136,11 +144,13 @@ abstract class RawConquestCopyWith<$R, $In extends RawConquest, $Out>
     RawConquestMissionCopyWith<$R, RawConquestMission, RawConquestMission>
   >
   get missions;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get variables;
   $R call({
     Map<String, dynamic>? activation,
     Map<String, dynamic>? expiry,
     String? type,
     List<RawConquestMission>? missions,
+    List<String>? variables,
   });
   RawConquestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -183,17 +193,26 @@ class _RawConquestCopyWithImpl<$R, $Out>
     (v) => call(missions: v),
   );
   @override
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get variables =>
+      ListCopyWith(
+        $value.variables,
+        (v, t) => ObjectCopyWith(v, $identity, t),
+        (v) => call(variables: v),
+      );
+  @override
   $R call({
     Object? activation = $none,
     Object? expiry = $none,
     String? type,
     List<RawConquestMission>? missions,
+    List<String>? variables,
   }) => $apply(
     FieldCopyWithData({
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (type != null) #type: type,
       if (missions != null) #missions: missions,
+      if (variables != null) #variables: variables,
     }),
   );
   @override
@@ -202,6 +221,7 @@ class _RawConquestCopyWithImpl<$R, $Out>
     expiry: data.get(#expiry, or: $value.expiry),
     type: data.get(#type, or: $value.type),
     missions: data.get(#missions, or: $value.missions),
+    variables: data.get(#variables, or: $value.variables),
   );
 
   @override
@@ -519,6 +539,7 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = ArchimedeaMapper._());
       ArchimedeaMissionMapper.ensureInitialized();
+      _t$_R0Mapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -545,6 +566,10 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
     'missions',
     _$missions,
   );
+  static List<PersonalModifiers> _$personalModifiers(Archimedea v) =>
+      v.personalModifiers;
+  static const Field<Archimedea, List<PersonalModifiers>> _f$personalModifiers =
+      Field('personalModifiers', _$personalModifiers);
 
   @override
   final MappableFields<Archimedea> fields = const {
@@ -553,6 +578,7 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
     #expiry: _f$expiry,
     #type: _f$type,
     #missions: _f$missions,
+    #personalModifiers: _f$personalModifiers,
   };
   @override
   final bool ignoreNull = true;
@@ -564,6 +590,7 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
       expiry: data.dec(_f$expiry),
       type: data.dec(_f$type),
       missions: data.dec(_f$missions),
+      personalModifiers: data.dec(_f$personalModifiers),
     );
   }
 
@@ -633,12 +660,19 @@ abstract class ArchimedeaCopyWith<$R, $In extends Archimedea, $Out>
     ArchimedeaMissionCopyWith<$R, ArchimedeaMission, ArchimedeaMission>
   >
   get missions;
+  ListCopyWith<
+    $R,
+    PersonalModifiers,
+    ObjectCopyWith<$R, PersonalModifiers, PersonalModifiers>
+  >
+  get personalModifiers;
   $R call({
     String? id,
     DateTime? activation,
     DateTime? expiry,
     String? type,
     List<ArchimedeaMission>? missions,
+    List<PersonalModifiers>? personalModifiers,
   });
   ArchimedeaCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -663,12 +697,24 @@ class _ArchimedeaCopyWithImpl<$R, $Out>
     (v) => call(missions: v),
   );
   @override
+  ListCopyWith<
+    $R,
+    PersonalModifiers,
+    ObjectCopyWith<$R, PersonalModifiers, PersonalModifiers>
+  >
+  get personalModifiers => ListCopyWith(
+    $value.personalModifiers,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(personalModifiers: v),
+  );
+  @override
   $R call({
     String? id,
     Object? activation = $none,
     Object? expiry = $none,
     String? type,
     List<ArchimedeaMission>? missions,
+    List<PersonalModifiers>? personalModifiers,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -676,6 +722,7 @@ class _ArchimedeaCopyWithImpl<$R, $Out>
       if (expiry != $none) #expiry: expiry,
       if (type != null) #type: type,
       if (missions != null) #missions: missions,
+      if (personalModifiers != null) #personalModifiers: personalModifiers,
     }),
   );
   @override
@@ -685,6 +732,10 @@ class _ArchimedeaCopyWithImpl<$R, $Out>
     expiry: data.get(#expiry, or: $value.expiry),
     type: data.get(#type, or: $value.type),
     missions: data.get(#missions, or: $value.missions),
+    personalModifiers: data.get(
+      #personalModifiers,
+      or: $value.personalModifiers,
+    ),
   );
 
   @override
