@@ -61,7 +61,7 @@ class News with NewsMappable {
         messages,
         'en',
       ).contains(RegExp('(devstream|prime-time|warframeinternational|stream)', caseSensitive: false)),
-      translations: messages..remove(locale),
+      translations: messages,
     );
   }
 
