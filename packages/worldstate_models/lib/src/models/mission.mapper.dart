@@ -86,11 +86,15 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
   static const Field<RawMission, bool> _f$archwingRequired = Field(
     'archwingRequired',
     _$archwingRequired,
+    opt: true,
+    def: false,
   );
   static bool _$isSharkwingMission(RawMission v) => v.isSharkwingMission;
   static const Field<RawMission, bool> _f$isSharkwingMission = Field(
     'isSharkwingMission',
     _$isSharkwingMission,
+    opt: true,
+    def: false,
   );
 
   @override

@@ -19,8 +19,8 @@ class RawMission with RawMissionMappable {
     required this.questReq,
     required this.maxWaveNum,
     required this.difficulty,
-    required this.archwingRequired,
-    required this.isSharkwingMission,
+    this.archwingRequired = false,
+    this.isSharkwingMission = false,
   });
 
   static const fromMap = RawMissionMapper.fromMap;
