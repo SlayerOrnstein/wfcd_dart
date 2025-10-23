@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:warframe_drop_data/src/models/drop_data.dart';
@@ -18,13 +20,16 @@ const _dropData =
 /// Parses the official drop table into [DropData]
 Future<DropData> buildDropData([Client? client]) async {
   final res = await (client ?? Client()).get(Uri.parse(_dropData));
-  final body = parse(res.body).body;
+  final webpage = await Isolate.run(() => parse(res.body));
+  final body = webpage.body;
   if (body == null) throw Exception('failed to parse body');
 
-  final bountyRewards = BountyRewardIds.values
-      .map((v) => parseBountyRewards(body, v.id))
-      .nonNulls
-      .reduce((p, n) => [...p, ...n]);
+  final bountyRewards = await Future.wait(
+    BountyRewardIds.values.map((v) => Isolate.run(() => parseBountyRewards(body, v.id))),
+  );
 
-  return DropData(blueprintLocations: parseBlueprintLocations(body), bountyRewardTables: bountyRewards);
+  return DropData(
+    blueprintLocations: parseBlueprintLocations(body),
+    bountyRewardTables: bountyRewards.nonNulls.reduce((p, n) => [...p, ...n]),
+  );
 }
