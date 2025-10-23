@@ -192,7 +192,11 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     final url = '$apiBase/drops/search/${Uri.encodeComponent(location)}?grouped_by=location';
 
-    final res = await RetryClient(http.Client()).get(Uri.parse(url));
+    final res = await RetryClient(http.Client(), when: (res) => res.statusCode != 200)
+        .get(Uri.parse(url))
+        .timeout(const Duration(seconds: Duration.secondsPerMinute * 3))
+        .onError((_, _) => http.Response('{}', 200));
+
     final data = json.decode(res.body) as Map<String, dynamic>;
     final pool = data[locationRotation] as Map<String, dynamic>?;
     if (pool == null) return null;
