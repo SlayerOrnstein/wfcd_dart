@@ -15,6 +15,7 @@ class WarframeDropData {
 const _dropData =
     'https://warframe-web-assets.nyc3.cdn.digitaloceanspaces.com/uploads/cms/hnfvc0o3jnfvc873njb03enrf56.html';
 
+/// Parses the official drop table into [DropData]
 Future<DropData> build([Client? client]) async {
   final res = await (client ?? Client()).get(Uri.parse(_dropData));
   final body = parse(res.body).body;
@@ -25,5 +26,5 @@ Future<DropData> build([Client? client]) async {
       .nonNulls
       .reduce((p, n) => [...p, ...n]);
 
-  return DropData(blueprintLocations: parseBlueprintLocations(body), bountyRewards: bountyRewards);
+  return DropData(blueprintLocations: parseBlueprintLocations(body), bountyRewardTables: bountyRewards);
 }

@@ -21,179 +21,168 @@ class RotationsMapper extends ClassMapperBase<Rotations> {
 
   @override
   final String id = 'Rotations';
+  @override
+  Function get typeFactory =>
+      <T extends RotationReward>(f) => f<Rotations<T>>();
 
   static List<RotationReward> _$a(Rotations v) => v.a;
+  static dynamic _arg$a<T extends RotationReward>(f) => f<List<T>>();
   static const Field<Rotations, List<RotationReward>> _f$a = Field(
     'a',
     _$a,
     key: r'A',
     opt: true,
-    def: const [],
+    arg: _arg$a,
   );
   static List<RotationReward> _$b(Rotations v) => v.b;
+  static dynamic _arg$b<T extends RotationReward>(f) => f<List<T>>();
   static const Field<Rotations, List<RotationReward>> _f$b = Field(
     'b',
     _$b,
     key: r'B',
     opt: true,
-    def: const [],
+    arg: _arg$b,
   );
   static List<RotationReward> _$c(Rotations v) => v.c;
+  static dynamic _arg$c<T extends RotationReward>(f) => f<List<T>>();
   static const Field<Rotations, List<RotationReward>> _f$c = Field(
     'c',
     _$c,
     key: r'C',
     opt: true,
-    def: const [],
+    arg: _arg$c,
   );
 
   @override
   final MappableFields<Rotations> fields = const {#a: _f$a, #b: _f$b, #c: _f$c};
+  @override
+  final bool ignoreNull = true;
 
-  static Rotations _instantiate(DecodingData data) {
-    return Rotations(a: data.dec(_f$a), b: data.dec(_f$b), c: data.dec(_f$c));
+  static Rotations<T> _instantiate<T extends RotationReward>(
+    DecodingData data,
+  ) {
+    return Rotations(data.dec(_f$a), data.dec(_f$b), data.dec(_f$c));
   }
 
   @override
   final Function instantiate = _instantiate;
 
-  static Rotations fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<Rotations>(map);
+  static Rotations<T> fromMap<T extends RotationReward>(
+    Map<String, dynamic> map,
+  ) {
+    return ensureInitialized().decodeMap<Rotations<T>>(map);
   }
 
-  static Rotations fromJson(String json) {
-    return ensureInitialized().decodeJson<Rotations>(json);
+  static Rotations<T> fromJson<T extends RotationReward>(String json) {
+    return ensureInitialized().decodeJson<Rotations<T>>(json);
   }
 }
 
-mixin RotationsMappable {
+mixin RotationsMappable<T extends RotationReward> {
   String toJson() {
-    return RotationsMapper.ensureInitialized().encodeJson<Rotations>(
-      this as Rotations,
+    return RotationsMapper.ensureInitialized().encodeJson<Rotations<T>>(
+      this as Rotations<T>,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return RotationsMapper.ensureInitialized().encodeMap<Rotations>(
-      this as Rotations,
+    return RotationsMapper.ensureInitialized().encodeMap<Rotations<T>>(
+      this as Rotations<T>,
     );
   }
 
-  RotationsCopyWith<Rotations, Rotations, Rotations> get copyWith =>
-      _RotationsCopyWithImpl<Rotations, Rotations>(
-        this as Rotations,
+  RotationsCopyWith<Rotations<T>, Rotations<T>, Rotations<T>, T> get copyWith =>
+      _RotationsCopyWithImpl<Rotations<T>, Rotations<T>, T>(
+        this as Rotations<T>,
         $identity,
         $identity,
       );
   @override
   String toString() {
     return RotationsMapper.ensureInitialized().stringifyValue(
-      this as Rotations,
+      this as Rotations<T>,
     );
   }
 
   @override
   bool operator ==(Object other) {
     return RotationsMapper.ensureInitialized().equalsValue(
-      this as Rotations,
+      this as Rotations<T>,
       other,
     );
   }
 
   @override
   int get hashCode {
-    return RotationsMapper.ensureInitialized().hashValue(this as Rotations);
+    return RotationsMapper.ensureInitialized().hashValue(this as Rotations<T>);
   }
 }
 
-extension RotationsValueCopy<$R, $Out> on ObjectCopyWith<$R, Rotations, $Out> {
-  RotationsCopyWith<$R, Rotations, $Out> get $asRotations =>
-      $base.as((v, t, t2) => _RotationsCopyWithImpl<$R, $Out>(v, t, t2));
+extension RotationsValueCopy<$R, $Out, T extends RotationReward>
+    on ObjectCopyWith<$R, Rotations<T>, $Out> {
+  RotationsCopyWith<$R, Rotations<T>, $Out, T> get $asRotations =>
+      $base.as((v, t, t2) => _RotationsCopyWithImpl<$R, $Out, T>(v, t, t2));
 }
 
-abstract class RotationsCopyWith<$R, $In extends Rotations, $Out>
+abstract class RotationsCopyWith<
+  $R,
+  $In extends Rotations<T>,
+  $Out,
+  T extends RotationReward
+>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get a;
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get b;
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get c;
-  $R call({
-    List<RotationReward>? a,
-    List<RotationReward>? b,
-    List<RotationReward>? c,
-  });
-  RotationsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get a;
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get b;
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get c;
+  $R call({List<T>? a, List<T>? b, List<T>? c});
+  RotationsCopyWith<$R2, $In, $Out2, T> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _RotationsCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, Rotations, $Out>
-    implements RotationsCopyWith<$R, Rotations, $Out> {
+class _RotationsCopyWithImpl<$R, $Out, T extends RotationReward>
+    extends ClassCopyWithBase<$R, Rotations<T>, $Out>
+    implements RotationsCopyWith<$R, Rotations<T>, $Out, T> {
   _RotationsCopyWithImpl(super.value, super.then, super.then2);
 
   @override
   late final ClassMapperBase<Rotations> $mapper =
       RotationsMapper.ensureInitialized();
   @override
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get a =>
-      ListCopyWith($value.a, (v, t) => v.copyWith.$chain(t), (v) => call(a: v));
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get a => ListCopyWith(
+    $value.a,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(a: v),
+  );
   @override
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get b =>
-      ListCopyWith($value.b, (v, t) => v.copyWith.$chain(t), (v) => call(b: v));
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get b => ListCopyWith(
+    $value.b,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(b: v),
+  );
   @override
-  ListCopyWith<
-    $R,
-    RotationReward,
-    RotationRewardCopyWith<$R, RotationReward, RotationReward>
-  >
-  get c =>
-      ListCopyWith($value.c, (v, t) => v.copyWith.$chain(t), (v) => call(c: v));
+  ListCopyWith<$R, T, ObjectCopyWith<$R, T, T>> get c => ListCopyWith(
+    $value.c,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(c: v),
+  );
   @override
-  $R call({
-    List<RotationReward>? a,
-    List<RotationReward>? b,
-    List<RotationReward>? c,
-  }) => $apply(
+  $R call({Object? a = $none, Object? b = $none, Object? c = $none}) => $apply(
     FieldCopyWithData({
-      if (a != null) #a: a,
-      if (b != null) #b: b,
-      if (c != null) #c: c,
+      if (a != $none) #a: a,
+      if (b != $none) #b: b,
+      if (c != $none) #c: c,
     }),
   );
   @override
-  Rotations $make(CopyWithData data) => Rotations(
-    a: data.get(#a, or: $value.a),
-    b: data.get(#b, or: $value.b),
-    c: data.get(#c, or: $value.c),
+  Rotations<T> $make(CopyWithData data) => Rotations(
+    data.get(#a, or: $value.a),
+    data.get(#b, or: $value.b),
+    data.get(#c, or: $value.c),
   );
 
   @override
-  RotationsCopyWith<$R2, Rotations, $Out2> $chain<$R2, $Out2>(
+  RotationsCopyWith<$R2, Rotations<T>, $Out2, T> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
-  ) => _RotationsCopyWithImpl<$R2, $Out2>($value, $cast, t);
+  ) => _RotationsCopyWithImpl<$R2, $Out2, T>($value, $cast, t);
 }
 
 class RotationRewardMapper extends ClassMapperBase<RotationReward> {
@@ -224,8 +213,6 @@ class RotationRewardMapper extends ClassMapperBase<RotationReward> {
     'chance',
     _$chance,
   );
-  static String? _$stage(RotationReward v) => v.stage;
-  static const Field<RotationReward, String> _f$stage = Field('stage', _$stage);
 
   @override
   final MappableFields<RotationReward> fields = const {
@@ -233,17 +220,12 @@ class RotationRewardMapper extends ClassMapperBase<RotationReward> {
     #name: _f$name,
     #rarity: _f$rarity,
     #chance: _f$chance,
-    #stage: _f$stage,
   };
+  @override
+  final bool ignoreNull = true;
 
   static RotationReward _instantiate(DecodingData data) {
-    return RotationReward(
-      id: data.dec(_f$id),
-      name: data.dec(_f$name),
-      rarity: data.dec(_f$rarity),
-      chance: data.dec(_f$chance),
-      stage: data.dec(_f$stage),
-    );
+    throw MapperException.missingConstructor('RotationReward');
   }
 
   @override
@@ -259,103 +241,17 @@ class RotationRewardMapper extends ClassMapperBase<RotationReward> {
 }
 
 mixin RotationRewardMappable {
-  String toJson() {
-    return RotationRewardMapper.ensureInitialized().encodeJson<RotationReward>(
-      this as RotationReward,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return RotationRewardMapper.ensureInitialized().encodeMap<RotationReward>(
-      this as RotationReward,
-    );
-  }
-
+  String toJson();
+  Map<String, dynamic> toMap();
   RotationRewardCopyWith<RotationReward, RotationReward, RotationReward>
-  get copyWith => _RotationRewardCopyWithImpl<RotationReward, RotationReward>(
-    this as RotationReward,
-    $identity,
-    $identity,
-  );
-  @override
-  String toString() {
-    return RotationRewardMapper.ensureInitialized().stringifyValue(
-      this as RotationReward,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return RotationRewardMapper.ensureInitialized().equalsValue(
-      this as RotationReward,
-      other,
-    );
-  }
-
-  @override
-  int get hashCode {
-    return RotationRewardMapper.ensureInitialized().hashValue(
-      this as RotationReward,
-    );
-  }
-}
-
-extension RotationRewardValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, RotationReward, $Out> {
-  RotationRewardCopyWith<$R, RotationReward, $Out> get $asRotationReward =>
-      $base.as((v, t, t2) => _RotationRewardCopyWithImpl<$R, $Out>(v, t, t2));
+  get copyWith;
 }
 
 abstract class RotationRewardCopyWith<$R, $In extends RotationReward, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({
-    String? id,
-    String? name,
-    String? rarity,
-    double? chance,
-    String? stage,
-  });
+  $R call({String? id, String? name, String? rarity, double? chance});
   RotationRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
-}
-
-class _RotationRewardCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, RotationReward, $Out>
-    implements RotationRewardCopyWith<$R, RotationReward, $Out> {
-  _RotationRewardCopyWithImpl(super.value, super.then, super.then2);
-
-  @override
-  late final ClassMapperBase<RotationReward> $mapper =
-      RotationRewardMapper.ensureInitialized();
-  @override
-  $R call({
-    String? id,
-    String? name,
-    Object? rarity = $none,
-    Object? chance = $none,
-    Object? stage = $none,
-  }) => $apply(
-    FieldCopyWithData({
-      if (id != null) #id: id,
-      if (name != null) #name: name,
-      if (rarity != $none) #rarity: rarity,
-      if (chance != $none) #chance: chance,
-      if (stage != $none) #stage: stage,
-    }),
-  );
-  @override
-  RotationReward $make(CopyWithData data) => RotationReward(
-    id: data.get(#id, or: $value.id),
-    name: data.get(#name, or: $value.name),
-    rarity: data.get(#rarity, or: $value.rarity),
-    chance: data.get(#chance, or: $value.chance),
-    stage: data.get(#stage, or: $value.stage),
-  );
-
-  @override
-  RotationRewardCopyWith<$R2, RotationReward, $Out2> $chain<$R2, $Out2>(
-    Then<$Out2, $R2> t,
-  ) => _RotationRewardCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 

@@ -6,8 +6,8 @@ part 'drop_data.mapper.dart';
 
 @MappableClass()
 class DropData with DropDataMappable {
-  DropData({required this.blueprintLocations, required this.bountyRewards});
+  DropData({required this.blueprintLocations, required this.bountyRewardTables});
 
   final List<BlueprintLocation> blueprintLocations;
-  final List<BountyReward> bountyRewards;
+  final List<BountyRewardTable> bountyRewardTables;
 }

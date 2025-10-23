@@ -37,6 +37,8 @@ class BlueprintLocationMapper extends ClassMapperBase<BlueprintLocation> {
     #name: _f$name,
     #enemies: _f$enemies,
   };
+  @override
+  final bool ignoreNull = true;
 
   static BlueprintLocation _instantiate(DecodingData data) {
     return BlueprintLocation(
@@ -224,6 +226,8 @@ class BlueprintLocationEnemyMapper
     #rarity: _f$rarity,
     #chance: _f$chance,
   };
+  @override
+  final bool ignoreNull = true;
 
   static BlueprintLocationEnemy _instantiate(DecodingData data) {
     return BlueprintLocationEnemy(

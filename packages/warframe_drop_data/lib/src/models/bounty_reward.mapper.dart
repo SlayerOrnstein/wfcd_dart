@@ -7,14 +7,180 @@
 
 part of 'bounty_reward.dart';
 
-class BountyRewardMapper extends ClassMapperBase<BountyReward> {
+class BountyRewardTableMapper extends ClassMapperBase<BountyRewardTable> {
+  BountyRewardTableMapper._();
+
+  static BountyRewardTableMapper? _instance;
+  static BountyRewardTableMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = BountyRewardTableMapper._());
+      RotationsMapper.ensureInitialized();
+      BountyRewardMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'BountyRewardTable';
+
+  static String _$id(BountyRewardTable v) => v.id;
+  static const Field<BountyRewardTable, String> _f$id = Field('id', _$id);
+  static String _$level(BountyRewardTable v) => v.level;
+  static const Field<BountyRewardTable, String> _f$level = Field(
+    'level',
+    _$level,
+  );
+  static Rotations<BountyReward> _$rewards(BountyRewardTable v) => v.rewards;
+  static const Field<BountyRewardTable, Rotations<BountyReward>> _f$rewards =
+      Field('rewards', _$rewards);
+
+  @override
+  final MappableFields<BountyRewardTable> fields = const {
+    #id: _f$id,
+    #level: _f$level,
+    #rewards: _f$rewards,
+  };
+  @override
+  final bool ignoreNull = true;
+
+  static BountyRewardTable _instantiate(DecodingData data) {
+    return BountyRewardTable(
+      id: data.dec(_f$id),
+      level: data.dec(_f$level),
+      rewards: data.dec(_f$rewards),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static BountyRewardTable fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<BountyRewardTable>(map);
+  }
+
+  static BountyRewardTable fromJson(String json) {
+    return ensureInitialized().decodeJson<BountyRewardTable>(json);
+  }
+}
+
+mixin BountyRewardTableMappable {
+  String toJson() {
+    return BountyRewardTableMapper.ensureInitialized()
+        .encodeJson<BountyRewardTable>(this as BountyRewardTable);
+  }
+
+  Map<String, dynamic> toMap() {
+    return BountyRewardTableMapper.ensureInitialized()
+        .encodeMap<BountyRewardTable>(this as BountyRewardTable);
+  }
+
+  BountyRewardTableCopyWith<
+    BountyRewardTable,
+    BountyRewardTable,
+    BountyRewardTable
+  >
+  get copyWith =>
+      _BountyRewardTableCopyWithImpl<BountyRewardTable, BountyRewardTable>(
+        this as BountyRewardTable,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return BountyRewardTableMapper.ensureInitialized().stringifyValue(
+      this as BountyRewardTable,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return BountyRewardTableMapper.ensureInitialized().equalsValue(
+      this as BountyRewardTable,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return BountyRewardTableMapper.ensureInitialized().hashValue(
+      this as BountyRewardTable,
+    );
+  }
+}
+
+extension BountyRewardTableValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, BountyRewardTable, $Out> {
+  BountyRewardTableCopyWith<$R, BountyRewardTable, $Out>
+  get $asBountyRewardTable => $base.as(
+    (v, t, t2) => _BountyRewardTableCopyWithImpl<$R, $Out>(v, t, t2),
+  );
+}
+
+abstract class BountyRewardTableCopyWith<
+  $R,
+  $In extends BountyRewardTable,
+  $Out
+>
+    implements ClassCopyWith<$R, $In, $Out> {
+  RotationsCopyWith<
+    $R,
+    Rotations<BountyReward>,
+    Rotations<BountyReward>,
+    BountyReward
+  >
+  get rewards;
+  $R call({String? id, String? level, Rotations<BountyReward>? rewards});
+  BountyRewardTableCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
+}
+
+class _BountyRewardTableCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, BountyRewardTable, $Out>
+    implements BountyRewardTableCopyWith<$R, BountyRewardTable, $Out> {
+  _BountyRewardTableCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<BountyRewardTable> $mapper =
+      BountyRewardTableMapper.ensureInitialized();
+  @override
+  RotationsCopyWith<
+    $R,
+    Rotations<BountyReward>,
+    Rotations<BountyReward>,
+    BountyReward
+  >
+  get rewards => $value.rewards.copyWith.$chain((v) => call(rewards: v));
+  @override
+  $R call({String? id, String? level, Rotations<BountyReward>? rewards}) =>
+      $apply(
+        FieldCopyWithData({
+          if (id != null) #id: id,
+          if (level != null) #level: level,
+          if (rewards != null) #rewards: rewards,
+        }),
+      );
+  @override
+  BountyRewardTable $make(CopyWithData data) => BountyRewardTable(
+    id: data.get(#id, or: $value.id),
+    level: data.get(#level, or: $value.level),
+    rewards: data.get(#rewards, or: $value.rewards),
+  );
+
+  @override
+  BountyRewardTableCopyWith<$R2, BountyRewardTable, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _BountyRewardTableCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
   BountyRewardMapper._();
 
   static BountyRewardMapper? _instance;
   static BountyRewardMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = BountyRewardMapper._());
-      RotationsMapper.ensureInitialized();
+      RotationRewardMapper.ensureInitialized().addSubMapper(_instance!);
     }
     return _instance!;
   }
@@ -24,26 +190,64 @@ class BountyRewardMapper extends ClassMapperBase<BountyReward> {
 
   static String _$id(BountyReward v) => v.id;
   static const Field<BountyReward, String> _f$id = Field('id', _$id);
-  static String _$level(BountyReward v) => v.level;
-  static const Field<BountyReward, String> _f$level = Field('level', _$level);
-  static Rotations _$rewards(BountyReward v) => v.rewards;
-  static const Field<BountyReward, Rotations> _f$rewards = Field(
-    'rewards',
-    _$rewards,
+  static String _$name(BountyReward v) => v.name;
+  static const Field<BountyReward, String> _f$name = Field('name', _$name);
+  static String? _$rarity(BountyReward v) => v.rarity;
+  static const Field<BountyReward, String> _f$rarity = Field(
+    'rarity',
+    _$rarity,
+  );
+  static double? _$chance(BountyReward v) => v.chance;
+  static const Field<BountyReward, double> _f$chance = Field(
+    'chance',
+    _$chance,
+  );
+  static List<int> _$stages(BountyReward v) => v.stages;
+  static const Field<BountyReward, List<int>> _f$stages = Field(
+    'stages',
+    _$stages,
+  );
+  static bool _$onFinalStage(BountyReward v) => v.onFinalStage;
+  static const Field<BountyReward, bool> _f$onFinalStage = Field(
+    'onFinalStage',
+    _$onFinalStage,
+  );
+  static bool? _$completion(BountyReward v) => v.completion;
+  static const Field<BountyReward, bool> _f$completion = Field(
+    'completion',
+    _$completion,
   );
 
   @override
   final MappableFields<BountyReward> fields = const {
     #id: _f$id,
-    #level: _f$level,
-    #rewards: _f$rewards,
+    #name: _f$name,
+    #rarity: _f$rarity,
+    #chance: _f$chance,
+    #stages: _f$stages,
+    #onFinalStage: _f$onFinalStage,
+    #completion: _f$completion,
   };
+  @override
+  final bool ignoreNull = true;
+
+  @override
+  final String discriminatorKey = 'type';
+  @override
+  final dynamic discriminatorValue = 'BountyReward';
+  @override
+  late final ClassMapperBase superMapper =
+      RotationRewardMapper.ensureInitialized();
 
   static BountyReward _instantiate(DecodingData data) {
     return BountyReward(
       id: data.dec(_f$id),
-      level: data.dec(_f$level),
-      rewards: data.dec(_f$rewards),
+      name: data.dec(_f$name),
+      rarity: data.dec(_f$rarity),
+      chance: data.dec(_f$chance),
+      stages: data.dec(_f$stages),
+      onFinalStage: data.dec(_f$onFinalStage),
+      completion: data.dec(_f$completion),
     );
   }
 
@@ -108,9 +312,18 @@ extension BountyRewardValueCopy<$R, $Out>
 }
 
 abstract class BountyRewardCopyWith<$R, $In extends BountyReward, $Out>
-    implements ClassCopyWith<$R, $In, $Out> {
-  RotationsCopyWith<$R, Rotations, Rotations> get rewards;
-  $R call({String? id, String? level, Rotations? rewards});
+    implements RotationRewardCopyWith<$R, $In, $Out> {
+  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get stages;
+  @override
+  $R call({
+    String? id,
+    String? name,
+    String? rarity,
+    double? chance,
+    List<int>? stages,
+    bool? onFinalStage,
+    bool? completion,
+  });
   BountyRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -123,21 +336,41 @@ class _BountyRewardCopyWithImpl<$R, $Out>
   late final ClassMapperBase<BountyReward> $mapper =
       BountyRewardMapper.ensureInitialized();
   @override
-  RotationsCopyWith<$R, Rotations, Rotations> get rewards =>
-      $value.rewards.copyWith.$chain((v) => call(rewards: v));
+  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get stages =>
+      ListCopyWith(
+        $value.stages,
+        (v, t) => ObjectCopyWith(v, $identity, t),
+        (v) => call(stages: v),
+      );
   @override
-  $R call({String? id, String? level, Rotations? rewards}) => $apply(
+  $R call({
+    String? id,
+    String? name,
+    Object? rarity = $none,
+    Object? chance = $none,
+    List<int>? stages,
+    bool? onFinalStage,
+    Object? completion = $none,
+  }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
-      if (level != null) #level: level,
-      if (rewards != null) #rewards: rewards,
+      if (name != null) #name: name,
+      if (rarity != $none) #rarity: rarity,
+      if (chance != $none) #chance: chance,
+      if (stages != null) #stages: stages,
+      if (onFinalStage != null) #onFinalStage: onFinalStage,
+      if (completion != $none) #completion: completion,
     }),
   );
   @override
   BountyReward $make(CopyWithData data) => BountyReward(
     id: data.get(#id, or: $value.id),
-    level: data.get(#level, or: $value.level),
-    rewards: data.get(#rewards, or: $value.rewards),
+    name: data.get(#name, or: $value.name),
+    rarity: data.get(#rarity, or: $value.rarity),
+    chance: data.get(#chance, or: $value.chance),
+    stages: data.get(#stages, or: $value.stages),
+    onFinalStage: data.get(#onFinalStage, or: $value.onFinalStage),
+    completion: data.get(#completion, or: $value.completion),
   );
 
   @override

@@ -37,6 +37,8 @@ class DropSlimMapper extends ClassMapperBase<DropSlim> {
     #rarity: _f$rarity,
     #chance: _f$chance,
   };
+  @override
+  final bool ignoreNull = true;
 
   static DropSlim _instantiate(DecodingData data) {
     return DropSlim(

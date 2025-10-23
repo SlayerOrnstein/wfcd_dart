@@ -5,8 +5,8 @@ import 'package:crypto/crypto.dart';
 /// Drop chance Record
 typedef DropChance = ({String rarity, double chance});
 
-/// Creates an MD5 hash
-String hash(String input) => md5.convert(utf8.encode(input)).toString();
+/// Creates an SHA256 hash
+String hash(String input) => sha256.convert(utf8.encode(input)).toString();
 
 /// Parse out drop chance
 DropChance? parseChance(String input) {
