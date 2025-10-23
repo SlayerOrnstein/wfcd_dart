@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:http/retry.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
-import 'package:worldstate_models/src/supporting/config.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'syndicate.mapper.dart';
@@ -27,7 +26,7 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
   final List<String> nodes;
   final List<RawJob>? jobs;
 
-  Future<SyndicateMission> toSyndicate(Config config) => SyndicateMission.fromRaw(this, config);
+  Future<SyndicateMission> toSyndicate([String locale = 'en']) => SyndicateMission.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -54,7 +53,7 @@ class RawJob with RawJobMappable {
   final List<int> xpAmounts;
   final bool? isVault;
 
-  Future<SyndicateBounty> toBounty(Config config) => SyndicateBounty.fromRaw(this, config);
+  Future<SyndicateBounty> toBounty([String locale = 'en']) => SyndicateBounty.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -68,8 +67,8 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
     required this.bounties,
   });
 
-  static Future<SyndicateMission> fromRaw(RawSyndicate raw, Config config) async {
-    final solNodeLangs = solNodes(config.locale);
+  static Future<SyndicateMission> fromRaw(RawSyndicate raw, [String locale = 'en']) async {
+    final solNodeLangs = solNodes(locale);
     final nodes = raw.nodes.map((n) => solNodeLangs.fetchNode(n).name).toList();
 
     return SyndicateMission(
@@ -78,7 +77,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
       expiry: parseDate(raw.expiry),
       name: syndicate(raw.tag),
       nodes: nodes,
-      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(config))) : [],
+      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(locale))) : [],
     );
   }
 
@@ -112,12 +111,12 @@ class SyndicateBounty with SyndicateBountyMappable {
     this.rewardPool = const [],
   });
 
-  static Future<SyndicateBounty> fromRaw(RawJob raw, Config config) async {
-    final rewards = await _fetchBountyRewards(raw.rewards, raw, raw.isVault ?? false, config.client);
+  static Future<SyndicateBounty> fromRaw(RawJob raw, [String locale = 'en']) async {
+    final rewards = await _fetchBountyRewards(raw.rewards, raw, raw.isVault ?? false);
     final drops = rewards?.map((r) => RewardDrop.fromDrop(r.item, r.rarity, r.chance)).toList();
 
     return SyndicateBounty(
-      type: raw.jobType != null ? languages(config.locale).fetchValue(raw.jobType!) : null,
+      type: raw.jobType != null ? languages(locale).fetchValue(raw.jobType!) : null,
       rewards: rewards?.isNotEmpty ?? false ? rewards!.map((r) => r.item).toSet().toList() : <String>[],
       rewardPool: rewards?.isNotEmpty ?? false ? drops! : [],
       masteryRequirment: raw.masteryReq,
@@ -179,12 +178,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     return (location, locationRotation);
   }
 
-  static Future<List<_BountyReward>?> _fetchBountyRewards(
-    String resource,
-    RawJob raw,
-    bool isVault,
-    http.Client client,
-  ) async {
+  static Future<List<_BountyReward>?> _fetchBountyRewards(String resource, RawJob raw, bool isVault) async {
     const apiBase = 'https://api.warframestat.us';
 
     String location;
@@ -198,8 +192,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     final url = '$apiBase/drops/search/${Uri.encodeComponent(location)}?grouped_by=location';
 
-    final res = await RetryClient(client).get(Uri.parse(url)).onError((_, _) => http.Response('{}', 502));
-
+    final res = await RetryClient(http.Client()).get(Uri.parse(url));
     final data = json.decode(res.body) as Map<String, dynamic>;
     final pool = data[locationRotation] as Map<String, dynamic>?;
     if (pool == null) return null;
