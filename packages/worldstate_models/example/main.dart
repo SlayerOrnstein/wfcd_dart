@@ -7,12 +7,6 @@ Future<void> main() async {
   final data = await buildDropData();
   final worldstate = await RawWorldstate.fromJson(response.body).toWorldstate(data);
 
-  // print(worldstate.timestamp);
-  // print(worldstate.toJson());
-
-  final cetus = worldstate.syndicateMissions.firstWhere((s) => s.name == 'Ostrons');
-
-  for (final bounty in cetus.bounties!) {
-    print('${bounty.type}: ${bounty.rewardPool.length}');
-  }
+  print(worldstate.timestamp);
+  print(worldstate.toJson());
 }
