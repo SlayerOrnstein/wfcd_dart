@@ -18,7 +18,7 @@ Future<Response> onRequest(RequestContext context) async {
 
   final response = await http.get(Uri.parse(_api));
   final raw = await Isolate.run(() => RawWorldstate.fromJson(response.body));
-  final worldstate = await Isolate.run(() => Worldstate.fromRaw(raw));
+  final worldstate = await Isolate.run(() => Worldstate.fromRaw(raw, Config()));
 
   await cache.store(key, worldstate.toJson());
 
