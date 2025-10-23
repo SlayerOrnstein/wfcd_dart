@@ -21,7 +21,7 @@ class ZarimanCycle extends WorldstateObject with ZarimanCycleMappable {
     final cycle = calculateCurrentZarimanCycle(bountiesEnd);
 
     return ZarimanCycle(
-      id: hash('ZarimanCycle${cycle.state}$bountiesEnd'),
+      id: hash('ZarimanCycle${cycle.state}${cycle.expiry.copyWith(millisecond: 0, microsecond: 0)}'),
       activation: cycle.start,
       expiry: cycle.expiry,
       isCorpus: cycle.isCorpus,

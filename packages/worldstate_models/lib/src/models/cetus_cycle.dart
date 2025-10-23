@@ -21,7 +21,7 @@ class CetusCycle extends WorldstateObject with CetusCycleMappable {
     final cycle = calculateCurrentCetusCycle(bountiesEnd);
 
     return CetusCycle(
-      id: hash('CetusCycle${cycle.state}$bountiesEnd'),
+      id: hash('CetusCycle${cycle.state}${cycle.expiry.copyWith(millisecond: 0, microsecond: 0)}'),
       activation: cycle.start,
       expiry: cycle.expiry,
       isDay: cycle.isDay,

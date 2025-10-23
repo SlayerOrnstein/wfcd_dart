@@ -22,7 +22,7 @@ class CambionCycle extends WorldstateObject with CambionCycleMappable {
     final cycle = calculateCurrentCetusCycle(bountiesEnd);
 
     return CambionCycle(
-      id: hash('CambionCycle${cycle.state}$bountiesEnd'),
+      id: hash('CambionCycle${cycle.state}${cycle.expiry.copyWith(millisecond: 0, microsecond: 0)}'),
       activation: cycle.start,
       expiry: cycle.expiry,
       isFass: cycle.state == CetusState.day,
