@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
+import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 
@@ -44,7 +45,11 @@ void main() {
 
       test('RawSyndicate -> SyndicateMission', () async {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
-        final missions = await Future.wait(syndicateMissions.map((s) => RawSyndicate.fromMap(s).toSyndicate()));
+        final missions = await Future.wait(
+          syndicateMissions.map(
+            (s) => RawSyndicate.fromMap(s).toSyndicate(DropData(blueprintLocations: [], bountyRewardTables: [])),
+          ),
+        );
 
         expect(missions.toList(), isA<List<SyndicateMission>>());
       });

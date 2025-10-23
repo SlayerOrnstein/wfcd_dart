@@ -16,6 +16,8 @@ dependencies:
   time: ^2.1.5
   warframe_worldstate_data:
     path: ../warframe_worldstate_data
+  warframe_drop_data:
+    path: ../warframe_drop_data
 
 dev_dependencies:
   build_runner: ^2.9.0

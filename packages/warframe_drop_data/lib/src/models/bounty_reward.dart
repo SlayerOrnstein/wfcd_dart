@@ -37,4 +37,10 @@ class BountyReward extends RotationReward with BountyRewardMappable {
 
   /// Whether this drops on subsequent Completions or not
   final bool? completion;
+
+  @override
+  double get chance => super.chance!;
+
+  @override
+  String get rarity => super.rarity!;
 }

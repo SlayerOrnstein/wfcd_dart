@@ -31,6 +31,16 @@ class Rotations<T extends RotationReward> with RotationsMappable<T> {
         throw Exception('Rotation $rotation is not valid.');
     }
   }
+
+  /// Get a rotation from string
+  List<T> fetchRotation(String rotation) {
+    return switch (rotation) {
+      'A' => a,
+      'B' => b,
+      'C' => c,
+      _ => throw Exception('Rotation $rotation is not valid.'),
+    };
+  }
 }
 
 /// {@template rotation_reward}

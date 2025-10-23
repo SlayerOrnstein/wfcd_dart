@@ -16,7 +16,7 @@ const _dropData =
     'https://warframe-web-assets.nyc3.cdn.digitaloceanspaces.com/uploads/cms/hnfvc0o3jnfvc873njb03enrf56.html';
 
 /// Parses the official drop table into [DropData]
-Future<DropData> build([Client? client]) async {
+Future<DropData> buildDropData([Client? client]) async {
   final res = await (client ?? Client()).get(Uri.parse(_dropData));
   final body = parse(res.body).body;
   if (body == null) throw Exception('failed to parse body');

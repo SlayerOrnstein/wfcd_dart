@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
@@ -61,7 +62,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawConquest> conquests;
   final String tmp;
 
-  Future<Worldstate> toWorldstate([String locale = 'en']) => Worldstate.fromRaw(this, locale);
+  Future<Worldstate> toWorldstate(DropData data, [String locale = 'en']) => Worldstate.fromRaw(this, data, locale);
 }
 
 @MappableClass()
@@ -99,7 +100,7 @@ class Worldstate with WorldstateMappable {
 
   static const fromMap = WorldstateMapper.fromMap;
 
-  static Future<Worldstate> fromRaw(RawWorldstate raw, [String locale = 'en']) async {
+  static Future<Worldstate> fromRaw(RawWorldstate raw, DropData data, [String locale = 'en']) async {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
 
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
@@ -115,7 +116,7 @@ class Worldstate with WorldstateMappable {
       archonHunt: Sortie.fromRaw(raw.liteSorties.first, locale),
       syndicateMissions: await parseArray(
         raw.syndicateMissions,
-        (mission) async => SyndicateMission.fromRaw(mission, locale),
+        (mission) async => SyndicateMission.fromRaw(mission, data, locale),
       ),
       fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, locale)),
       globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, locale)),

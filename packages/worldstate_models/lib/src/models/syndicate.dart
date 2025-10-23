@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/retry.dart';
+import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
@@ -27,7 +26,8 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
   final List<String> nodes;
   final List<RawJob>? jobs;
 
-  Future<SyndicateMission> toSyndicate([String locale = 'en']) => SyndicateMission.fromRaw(this, locale);
+  Future<SyndicateMission> toSyndicate(DropData data, [String locale = 'en']) =>
+      SyndicateMission.fromRaw(this, data, locale);
 }
 
 @MappableClass()
@@ -54,7 +54,8 @@ class RawJob with RawJobMappable {
   final List<int> xpAmounts;
   final bool? isVault;
 
-  Future<SyndicateBounty> toBounty([String locale = 'en']) => SyndicateBounty.fromRaw(this, locale);
+  Future<SyndicateBounty> toBounty(DropData data, [String locale = 'en']) =>
+      SyndicateBounty.fromRaw(this, data, locale);
 }
 
 @MappableClass()
@@ -68,7 +69,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
     required this.bounties,
   });
 
-  static Future<SyndicateMission> fromRaw(RawSyndicate raw, [String locale = 'en']) async {
+  static Future<SyndicateMission> fromRaw(RawSyndicate raw, DropData data, [String locale = 'en']) async {
     final solNodeLangs = solNodes(locale);
     final nodes = raw.nodes.map((n) => solNodeLangs.fetchNode(n).name).toList();
 
@@ -78,7 +79,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
       expiry: parseDate(raw.expiry),
       name: syndicate(raw.tag),
       nodes: nodes,
-      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(locale))) : [],
+      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(data, locale))) : [],
     );
   }
 
@@ -96,8 +97,6 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
   bool get isActive => super.isActive!;
 }
 
-typedef _BountyReward = ({String item, String rarity, num chance});
-
 @MappableClass()
 class SyndicateBounty with SyndicateBountyMappable {
   SyndicateBounty({
@@ -112,14 +111,14 @@ class SyndicateBounty with SyndicateBountyMappable {
     this.rewardPool = const [],
   });
 
-  static Future<SyndicateBounty> fromRaw(RawJob raw, [String locale = 'en']) async {
-    final rewards = await _fetchBountyRewards(raw.rewards, raw, raw.isVault ?? false);
-    final drops = rewards?.map((r) => RewardDrop.fromDrop(r.item, r.rarity, r.chance)).toList();
+  static Future<SyndicateBounty> fromRaw(RawJob raw, DropData data, [String locale = 'en']) async {
+    final rewards = await _fetchBountyRewards(raw.rewards, data, raw, raw.isVault ?? false);
+    final drops = rewards?.map((r) => RewardDrop.fromDrop(r.name, r.rarity, r.chance)).toList();
 
     return SyndicateBounty(
       type: raw.jobType != null ? languages(locale).fetchValue(raw.jobType!) : null,
       rewards: rewards?.isNotEmpty ?? false
-          ? rewards!.map((r) => r.item).toSet().toList()
+          ? rewards!.map((r) => r.name).toSet().toList()
           : <String>['Pattern Mismatch. Results inaccurate.'],
       rewardPool: rewards?.isNotEmpty ?? false ? drops! : [],
       masteryRequirment: raw.masteryReq,
@@ -158,66 +157,45 @@ class SyndicateBounty with SyndicateBountyMappable {
     final rotation = isBounty ? bountyMatchs.group(2) ?? '' : '';
     final levelString = '${raw.minEnemyLevel} - ${raw.maxEnemyLevel}';
 
-    late String location;
     late String levelClause;
     if (isCetus) {
-      location = 'Earth/Cetus ';
-      levelClause = '(Level $levelString ${isGhoul ? 'Ghoul Bounty' : 'Cetus Bounty'})';
+      levelClause = 'Level $levelString ${isGhoul ? 'Ghoul Bounty' : 'Cetus Bounty'}';
     }
 
     if (isVallis) {
-      location = 'Venus/Orb Vallis ';
-      levelClause = '(Level $levelString Orb Vallis Bounty)';
+      levelClause = 'Level $levelString Orb Vallis Bounty';
     }
 
     if (isDeimos) {
-      location = 'Deimos/Cambion Drift ';
       final variant = isVault ? 'Isolation Vault' : 'Cambion Drift Bounty';
-      levelClause = '(Level $levelString $variant)';
+      levelClause = 'Level $levelString $variant';
     }
 
-    final locationRotation = '$location$levelClause, Rot ${rotation.isNotEmpty ? rotation : 'A'}';
-
-    return (location, locationRotation);
+    return (levelClause, rotation.isNotEmpty ? rotation : 'A');
   }
 
-  static Future<List<_BountyReward>?> _fetchBountyRewards(String resource, RawJob raw, bool isVault) async {
-    const apiBase = 'https://api.warframestat.us';
-
-    String location;
-    String locationRotation;
+  static Future<List<BountyReward>?> _fetchBountyRewards(
+    String resource,
+    DropData data,
+    RawJob raw,
+    bool isVault,
+  ) async {
+    String level;
+    String rotation;
     if (resource.endsWith('PlagueStarTableRewards')) {
-      location = 'plague star';
-      locationRotation = 'Earth/Cetus (Level 15 - 25 Plague Star), Rot A';
+      level = 'plague star';
+      rotation = 'Earth/Cetus (Level 15 - 25 Plague Star), Rot A';
     } else {
-      (location, locationRotation) = _determineLocation(resource, raw, isVault);
+      (level, rotation) = _determineLocation(resource, raw, isVault);
     }
 
-    final url = '$apiBase/drops/search/${Uri.encodeComponent(location)}?grouped_by=location';
+    final table = data.bountyRewardTables.firstWhereOrNull((t) => t.level == level);
+    if (table == null) return null;
 
-    late final Map<String, dynamic> data;
-    try {
-      final response = await RetryClient(
-        http.Client(),
-        when: (res) => res.statusCode != 200,
-      ).get(Uri.parse(url)).timeout(const Duration(seconds: Duration.secondsPerMinute * 3));
-
-      data = json.decode(response.body) as Map<String, dynamic>;
-    } catch (e) {
-      data = <String, dynamic>{};
-    }
-
-    final pool = data[locationRotation] as Map<String, dynamic>?;
-    if (pool == null) return null;
-
-    final rewards = List<JsonObject>.from(pool['rewards'] as List<dynamic>? ?? []);
+    final rewards = table.rewards.fetchRotation(rotation);
     if (rewards.isEmpty) return [];
 
-    return rewards
-        .map<_BountyReward>(
-          (r) => (item: r['item'] as String, rarity: r['rarity'] as String, chance: r['chance'] as num),
-        )
-        .toList();
+    return rewards;
   }
 }
 
