@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:dart_mappable/dart_mappable.dart';
@@ -117,7 +118,9 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     return SyndicateBounty(
       type: raw.jobType != null ? languages(locale).fetchValue(raw.jobType!) : null,
-      rewards: rewards?.isNotEmpty ?? false ? rewards!.map((r) => r.item).toSet().toList() : <String>[],
+      rewards: rewards?.isNotEmpty ?? false
+          ? rewards!.map((r) => r.item).toSet().toList()
+          : <String>['Pattern Mismatch. Results inaccurate.'],
       rewardPool: rewards?.isNotEmpty ?? false ? drops! : [],
       masteryRequirment: raw.masteryReq,
       minLevel: raw.minEnemyLevel,
@@ -192,12 +195,18 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     final url = '$apiBase/drops/search/${Uri.encodeComponent(location)}?grouped_by=location';
 
-    final res = await RetryClient(http.Client(), when: (res) => res.statusCode != 200)
-        .get(Uri.parse(url))
-        .timeout(const Duration(seconds: Duration.secondsPerMinute * 3))
-        .onError((_, _) => http.Response('{}', 200));
+    late final Map<String, dynamic> data;
+    try {
+      final response = await RetryClient(
+        http.Client(),
+        when: (res) => res.statusCode != 200,
+      ).get(Uri.parse(url)).timeout(const Duration(seconds: Duration.secondsPerMinute * 3));
 
-    final data = json.decode(res.body) as Map<String, dynamic>;
+      data = json.decode(response.body) as Map<String, dynamic>;
+    } catch (e) {
+      data = <String, dynamic>{};
+    }
+
     final pool = data[locationRotation] as Map<String, dynamic>?;
     if (pool == null) return null;
 
