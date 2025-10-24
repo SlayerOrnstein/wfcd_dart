@@ -1,5 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 
 part 'reward.mapper.dart';
@@ -17,18 +18,18 @@ class RawReward with RawRewardMappable {
   final List<JsonObject>? countedItems;
   final int? credits;
 
-  Reward toReward([String locale = 'en']) => Reward.fromRaw(this, locale);
+  Reward toReward(Dependency deps) => Reward.fromRaw(this, deps);
 }
 
 @MappableClass()
 class Reward with RewardMappable {
   Reward({required this.items, required this.countedItems, required this.credits});
 
-  factory Reward.fromRaw(RawReward raw, [String locale = 'en']) {
-    final countedItems = raw.countedItems?.map<CountedItem>((i) => _toCountedItem(i, locale)).toList();
+  factory Reward.fromRaw(RawReward raw, Dependency deps) {
+    final countedItems = raw.countedItems?.map<CountedItem>((i) => _toCountedItem(i, deps.locale)).toList();
 
     return Reward(
-      items: raw.items?.map(languages(locale).fetchValue).toList(),
+      items: raw.items?.map(deps.langs.fetchValue).toList(),
       countedItems: countedItems,
       credits: raw.credits,
     );

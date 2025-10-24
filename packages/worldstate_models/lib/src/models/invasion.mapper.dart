@@ -485,10 +485,10 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     'activation',
     _$activation,
   );
+  static String _$key(Invasion v) => v.key;
+  static const Field<Invasion, String> _f$key = Field('key', _$key);
   static String _$node(Invasion v) => v.node;
   static const Field<Invasion, String> _f$node = Field('node', _$node);
-  static String _$nodeKey(Invasion v) => v.nodeKey;
-  static const Field<Invasion, String> _f$nodeKey = Field('nodeKey', _$nodeKey);
   static String _$description(Invasion v) => v.description;
   static const Field<Invasion, String> _f$description = Field(
     'description',
@@ -546,8 +546,8 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
   final MappableFields<Invasion> fields = const {
     #id: _f$id,
     #activation: _f$activation,
+    #key: _f$key,
     #node: _f$node,
-    #nodeKey: _f$nodeKey,
     #description: _f$description,
     #attackingFaction: _f$attackingFaction,
     #attacker: _f$attacker,
@@ -567,8 +567,8 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     return Invasion(
       id: data.dec(_f$id),
       activation: data.dec(_f$activation),
+      key: data.dec(_f$key),
       node: data.dec(_f$node),
-      nodeKey: data.dec(_f$nodeKey),
       description: data.dec(_f$description),
       attackingFaction: data.dec(_f$attackingFaction),
       attacker: data.dec(_f$attacker),
@@ -646,8 +646,8 @@ abstract class InvasionCopyWith<$R, $In extends Invasion, $Out>
   $R call({
     String? id,
     DateTime? activation,
+    String? key,
     String? node,
-    String? nodeKey,
     String? description,
     String? attackingFaction,
     InvasionFaction? attacker,
@@ -688,8 +688,8 @@ class _InvasionCopyWithImpl<$R, $Out>
   $R call({
     String? id,
     Object? activation = $none,
+    String? key,
     String? node,
-    String? nodeKey,
     String? description,
     String? attackingFaction,
     InvasionFaction? attacker,
@@ -705,8 +705,8 @@ class _InvasionCopyWithImpl<$R, $Out>
     FieldCopyWithData({
       if (id != null) #id: id,
       if (activation != $none) #activation: activation,
+      if (key != null) #key: key,
       if (node != null) #node: node,
-      if (nodeKey != null) #nodeKey: nodeKey,
       if (description != null) #description: description,
       if (attackingFaction != null) #attackingFaction: attackingFaction,
       if (attacker != null) #attacker: attacker,
@@ -724,8 +724,8 @@ class _InvasionCopyWithImpl<$R, $Out>
   Invasion $make(CopyWithData data) => Invasion(
     id: data.get(#id, or: $value.id),
     activation: data.get(#activation, or: $value.activation),
+    key: data.get(#key, or: $value.key),
     node: data.get(#node, or: $value.node),
-    nodeKey: data.get(#nodeKey, or: $value.nodeKey),
     description: data.get(#description, or: $value.description),
     attackingFaction: data.get(#attackingFaction, or: $value.attackingFaction),
     attacker: data.get(#attacker, or: $value.attacker),
@@ -760,15 +760,12 @@ class InvasionFactionMapper extends ClassMapperBase<InvasionFaction> {
   @override
   final String id = 'InvasionFaction';
 
+  static String _$key(InvasionFaction v) => v.key;
+  static const Field<InvasionFaction, String> _f$key = Field('key', _$key);
   static String _$faction(InvasionFaction v) => v.faction;
   static const Field<InvasionFaction, String> _f$faction = Field(
     'faction',
     _$faction,
-  );
-  static String _$factionKey(InvasionFaction v) => v.factionKey;
-  static const Field<InvasionFaction, String> _f$factionKey = Field(
-    'factionKey',
-    _$factionKey,
   );
   static Reward? _$reward(InvasionFaction v) => v.reward;
   static const Field<InvasionFaction, Reward> _f$reward = Field(
@@ -778,8 +775,8 @@ class InvasionFactionMapper extends ClassMapperBase<InvasionFaction> {
 
   @override
   final MappableFields<InvasionFaction> fields = const {
+    #key: _f$key,
     #faction: _f$faction,
-    #factionKey: _f$factionKey,
     #reward: _f$reward,
   };
   @override
@@ -787,8 +784,8 @@ class InvasionFactionMapper extends ClassMapperBase<InvasionFaction> {
 
   static InvasionFaction _instantiate(DecodingData data) {
     return InvasionFaction(
+      key: data.dec(_f$key),
       faction: data.dec(_f$faction),
-      factionKey: data.dec(_f$factionKey),
       reward: data.dec(_f$reward),
     );
   }
@@ -856,7 +853,7 @@ extension InvasionFactionValueCopy<$R, $Out>
 abstract class InvasionFactionCopyWith<$R, $In extends InvasionFaction, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   RewardCopyWith<$R, Reward, Reward>? get reward;
-  $R call({String? faction, String? factionKey, Reward? reward});
+  $R call({String? key, String? faction, Reward? reward});
   InvasionFactionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -874,18 +871,17 @@ class _InvasionFactionCopyWithImpl<$R, $Out>
   RewardCopyWith<$R, Reward, Reward>? get reward =>
       $value.reward?.copyWith.$chain((v) => call(reward: v));
   @override
-  $R call({String? faction, String? factionKey, Object? reward = $none}) =>
-      $apply(
-        FieldCopyWithData({
-          if (faction != null) #faction: faction,
-          if (factionKey != null) #factionKey: factionKey,
-          if (reward != $none) #reward: reward,
-        }),
-      );
+  $R call({String? key, String? faction, Object? reward = $none}) => $apply(
+    FieldCopyWithData({
+      if (key != null) #key: key,
+      if (faction != null) #faction: faction,
+      if (reward != $none) #reward: reward,
+    }),
+  );
   @override
   InvasionFaction $make(CopyWithData data) => InvasionFaction(
+    key: data.get(#key, or: $value.key),
     faction: data.get(#faction, or: $value.faction),
-    factionKey: data.get(#factionKey, or: $value.factionKey),
     reward: data.get(#reward, or: $value.reward),
   );
 

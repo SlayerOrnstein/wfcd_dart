@@ -4,10 +4,12 @@ import 'dart:io';
 import 'package:test/test.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 
 void main() {
   final dir = Directory('./test/fixtures');
+  final deps = Dependency(DropData(blueprintLocations: [], bountyRewardTables: []));
 
   for (final fixture in dir.listSync()) {
     final file = File(fixture.path).readAsStringSync();
@@ -26,7 +28,7 @@ void main() {
       test('RawGoal -> WorldEvent', () {
         final goals = List<JsonObject>.from(worldstate['Goals'] as List<dynamic>);
 
-        expect(goals.map((g) => RawGoal.fromMap(g).toWorldEvent()), isA<Iterable<WorldEvent>>());
+        expect(goals.map((g) => RawGoal.fromMap(g).toWorldEvent(deps)), isA<Iterable<WorldEvent>>());
       });
 
       test('RawSortie -> Sortie', () {
@@ -47,7 +49,9 @@ void main() {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
         final missions = await Future.wait(
           syndicateMissions.map(
-            (s) => RawSyndicate.fromMap(s).toSyndicate(DropData(blueprintLocations: [], bountyRewardTables: [])),
+            (s) => RawSyndicate.fromMap(
+              s,
+            ).toSyndicate(Dependency(DropData(blueprintLocations: [], bountyRewardTables: []))),
           ),
         );
 
@@ -60,7 +64,7 @@ void main() {
           ...worldstate['VoidStorms'] as List<dynamic>,
         ]);
 
-        final fissures = raws.map((raw) => RawActiveMission.fromMap(raw).toVoidFissure());
+        final fissures = raws.map((raw) => RawActiveMission.fromMap(raw).toVoidFissure(deps));
 
         expect(fissures.length, raws.length);
       });
@@ -75,25 +79,25 @@ void main() {
 
       test('RawInGameMarket -> InGameMarket', () {
         final raw = worldstate['InGameMarket'] as Map<String, dynamic>;
-        expect(RawInGameMarket.fromMap(raw).toInGameMarket(), isA<InGameMarket>());
+        expect(RawInGameMarket.fromMap(raw).toInGameMarket(deps), isA<InGameMarket>());
       });
 
       test('RawInvasion -> Invasion', () {
         final invasions = List<JsonObject>.from(
           worldstate['Invasions'] as List<dynamic>,
-        ).map((u) => RawInvasion.fromMap(u).toInvasion());
+        ).map((u) => RawInvasion.fromMap(u).toInvasion(deps));
 
         expect(invasions, isA<Iterable<Invasion>>());
       });
 
       test('RawTrader -> List<Trader>', () {
         final raws = List<JsonObject>.from(worldstate['VoidTraders'] as List<dynamic>);
-        expect(raws.map((r) => RawTrader.fromMap(r).toTrader()), isA<List<Trader>>());
+        expect(raws.map((r) => RawTrader.fromMap(r).toTrader(deps)), isA<List<Trader>>());
       });
 
       test('RawTrader -> Trader', () {
         final raws = List<JsonObject>.from(worldstate['PrimeVaultTraders'] as List<dynamic>);
-        final traders = raws.map((r) => RawTrader.fromMap(r).toTrader());
+        final traders = raws.map((r) => RawTrader.fromMap(r).toTrader(deps));
 
         for (final trader in traders) {
           expect(trader.evergreenItems!.isNotEmpty, isTrue);
@@ -102,7 +106,7 @@ void main() {
 
       test('RawDailyDeal -> DailyDeal', () {
         final raws = List<JsonObject>.from(worldstate['DailyDeals'] as List<dynamic>);
-        final deals = raws.map((d) => RawDailyDeal.fromMap(d).toDeal());
+        final deals = raws.map((d) => RawDailyDeal.fromMap(d).toDeal(deps));
 
         expect(deals.length, raws.length);
       });

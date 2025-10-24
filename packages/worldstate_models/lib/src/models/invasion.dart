@@ -2,6 +2,7 @@ import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
 import 'package:worldstate_models/src/models/reward.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'invasion.mapper.dart';
@@ -46,7 +47,7 @@ class RawInvasion extends BaseContentObject with RawInvasionMappable {
   final RawReward defenderReward;
   final RawMissionInfo defenderMissionInfo;
 
-  Invasion toInvasion([String locale = 'en']) => Invasion.fromRaw(this, locale);
+  Invasion toInvasion(Dependency deps) => Invasion.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -54,8 +55,8 @@ class Invasion extends WorldstateObject with InvasionMappable {
   Invasion({
     required super.id,
     required super.activation,
+    required this.key,
     required this.node,
-    required this.nodeKey,
     required this.description,
     required this.attackingFaction,
     required this.attacker,
@@ -69,17 +70,17 @@ class Invasion extends WorldstateObject with InvasionMappable {
     required this.rewardTypes,
   });
 
-  factory Invasion.fromRaw(RawInvasion raw, [String locale = 'en']) {
-    final attacker = InvasionFaction.fromRaw(raw.attackerMissionInfo, raw.attackerReward, locale);
-    final defender = InvasionFaction.fromRaw(raw.defenderMissionInfo, raw.defenderReward, locale);
+  factory Invasion.fromRaw(RawInvasion raw, Dependency deps) {
+    final attacker = InvasionFaction.fromRaw(raw.attackerMissionInfo.faction, raw.attackerReward, deps);
+    final defender = InvasionFaction.fromRaw(raw.defenderMissionInfo.faction, raw.defenderReward, deps);
     final vsInfestation = raw.faction == 'FC_INFESTATION';
 
     return Invasion(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),
-      node: data.solNodes(locale).fetchNode(raw.node).name,
-      nodeKey: data.solNodes().fetchNode(raw.node).name,
-      description: data.languages(locale).fetchValue(raw.locTag),
+      key: raw.node,
+      node: deps.nodes.fetchNode(raw.node).name,
+      description: deps.langs.fetchValue(raw.locTag),
       attackingFaction: attacker.faction,
       attacker: attacker,
       defendingFaction: defender.faction,
@@ -96,9 +97,9 @@ class Invasion extends WorldstateObject with InvasionMappable {
     );
   }
 
-  final String node;
+  final String key;
 
-  final String nodeKey;
+  final String node;
 
   final String description;
 
@@ -150,19 +151,19 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
 @MappableClass()
 class InvasionFaction with InvasionFactionMappable {
-  InvasionFaction({required this.faction, required this.factionKey, required this.reward});
+  InvasionFaction({required this.key, required this.faction, required this.reward});
 
-  factory InvasionFaction.fromRaw(RawMissionInfo raw, RawReward? reward, [String locale = 'en']) {
+  factory InvasionFaction.fromRaw(String faction, RawReward? reward, Dependency deps) {
     return InvasionFaction(
-      faction: data.faction(raw.faction, locale),
-      factionKey: data.faction(raw.faction),
-      reward: reward != null ? Reward.fromRaw(reward) : null,
+      key: data.faction(faction),
+      faction: data.faction(faction, deps.locale),
+      reward: reward != null ? Reward.fromRaw(reward, deps) : null,
     );
   }
 
-  final String faction;
+  final String key;
 
-  final String factionKey;
+  final String faction;
 
   final Reward? reward;
 }

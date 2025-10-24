@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
@@ -36,7 +37,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 
   final List<RawTraderItem>? evergreenManifest;
 
-  Trader toTrader([String locale = 'en']) => Trader.fromRaw(this, locale);
+  Trader toTrader(Dependency deps) => Trader.fromRaw(this, deps);
 }
 
 @MappableRecord()
@@ -55,12 +56,10 @@ class Trader extends WorldstateObject with TraderMappable {
     required this.evergreenItems,
   });
 
-  factory Trader.fromRaw(RawTrader raw, String locale, {String? character}) {
-    final langs = languages(locale);
-
+  factory Trader.fromRaw(RawTrader raw, Dependency deps, {String? character}) {
     TraderItem toItem(RawTraderItem item) {
       return (
-        name: langs.fetchValue(item.itemType),
+        name: deps.langs.fetchValue(item.itemType),
         primePrice: item.primePrice ?? 0,
         regularPrice: item.regularPrice ?? 0,
       );
@@ -71,8 +70,8 @@ class Trader extends WorldstateObject with TraderMappable {
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       initialStartDate: raw.initialStartDate != null ? parseDate(raw.initialStartDate) : null,
-      node: solNodes(locale).fetchNode(raw.node).name,
-      character: langs.fetchValue(raw.character ?? character ?? ''),
+      node: deps.nodes.fetchNode(raw.node).name,
+      character: deps.langs.fetchValue(raw.character ?? character ?? ''),
       inventory: raw.manifest.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
     );

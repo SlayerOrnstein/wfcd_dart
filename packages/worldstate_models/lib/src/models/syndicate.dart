@@ -5,6 +5,7 @@ import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'syndicate.mapper.dart';
@@ -26,8 +27,7 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
   final List<String> nodes;
   final List<RawJob>? jobs;
 
-  Future<SyndicateMission> toSyndicate(DropData data, [String locale = 'en']) =>
-      SyndicateMission.fromRaw(this, data, locale);
+  Future<SyndicateMission> toSyndicate(Dependency deps) => SyndicateMission.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -54,8 +54,7 @@ class RawJob with RawJobMappable {
   final List<int> xpAmounts;
   final bool? isVault;
 
-  Future<SyndicateBounty> toBounty(DropData data, [String locale = 'en']) =>
-      SyndicateBounty.fromRaw(this, data, locale);
+  Future<SyndicateBounty> toBounty(Dependency deps) => SyndicateBounty.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -69,9 +68,8 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
     required this.bounties,
   });
 
-  static Future<SyndicateMission> fromRaw(RawSyndicate raw, DropData data, [String locale = 'en']) async {
-    final solNodeLangs = solNodes(locale);
-    final nodes = raw.nodes.map((n) => solNodeLangs.fetchNode(n).name).toList();
+  static Future<SyndicateMission> fromRaw(RawSyndicate raw, Dependency deps) async {
+    final nodes = raw.nodes.map((n) => deps.nodes.fetchNode(n).name).toList();
 
     return SyndicateMission(
       id: parseId(raw.id),
@@ -79,7 +77,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
       expiry: parseDate(raw.expiry),
       name: syndicate(raw.tag),
       nodes: nodes,
-      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(data, locale))) : [],
+      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(deps))) : [],
     );
   }
 
@@ -111,12 +109,12 @@ class SyndicateBounty with SyndicateBountyMappable {
     this.rewardPool = const [],
   });
 
-  static Future<SyndicateBounty> fromRaw(RawJob raw, DropData data, [String locale = 'en']) async {
-    final rewards = await _fetchBountyRewards(raw.rewards, data, raw, raw.isVault ?? false);
+  static Future<SyndicateBounty> fromRaw(RawJob raw, Dependency deps) async {
+    final rewards = await _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
     final drops = rewards?.map((r) => RewardDrop.fromDrop(r.name, r.rarity, r.chance)).toList();
 
     return SyndicateBounty(
-      type: raw.jobType != null ? languages(locale).fetchValue(raw.jobType!) : null,
+      type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
       rewards: rewards?.isNotEmpty ?? false
           ? rewards!.map((r) => r.name).toSet().toList()
           : <String>['Pattern Mismatch. Results inaccurate.'],

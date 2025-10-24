@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
 import 'package:worldstate_models/src/models/reward.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 
 part 'mission.mapper.dart';
 
@@ -40,7 +41,7 @@ class RawMission with RawMissionMappable {
   final bool archwingRequired;
   final bool isSharkwingMission;
 
-  Mission toMission([String locale = 'en']) => Mission.fromRaw(this, locale);
+  Mission toMission(Dependency deps) => Mission.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -61,8 +62,9 @@ class Mission with MissionMappable {
     required this.archwingRequired,
   });
 
-  factory Mission.fromRaw(RawMission raw, [String locale = 'en']) {
-    final langs = data.languages(locale);
+  factory Mission.fromRaw(RawMission raw, Dependency deps) {
+    final langs = deps.langs;
+    final locale = deps.locale;
 
     return Mission(
       type: data.missionType(raw.missionType, locale),
@@ -72,7 +74,7 @@ class Mission with MissionMappable {
       enemySpec: langs.fetchValue(raw.enemySpec),
       minEnemyLevel: raw.minEnemyLevel,
       maxEnemyLevel: raw.maxEnemyLevel,
-      reward: raw.missionReward.toReward(locale),
+      reward: raw.missionReward.toReward(deps),
       // probably need lang for this one later down the line. Seems to be for events based on quest i.e. Jade of Shadows
       description: raw.descText,
       questRequired: raw.questReq,

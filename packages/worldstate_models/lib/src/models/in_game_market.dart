@@ -1,5 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 
 part 'in_game_market.mapper.dart';
 
@@ -11,7 +12,7 @@ class RawInGameMarket with RawInGameMarketMappable {
 
   static const fromMap = RawInGameMarketMapper.fromMap;
 
-  InGameMarket toInGameMarket([String locale = 'en']) => InGameMarket.fromRaw(this, locale);
+  InGameMarket toInGameMarket(Dependency deps) => InGameMarket.fromRaw(this, deps);
 }
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
@@ -37,15 +38,15 @@ class RawCategory with RawCategoryMappable {
   final bool? addToMenu;
   final List<String> items;
 
-  Category toCategory([String locale = 'en']) => Category.fromRaw(this, locale);
+  Category toCategory(Dependency deps) => Category.fromRaw(this, deps);
 }
 
 @MappableClass()
 class InGameMarket with InGameMarketMappable {
   InGameMarket({required this.landingPage});
 
-  factory InGameMarket.fromRaw(RawInGameMarket raw, String locale) {
-    final rawCategories = raw.landingPage.categories.map((c) => Category.fromRaw(c, locale));
+  factory InGameMarket.fromRaw(RawInGameMarket raw, Dependency deps) {
+    final rawCategories = raw.landingPage.categories.map((c) => Category.fromRaw(c, deps));
 
     return InGameMarket(landingPage: LandingPage(categories: rawCategories.toList()));
   }
@@ -70,8 +71,8 @@ class Category with CategoryMappable {
     required this.items,
   });
 
-  factory Category.fromRaw(RawCategory raw, String locale) {
-    final langs = languages(locale);
+  factory Category.fromRaw(RawCategory raw, Dependency deps) {
+    final langs = deps.langs;
 
     return Category(
       category: raw.categoryName,

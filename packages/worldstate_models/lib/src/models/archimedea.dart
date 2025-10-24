@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'archimedea.mapper.dart';
@@ -46,8 +47,7 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
     required this.personalModifiers,
   });
 
-  factory Archimedea.fromRaw(RawConquest raw, String locale) {
-    final langs = data.languages(locale);
+  factory Archimedea.fromRaw(RawConquest raw, Dependency deps) {
     final id = hash(raw.type + raw.activation.toString());
 
     return Archimedea(
@@ -59,9 +59,9 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
         'CT_LAB' => 'Deep',
         _ => raw.type,
       },
-      missions: raw.missions.map((m) => ArchimedeaMission.fromRaw(m, locale)).toList(),
+      missions: raw.missions.map((m) => ArchimedeaMission.fromRaw(m, deps)).toList(),
       personalModifiers: raw.variables
-          .map((r) => (title: langs.fetchValue(r), description: langs.fetchDescription(r)))
+          .map((r) => (title: deps.langs.fetchValue(r), description: deps.langs.fetchDescription(r)))
           .toList(),
     );
   }
@@ -86,20 +86,19 @@ typedef ArchimedeaRisk = ({String title, String description, bool isElite});
 class ArchimedeaMission with ArchimedeaMissionMappable {
   ArchimedeaMission({required this.faction, required this.missionType, required this.deviation, required this.risks});
 
-  factory ArchimedeaMission.fromRaw(RawConquestMission raw, String locale) {
-    final langs = data.languages(locale);
+  factory ArchimedeaMission.fromRaw(RawConquestMission raw, Dependency deps) {
     final deviation = raw.difficulties[0].deviation;
 
     return ArchimedeaMission(
       faction: data.faction(raw.faction),
       missionType: data.missionType(raw.missionType),
-      deviation: (title: langs.fetchValue(deviation), description: langs.fetchDescription(deviation)),
+      deviation: (title: deps.langs.fetchValue(deviation), description: deps.langs.fetchDescription(deviation)),
       risks: raw.difficulties
           .map(
             (d) => d.risks.map(
               (r) => (
-                title: langs.fetchValue(r),
-                description: langs.fetchDescription(r),
+                title: deps.langs.fetchValue(r),
+                description: deps.langs.fetchDescription(r),
                 isElite: d.type == 'CD_HARD',
               ),
             ),

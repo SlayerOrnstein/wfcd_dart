@@ -2,6 +2,7 @@ import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/reward.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'world_event.mapper.dart';
@@ -55,7 +56,7 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final List<RawReward>? interimRewards;
   final String tag;
 
-  WorldEvent toWorldEvent([String locale = 'en']) => WorldEvent.fromRaw(this, locale);
+  WorldEvent toWorldEvent(Dependency deps) => WorldEvent.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -83,15 +84,15 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
     required this.tag,
   });
 
-  factory WorldEvent.fromRaw(RawGoal raw, [String locale = 'en']) {
-    final langs = languages(locale);
+  factory WorldEvent.fromRaw(RawGoal raw, Dependency deps) {
+    final langs = deps.langs;
 
     return WorldEvent(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
-      node: raw.node != null ? solNodes(locale).fetchNode(raw.node!).name : null,
-      victimNode: raw.victimNode != null ? solNodes(locale).fetchNode(raw.victimNode!).name : null,
+      node: raw.node != null ? deps.nodes.fetchNode(raw.node!).name : null,
+      victimNode: raw.victimNode != null ? deps.nodes.fetchNode(raw.victimNode!).name : null,
       scoreVar: raw.scoreVar != null ? normalizeResourceName(raw.scoreVar!) : null,
       scoreLocTag: raw.scoreLocTag != null ? langs.fetchValue(raw.scoreLocTag!) : null,
       count: raw.count,
@@ -103,9 +104,9 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
       community: raw.community,
       goal: raw.goal,
       clanGoal: raw.clanGoal,
-      reward: raw.reward?.toReward(locale),
+      reward: raw.reward?.toReward(deps),
       interimGoals: raw.interimGoals,
-      interimRewards: raw.interimRewards?.map((r) => r.toReward(locale)).toList(),
+      interimRewards: raw.interimRewards?.map((r) => r.toReward(deps)).toList(),
       tag: raw.tag,
     );
   }

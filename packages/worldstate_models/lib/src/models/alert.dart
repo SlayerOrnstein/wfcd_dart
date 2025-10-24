@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:worldstate_models/src/models/mission.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'alert.mapper.dart';
@@ -22,7 +23,7 @@ class RawAlert extends BaseContentObject with RawAlertMappable {
   final String tag;
   final bool forceUnlock;
 
-  Alert toAlert([String locale = 'en']) => Alert.fromRaw(this, locale);
+  Alert toAlert(Dependency deps) => Alert.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -36,12 +37,12 @@ class Alert extends WorldstateObject with AlertMappable {
     required this.forceUnlocked,
   });
 
-  factory Alert.fromRaw(RawAlert raw, String locale) {
+  factory Alert.fromRaw(RawAlert raw, Dependency deps) {
     return Alert(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
-      mission: raw.missionInfo.toMission(locale),
+      mission: raw.missionInfo.toMission(deps),
       tag: raw.tag,
       forceUnlocked: raw.forceUnlock,
     );

@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'daily_deal.mapper.dart';
@@ -27,7 +28,7 @@ class RawDailyDeal extends BaseContentObject with RawDailyDealMappable {
   final int amountTotal;
   final int amountSold;
 
-  DailyDeal toDeal([String locale = 'en']) => DailyDeal.fromRaw(this, locale);
+  DailyDeal toDeal(Dependency deps) => DailyDeal.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -44,14 +45,14 @@ class DailyDeal extends WorldstateObject with DailyDealMappable {
     required this.sold,
   });
 
-  factory DailyDeal.fromRaw(RawDailyDeal raw, String locale) {
+  factory DailyDeal.fromRaw(RawDailyDeal raw, Dependency deps) {
     final activation = parseDate(raw.activation);
 
     return DailyDeal(
       id: hash(raw.storeItem + activation.toIso8601String()),
       activation: activation,
       expiry: parseDate(raw.expiry),
-      item: languages(locale).fetchValue(raw.storeItem),
+      item: deps.langs.fetchValue(raw.storeItem),
       discount: raw.discount,
       price: raw.originalPrice,
       salePrice: raw.salePrice,

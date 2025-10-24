@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
-import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'worldstate.mapper.dart';
@@ -62,7 +62,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawConquest> conquests;
   final String tmp;
 
-  Future<Worldstate> toWorldstate(DropData data, [String locale = 'en']) => Worldstate.fromRaw(this, data, locale);
+  Future<Worldstate> toWorldstate(Dependency deps) => Worldstate.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -100,37 +100,37 @@ class Worldstate with WorldstateMappable {
 
   static const fromMap = WorldstateMapper.fromMap;
 
-  static Future<Worldstate> fromRaw(RawWorldstate raw, DropData data, [String locale = 'en']) async {
+  static Future<Worldstate> fromRaw(RawWorldstate raw, Dependency deps) async {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
 
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
     final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
-    raw.events.retainWhere((n) => n.messages.firstWhereOrNull((m) => m['LanguageCode'] == locale) != null);
+    raw.events.retainWhere((n) => n.messages.firstWhereOrNull((m) => m['LanguageCode'] == deps.locale) != null);
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),
-      news: await parseArray(raw.events, (event) => News.fromRaw(event, locale)),
-      events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, locale)),
-      alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, locale)),
-      sortie: Sortie.fromRaw(raw.sorties.first, locale),
-      archonHunt: Sortie.fromRaw(raw.liteSorties.first, locale),
+      news: await parseArray(raw.events, (event) => News.fromRaw(event, deps.locale)),
+      events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, deps)),
+      alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, deps)),
+      sortie: Sortie.fromRaw(raw.sorties.first, deps.locale),
+      archonHunt: Sortie.fromRaw(raw.liteSorties.first, deps.locale),
       syndicateMissions: await parseArray(
         raw.syndicateMissions,
-        (mission) async => SyndicateMission.fromRaw(mission, data, locale),
+        (mission) async => SyndicateMission.fromRaw(mission, deps),
       ),
-      fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, locale)),
-      globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, locale)),
-      flashSales: await parseArray(raw.flashSales, (sale) => FlashSale.fromRaw(sale, locale)),
-      inGameMarket: InGameMarket.fromRaw(raw.inGameMarket, locale),
-      invasions: await parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, locale)),
-      voidTraders: await parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, locale)),
-      vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, locale, character: 'Varzia'),
-      dailyDeals: await parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, locale)),
+      fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, deps)),
+      globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, deps.locale)),
+      flashSales: await parseArray(raw.flashSales, (sale) => FlashSale.fromRaw(sale, deps)),
+      inGameMarket: InGameMarket.fromRaw(raw.inGameMarket, deps),
+      invasions: await parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, deps)),
+      voidTraders: await parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, deps)),
+      vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, deps, character: 'Varzia'),
+      dailyDeals: await parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, deps)),
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
-      nightwave: Nightwave.fromRaw(raw.seasonInfo, locale),
-      calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, locale),
-      archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, locale)).toList(),
+      nightwave: Nightwave.fromRaw(raw.seasonInfo, deps),
+      calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, deps),
+      archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, deps)).toList(),
       cetusCycle: CetusCycle.fromBountiesEndDate(cetusBountyEnd),
       vallisCycle: VallisCycle.init(),
       cambionCycle: CambionCycle.fromBountiesEndDate(cetusBountyEnd),

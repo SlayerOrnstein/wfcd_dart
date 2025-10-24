@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'nightwave.mapper.dart';
@@ -20,6 +21,8 @@ class RawSeasonInfo extends BaseContentObject with RawSeasonInfoMappable {
   final int season;
   final int phase;
   final List<RawActiveChallenge> activeChallenges;
+
+  Nightwave toNightwave(Dependency deps) => Nightwave.fromRaw(this, deps);
 }
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
@@ -47,14 +50,14 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
     required this.challenges,
   });
 
-  factory Nightwave.fromRaw(RawSeasonInfo raw, String locale) {
+  factory Nightwave.fromRaw(RawSeasonInfo raw, Dependency deps) {
     return Nightwave(
       id: hash(raw.affiliationTag + raw.activation.toString() + raw.expiry.toString()),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
-      tag: languages(locale).fetchValue(raw.affiliationTag),
+      tag: deps.langs.fetchValue(raw.affiliationTag),
       season: raw.season,
-      challenges: raw.activeChallenges.map((challenge) => NightwaveChallenge.fromRaw(challenge, locale)).toList(),
+      challenges: raw.activeChallenges.map((challenge) => NightwaveChallenge.fromRaw(challenge, deps)).toList(),
     );
   }
 
@@ -84,15 +87,13 @@ class NightwaveChallenge extends WorldstateObject with NightwaveChallengeMappabl
     this.isElite = false,
   });
 
-  factory NightwaveChallenge.fromRaw(RawActiveChallenge raw, String locale) {
-    final langs = languages(locale);
-
+  factory NightwaveChallenge.fromRaw(RawActiveChallenge raw, Dependency deps) {
     return NightwaveChallenge(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
-      title: langs.fetchValue(raw.challenge),
-      description: langs.fetchDescription(raw.challenge),
+      title: deps.langs.fetchValue(raw.challenge),
+      description: deps.langs.fetchDescription(raw.challenge),
       isDaily: raw.daily,
       isElite: raw.challenge.contains('Hard'),
     );

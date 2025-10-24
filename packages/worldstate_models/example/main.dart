@@ -5,8 +5,8 @@ import 'package:worldstate_models/worldstate_models.dart';
 Future<void> main() async {
   final response = await http.get(Uri.parse('https://api.warframe.com/cdn/worldState.php'));
   final data = await buildDropData();
-  final worldstate = await RawWorldstate.fromJson(response.body).toWorldstate(data);
+  final deps = Dependency(data);
+  final worldstate = await RawWorldstate.fromJson(response.body).toWorldstate(deps);
 
   print(worldstate.timestamp);
-  print(worldstate.toJson());
 }

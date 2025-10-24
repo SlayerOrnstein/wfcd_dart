@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'calendar.mapper.dart';
@@ -51,14 +52,14 @@ class Calendar extends WorldstateObject with CalendarMappable {
     required this.days,
   });
 
-  factory Calendar.fromRaw(RawCalendar raw, String locale) {
+  factory Calendar.fromRaw(RawCalendar raw, Dependency deps) {
     return Calendar(
       id: hash(raw.days.fold<int>(0, (p, n) => p + n.day).toString()),
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       season: translateSeason(raw.season),
       loops: raw.yearIteration,
-      days: raw.days.map((d) => CalendarDay.fromRaw(d, locale)).toList(),
+      days: raw.days.map((d) => CalendarDay.fromRaw(d, deps)).toList(),
     );
   }
 
@@ -80,12 +81,12 @@ class Calendar extends WorldstateObject with CalendarMappable {
 class CalendarDay with CalendarDayMappable {
   CalendarDay({required this.day, required this.events});
 
-  factory CalendarDay.fromRaw(RawCalendarDay raw, String locale) {
+  factory CalendarDay.fromRaw(RawCalendarDay raw, Dependency deps) {
     final year1999 = DateTime.utc(1999);
 
     return CalendarDay(
       day: year1999.add(Duration(days: raw.day - 1)),
-      events: raw.events.map((e) => CalendarDayEvent.fromType(e, locale)).toList(),
+      events: raw.events.map((e) => CalendarDayEvent.fromType(e, deps)).toList(),
     );
   }
 
@@ -97,22 +98,21 @@ class CalendarDay with CalendarDayMappable {
 sealed class CalendarDayEvent with CalendarDayEventMappable {
   CalendarDayEvent({required this.key, required this.type});
 
-  factory CalendarDayEvent.fromType(RawCalendarDayEvent event, String locale) {
-    final langs = languages(locale);
+  factory CalendarDayEvent.fromType(RawCalendarDayEvent event, Dependency deps) {
     final rawType = event.type;
-    final type = langs.fetchValue(event.type);
+    final type = deps.langs.fetchValue(event.type);
 
     return switch (rawType) {
       'CET_CHALLENGE' => CalendarDayChallenge(
         type: type,
-        title: langs.fetchValue(event.challenge!),
-        description: langs.fetchDescription(event.challenge!),
+        title: deps.langs.fetchValue(event.challenge!),
+        description: deps.langs.fetchDescription(event.challenge!),
       ),
-      'CET_REWARD' => CalendarDayReward(type: type, reward: langs.fetchValue(event.reward!)),
+      'CET_REWARD' => CalendarDayReward(type: type, reward: deps.langs.fetchValue(event.reward!)),
       'CET_UPGRADE' => CalendarDayUpgrade(
         type: type,
-        name: langs.fetchValue(event.upgrade!),
-        description: langs.fetchDescription(event.upgrade!),
+        name: deps.langs.fetchValue(event.upgrade!),
+        description: deps.langs.fetchDescription(event.upgrade!),
       ),
       'CET_PLOT' => CalendarDayBirthday(type: type, name: event.dialogueName!, conversation: event.dialogueConvo!),
       _ => throw Exception('$type not implmented'),

@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'fissure.mapper.dart';
@@ -26,7 +27,7 @@ class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
   final bool? hard;
   final String? activeMissionTier;
 
-  VoidFissure toVoidFissure([String locale = 'en']) => VoidFissure.fromRaw(this, locale);
+  VoidFissure toVoidFissure(Dependency deps) => VoidFissure.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -44,9 +45,9 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required this.isSteelpath,
   });
 
-  factory VoidFissure.fromRaw(RawActiveMission raw, String locale) {
-    final node = solNodes(locale).fetchNode(raw.node);
-    final tier = fissure(raw.modifier ?? raw.activeMissionTier!, locale);
+  factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
+    final node = deps.nodes.fetchNode(raw.node);
+    final tier = fissure(raw.modifier ?? raw.activeMissionTier!, deps.locale);
 
     return VoidFissure(
       id: parseId(raw.id),

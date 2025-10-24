@@ -1,6 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
+import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'flash_sale.mapper.dart';
@@ -32,6 +33,8 @@ class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
   final int regularOverride;
   final JsonObject startDate;
   final JsonObject endDate;
+
+  FlashSale toFlashSale(Dependency deps) => FlashSale.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -48,14 +51,14 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
     required this.regularOverride,
   });
 
-  factory FlashSale.fromRaw(RawFlashSale raw, String locale) {
+  factory FlashSale.fromRaw(RawFlashSale raw, Dependency deps) {
     final activation = parseDate(raw.startDate);
 
     return FlashSale(
       id: hash(raw.typeName + activation.toIso8601String()),
       activation: activation,
       expiry: parseDate(raw.endDate),
-      item: languages(locale).fetchValue(raw.typeName),
+      item: deps.langs.fetchValue(raw.typeName),
       shownInMarket: raw.showInMarket,
       isSupporterPack: raw.supporterPack,
       discount: raw.discount,
