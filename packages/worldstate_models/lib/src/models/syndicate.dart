@@ -80,8 +80,8 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
   }
 
   final String name;
-  final List<String>? nodes;
-  final List<SyndicateBounty>? bounties;
+  final List<String> nodes;
+  final List<SyndicateBounty> bounties;
 
   @override
   DateTime get activation => super.activation!;
@@ -92,6 +92,9 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
   @override
   bool get isActive => super.isActive!;
 }
+
+@MappableRecord()
+typedef BountyStage = ({int stage, List<RewardDrop> rewards});
 
 @MappableClass()
 class SyndicateBounty with SyndicateBountyMappable {
@@ -108,15 +111,12 @@ class SyndicateBounty with SyndicateBountyMappable {
   });
 
   factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
-    final rewards = _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
-    final drops = rewards?.map((r) => RewardDrop.fromDrop(r.name, r.rarity, r.chance)).toList();
+    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
-      rewards: rewards?.isNotEmpty ?? false
-          ? rewards!.map((r) => r.name).toSet().toList()
-          : <String>['Pattern Mismatch. Results inaccurate.'],
-      rewardPool: rewards?.isNotEmpty ?? false ? drops! : [],
+      rewards: <String>[...rewards, if (rewards.isEmpty) 'Pattern Mismatch. Results inaccurate.'],
+      rewardPool: drops,
       masteryRequirment: raw.masteryReq,
       minLevel: raw.minEnemyLevel,
       maxLevel: raw.maxEnemyLevel,
@@ -128,7 +128,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
   final String? type;
   final List<String> rewards;
-  final List<RewardDrop> rewardPool;
+  final List<BountyStage> rewardPool;
   final int masteryRequirment;
   final int minLevel;
   final int maxLevel;
@@ -170,7 +170,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     return (levelClause, rotation.isNotEmpty ? rotation : 'A');
   }
 
-  static List<BountyReward>? _fetchBountyRewards(
+  static (List<String> rewards, List<BountyStage> rewardDrops) _fetchBountyRewards(
     String resource,
     DropData data,
     RawJob raw,
@@ -186,12 +186,36 @@ class SyndicateBounty with SyndicateBountyMappable {
     }
 
     final table = data.bountyRewardTables.firstWhereOrNull((t) => t.level == level);
-    if (table == null) return null;
+    if (table == null) return ([], []);
 
     final rewards = table.rewards.fetchRotation(rotation);
-    if (rewards.isEmpty) return [];
+    if (rewards.isEmpty) return ([], []);
 
-    return rewards;
+    final stages = <int, BountyStage>{};
+    var currentStage = 0;
+    for (final reward in rewards) {
+      final drop = RewardDrop.fromDrop(reward);
+
+      if (!reward.onFinalStage) {
+        for (final stage in reward.stages) {
+          if (currentStage < stage) currentStage = stage;
+          stages.update(
+            stage,
+            (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
+            ifAbsent: () => (stage: stage, rewards: [drop]),
+          );
+        }
+
+        final stage = currentStage + 1;
+        stages.update(
+          stage,
+          (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
+          ifAbsent: () => (stage: stage, rewards: [drop]),
+        );
+      }
+    }
+
+    return (rewards.map((r) => r.name).toSet().toList(), stages.entries.map((entry) => entry.value).toList());
   }
 }
 
@@ -203,15 +227,15 @@ class RewardDrop with RewardDropMappable {
   /// {@macro reward_drop}
   const RewardDrop({required this.item, required this.rarity, required this.chance, required this.count});
 
-  factory RewardDrop.fromDrop(String item, String rarity, num chance) {
+  factory RewardDrop.fromDrop(BountyReward drop) {
     // Don't usually see drop counts this high but you know, cast a wide net
     final countReg = RegExp('([0-9]{1,10})X');
-    final count = countReg.allMatches(item);
+    final count = countReg.allMatches(drop.name);
 
     return RewardDrop(
-      item: item.replaceAll(countReg, ''),
-      rarity: rarity,
-      chance: chance,
+      item: drop.name.replaceAll(countReg, '').trim(),
+      rarity: drop.rarity,
+      chance: drop.chance,
       count: count.isNotEmpty ? int.parse(count.first.group(1)!) : 1,
     );
   }

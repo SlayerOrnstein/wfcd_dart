@@ -456,12 +456,12 @@ class SyndicateMissionMapper extends ClassMapperBase<SyndicateMission> {
   );
   static String _$name(SyndicateMission v) => v.name;
   static const Field<SyndicateMission, String> _f$name = Field('name', _$name);
-  static List<String>? _$nodes(SyndicateMission v) => v.nodes;
+  static List<String> _$nodes(SyndicateMission v) => v.nodes;
   static const Field<SyndicateMission, List<String>> _f$nodes = Field(
     'nodes',
     _$nodes,
   );
-  static List<SyndicateBounty>? _$bounties(SyndicateMission v) => v.bounties;
+  static List<SyndicateBounty> _$bounties(SyndicateMission v) => v.bounties;
   static const Field<SyndicateMission, List<SyndicateBounty>> _f$bounties =
       Field('bounties', _$bounties);
 
@@ -550,12 +550,12 @@ extension SyndicateMissionValueCopy<$R, $Out>
 
 abstract class SyndicateMissionCopyWith<$R, $In extends SyndicateMission, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get nodes;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get nodes;
   ListCopyWith<
     $R,
     SyndicateBounty,
     SyndicateBountyCopyWith<$R, SyndicateBounty, SyndicateBounty>
-  >?
+  >
   get bounties;
   $R call({
     String? id,
@@ -579,43 +579,39 @@ class _SyndicateMissionCopyWithImpl<$R, $Out>
   late final ClassMapperBase<SyndicateMission> $mapper =
       SyndicateMissionMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get nodes =>
-      $value.nodes != null
-      ? ListCopyWith(
-          $value.nodes!,
-          (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(nodes: v),
-        )
-      : null;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get nodes =>
+      ListCopyWith(
+        $value.nodes,
+        (v, t) => ObjectCopyWith(v, $identity, t),
+        (v) => call(nodes: v),
+      );
   @override
   ListCopyWith<
     $R,
     SyndicateBounty,
     SyndicateBountyCopyWith<$R, SyndicateBounty, SyndicateBounty>
-  >?
-  get bounties => $value.bounties != null
-      ? ListCopyWith(
-          $value.bounties!,
-          (v, t) => v.copyWith.$chain(t),
-          (v) => call(bounties: v),
-        )
-      : null;
+  >
+  get bounties => ListCopyWith(
+    $value.bounties,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(bounties: v),
+  );
   @override
   $R call({
     String? id,
     Object? activation = $none,
     Object? expiry = $none,
     String? name,
-    Object? nodes = $none,
-    Object? bounties = $none,
+    List<String>? nodes,
+    List<SyndicateBounty>? bounties,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (name != null) #name: name,
-      if (nodes != $none) #nodes: nodes,
-      if (bounties != $none) #bounties: bounties,
+      if (nodes != null) #nodes: nodes,
+      if (bounties != null) #bounties: bounties,
     }),
   );
   @override
@@ -641,7 +637,7 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
   static SyndicateBountyMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = SyndicateBountyMapper._());
-      RewardDropMapper.ensureInitialized();
+      BountyStageMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -686,8 +682,8 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     'isVault',
     _$isVault,
   );
-  static List<RewardDrop> _$rewardPool(SyndicateBounty v) => v.rewardPool;
-  static const Field<SyndicateBounty, List<RewardDrop>> _f$rewardPool = Field(
+  static List<BountyStage> _$rewardPool(SyndicateBounty v) => v.rewardPool;
+  static const Field<SyndicateBounty, List<BountyStage>> _f$rewardPool = Field(
     'rewardPool',
     _$rewardPool,
     opt: true,
@@ -786,7 +782,7 @@ extension SyndicateBountyValueCopy<$R, $Out>
 abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get rewards;
-  ListCopyWith<$R, RewardDrop, RewardDropCopyWith<$R, RewardDrop, RewardDrop>>
+  ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool;
   $R call({
     String? type,
@@ -797,7 +793,7 @@ abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     bool? isEndless,
     int? standing,
     bool? isVault,
-    List<RewardDrop>? rewardPool,
+    List<BountyStage>? rewardPool,
   });
   SyndicateBountyCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -820,10 +816,10 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
         (v) => call(rewards: v),
       );
   @override
-  ListCopyWith<$R, RewardDrop, RewardDropCopyWith<$R, RewardDrop, RewardDrop>>
+  ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool => ListCopyWith(
     $value.rewardPool,
-    (v, t) => v.copyWith.$chain(t),
+    (v, t) => ObjectCopyWith(v, $identity, t),
     (v) => call(rewardPool: v),
   );
   @override
@@ -836,7 +832,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     Object? isEndless = $none,
     int? standing,
     Object? isVault = $none,
-    List<RewardDrop>? rewardPool,
+    List<BountyStage>? rewardPool,
   }) => $apply(
     FieldCopyWithData({
       if (type != $none) #type: type,
@@ -870,6 +866,108 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   SyndicateBountyCopyWith<$R2, SyndicateBounty, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   ) => _SyndicateBountyCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class BountyStageMapper extends RecordMapperBase<BountyStage> {
+  static BountyStageMapper? _instance;
+  BountyStageMapper._();
+
+  static BountyStageMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = BountyStageMapper._());
+      MapperBase.addType(<A, B>(f) => f<({A rewards, B stage})>());
+      RewardDropMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  static int _$stage(BountyStage v) => v.stage;
+  static const Field<BountyStage, int> _f$stage = Field('stage', _$stage);
+  static List<RewardDrop> _$rewards(BountyStage v) => v.rewards;
+  static const Field<BountyStage, List<RewardDrop>> _f$rewards = Field(
+    'rewards',
+    _$rewards,
+  );
+
+  @override
+  final MappableFields<BountyStage> fields = const {
+    #stage: _f$stage,
+    #rewards: _f$rewards,
+  };
+
+  @override
+  Function get typeFactory =>
+      (f) => f<BountyStage>();
+
+  @override
+  List<Type> apply(MappingContext context) {
+    return [];
+  }
+
+  static BountyStage _instantiate(DecodingData<BountyStage> data) {
+    return (stage: data.dec(_f$stage), rewards: data.dec(_f$rewards));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static BountyStage fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<BountyStage>(map);
+  }
+
+  static BountyStage fromJson(String json) {
+    return ensureInitialized().decodeJson<BountyStage>(json);
+  }
+}
+
+extension BountyStageMappable on BountyStage {
+  Map<String, dynamic> toMap() {
+    return BountyStageMapper.ensureInitialized().encodeMap(this);
+  }
+
+  String toJson() {
+    return BountyStageMapper.ensureInitialized().encodeJson(this);
+  }
+
+  BountyStageCopyWith<BountyStage> get copyWith =>
+      _BountyStageCopyWithImpl(this, $identity, $identity);
+}
+
+extension BountyStageValueCopy<$R>
+    on ObjectCopyWith<$R, BountyStage, BountyStage> {
+  BountyStageCopyWith<$R> get $asBountyStage =>
+      $base.as((v, t, t2) => _BountyStageCopyWithImpl(v, t, t2));
+}
+
+abstract class BountyStageCopyWith<$R>
+    implements RecordCopyWith<$R, BountyStage> {
+  $R call({int? stage, List<RewardDrop>? rewards});
+  BountyStageCopyWith<$R2> $chain<$R2>(Then<BountyStage, $R2> t);
+}
+
+class _BountyStageCopyWithImpl<$R> extends RecordCopyWithBase<$R, BountyStage>
+    implements BountyStageCopyWith<$R> {
+  _BountyStageCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final RecordMapperBase<BountyStage> $mapper =
+      BountyStageMapper.ensureInitialized();
+  @override
+  $R call({int? stage, List<RewardDrop>? rewards}) => $apply(
+    FieldCopyWithData({
+      if (stage != null) #stage: stage,
+      if (rewards != null) #rewards: rewards,
+    }),
+  );
+  @override
+  BountyStage $make(CopyWithData data) => (
+    stage: data.get(#stage, or: $value.stage),
+    rewards: data.get(#rewards, or: $value.rewards),
+  );
+
+  @override
+  BountyStageCopyWith<$R2> $chain<$R2>(Then<BountyStage, $R2> t) =>
+      _BountyStageCopyWithImpl($value, $cast, t);
 }
 
 class RewardDropMapper extends ClassMapperBase<RewardDrop> {
