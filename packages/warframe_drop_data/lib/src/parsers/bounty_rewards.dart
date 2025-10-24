@@ -76,7 +76,7 @@ List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
                 .toSet()
                 .toList(),
             onFinalStage: stage?.toLowerCase() == 'final stage',
-            completion: completion != null ? true : null,
+            onFirstCompletion: completion?.contains('First'),
           ),
         );
       }

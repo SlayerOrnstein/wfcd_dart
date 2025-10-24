@@ -26,7 +26,7 @@ class BountyReward extends RotationReward with BountyRewardMappable {
     required super.chance,
     required this.stages,
     required this.onFinalStage,
-    required this.completion,
+    required this.onFirstCompletion,
   });
 
   /// Stages the reward can drop in
@@ -36,7 +36,7 @@ class BountyReward extends RotationReward with BountyRewardMappable {
   final bool onFinalStage;
 
   /// Whether this drops on subsequent Completions or not
-  final bool? completion;
+  final bool? onFirstCompletion;
 
   @override
   double get chance => super.chance!;

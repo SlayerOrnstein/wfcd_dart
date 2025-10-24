@@ -212,10 +212,10 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
     'onFinalStage',
     _$onFinalStage,
   );
-  static bool? _$completion(BountyReward v) => v.completion;
-  static const Field<BountyReward, bool> _f$completion = Field(
-    'completion',
-    _$completion,
+  static bool? _$onFirstCompletion(BountyReward v) => v.onFirstCompletion;
+  static const Field<BountyReward, bool> _f$onFirstCompletion = Field(
+    'onFirstCompletion',
+    _$onFirstCompletion,
   );
 
   @override
@@ -226,7 +226,7 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
     #chance: _f$chance,
     #stages: _f$stages,
     #onFinalStage: _f$onFinalStage,
-    #completion: _f$completion,
+    #onFirstCompletion: _f$onFirstCompletion,
   };
   @override
   final bool ignoreNull = true;
@@ -247,7 +247,7 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
       chance: data.dec(_f$chance),
       stages: data.dec(_f$stages),
       onFinalStage: data.dec(_f$onFinalStage),
-      completion: data.dec(_f$completion),
+      onFirstCompletion: data.dec(_f$onFirstCompletion),
     );
   }
 
@@ -322,7 +322,7 @@ abstract class BountyRewardCopyWith<$R, $In extends BountyReward, $Out>
     double? chance,
     List<int>? stages,
     bool? onFinalStage,
-    bool? completion,
+    bool? onFirstCompletion,
   });
   BountyRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -350,7 +350,7 @@ class _BountyRewardCopyWithImpl<$R, $Out>
     Object? chance = $none,
     List<int>? stages,
     bool? onFinalStage,
-    Object? completion = $none,
+    Object? onFirstCompletion = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -359,7 +359,7 @@ class _BountyRewardCopyWithImpl<$R, $Out>
       if (chance != $none) #chance: chance,
       if (stages != null) #stages: stages,
       if (onFinalStage != null) #onFinalStage: onFinalStage,
-      if (completion != $none) #completion: completion,
+      if (onFirstCompletion != $none) #onFirstCompletion: onFirstCompletion,
     }),
   );
   @override
@@ -370,7 +370,10 @@ class _BountyRewardCopyWithImpl<$R, $Out>
     chance: data.get(#chance, or: $value.chance),
     stages: data.get(#stages, or: $value.stages),
     onFinalStage: data.get(#onFinalStage, or: $value.onFinalStage),
-    completion: data.get(#completion, or: $value.completion),
+    onFirstCompletion: data.get(
+      #onFirstCompletion,
+      or: $value.onFirstCompletion,
+    ),
   );
 
   @override
