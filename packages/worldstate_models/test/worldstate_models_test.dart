@@ -47,12 +47,9 @@ void main() {
 
       test('RawSyndicate -> SyndicateMission', () async {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
-        final missions = await Future.wait(
-          syndicateMissions.map(
-            (s) => RawSyndicate.fromMap(
-              s,
-            ).toSyndicate(Dependency(DropData(blueprintLocations: [], bountyRewardTables: []))),
-          ),
+        final missions = syndicateMissions.map(
+          (s) =>
+              RawSyndicate.fromMap(s).toSyndicate(Dependency(DropData(blueprintLocations: [], bountyRewardTables: []))),
         );
 
         expect(missions.toList(), isA<List<SyndicateMission>>());

@@ -62,7 +62,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawConquest> conquests;
   final String tmp;
 
-  Future<Worldstate> toWorldstate(Dependency deps) => Worldstate.fromRaw(this, deps);
+  Worldstate toWorldstate(Dependency deps) => Worldstate.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -96,11 +96,7 @@ class Worldstate with WorldstateMappable {
     required this.steelPath,
   });
 
-  static const fromJson = WorldstateMapper.fromJson;
-
-  static const fromMap = WorldstateMapper.fromMap;
-
-  static Future<Worldstate> fromRaw(RawWorldstate raw, Dependency deps) async {
+  factory Worldstate.fromRaw(RawWorldstate raw, Dependency deps) {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
 
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
@@ -109,23 +105,20 @@ class Worldstate with WorldstateMappable {
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),
-      news: await parseArray(raw.events, (event) => News.fromRaw(event, deps.locale)),
-      events: await parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, deps)),
-      alerts: await parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, deps)),
+      news: parseArray(raw.events, (event) => News.fromRaw(event, deps.locale)),
+      events: parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, deps)),
+      alerts: parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, deps)),
       sortie: Sortie.fromRaw(raw.sorties.first, deps.locale),
       archonHunt: Sortie.fromRaw(raw.liteSorties.first, deps.locale),
-      syndicateMissions: await parseArray(
-        raw.syndicateMissions,
-        (mission) async => SyndicateMission.fromRaw(mission, deps),
-      ),
-      fissures: await parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, deps)),
-      globalUpgrades: await parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, deps.locale)),
-      flashSales: await parseArray(raw.flashSales, (sale) => FlashSale.fromRaw(sale, deps)),
+      syndicateMissions: parseArray(raw.syndicateMissions, (mission) => SyndicateMission.fromRaw(mission, deps)),
+      fissures: parseArray([...raw.activeMissions, ...raw.voidStorms], (f) => VoidFissure.fromRaw(f, deps)),
+      globalUpgrades: parseArray(raw.globalUpgrades, (upgrade) => GlobalUpgrade.fromRaw(upgrade, deps.locale)),
+      flashSales: parseArray(raw.flashSales, (sale) => FlashSale.fromRaw(sale, deps)),
       inGameMarket: InGameMarket.fromRaw(raw.inGameMarket, deps),
-      invasions: await parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, deps)),
-      voidTraders: await parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, deps)),
+      invasions: parseArray(raw.invasions, (invasion) => Invasion.fromRaw(invasion, deps)),
+      voidTraders: parseArray(raw.voidTraders, (trader) => Trader.fromRaw(trader, deps)),
       vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, deps, character: 'Varzia'),
-      dailyDeals: await parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, deps)),
+      dailyDeals: parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, deps)),
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
       nightwave: Nightwave.fromRaw(raw.seasonInfo, deps),
@@ -139,6 +132,10 @@ class Worldstate with WorldstateMappable {
       steelPath: SteelPath.init(),
     );
   }
+
+  static const fromJson = WorldstateMapper.fromJson;
+
+  static const fromMap = WorldstateMapper.fromMap;
 
   final DateTime timestamp;
   final List<News> news;

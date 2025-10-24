@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
@@ -27,7 +25,7 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
   final List<String> nodes;
   final List<RawJob>? jobs;
 
-  Future<SyndicateMission> toSyndicate(Dependency deps) => SyndicateMission.fromRaw(this, deps);
+  SyndicateMission toSyndicate(Dependency deps) => SyndicateMission.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -54,7 +52,7 @@ class RawJob with RawJobMappable {
   final List<int> xpAmounts;
   final bool? isVault;
 
-  Future<SyndicateBounty> toBounty(Dependency deps) => SyndicateBounty.fromRaw(this, deps);
+  SyndicateBounty toBounty(Dependency deps) => SyndicateBounty.fromRaw(this, deps);
 }
 
 @MappableClass()
@@ -68,7 +66,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
     required this.bounties,
   });
 
-  static Future<SyndicateMission> fromRaw(RawSyndicate raw, Dependency deps) async {
+  factory SyndicateMission.fromRaw(RawSyndicate raw, Dependency deps) {
     final nodes = raw.nodes.map((n) => deps.nodes.fetchNode(n).name).toList();
 
     return SyndicateMission(
@@ -77,7 +75,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
       expiry: parseDate(raw.expiry),
       name: syndicate(raw.tag),
       nodes: nodes,
-      bounties: raw.jobs != null ? await Future.wait(raw.jobs!.map((j) async => j.toBounty(deps))) : [],
+      bounties: raw.jobs != null ? raw.jobs!.map((j) => j.toBounty(deps)).toList() : <SyndicateBounty>[],
     );
   }
 
@@ -109,8 +107,8 @@ class SyndicateBounty with SyndicateBountyMappable {
     this.rewardPool = const [],
   });
 
-  static Future<SyndicateBounty> fromRaw(RawJob raw, Dependency deps) async {
-    final rewards = await _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
+  factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
+    final rewards = _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
     final drops = rewards?.map((r) => RewardDrop.fromDrop(r.name, r.rarity, r.chance)).toList();
 
     return SyndicateBounty(
@@ -172,12 +170,12 @@ class SyndicateBounty with SyndicateBountyMappable {
     return (levelClause, rotation.isNotEmpty ? rotation : 'A');
   }
 
-  static Future<List<BountyReward>?> _fetchBountyRewards(
+  static List<BountyReward>? _fetchBountyRewards(
     String resource,
     DropData data,
     RawJob raw,
     bool isVault,
-  ) async {
+  ) {
     String level;
     String rotation;
     if (resource.endsWith('PlagueStarTableRewards')) {

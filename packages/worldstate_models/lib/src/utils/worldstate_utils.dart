@@ -1,9 +1,5 @@
-import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
-import 'dart:isolate';
 
-import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 
@@ -36,15 +32,6 @@ String? createEta(DateTime? date) {
   return '${!is24hrs ? '${days}d ' : ''}${hours}h ${minutes.toString().padLeft(2, '0')}m ${seconds.toString().padLeft(2, '0')}s';
 }
 
-Future<List<S>> parseArray<T, S>(List<T> array, FutureOr<S> Function(T) transformer) async {
-  final isLarge = array.length > 10;
-  if (!isLarge) return Future.wait(array.map((s) async => transformer(s)));
-
-  final length = array.length ~/ (Platform.numberOfProcessors ~/ 2);
-  final slices = array.slices(length);
-  final mapped = await Future.wait(
-    slices.map((s) async => Isolate.run(() => Future.wait(s.map((s) async => transformer(s))))),
-  );
-
-  return mapped.flattenedToList;
+List<S> parseArray<T, S>(List<T> array, S Function(T) transformer) {
+  return array.map((s) => transformer(s)).toList();
 }
