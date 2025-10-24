@@ -1,10 +1,14 @@
 import 'package:dart_mappable/dart_mappable.dart';
 
-part 'blueprint_location.mapper.dart';
+part 'blueprint_part.mapper.dart';
 
+/// {@template blueprint_part}
+/// The blueprint/part
+/// {@endtemplate}
 @MappableClass()
-class BlueprintLocation with BlueprintLocationMappable {
-  BlueprintLocation({required this.id, required this.name, required this.enemies});
+class BlueprintPart with BlueprintPartMappable {
+  /// {@macro blueprint_part}
+  BlueprintPart({required this.id, required this.name, required this.enemies});
 
   /// MD5 generated ID
   final String id;
@@ -13,15 +17,15 @@ class BlueprintLocation with BlueprintLocationMappable {
   final String name;
 
   /// Enemies the blueprint/item drops from and drop chance
-  final List<BlueprintLocationEnemy> enemies;
+  final List<BlueprintSource> enemies;
 
   /// Short hand of [BlueprintLocation.enemies.add()]
-  void addEnemy(BlueprintLocationEnemy enemy) => enemies.add(enemy);
+  void addEnemy(BlueprintSource enemy) => enemies.add(enemy);
 }
 
 @MappableClass()
-class BlueprintLocationEnemy with BlueprintLocationEnemyMappable {
-  BlueprintLocationEnemy({
+class BlueprintSource with BlueprintSourceMappable {
+  BlueprintSource({
     required this.id,
     required this.name,
     required this.dropChance,

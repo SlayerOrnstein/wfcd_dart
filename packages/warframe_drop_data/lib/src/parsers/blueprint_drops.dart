@@ -2,12 +2,12 @@ import 'package:html/dom.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
 import 'package:warframe_drop_data/src/utils.dart';
 
-List<BlueprintLocation> parseBlueprintLocations(Element body) {
+List<BlueprintPart> parseBlueprintDrops(Element body) {
   final table = body.getElementsByTagName('#blueprintByDrop').first.nextElementSibling!;
   final tbody = table.children.first.children;
 
-  final items = <BlueprintLocation>[];
-  BlueprintLocation? item;
+  final items = <BlueprintPart>[];
+  BlueprintPart? item;
   for (final row in tbody.where((c) => c.children.any((e) => e.text.trim().isNotEmpty))) {
     final element = row.children[0];
     final text = element.text;
@@ -15,11 +15,11 @@ List<BlueprintLocation> parseBlueprintLocations(Element body) {
     if (element.localName == 'th' && row.children.length == 1) {
       if (item != null) items.add(item);
 
-      item = BlueprintLocation(
+      item = BlueprintPart(
         id: hash(text),
         // Don't have to but "Mk Iii" and 'Mk Ii" was triggering me
         name: text.replaceAllMapped(RegExp(r'Mk I(?:i+$)?'), (m) => m[0]!.toUpperCase()),
-        enemies: <BlueprintLocationEnemy>[],
+        enemies: <BlueprintSource>[],
       );
     }
 
@@ -28,7 +28,7 @@ List<BlueprintLocation> parseBlueprintLocations(Element body) {
       final itemDropChance = row.children[1].text;
 
       item?.addEnemy(
-        BlueprintLocationEnemy(
+        BlueprintSource(
           id: hash(text),
           name: text,
           dropChance: double.parse(itemDropChance.substring(0, itemDropChance.length - 1)),

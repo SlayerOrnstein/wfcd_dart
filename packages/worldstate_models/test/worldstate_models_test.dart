@@ -9,7 +9,7 @@ import 'package:worldstate_models/src/utils/types.dart';
 
 void main() {
   final dir = Directory('./test/fixtures');
-  final deps = Dependency(DropData(blueprintLocations: [], bountyRewardTables: []));
+  final deps = Dependency(DropData(blueprintDrops: [], bountyRewardTables: []));
 
   for (final fixture in dir.listSync()) {
     final file = File(fixture.path).readAsStringSync();
@@ -48,8 +48,7 @@ void main() {
       test('RawSyndicate -> SyndicateMission', () async {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
         final missions = syndicateMissions.map(
-          (s) =>
-              RawSyndicate.fromMap(s).toSyndicate(Dependency(DropData(blueprintLocations: [], bountyRewardTables: []))),
+          (s) => RawSyndicate.fromMap(s).toSyndicate(Dependency(DropData(blueprintDrops: [], bountyRewardTables: []))),
         );
 
         expect(missions.toList(), isA<List<SyndicateMission>>());

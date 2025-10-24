@@ -14,7 +14,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
   static DropDataMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = DropDataMapper._());
-      BlueprintLocationMapper.ensureInitialized();
+      BlueprintPartMapper.ensureInitialized();
       BountyRewardTableMapper.ensureInitialized();
     }
     return _instance!;
@@ -23,10 +23,11 @@ class DropDataMapper extends ClassMapperBase<DropData> {
   @override
   final String id = 'DropData';
 
-  static List<BlueprintLocation> _$blueprintLocations(DropData v) =>
-      v.blueprintLocations;
-  static const Field<DropData, List<BlueprintLocation>> _f$blueprintLocations =
-      Field('blueprintLocations', _$blueprintLocations);
+  static List<BlueprintPart> _$blueprintDrops(DropData v) => v.blueprintDrops;
+  static const Field<DropData, List<BlueprintPart>> _f$blueprintDrops = Field(
+    'blueprintDrops',
+    _$blueprintDrops,
+  );
   static List<BountyRewardTable> _$bountyRewardTables(DropData v) =>
       v.bountyRewardTables;
   static const Field<DropData, List<BountyRewardTable>> _f$bountyRewardTables =
@@ -34,7 +35,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
 
   @override
   final MappableFields<DropData> fields = const {
-    #blueprintLocations: _f$blueprintLocations,
+    #blueprintDrops: _f$blueprintDrops,
     #bountyRewardTables: _f$bountyRewardTables,
   };
   @override
@@ -42,7 +43,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
 
   static DropData _instantiate(DecodingData data) {
     return DropData(
-      blueprintLocations: data.dec(_f$blueprintLocations),
+      blueprintDrops: data.dec(_f$blueprintDrops),
       bountyRewardTables: data.dec(_f$bountyRewardTables),
     );
   }
@@ -106,10 +107,10 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<
     $R,
-    BlueprintLocation,
-    BlueprintLocationCopyWith<$R, BlueprintLocation, BlueprintLocation>
+    BlueprintPart,
+    BlueprintPartCopyWith<$R, BlueprintPart, BlueprintPart>
   >
-  get blueprintLocations;
+  get blueprintDrops;
   ListCopyWith<
     $R,
     BountyRewardTable,
@@ -117,7 +118,7 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
   >
   get bountyRewardTables;
   $R call({
-    List<BlueprintLocation>? blueprintLocations,
+    List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
   });
   DropDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -134,13 +135,13 @@ class _DropDataCopyWithImpl<$R, $Out>
   @override
   ListCopyWith<
     $R,
-    BlueprintLocation,
-    BlueprintLocationCopyWith<$R, BlueprintLocation, BlueprintLocation>
+    BlueprintPart,
+    BlueprintPartCopyWith<$R, BlueprintPart, BlueprintPart>
   >
-  get blueprintLocations => ListCopyWith(
-    $value.blueprintLocations,
+  get blueprintDrops => ListCopyWith(
+    $value.blueprintDrops,
     (v, t) => v.copyWith.$chain(t),
-    (v) => call(blueprintLocations: v),
+    (v) => call(blueprintDrops: v),
   );
   @override
   ListCopyWith<
@@ -155,20 +156,17 @@ class _DropDataCopyWithImpl<$R, $Out>
   );
   @override
   $R call({
-    List<BlueprintLocation>? blueprintLocations,
+    List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
   }) => $apply(
     FieldCopyWithData({
-      if (blueprintLocations != null) #blueprintLocations: blueprintLocations,
+      if (blueprintDrops != null) #blueprintDrops: blueprintDrops,
       if (bountyRewardTables != null) #bountyRewardTables: bountyRewardTables,
     }),
   );
   @override
   DropData $make(CopyWithData data) => DropData(
-    blueprintLocations: data.get(
-      #blueprintLocations,
-      or: $value.blueprintLocations,
-    ),
+    blueprintDrops: data.get(#blueprintDrops, or: $value.blueprintDrops),
     bountyRewardTables: data.get(
       #bountyRewardTables,
       or: $value.bountyRewardTables,

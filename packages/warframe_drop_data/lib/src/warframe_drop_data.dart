@@ -4,7 +4,7 @@ import 'dart:isolate';
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:warframe_drop_data/src/models/drop_data.dart';
-import 'package:warframe_drop_data/src/parsers/blueprint_locations.dart';
+import 'package:warframe_drop_data/src/parsers/blueprint_drops.dart';
 import 'package:warframe_drop_data/src/parsers/bounty_rewards.dart';
 
 /// {@template warframe_drop_data}
@@ -29,7 +29,7 @@ Future<DropData> buildDropData([Client? client]) async {
     final bountyRewards = BountyRewardIds.values.map((b) => parseBountyRewards(body, b.id));
 
     return DropData(
-      blueprintLocations: parseBlueprintLocations(body),
+      blueprintDrops: parseBlueprintDrops(body),
       bountyRewardTables: bountyRewards.nonNulls.reduce((p, n) => [...p, ...n]),
     );
   });
