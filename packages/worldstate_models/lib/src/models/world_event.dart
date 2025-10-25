@@ -1,5 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
+import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/models/reward.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
@@ -30,6 +31,8 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
     required this.interimGoals,
     required this.interimRewards,
     required this.tag,
+    required this.jobAffiliationTag,
+    required this.jobs,
   });
 
   static const fromMap = RawGoalMapper.fromMap;
@@ -38,7 +41,7 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final String? victimNode;
   final String? scoreVar;
   final String? scoreLocTag;
-  final int count;
+  final int? count;
   final double? healthPct;
   final String desc;
 
@@ -47,7 +50,7 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final String? tooltip;
 
   final bool? optionalInMission;
-  final bool personal;
+  final bool? personal;
   final bool? community;
   final int? goal;
   final List<int>? clanGoal;
@@ -55,6 +58,8 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final List<int>? interimGoals;
   final List<RawReward>? interimRewards;
   final String tag;
+  final String? jobAffiliationTag;
+  final List<RawJob>? jobs;
 
   WorldEvent toWorldEvent(Dependency deps) => WorldEvent.fromRaw(this, deps);
 }
@@ -82,6 +87,8 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
     required this.interimGoals,
     required this.interimRewards,
     required this.tag,
+    required this.affiliationTag,
+    required this.bounties,
   });
 
   factory WorldEvent.fromRaw(RawGoal raw, Dependency deps) {
@@ -108,6 +115,8 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
       interimGoals: raw.interimGoals,
       interimRewards: raw.interimRewards?.map((r) => r.toReward(deps)).toList(),
       tag: raw.tag,
+      affiliationTag: raw.jobAffiliationTag != null ? langs.fetchValue(raw.jobAffiliationTag!) : null,
+      bounties: raw.jobs?.map((j) => j.toBounty(deps)).toList(),
     );
   }
 
@@ -119,7 +128,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   final String? scoreLocTag;
 
-  final int count;
+  final int? count;
 
   final num? health;
 
@@ -129,7 +138,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   final bool? optional;
 
-  final bool personal;
+  final bool? personal;
 
   final bool? community;
 
@@ -144,6 +153,10 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
   final List<Reward>? interimRewards;
 
   final String tag;
+
+  final String? affiliationTag;
+
+  final List<SyndicateBounty>? bounties;
 
   @override
   DateTime get activation => super.activation!;

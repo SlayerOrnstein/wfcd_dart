@@ -2229,6 +2229,11 @@
       "value": "Brutus (Uranus)",
       "enemy": "Corpus",
       "type": "Ascension"
+    },
+    "DeimosHub": {
+      "value": "Necralisk (Deimos)",
+      "enemy": "Tenno",
+      "type": "Relay"
     }
   }
 }

@@ -16983,6 +16983,7 @@ class WorldstateDataSolNodesEn {
     'CrewBattleNode554': WorldstateDataSolNodesNodesCrewBattleNode554En.internal(_root),
     'CrewBattleNode555': WorldstateDataSolNodesNodesCrewBattleNode555En.internal(_root),
     'SolNode723': WorldstateDataSolNodesNodesSolNode723En.internal(_root),
+    'DeimosHub': WorldstateDataSolNodesNodesDeimosHubEn.internal(_root),
   };
 }
 
@@ -117051,6 +117052,27 @@ class WorldstateDataSolNodesNodesSolNode723En with SolNode {
   /// en: 'Ascension'
   @override
   String? get type => 'Ascension';
+}
+
+// Path: solNodes.nodes.DeimosHub
+class WorldstateDataSolNodesNodesDeimosHubEn with SolNode {
+  WorldstateDataSolNodesNodesDeimosHubEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Necralisk (Deimos)'
+  @override
+  String get value => 'Necralisk (Deimos)';
+
+  /// en: 'Tenno'
+  @override
+  String? get enemy => 'Tenno';
+
+  /// en: 'Relay'
+  @override
+  String? get type => 'Relay';
 }
 
 // Path: sortieData.bosses.SORTIE_BOSS_HYENA

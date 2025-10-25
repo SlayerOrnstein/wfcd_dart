@@ -15,6 +15,7 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = RawGoalMapper._());
       RawRewardMapper.ensureInitialized();
+      RawJobMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -64,7 +65,7 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     _$scoreLocTag,
     key: r'ScoreLocTag',
   );
-  static int _$count(RawGoal v) => v.count;
+  static int? _$count(RawGoal v) => v.count;
   static const Field<RawGoal, int> _f$count = Field(
     'count',
     _$count,
@@ -94,7 +95,7 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     _$optionalInMission,
     key: r'OptionalInMission',
   );
-  static bool _$personal(RawGoal v) => v.personal;
+  static bool? _$personal(RawGoal v) => v.personal;
   static const Field<RawGoal, bool> _f$personal = Field(
     'personal',
     _$personal,
@@ -138,6 +139,18 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
   );
   static String _$tag(RawGoal v) => v.tag;
   static const Field<RawGoal, String> _f$tag = Field('tag', _$tag, key: r'Tag');
+  static String? _$jobAffiliationTag(RawGoal v) => v.jobAffiliationTag;
+  static const Field<RawGoal, String> _f$jobAffiliationTag = Field(
+    'jobAffiliationTag',
+    _$jobAffiliationTag,
+    key: r'JobAffiliationTag',
+  );
+  static List<RawJob>? _$jobs(RawGoal v) => v.jobs;
+  static const Field<RawGoal, List<RawJob>> _f$jobs = Field(
+    'jobs',
+    _$jobs,
+    key: r'Jobs',
+  );
 
   @override
   final MappableFields<RawGoal> fields = const {
@@ -161,6 +174,8 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     #interimGoals: _f$interimGoals,
     #interimRewards: _f$interimRewards,
     #tag: _f$tag,
+    #jobAffiliationTag: _f$jobAffiliationTag,
+    #jobs: _f$jobs,
   };
   @override
   final bool ignoreNull = true;
@@ -187,6 +202,8 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
       interimGoals: data.dec(_f$interimGoals),
       interimRewards: data.dec(_f$interimRewards),
       tag: data.dec(_f$tag),
+      jobAffiliationTag: data.dec(_f$jobAffiliationTag),
+      jobs: data.dec(_f$jobs),
     );
   }
 
@@ -257,6 +274,7 @@ abstract class RawGoalCopyWith<$R, $In extends RawGoal, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get interimGoals;
   ListCopyWith<$R, RawReward, RawRewardCopyWith<$R, RawReward, RawReward>>?
   get interimRewards;
+  ListCopyWith<$R, RawJob, RawJobCopyWith<$R, RawJob, RawJob>>? get jobs;
   $R call({
     Map<String, dynamic>? id,
     Map<String, dynamic>? activation,
@@ -278,6 +296,8 @@ abstract class RawGoalCopyWith<$R, $In extends RawGoal, $Out>
     List<int>? interimGoals,
     List<RawReward>? interimRewards,
     String? tag,
+    String? jobAffiliationTag,
+    List<RawJob>? jobs,
   });
   RawGoalCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -346,6 +366,15 @@ class _RawGoalCopyWithImpl<$R, $Out>
         )
       : null;
   @override
+  ListCopyWith<$R, RawJob, RawJobCopyWith<$R, RawJob, RawJob>>? get jobs =>
+      $value.jobs != null
+      ? ListCopyWith(
+          $value.jobs!,
+          (v, t) => v.copyWith.$chain(t),
+          (v) => call(jobs: v),
+        )
+      : null;
+  @override
   $R call({
     Map<String, dynamic>? id,
     Object? activation = $none,
@@ -354,12 +383,12 @@ class _RawGoalCopyWithImpl<$R, $Out>
     Object? victimNode = $none,
     Object? scoreVar = $none,
     Object? scoreLocTag = $none,
-    int? count,
+    Object? count = $none,
     Object? healthPct = $none,
     String? desc,
     Object? tooltip = $none,
     Object? optionalInMission = $none,
-    bool? personal,
+    Object? personal = $none,
     Object? community = $none,
     Object? goal = $none,
     Object? clanGoal = $none,
@@ -367,6 +396,8 @@ class _RawGoalCopyWithImpl<$R, $Out>
     Object? interimGoals = $none,
     Object? interimRewards = $none,
     String? tag,
+    Object? jobAffiliationTag = $none,
+    Object? jobs = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -376,12 +407,12 @@ class _RawGoalCopyWithImpl<$R, $Out>
       if (victimNode != $none) #victimNode: victimNode,
       if (scoreVar != $none) #scoreVar: scoreVar,
       if (scoreLocTag != $none) #scoreLocTag: scoreLocTag,
-      if (count != null) #count: count,
+      if (count != $none) #count: count,
       if (healthPct != $none) #healthPct: healthPct,
       if (desc != null) #desc: desc,
       if (tooltip != $none) #tooltip: tooltip,
       if (optionalInMission != $none) #optionalInMission: optionalInMission,
-      if (personal != null) #personal: personal,
+      if (personal != $none) #personal: personal,
       if (community != $none) #community: community,
       if (goal != $none) #goal: goal,
       if (clanGoal != $none) #clanGoal: clanGoal,
@@ -389,6 +420,8 @@ class _RawGoalCopyWithImpl<$R, $Out>
       if (interimGoals != $none) #interimGoals: interimGoals,
       if (interimRewards != $none) #interimRewards: interimRewards,
       if (tag != null) #tag: tag,
+      if (jobAffiliationTag != $none) #jobAffiliationTag: jobAffiliationTag,
+      if (jobs != $none) #jobs: jobs,
     }),
   );
   @override
@@ -416,6 +449,11 @@ class _RawGoalCopyWithImpl<$R, $Out>
     interimGoals: data.get(#interimGoals, or: $value.interimGoals),
     interimRewards: data.get(#interimRewards, or: $value.interimRewards),
     tag: data.get(#tag, or: $value.tag),
+    jobAffiliationTag: data.get(
+      #jobAffiliationTag,
+      or: $value.jobAffiliationTag,
+    ),
+    jobs: data.get(#jobs, or: $value.jobs),
   );
 
   @override
@@ -431,6 +469,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = WorldEventMapper._());
       RewardMapper.ensureInitialized();
+      SyndicateBountyMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -467,7 +506,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     'scoreLocTag',
     _$scoreLocTag,
   );
-  static int _$count(WorldEvent v) => v.count;
+  static int? _$count(WorldEvent v) => v.count;
   static const Field<WorldEvent, int> _f$count = Field('count', _$count);
   static num? _$health(WorldEvent v) => v.health;
   static const Field<WorldEvent, num> _f$health = Field('health', _$health);
@@ -486,7 +525,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     'optional',
     _$optional,
   );
-  static bool _$personal(WorldEvent v) => v.personal;
+  static bool? _$personal(WorldEvent v) => v.personal;
   static const Field<WorldEvent, bool> _f$personal = Field(
     'personal',
     _$personal,
@@ -517,6 +556,16 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
   );
   static String _$tag(WorldEvent v) => v.tag;
   static const Field<WorldEvent, String> _f$tag = Field('tag', _$tag);
+  static String? _$affiliationTag(WorldEvent v) => v.affiliationTag;
+  static const Field<WorldEvent, String> _f$affiliationTag = Field(
+    'affiliationTag',
+    _$affiliationTag,
+  );
+  static List<SyndicateBounty>? _$bounties(WorldEvent v) => v.bounties;
+  static const Field<WorldEvent, List<SyndicateBounty>> _f$bounties = Field(
+    'bounties',
+    _$bounties,
+  );
 
   @override
   final MappableFields<WorldEvent> fields = const {
@@ -540,6 +589,8 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     #interimGoals: _f$interimGoals,
     #interimRewards: _f$interimRewards,
     #tag: _f$tag,
+    #affiliationTag: _f$affiliationTag,
+    #bounties: _f$bounties,
   };
   @override
   final bool ignoreNull = true;
@@ -566,6 +617,8 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
       interimGoals: data.dec(_f$interimGoals),
       interimRewards: data.dec(_f$interimRewards),
       tag: data.dec(_f$tag),
+      affiliationTag: data.dec(_f$affiliationTag),
+      bounties: data.dec(_f$bounties),
     );
   }
 
@@ -634,6 +687,12 @@ abstract class WorldEventCopyWith<$R, $In extends WorldEvent, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get interimGoals;
   ListCopyWith<$R, Reward, RewardCopyWith<$R, Reward, Reward>>?
   get interimRewards;
+  ListCopyWith<
+    $R,
+    SyndicateBounty,
+    SyndicateBountyCopyWith<$R, SyndicateBounty, SyndicateBounty>
+  >?
+  get bounties;
   $R call({
     String? id,
     DateTime? activation,
@@ -655,6 +714,8 @@ abstract class WorldEventCopyWith<$R, $In extends WorldEvent, $Out>
     List<int>? interimGoals,
     List<Reward>? interimRewards,
     String? tag,
+    String? affiliationTag,
+    List<SyndicateBounty>? bounties,
   });
   WorldEventCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -698,6 +759,19 @@ class _WorldEventCopyWithImpl<$R, $Out>
         )
       : null;
   @override
+  ListCopyWith<
+    $R,
+    SyndicateBounty,
+    SyndicateBountyCopyWith<$R, SyndicateBounty, SyndicateBounty>
+  >?
+  get bounties => $value.bounties != null
+      ? ListCopyWith(
+          $value.bounties!,
+          (v, t) => v.copyWith.$chain(t),
+          (v) => call(bounties: v),
+        )
+      : null;
+  @override
   $R call({
     String? id,
     Object? activation = $none,
@@ -706,12 +780,12 @@ class _WorldEventCopyWithImpl<$R, $Out>
     Object? victimNode = $none,
     Object? scoreVar = $none,
     Object? scoreLocTag = $none,
-    int? count,
+    Object? count = $none,
     Object? health = $none,
     String? description,
     Object? tooltip = $none,
     Object? optional = $none,
-    bool? personal,
+    Object? personal = $none,
     Object? community = $none,
     Object? goal = $none,
     Object? clanGoal = $none,
@@ -719,6 +793,8 @@ class _WorldEventCopyWithImpl<$R, $Out>
     Object? interimGoals = $none,
     Object? interimRewards = $none,
     String? tag,
+    Object? affiliationTag = $none,
+    Object? bounties = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -728,12 +804,12 @@ class _WorldEventCopyWithImpl<$R, $Out>
       if (victimNode != $none) #victimNode: victimNode,
       if (scoreVar != $none) #scoreVar: scoreVar,
       if (scoreLocTag != $none) #scoreLocTag: scoreLocTag,
-      if (count != null) #count: count,
+      if (count != $none) #count: count,
       if (health != $none) #health: health,
       if (description != null) #description: description,
       if (tooltip != $none) #tooltip: tooltip,
       if (optional != $none) #optional: optional,
-      if (personal != null) #personal: personal,
+      if (personal != $none) #personal: personal,
       if (community != $none) #community: community,
       if (goal != $none) #goal: goal,
       if (clanGoal != $none) #clanGoal: clanGoal,
@@ -741,6 +817,8 @@ class _WorldEventCopyWithImpl<$R, $Out>
       if (interimGoals != $none) #interimGoals: interimGoals,
       if (interimRewards != $none) #interimRewards: interimRewards,
       if (tag != null) #tag: tag,
+      if (affiliationTag != $none) #affiliationTag: affiliationTag,
+      if (bounties != $none) #bounties: bounties,
     }),
   );
   @override
@@ -765,6 +843,8 @@ class _WorldEventCopyWithImpl<$R, $Out>
     interimGoals: data.get(#interimGoals, or: $value.interimGoals),
     interimRewards: data.get(#interimRewards, or: $value.interimRewards),
     tag: data.get(#tag, or: $value.tag),
+    affiliationTag: data.get(#affiliationTag, or: $value.affiliationTag),
+    bounties: data.get(#bounties, or: $value.bounties),
   );
 
   @override

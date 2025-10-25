@@ -1,0 +1,793 @@
+{
+    "id": "68faebb34cc0b28ea6ce5f49",
+    "activation": "2025-10-25T17:28:55.185Z",
+    "expiry": "2025-11-15T17:28:55.185Z",
+    "victimNode": "Plains of Eidolon (Earth)",
+    "health": 0.9687568,
+    "description": "Ghoul Purge",
+    "tooltip": "Help Konzu rid the plains of Grineer Ghouls",
+    "tag": "GhoulEmergence",
+    "affiliationTag": "CetusSyndicate",
+    "bounties": [
+        {
+            "type": "Eliminate A Ghoul Alpha",
+            "rewards": [
+                "300 Endo",
+                "3,000 Credits Cache",
+                "Hunter Adrenaline",
+                "Encrypted Journal Fragment",
+                "Hunter Munitions",
+                "Stubba Blueprint",
+                "Cetus Wisp",
+                "5X Breath Of The Eidolon",
+                "Neo D10 Relic",
+                "Hunter Track",
+                "Nitain Extract",
+                "Aya"
+            ],
+            "masteryRequirment": 1,
+            "minLevel": 15,
+            "maxLevel": 25,
+            "standing": 1300,
+            "rewardPool": [
+                {
+                    "stage": 1,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Uncommon",
+                            "chance": 26.47,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 2,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Uncommon",
+                            "chance": 26.47,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Munitions",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Stubba Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo D10 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 3,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Munitions",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Stubba Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo D10 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 4,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Munitions",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Stubba Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo D10 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        },
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 6.43,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 14.29,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Munitions",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Stubba Blueprint",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo D10 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 13.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Track",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Nitain Extract",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Aya",
+                            "rarity": "Uncommon",
+                            "chance": 15.71,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 5,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 6.43,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Adrenaline",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 14.29,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Munitions",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Stubba Blueprint",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo D10 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 13.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Track",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Nitain Extract",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Aya",
+                            "rarity": "Uncommon",
+                            "chance": 15.71,
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Purge a Massive Ghoul Burial Site",
+            "rewards": [
+                "300 Endo",
+                "3,000 Credits Cache",
+                "Hunter Recovery",
+                "Encrypted Journal Fragment",
+                "Hunter Synergy",
+                "Quartakk Blueprint",
+                "Cetus Wisp",
+                "5X Breath Of The Eidolon",
+                "Neo A15 Relic",
+                "Hunter Command",
+                "Nitain Extract",
+                "Aya"
+            ],
+            "masteryRequirment": 3,
+            "minLevel": 40,
+            "maxLevel": 50,
+            "standing": 2060,
+            "rewardPool": [
+                {
+                    "stage": 1,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Uncommon",
+                            "chance": 26.47,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 2,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Uncommon",
+                            "chance": 26.47,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Common",
+                            "chance": 36.76,
+                            "count": 1
+                        },
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Synergy",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Quartakk Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo A15 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 3,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Synergy",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Quartakk Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo A15 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 4,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 8.74,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Uncommon",
+                            "chance": 12.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 19.42,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Synergy",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Quartakk Blueprint",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 9.71,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 4.85,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo A15 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 18.45,
+                            "count": 1
+                        },
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 6.43,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 14.29,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Synergy",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Quartakk Blueprint",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo A15 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 13.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Command",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Nitain Extract",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Aya",
+                            "rarity": "Uncommon",
+                            "chance": 15.71,
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "stage": 5,
+                    "rewards": [
+                        {
+                            "item": "300 Endo",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "3,000 Credits Cache",
+                            "rarity": "Rare",
+                            "chance": 6.43,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Recovery",
+                            "rarity": "Rare",
+                            "chance": 8.93,
+                            "count": 1
+                        },
+                        {
+                            "item": "Encrypted Journal Fragment",
+                            "rarity": "Uncommon",
+                            "chance": 14.29,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Synergy",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Quartakk Blueprint",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Cetus Wisp",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Breath Of The Eidolon",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 5
+                        },
+                        {
+                            "item": "Neo A15 Relic",
+                            "rarity": "Uncommon",
+                            "chance": 13.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Hunter Command",
+                            "rarity": "Rare",
+                            "chance": 7.14,
+                            "count": 1
+                        },
+                        {
+                            "item": "Nitain Extract",
+                            "rarity": "Rare",
+                            "chance": 3.57,
+                            "count": 1
+                        },
+                        {
+                            "item": "Aya",
+                            "rarity": "Uncommon",
+                            "chance": 15.71,
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
