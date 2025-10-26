@@ -196,33 +196,38 @@ class SyndicateBounty with SyndicateBountyMappable {
     final rewards = table.rewards.fetchRotation(rotation);
     if (rewards.isEmpty) return ([], []);
 
-    final stages = <int, BountyStage>{};
-    var currentStage = 0;
-    for (final reward in rewards) {
-      final drop = RewardDrop.fromDrop(reward);
+    final rewardStrings = rewards.map((r) => r.name).toSet().toList();
 
-      if (!reward.onFinalStage) {
-        for (final stage in reward.stages) {
-          if (currentStage < stage) currentStage = stage;
+    if (!isVault) {
+      final stages = <int, BountyStage>{};
+      var currentStage = 0;
+      for (final reward in rewards) {
+        final drop = RewardDrop.fromDrop(reward);
+
+        if (!reward.onFinalStage) {
+          for (final stage in reward.stages) {
+            if (currentStage < stage) currentStage = stage;
+            stages.update(
+              stage,
+              (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
+              ifAbsent: () => (stage: stage, rewards: [drop]),
+            );
+          }
+
+          final stage = currentStage + 1;
           stages.update(
             stage,
             (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
             ifAbsent: () => (stage: stage, rewards: [drop]),
           );
         }
-
-        final stage = currentStage + 1;
-        stages.update(
-          stage,
-          (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
-          ifAbsent: () => (stage: stage, rewards: [drop]),
-        );
       }
+
+      stages.removeWhere((key, value) => key > raw.xpAmounts.length);
+      return (rewardStrings, stages.entries.map((entry) => entry.value).toList());
     }
 
-    stages.removeWhere((key, value) => key > raw.xpAmounts.length);
-
-    return (rewards.map((r) => r.name).toSet().toList(), stages.entries.map((entry) => entry.value).toList());
+    return (rewardStrings, [(stage: 1, rewards: rewards.map(RewardDrop.fromDrop).toList())]);
   }
 }
 
