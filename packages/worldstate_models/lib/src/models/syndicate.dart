@@ -38,6 +38,7 @@ class RawJob with RawJobMappable {
     required this.maxEnemyLevel,
     required this.endless,
     required this.xpAmounts,
+    required this.locationTag,
     required this.isVault,
   });
 
@@ -50,6 +51,7 @@ class RawJob with RawJobMappable {
   final int maxEnemyLevel;
   final bool? endless;
   final List<int> xpAmounts;
+  final String? locationTag;
   final bool? isVault;
 
   SyndicateBounty toBounty(Dependency deps) => SyndicateBounty.fromRaw(this, deps);
@@ -106,6 +108,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     required this.maxLevel,
     required this.isEndless,
     required this.standing,
+    required this.location,
     required this.isVault,
     this.rewardPool = const [],
   });
@@ -122,6 +125,7 @@ class SyndicateBounty with SyndicateBountyMappable {
       maxLevel: raw.maxEnemyLevel,
       isEndless: raw.endless ?? false ? raw.endless : null,
       standing: raw.xpAmounts.fold(0, (p, n) => p + n),
+      location: raw.locationTag,
       isVault: raw.isVault ?? false ? raw.isVault : null,
     );
   }
@@ -134,6 +138,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   final int maxLevel;
   final bool? isEndless;
   final int standing;
+  final String? location;
   final bool? isVault;
 
   static (String location, String rotation) _determineLocation(String resource, RawJob raw, bool isVault) {

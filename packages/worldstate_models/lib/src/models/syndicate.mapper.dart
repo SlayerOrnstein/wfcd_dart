@@ -285,6 +285,11 @@ class RawJobMapper extends ClassMapperBase<RawJob> {
     'xpAmounts',
     _$xpAmounts,
   );
+  static String? _$locationTag(RawJob v) => v.locationTag;
+  static const Field<RawJob, String> _f$locationTag = Field(
+    'locationTag',
+    _$locationTag,
+  );
   static bool? _$isVault(RawJob v) => v.isVault;
   static const Field<RawJob, bool> _f$isVault = Field('isVault', _$isVault);
 
@@ -297,6 +302,7 @@ class RawJobMapper extends ClassMapperBase<RawJob> {
     #maxEnemyLevel: _f$maxEnemyLevel,
     #endless: _f$endless,
     #xpAmounts: _f$xpAmounts,
+    #locationTag: _f$locationTag,
     #isVault: _f$isVault,
   };
   @override
@@ -311,6 +317,7 @@ class RawJobMapper extends ClassMapperBase<RawJob> {
       maxEnemyLevel: data.dec(_f$maxEnemyLevel),
       endless: data.dec(_f$endless),
       xpAmounts: data.dec(_f$xpAmounts),
+      locationTag: data.dec(_f$locationTag),
       isVault: data.dec(_f$isVault),
     );
   }
@@ -370,6 +377,7 @@ abstract class RawJobCopyWith<$R, $In extends RawJob, $Out>
     int? maxEnemyLevel,
     bool? endless,
     List<int>? xpAmounts,
+    String? locationTag,
     bool? isVault,
   });
   RawJobCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -397,6 +405,7 @@ class _RawJobCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, RawJob, $Out>
     int? maxEnemyLevel,
     Object? endless = $none,
     List<int>? xpAmounts,
+    Object? locationTag = $none,
     Object? isVault = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -407,6 +416,7 @@ class _RawJobCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, RawJob, $Out>
       if (maxEnemyLevel != null) #maxEnemyLevel: maxEnemyLevel,
       if (endless != $none) #endless: endless,
       if (xpAmounts != null) #xpAmounts: xpAmounts,
+      if (locationTag != $none) #locationTag: locationTag,
       if (isVault != $none) #isVault: isVault,
     }),
   );
@@ -419,6 +429,7 @@ class _RawJobCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, RawJob, $Out>
     maxEnemyLevel: data.get(#maxEnemyLevel, or: $value.maxEnemyLevel),
     endless: data.get(#endless, or: $value.endless),
     xpAmounts: data.get(#xpAmounts, or: $value.xpAmounts),
+    locationTag: data.get(#locationTag, or: $value.locationTag),
     isVault: data.get(#isVault, or: $value.isVault),
   );
 
@@ -677,6 +688,11 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     'standing',
     _$standing,
   );
+  static String? _$location(SyndicateBounty v) => v.location;
+  static const Field<SyndicateBounty, String> _f$location = Field(
+    'location',
+    _$location,
+  );
   static bool? _$isVault(SyndicateBounty v) => v.isVault;
   static const Field<SyndicateBounty, bool> _f$isVault = Field(
     'isVault',
@@ -699,6 +715,7 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     #maxLevel: _f$maxLevel,
     #isEndless: _f$isEndless,
     #standing: _f$standing,
+    #location: _f$location,
     #isVault: _f$isVault,
     #rewardPool: _f$rewardPool,
   };
@@ -714,6 +731,7 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
       maxLevel: data.dec(_f$maxLevel),
       isEndless: data.dec(_f$isEndless),
       standing: data.dec(_f$standing),
+      location: data.dec(_f$location),
       isVault: data.dec(_f$isVault),
       rewardPool: data.dec(_f$rewardPool),
     );
@@ -792,6 +810,7 @@ abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     int? maxLevel,
     bool? isEndless,
     int? standing,
+    String? location,
     bool? isVault,
     List<BountyStage>? rewardPool,
   });
@@ -831,6 +850,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     int? maxLevel,
     Object? isEndless = $none,
     int? standing,
+    Object? location = $none,
     Object? isVault = $none,
     List<BountyStage>? rewardPool,
   }) => $apply(
@@ -842,6 +862,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
       if (maxLevel != null) #maxLevel: maxLevel,
       if (isEndless != $none) #isEndless: isEndless,
       if (standing != null) #standing: standing,
+      if (location != $none) #location: location,
       if (isVault != $none) #isVault: isVault,
       if (rewardPool != null) #rewardPool: rewardPool,
     }),
@@ -858,6 +879,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     maxLevel: data.get(#maxLevel, or: $value.maxLevel),
     isEndless: data.get(#isEndless, or: $value.isEndless),
     standing: data.get(#standing, or: $value.standing),
+    location: data.get(#location, or: $value.location),
     isVault: data.get(#isVault, or: $value.isVault),
     rewardPool: data.get(#rewardPool, or: $value.rewardPool),
   );
