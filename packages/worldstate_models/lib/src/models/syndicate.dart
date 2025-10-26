@@ -144,13 +144,13 @@ class SyndicateBounty with SyndicateBountyMappable {
     final bountyMatchs = bountyRewardRegex.firstMatch(table);
     final ghoulMatches = ghoulRewardRegex.firstMatch(table);
 
-    final isBounty = bountyMatchs != null;
+    // final isBounty = bountyMatchs != null;
     final isGhoul = ghoulMatches != null;
     final isCetus = resource.contains('EidolonJob');
     final isVallis = resource.contains('VenusJob');
     final isDeimos = resource.contains('DeimosMissionRewards');
 
-    final rotation = isBounty ? bountyMatchs.group(2) ?? '' : '';
+    final rotation = bountyMatchs?.group(2) ?? 'A';
     final levelString = '${raw.minEnemyLevel} - ${raw.maxEnemyLevel}';
 
     late String levelClause;
@@ -167,7 +167,7 @@ class SyndicateBounty with SyndicateBountyMappable {
       levelClause = 'Level $levelString $variant';
     }
 
-    return (levelClause, rotation.isNotEmpty ? rotation : 'A');
+    return (levelClause, rotation);
   }
 
   static (List<String> rewards, List<BountyStage> rewardDrops) _fetchBountyRewards(
@@ -214,6 +214,8 @@ class SyndicateBounty with SyndicateBountyMappable {
         );
       }
     }
+
+    stages.removeWhere((key, value) => key > raw.xpAmounts.length);
 
     return (rewards.map((r) => r.name).toSet().toList(), stages.entries.map((entry) => entry.value).toList());
   }
