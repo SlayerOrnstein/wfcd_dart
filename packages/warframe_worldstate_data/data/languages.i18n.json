@@ -19348,6 +19348,128 @@
     },
     "CET_PLOT": {
       "value": "Birthday"
+    },
+    "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaPrimeSinglePack": {
+      "value": "Nezha Prime Pack"
+    },
+    "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaOctaviaPrimeDualPack": {
+      "value": "Nezha & Octavia Prime Dual Pack"
+    },
+    "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVOctaviaPrimeSinglePack": {
+      "vlaue": "Octavia Prime"
+    },
+    "/Lotus/StoreItems/Powersuits/Nezha/NezhaPrime": {
+      "value": "Nezha Prime"
+    },
+    "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVRanshaPrimeArmorSet": {
+      "value": "Ransha Prime Armor Set"
+    },
+    "/Lotus/StoreItems/Upgrades/Skins/Effects/EphemeraNezhaPrime": {
+      "value": "Baurahn Prime Ephemera"
+    },
+    "/Lotus/StoreItems/Weapons/Tenno/Melee/Polearms/PrimeGuandao/PrimeGuandaoWeapon": {
+      "value": "Guandao Prime"
+    },
+    "/Lotus/StoreItems/Weapons/Tenno/Pistols/PrimeZakti/PrimeZaktiPistol": {
+      "value": "Zakti Prime"
+    },
+    "/Lotus/StoreItems/Powersuits/Bard/OctaviaPrime": {
+      "value": "Octavia Prime"
+    },
+    "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVGlissandaPrimeArmorSet": {
+      "value": "Glissanda Prime Armor Set"
+    },
+    "/Lotus/StoreItems/Upgrades/Skins/Scarves/PrimeOctaviaSyandana": {
+      "value": "Serenidine Prime Syandana"
+    },
+    "/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropShawzinPrime": {
+      "value": "Aristei Prime Shawzin"
+    },
+    "/Lotus/StoreItems/Weapons/Tenno/LongGuns/PrimeTenora/TenoraPrimeWeapon": {
+      "value": "Tenora Prime"
+    },
+    "/Lotus/StoreItems/Weapons/Tenno/Pistols/PrimePandero/PanderoPrimeWeapon": {
+      "value": "Pandero Prime"
+    },
+    "/Lotus/StoreItems/Types/Items/ShipDecos/NezhaPrimeBobbleHead": {
+      "value": "Noggle Statue - Nezha Prime"
+    },
+    "/Lotus/StoreItems/Types/Items/ShipDecos/OctaviaPrimeBobbleHead": {
+      "value": "Noggle Statue - Octavia Prime"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultABronze": {
+      "value": "Lith O3 Relic"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultBBronze": {
+      "value": "Lith G7 Relic"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultABronze": {
+      "value": "Meso N15 Relic"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultBBronze": {
+      "value": "Meso Z5 Relic"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionNezhaOctaviaVaultABronze": {
+      "value": "Neo T8 Relic"
+    },
+    "/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionNezhaOctaviaVaultABronze": {
+      "value": "Axi P5 Relic"
+    },
+    "HarshWords": {
+      "value": "Barbed Glyphs",
+      "desc": "Each Glyph inflicts a small amount of damage when collected."
+    },
+    "VoidAberration": {
+      "value": "Vampyric Liminus",
+      "desc": "Slow moving, immortal, Duviri Liminus drain health and energy from allies who get too close."
+    },
+    "FortifiedFoes": {
+      "value": "Sealed Armor",
+      "desc": "Enemies take 90% less damage from non-weak point gits."
+    },
+    "Quicksand": {
+      "value": "Entanglement",
+      "desc": "Allies within 4m of slain enemies endure reduced Movement Spped and Parkour Velocity."
+    },
+    "Reinforcements": {
+      "value": "Coordinated Front",
+      "desc": "Eximus units support The Fragmented Tide and its final form."
+    },
+    "DecayingFlesh": {
+      "value": "Permanent Injury",
+      "desc": "Max health reduced each time health damage is taken"
+    },
+    "Starvation": {
+      "value": "Ammo Deficit",
+      "desc": "Ammo restored by drops and gear is reduced 75%."
+    },
+    "DisruptiveSounds": {
+      "value": "Vampire Rock",
+      "desc": "Flare creates a field that disrupts player abilities while draining energy to boost Flare's health. Flare slowly loses health when no players are in range."
+    },
+    "FactionSwarm_Scaldra": {
+      "value": "Scaldra Speed Run",
+      "desc": "All enemies are replaced with Scaldra and move much faster."
+    },
+    "BalloonFest": {
+      "value": "Ballonfest",
+      "desc": "Scaldra Harbingers are more numerous and attack and move more quickly."
+    },
+    "EfervonFog": {
+      "value": "Dense Fog",
+      "desc": "Efervon gas blankets the level. Enemies may drop filters that can provide a temporary reprieve."
+    },
+    "Undersupplied": {
+      "value": "Undersupplied",
+      "desc": "Max ammo on all weapons reduced by 75%"
+    },
+    "/Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesEasy": {
+      "value": "Even the odds",
+      "desc": "Kill 250 Enemies"
+    },
+    "/Lotus/Upgrades/Calendar/GenerateOmniOrbsOnWeakKill": {
+      "value": "Involuntary Transfusion",
+      "desc": "Weakpoint kills have a 25% chance to generate an Universal Orb."
     }
   }
 }

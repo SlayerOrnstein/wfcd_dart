@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 12295
+/// Strings: 12345
 ///
-/// Built on 2025-10-25 at 22:05 UTC
+/// Built on 2025-10-27 at 17:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -407,8 +407,9 @@ mixin FissureModifier {
 }
 
 mixin Language {
-  String get value;
+  String? get value => null;
   String? get desc => null;
+  String? get vlaue => null;
 
   @override
   bool operator ==(Object other) {
@@ -435,7 +436,7 @@ mixin Language {
     return result;
   }
 
-  List<Object?> get $fields => [value, desc];
+  List<Object?> get $fields => [value, desc, vlaue];
 }
 
 mixin MissionType {
