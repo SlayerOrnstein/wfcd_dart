@@ -10,6 +10,9 @@ part 'trader.mapper.dart';
 @MappableRecord(caseStyle: CaseStyle.pascalCase)
 typedef RawTraderItem = ({String itemType, int? primePrice, int? regularPrice});
 
+@MappableRecord(caseStyle: CaseStyle.pascalCase)
+typedef RawScheduleInfo = ({JsonObject expiry, JsonObject previewHiddenUntil, String? featuredItem});
+
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawTrader extends BaseContentObject with RawTraderMappable {
   RawTrader({
@@ -19,6 +22,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
     required this.initialStartDate,
     required this.node,
     required this.character,
+    required this.scheduleInfo,
     this.manifest = const [],
     this.evergreenManifest = const [],
   });
@@ -37,11 +41,16 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 
   final List<RawTraderItem>? evergreenManifest;
 
+  final List<RawScheduleInfo> scheduleInfo;
+
   Trader toTrader(Dependency deps) => Trader.fromRaw(this, deps);
 }
 
 @MappableRecord()
 typedef TraderItem = ({String name, int primePrice, int regularPrice});
+
+@MappableRecord()
+typedef Schedule = ({DateTime expiry, DateTime previewHiddenUntil, String? key, String? resurgence});
 
 @MappableClass()
 class Trader extends WorldstateObject with TraderMappable {
@@ -54,6 +63,7 @@ class Trader extends WorldstateObject with TraderMappable {
     required this.character,
     required this.inventory,
     required this.evergreenItems,
+    required this.schedule,
   });
 
   factory Trader.fromRaw(RawTrader raw, Dependency deps, {String? character}) {
@@ -74,6 +84,16 @@ class Trader extends WorldstateObject with TraderMappable {
       character: deps.langs.fetchValue(raw.character ?? character ?? ''),
       inventory: raw.manifest.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
+      schedule: raw.scheduleInfo
+          .map<Schedule>(
+            (s) => (
+              expiry: parseDate(s.expiry),
+              previewHiddenUntil: parseDate(s.previewHiddenUntil),
+              key: s.featuredItem,
+              resurgence: s.featuredItem != null ? deps.langs.fetchValue(s.featuredItem!) : null,
+            ),
+          )
+          .toList(),
     );
   }
 
@@ -82,6 +102,7 @@ class Trader extends WorldstateObject with TraderMappable {
   final String character;
   final List<TraderItem> inventory;
   final List<TraderItem>? evergreenItems;
+  final List<Schedule> schedule;
 
   @override
   DateTime get activation => super.activation!;

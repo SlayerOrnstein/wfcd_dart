@@ -14,6 +14,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
   static RawTraderMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = RawTraderMapper._());
+      RawScheduleInfoMapper.ensureInitialized();
       RawTraderItemMapper.ensureInitialized();
     }
     return _instance!;
@@ -56,6 +57,12 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     _$character,
     key: r'Character',
   );
+  static List<RawScheduleInfo> _$scheduleInfo(RawTrader v) => v.scheduleInfo;
+  static const Field<RawTrader, List<RawScheduleInfo>> _f$scheduleInfo = Field(
+    'scheduleInfo',
+    _$scheduleInfo,
+    key: r'ScheduleInfo',
+  );
   static List<RawTraderItem> _$manifest(RawTrader v) => v.manifest;
   static const Field<RawTrader, List<RawTraderItem>> _f$manifest = Field(
     'manifest',
@@ -83,6 +90,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     #initialStartDate: _f$initialStartDate,
     #node: _f$node,
     #character: _f$character,
+    #scheduleInfo: _f$scheduleInfo,
     #manifest: _f$manifest,
     #evergreenManifest: _f$evergreenManifest,
   };
@@ -97,6 +105,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
       initialStartDate: data.dec(_f$initialStartDate),
       node: data.dec(_f$node),
       character: data.dec(_f$character),
+      scheduleInfo: data.dec(_f$scheduleInfo),
       manifest: data.dec(_f$manifest),
       evergreenManifest: data.dec(_f$evergreenManifest),
     );
@@ -170,6 +179,12 @@ abstract class RawTraderCopyWith<$R, $In extends RawTrader, $Out>
   get initialStartDate;
   ListCopyWith<
     $R,
+    RawScheduleInfo,
+    ObjectCopyWith<$R, RawScheduleInfo, RawScheduleInfo>
+  >
+  get scheduleInfo;
+  ListCopyWith<
+    $R,
     RawTraderItem,
     ObjectCopyWith<$R, RawTraderItem, RawTraderItem>
   >
@@ -187,6 +202,7 @@ abstract class RawTraderCopyWith<$R, $In extends RawTrader, $Out>
     Map<String, dynamic>? initialStartDate,
     String? node,
     String? character,
+    List<RawScheduleInfo>? scheduleInfo,
     List<RawTraderItem>? manifest,
     List<RawTraderItem>? evergreenManifest,
   });
@@ -238,6 +254,17 @@ class _RawTraderCopyWithImpl<$R, $Out>
   @override
   ListCopyWith<
     $R,
+    RawScheduleInfo,
+    ObjectCopyWith<$R, RawScheduleInfo, RawScheduleInfo>
+  >
+  get scheduleInfo => ListCopyWith(
+    $value.scheduleInfo,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(scheduleInfo: v),
+  );
+  @override
+  ListCopyWith<
+    $R,
     RawTraderItem,
     ObjectCopyWith<$R, RawTraderItem, RawTraderItem>
   >
@@ -267,6 +294,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     Object? initialStartDate = $none,
     String? node,
     Object? character = $none,
+    List<RawScheduleInfo>? scheduleInfo,
     List<RawTraderItem>? manifest,
     Object? evergreenManifest = $none,
   }) => $apply(
@@ -277,6 +305,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
       if (character != $none) #character: character,
+      if (scheduleInfo != null) #scheduleInfo: scheduleInfo,
       if (manifest != null) #manifest: manifest,
       if (evergreenManifest != $none) #evergreenManifest: evergreenManifest,
     }),
@@ -289,6 +318,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     initialStartDate: data.get(#initialStartDate, or: $value.initialStartDate),
     node: data.get(#node, or: $value.node),
     character: data.get(#character, or: $value.character),
+    scheduleInfo: data.get(#scheduleInfo, or: $value.scheduleInfo),
     manifest: data.get(#manifest, or: $value.manifest),
     evergreenManifest: data.get(
       #evergreenManifest,
@@ -300,6 +330,141 @@ class _RawTraderCopyWithImpl<$R, $Out>
   RawTraderCopyWith<$R2, RawTrader, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   ) => _RawTraderCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class RawScheduleInfoMapper extends RecordMapperBase<RawScheduleInfo> {
+  static RawScheduleInfoMapper? _instance;
+  RawScheduleInfoMapper._();
+
+  static RawScheduleInfoMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = RawScheduleInfoMapper._());
+      MapperBase.addType(
+        <A, B, C>(f) => f<({A expiry, B featuredItem, C previewHiddenUntil})>(),
+      );
+    }
+    return _instance!;
+  }
+
+  static Map<String, dynamic> _$expiry(RawScheduleInfo v) => v.expiry;
+  static const Field<RawScheduleInfo, Map<String, dynamic>> _f$expiry = Field(
+    'expiry',
+    _$expiry,
+    key: r'Expiry',
+  );
+  static Map<String, dynamic> _$previewHiddenUntil(RawScheduleInfo v) =>
+      v.previewHiddenUntil;
+  static const Field<RawScheduleInfo, Map<String, dynamic>>
+  _f$previewHiddenUntil = Field(
+    'previewHiddenUntil',
+    _$previewHiddenUntil,
+    key: r'PreviewHiddenUntil',
+  );
+  static String? _$featuredItem(RawScheduleInfo v) => v.featuredItem;
+  static const Field<RawScheduleInfo, String> _f$featuredItem = Field(
+    'featuredItem',
+    _$featuredItem,
+    key: r'FeaturedItem',
+  );
+
+  @override
+  final MappableFields<RawScheduleInfo> fields = const {
+    #expiry: _f$expiry,
+    #previewHiddenUntil: _f$previewHiddenUntil,
+    #featuredItem: _f$featuredItem,
+  };
+
+  @override
+  Function get typeFactory =>
+      (f) => f<RawScheduleInfo>();
+
+  @override
+  List<Type> apply(MappingContext context) {
+    return [];
+  }
+
+  static RawScheduleInfo _instantiate(DecodingData<RawScheduleInfo> data) {
+    return (
+      expiry: data.dec(_f$expiry),
+      previewHiddenUntil: data.dec(_f$previewHiddenUntil),
+      featuredItem: data.dec(_f$featuredItem),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static RawScheduleInfo fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<RawScheduleInfo>(map);
+  }
+
+  static RawScheduleInfo fromJson(String json) {
+    return ensureInitialized().decodeJson<RawScheduleInfo>(json);
+  }
+}
+
+extension RawScheduleInfoMappable on RawScheduleInfo {
+  Map<String, dynamic> toMap() {
+    return RawScheduleInfoMapper.ensureInitialized().encodeMap(this);
+  }
+
+  String toJson() {
+    return RawScheduleInfoMapper.ensureInitialized().encodeJson(this);
+  }
+
+  RawScheduleInfoCopyWith<RawScheduleInfo> get copyWith =>
+      _RawScheduleInfoCopyWithImpl(this, $identity, $identity);
+}
+
+extension RawScheduleInfoValueCopy<$R>
+    on ObjectCopyWith<$R, RawScheduleInfo, RawScheduleInfo> {
+  RawScheduleInfoCopyWith<$R> get $asRawScheduleInfo =>
+      $base.as((v, t, t2) => _RawScheduleInfoCopyWithImpl(v, t, t2));
+}
+
+abstract class RawScheduleInfoCopyWith<$R>
+    implements RecordCopyWith<$R, RawScheduleInfo> {
+  $R call({
+    Map<String, dynamic>? expiry,
+    Map<String, dynamic>? previewHiddenUntil,
+    String? featuredItem,
+  });
+  RawScheduleInfoCopyWith<$R2> $chain<$R2>(Then<RawScheduleInfo, $R2> t);
+}
+
+class _RawScheduleInfoCopyWithImpl<$R>
+    extends RecordCopyWithBase<$R, RawScheduleInfo>
+    implements RawScheduleInfoCopyWith<$R> {
+  _RawScheduleInfoCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final RecordMapperBase<RawScheduleInfo> $mapper =
+      RawScheduleInfoMapper.ensureInitialized();
+  @override
+  $R call({
+    Map<String, dynamic>? expiry,
+    Map<String, dynamic>? previewHiddenUntil,
+    Object? featuredItem = $none,
+  }) => $apply(
+    FieldCopyWithData({
+      if (expiry != null) #expiry: expiry,
+      if (previewHiddenUntil != null) #previewHiddenUntil: previewHiddenUntil,
+      if (featuredItem != $none) #featuredItem: featuredItem,
+    }),
+  );
+  @override
+  RawScheduleInfo $make(CopyWithData data) => (
+    expiry: data.get(#expiry, or: $value.expiry),
+    previewHiddenUntil: data.get(
+      #previewHiddenUntil,
+      or: $value.previewHiddenUntil,
+    ),
+    featuredItem: data.get(#featuredItem, or: $value.featuredItem),
+  );
+
+  @override
+  RawScheduleInfoCopyWith<$R2> $chain<$R2>(Then<RawScheduleInfo, $R2> t) =>
+      _RawScheduleInfoCopyWithImpl($value, $cast, t);
 }
 
 class RawTraderItemMapper extends RecordMapperBase<RawTraderItem> {
@@ -436,6 +601,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = TraderMapper._());
       TraderItemMapper.ensureInitialized();
+      ScheduleMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -474,6 +640,11 @@ class TraderMapper extends ClassMapperBase<Trader> {
     'evergreenItems',
     _$evergreenItems,
   );
+  static List<Schedule> _$schedule(Trader v) => v.schedule;
+  static const Field<Trader, List<Schedule>> _f$schedule = Field(
+    'schedule',
+    _$schedule,
+  );
 
   @override
   final MappableFields<Trader> fields = const {
@@ -485,6 +656,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     #character: _f$character,
     #inventory: _f$inventory,
     #evergreenItems: _f$evergreenItems,
+    #schedule: _f$schedule,
   };
   @override
   final bool ignoreNull = true;
@@ -499,6 +671,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
       character: data.dec(_f$character),
       inventory: data.dec(_f$inventory),
       evergreenItems: data.dec(_f$evergreenItems),
+      schedule: data.dec(_f$schedule),
     );
   }
 
@@ -552,6 +725,8 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
   get inventory;
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems;
+  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>
+  get schedule;
   $R call({
     String? id,
     DateTime? activation,
@@ -561,6 +736,7 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
     String? character,
     List<TraderItem>? inventory,
     List<TraderItem>? evergreenItems,
+    List<Schedule>? schedule,
   });
   TraderCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -588,6 +764,13 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
         )
       : null;
   @override
+  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>
+  get schedule => ListCopyWith(
+    $value.schedule,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(schedule: v),
+  );
+  @override
   $R call({
     String? id,
     Object? activation = $none,
@@ -597,6 +780,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     String? character,
     List<TraderItem>? inventory,
     Object? evergreenItems = $none,
+    List<Schedule>? schedule,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -607,6 +791,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
       if (character != null) #character: character,
       if (inventory != null) #inventory: inventory,
       if (evergreenItems != $none) #evergreenItems: evergreenItems,
+      if (schedule != null) #schedule: schedule,
     }),
   );
   @override
@@ -619,6 +804,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     character: data.get(#character, or: $value.character),
     inventory: data.get(#inventory, or: $value.inventory),
     evergreenItems: data.get(#evergreenItems, or: $value.evergreenItems),
+    schedule: data.get(#schedule, or: $value.schedule),
   );
 
   @override
@@ -739,5 +925,138 @@ class _TraderItemCopyWithImpl<$R> extends RecordCopyWithBase<$R, TraderItem>
   @override
   TraderItemCopyWith<$R2> $chain<$R2>(Then<TraderItem, $R2> t) =>
       _TraderItemCopyWithImpl($value, $cast, t);
+}
+
+class ScheduleMapper extends RecordMapperBase<Schedule> {
+  static ScheduleMapper? _instance;
+  ScheduleMapper._();
+
+  static ScheduleMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ScheduleMapper._());
+      MapperBase.addType(
+        <A, B, C, D>(f) =>
+            f<({A expiry, B key, C previewHiddenUntil, D resurgence})>(),
+      );
+    }
+    return _instance!;
+  }
+
+  static DateTime _$expiry(Schedule v) => v.expiry;
+  static const Field<Schedule, DateTime> _f$expiry = Field('expiry', _$expiry);
+  static DateTime _$previewHiddenUntil(Schedule v) => v.previewHiddenUntil;
+  static const Field<Schedule, DateTime> _f$previewHiddenUntil = Field(
+    'previewHiddenUntil',
+    _$previewHiddenUntil,
+  );
+  static String? _$key(Schedule v) => v.key;
+  static const Field<Schedule, String> _f$key = Field('key', _$key);
+  static String? _$resurgence(Schedule v) => v.resurgence;
+  static const Field<Schedule, String> _f$resurgence = Field(
+    'resurgence',
+    _$resurgence,
+  );
+
+  @override
+  final MappableFields<Schedule> fields = const {
+    #expiry: _f$expiry,
+    #previewHiddenUntil: _f$previewHiddenUntil,
+    #key: _f$key,
+    #resurgence: _f$resurgence,
+  };
+
+  @override
+  Function get typeFactory =>
+      (f) => f<Schedule>();
+
+  @override
+  List<Type> apply(MappingContext context) {
+    return [];
+  }
+
+  static Schedule _instantiate(DecodingData<Schedule> data) {
+    return (
+      expiry: data.dec(_f$expiry),
+      previewHiddenUntil: data.dec(_f$previewHiddenUntil),
+      key: data.dec(_f$key),
+      resurgence: data.dec(_f$resurgence),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static Schedule fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<Schedule>(map);
+  }
+
+  static Schedule fromJson(String json) {
+    return ensureInitialized().decodeJson<Schedule>(json);
+  }
+}
+
+extension ScheduleMappable on Schedule {
+  Map<String, dynamic> toMap() {
+    return ScheduleMapper.ensureInitialized().encodeMap(this);
+  }
+
+  String toJson() {
+    return ScheduleMapper.ensureInitialized().encodeJson(this);
+  }
+
+  ScheduleCopyWith<Schedule> get copyWith =>
+      _ScheduleCopyWithImpl(this, $identity, $identity);
+}
+
+extension ScheduleValueCopy<$R> on ObjectCopyWith<$R, Schedule, Schedule> {
+  ScheduleCopyWith<$R> get $asSchedule =>
+      $base.as((v, t, t2) => _ScheduleCopyWithImpl(v, t, t2));
+}
+
+abstract class ScheduleCopyWith<$R> implements RecordCopyWith<$R, Schedule> {
+  $R call({
+    DateTime? expiry,
+    DateTime? previewHiddenUntil,
+    String? key,
+    String? resurgence,
+  });
+  ScheduleCopyWith<$R2> $chain<$R2>(Then<Schedule, $R2> t);
+}
+
+class _ScheduleCopyWithImpl<$R> extends RecordCopyWithBase<$R, Schedule>
+    implements ScheduleCopyWith<$R> {
+  _ScheduleCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final RecordMapperBase<Schedule> $mapper =
+      ScheduleMapper.ensureInitialized();
+  @override
+  $R call({
+    DateTime? expiry,
+    DateTime? previewHiddenUntil,
+    Object? key = $none,
+    Object? resurgence = $none,
+  }) => $apply(
+    FieldCopyWithData({
+      if (expiry != null) #expiry: expiry,
+      if (previewHiddenUntil != null) #previewHiddenUntil: previewHiddenUntil,
+      if (key != $none) #key: key,
+      if (resurgence != $none) #resurgence: resurgence,
+    }),
+  );
+  @override
+  Schedule $make(CopyWithData data) => (
+    expiry: data.get(#expiry, or: $value.expiry),
+    previewHiddenUntil: data.get(
+      #previewHiddenUntil,
+      or: $value.previewHiddenUntil,
+    ),
+    key: data.get(#key, or: $value.key),
+    resurgence: data.get(#resurgence, or: $value.resurgence),
+  );
+
+  @override
+  ScheduleCopyWith<$R2> $chain<$R2>(Then<Schedule, $R2> t) =>
+      _ScheduleCopyWithImpl($value, $cast, t);
 }
 
