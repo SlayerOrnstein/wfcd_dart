@@ -11,7 +11,7 @@ part 'trader.mapper.dart';
 typedef RawTraderItem = ({String itemType, int? primePrice, int? regularPrice});
 
 @MappableRecord(caseStyle: CaseStyle.pascalCase)
-typedef RawScheduleInfo = ({JsonObject expiry, JsonObject previewHiddenUntil, String? featuredItem});
+typedef RawScheduleInfo = ({JsonObject expiry, JsonObject? previewHiddenUntil, String? featuredItem});
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawTrader extends BaseContentObject with RawTraderMappable {
@@ -50,7 +50,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 typedef TraderItem = ({String name, int primePrice, int regularPrice});
 
 @MappableRecord()
-typedef Schedule = ({DateTime expiry, DateTime previewHiddenUntil, String? key, String? resurgence});
+typedef Schedule = ({DateTime expiry, DateTime? previewHiddenUntil, String? key, String? resurgence});
 
 @MappableClass()
 class Trader extends WorldstateObject with TraderMappable {

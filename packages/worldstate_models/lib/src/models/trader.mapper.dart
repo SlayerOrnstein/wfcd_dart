@@ -354,7 +354,7 @@ class RawScheduleInfoMapper extends RecordMapperBase<RawScheduleInfo> {
     _$expiry,
     key: r'Expiry',
   );
-  static Map<String, dynamic> _$previewHiddenUntil(RawScheduleInfo v) =>
+  static Map<String, dynamic>? _$previewHiddenUntil(RawScheduleInfo v) =>
       v.previewHiddenUntil;
   static const Field<RawScheduleInfo, Map<String, dynamic>>
   _f$previewHiddenUntil = Field(
@@ -445,12 +445,12 @@ class _RawScheduleInfoCopyWithImpl<$R>
   @override
   $R call({
     Map<String, dynamic>? expiry,
-    Map<String, dynamic>? previewHiddenUntil,
+    Object? previewHiddenUntil = $none,
     Object? featuredItem = $none,
   }) => $apply(
     FieldCopyWithData({
       if (expiry != null) #expiry: expiry,
-      if (previewHiddenUntil != null) #previewHiddenUntil: previewHiddenUntil,
+      if (previewHiddenUntil != $none) #previewHiddenUntil: previewHiddenUntil,
       if (featuredItem != $none) #featuredItem: featuredItem,
     }),
   );
@@ -948,7 +948,7 @@ class ScheduleMapper extends RecordMapperBase<Schedule> {
 
   static DateTime _$expiry(Schedule v) => v.expiry;
   static const Field<Schedule, DateTime> _f$expiry = Field('expiry', _$expiry);
-  static DateTime _$previewHiddenUntil(Schedule v) => v.previewHiddenUntil;
+  static DateTime? _$previewHiddenUntil(Schedule v) => v.previewHiddenUntil;
   static const Field<Schedule, DateTime> _f$previewHiddenUntil = Field(
     'previewHiddenUntil',
     _$previewHiddenUntil,
@@ -1037,13 +1037,13 @@ class _ScheduleCopyWithImpl<$R> extends RecordCopyWithBase<$R, Schedule>
   @override
   $R call({
     DateTime? expiry,
-    DateTime? previewHiddenUntil,
+    Object? previewHiddenUntil = $none,
     Object? key = $none,
     Object? resurgence = $none,
   }) => $apply(
     FieldCopyWithData({
       if (expiry != null) #expiry: expiry,
-      if (previewHiddenUntil != null) #previewHiddenUntil: previewHiddenUntil,
+      if (previewHiddenUntil != $none) #previewHiddenUntil: previewHiddenUntil,
       if (key != $none) #key: key,
       if (resurgence != $none) #resurgence: resurgence,
     }),
