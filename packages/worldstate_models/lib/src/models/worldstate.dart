@@ -57,7 +57,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawActiveMission> voidStorms;
   final List<num> projectPct;
   final List<RawCircuitChoice> endlessXpChoices;
-  final RawSeasonInfo seasonInfo;
+  final RawSeasonInfo? seasonInfo;
   final List<RawCalendar> knownCalendarSeasons;
   final List<RawConquest> conquests;
   final String tmp;
@@ -121,7 +121,7 @@ class Worldstate with WorldstateMappable {
       dailyDeals: parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, deps)),
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
       duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
-      nightwave: Nightwave.fromRaw(raw.seasonInfo, deps),
+      nightwave: raw.seasonInfo != null ? Nightwave.fromRaw(raw.seasonInfo!, deps) : null,
       calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, deps),
       archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, deps)).toList(),
       cetusCycle: CetusCycle.fromBountiesEndDate(cetusBountyEnd),

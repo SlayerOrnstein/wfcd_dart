@@ -144,7 +144,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$endlessXpChoices,
     key: r'EndlessXpChoices',
   );
-  static RawSeasonInfo _$seasonInfo(RawWorldstate v) => v.seasonInfo;
+  static RawSeasonInfo? _$seasonInfo(RawWorldstate v) => v.seasonInfo;
   static const Field<RawWorldstate, RawSeasonInfo> _f$seasonInfo = Field(
     'seasonInfo',
     _$seasonInfo,
@@ -352,7 +352,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     RawCircuitChoiceCopyWith<$R, RawCircuitChoice, RawCircuitChoice>
   >
   get endlessXpChoices;
-  RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo> get seasonInfo;
+  RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo>? get seasonInfo;
   ListCopyWith<
     $R,
     RawCalendar,
@@ -549,8 +549,8 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     (v) => call(endlessXpChoices: v),
   );
   @override
-  RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo> get seasonInfo =>
-      $value.seasonInfo.copyWith.$chain((v) => call(seasonInfo: v));
+  RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo>? get seasonInfo =>
+      $value.seasonInfo?.copyWith.$chain((v) => call(seasonInfo: v));
   @override
   ListCopyWith<
     $R,
@@ -593,7 +593,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     List<RawActiveMission>? voidStorms,
     List<num>? projectPct,
     List<RawCircuitChoice>? endlessXpChoices,
-    RawSeasonInfo? seasonInfo,
+    Object? seasonInfo = $none,
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
     String? tmp,
@@ -617,7 +617,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       if (voidStorms != null) #voidStorms: voidStorms,
       if (projectPct != null) #projectPct: projectPct,
       if (endlessXpChoices != null) #endlessXpChoices: endlessXpChoices,
-      if (seasonInfo != null) #seasonInfo: seasonInfo,
+      if (seasonInfo != $none) #seasonInfo: seasonInfo,
       if (knownCalendarSeasons != null)
         #knownCalendarSeasons: knownCalendarSeasons,
       if (conquests != null) #conquests: conquests,
