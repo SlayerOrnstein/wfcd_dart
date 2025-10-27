@@ -15,5 +15,7 @@ extension LanguageExtension on Map<String, LanguageString> {
 
   /// Get the description for a [resource] otherwise defaults to a placeholder string based on the [resource]
   String fetchDescription(String resource) =>
-      this[resource]?.description ?? '[PH] ${normalizeResourceName(resource)} Desc';
+      this[resource]?.description ??
+      this[resource.toLowerCase()]?.description ??
+      '[PH] ${normalizeResourceName(resource)} Desc';
 }
