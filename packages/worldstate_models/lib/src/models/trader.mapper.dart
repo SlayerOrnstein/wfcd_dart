@@ -57,7 +57,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     _$character,
     key: r'Character',
   );
-  static List<RawScheduleInfo> _$scheduleInfo(RawTrader v) => v.scheduleInfo;
+  static List<RawScheduleInfo>? _$scheduleInfo(RawTrader v) => v.scheduleInfo;
   static const Field<RawTrader, List<RawScheduleInfo>> _f$scheduleInfo = Field(
     'scheduleInfo',
     _$scheduleInfo,
@@ -181,7 +181,7 @@ abstract class RawTraderCopyWith<$R, $In extends RawTrader, $Out>
     $R,
     RawScheduleInfo,
     ObjectCopyWith<$R, RawScheduleInfo, RawScheduleInfo>
-  >
+  >?
   get scheduleInfo;
   ListCopyWith<
     $R,
@@ -256,12 +256,14 @@ class _RawTraderCopyWithImpl<$R, $Out>
     $R,
     RawScheduleInfo,
     ObjectCopyWith<$R, RawScheduleInfo, RawScheduleInfo>
-  >
-  get scheduleInfo => ListCopyWith(
-    $value.scheduleInfo,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(scheduleInfo: v),
-  );
+  >?
+  get scheduleInfo => $value.scheduleInfo != null
+      ? ListCopyWith(
+          $value.scheduleInfo!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(scheduleInfo: v),
+        )
+      : null;
   @override
   ListCopyWith<
     $R,
@@ -294,7 +296,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     Object? initialStartDate = $none,
     String? node,
     Object? character = $none,
-    List<RawScheduleInfo>? scheduleInfo,
+    Object? scheduleInfo = $none,
     List<RawTraderItem>? manifest,
     Object? evergreenManifest = $none,
   }) => $apply(
@@ -305,7 +307,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
       if (character != $none) #character: character,
-      if (scheduleInfo != null) #scheduleInfo: scheduleInfo,
+      if (scheduleInfo != $none) #scheduleInfo: scheduleInfo,
       if (manifest != null) #manifest: manifest,
       if (evergreenManifest != $none) #evergreenManifest: evergreenManifest,
     }),
@@ -640,7 +642,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     'evergreenItems',
     _$evergreenItems,
   );
-  static List<Schedule> _$schedule(Trader v) => v.schedule;
+  static List<Schedule>? _$schedule(Trader v) => v.schedule;
   static const Field<Trader, List<Schedule>> _f$schedule = Field(
     'schedule',
     _$schedule,
@@ -725,7 +727,7 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
   get inventory;
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems;
-  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>
+  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>?
   get schedule;
   $R call({
     String? id,
@@ -764,12 +766,14 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
         )
       : null;
   @override
-  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>
-  get schedule => ListCopyWith(
-    $value.schedule,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(schedule: v),
-  );
+  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>?
+  get schedule => $value.schedule != null
+      ? ListCopyWith(
+          $value.schedule!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(schedule: v),
+        )
+      : null;
   @override
   $R call({
     String? id,
@@ -780,7 +784,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     String? character,
     List<TraderItem>? inventory,
     Object? evergreenItems = $none,
-    List<Schedule>? schedule,
+    Object? schedule = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -791,7 +795,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
       if (character != null) #character: character,
       if (inventory != null) #inventory: inventory,
       if (evergreenItems != $none) #evergreenItems: evergreenItems,
-      if (schedule != null) #schedule: schedule,
+      if (schedule != $none) #schedule: schedule,
     }),
   );
   @override
