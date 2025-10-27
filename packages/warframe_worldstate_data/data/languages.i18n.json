@@ -19356,7 +19356,7 @@
       "value": "Nezha & Octavia Prime Dual Pack"
     },
     "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVOctaviaPrimeSinglePack": {
-      "vlaue": "Octavia Prime"
+      "value": "Octavia Prime"
     },
     "/Lotus/StoreItems/Powersuits/Nezha/NezhaPrime": {
       "value": "Nezha Prime"
@@ -19425,11 +19425,11 @@
     },
     "FortifiedFoes": {
       "value": "Sealed Armor",
-      "desc": "Enemies take 90% less damage from non-weak point gits."
+      "desc": "Enemies take 90% less damage from non-weak point hits."
     },
     "Quicksand": {
       "value": "Entanglement",
-      "desc": "Allies within 4m of slain enemies endure reduced Movement Spped and Parkour Velocity."
+      "desc": "Allies within 4m of slain enemies endure reduced Movement Speed and Parkour Velocity."
     },
     "Reinforcements": {
       "value": "Coordinated Front",

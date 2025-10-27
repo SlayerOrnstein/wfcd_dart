@@ -6,7 +6,7 @@
 /// Locales: 1
 /// Strings: 12345
 ///
-/// Built on 2025-10-27 at 17:53 UTC
+/// Built on 2025-10-27 at 18:13 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -407,9 +407,8 @@ mixin FissureModifier {
 }
 
 mixin Language {
-  String? get value => null;
+  String get value;
   String? get desc => null;
-  String? get vlaue => null;
 
   @override
   bool operator ==(Object other) {
@@ -436,7 +435,7 @@ mixin Language {
     return result;
   }
 
-  List<Object?> get $fields => [value, desc, vlaue];
+  List<Object?> get $fields => [value, desc];
 }
 
 mixin MissionType {
