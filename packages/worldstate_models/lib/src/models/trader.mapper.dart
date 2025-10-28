@@ -727,7 +727,7 @@ abstract class TraderCopyWith<$R, $In extends Trader, $Out>
   get inventory;
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems;
-  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>?
+  ListCopyWith<$R, Schedule, ScheduleCopyWith<$R, Schedule, Schedule>>?
   get schedule;
   $R call({
     String? id,
@@ -766,11 +766,11 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
         )
       : null;
   @override
-  ListCopyWith<$R, Schedule, ObjectCopyWith<$R, Schedule, Schedule>>?
+  ListCopyWith<$R, Schedule, ScheduleCopyWith<$R, Schedule, Schedule>>?
   get schedule => $value.schedule != null
       ? ListCopyWith(
           $value.schedule!,
-          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v, t) => v.copyWith.$chain(t),
           (v) => call(schedule: v),
         )
       : null;
@@ -931,20 +931,19 @@ class _TraderItemCopyWithImpl<$R> extends RecordCopyWithBase<$R, TraderItem>
       _TraderItemCopyWithImpl($value, $cast, t);
 }
 
-class ScheduleMapper extends RecordMapperBase<Schedule> {
-  static ScheduleMapper? _instance;
+class ScheduleMapper extends ClassMapperBase<Schedule> {
   ScheduleMapper._();
 
+  static ScheduleMapper? _instance;
   static ScheduleMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = ScheduleMapper._());
-      MapperBase.addType(
-        <A, B, C, D>(f) =>
-            f<({A expiry, B key, C previewHiddenUntil, D resurgence})>(),
-      );
     }
     return _instance!;
   }
+
+  @override
+  final String id = 'Schedule';
 
   static DateTime _$expiry(Schedule v) => v.expiry;
   static const Field<Schedule, DateTime> _f$expiry = Field('expiry', _$expiry);
@@ -954,11 +953,12 @@ class ScheduleMapper extends RecordMapperBase<Schedule> {
     _$previewHiddenUntil,
   );
   static String? _$key(Schedule v) => v.key;
-  static const Field<Schedule, String> _f$key = Field('key', _$key);
+  static const Field<Schedule, String> _f$key = Field('key', _$key, opt: true);
   static String? _$resurgence(Schedule v) => v.resurgence;
   static const Field<Schedule, String> _f$resurgence = Field(
     'resurgence',
     _$resurgence,
+    opt: true,
   );
 
   @override
@@ -968,18 +968,11 @@ class ScheduleMapper extends RecordMapperBase<Schedule> {
     #key: _f$key,
     #resurgence: _f$resurgence,
   };
-
   @override
-  Function get typeFactory =>
-      (f) => f<Schedule>();
+  final bool ignoreNull = true;
 
-  @override
-  List<Type> apply(MappingContext context) {
-    return [];
-  }
-
-  static Schedule _instantiate(DecodingData<Schedule> data) {
-    return (
+  static Schedule _instantiate(DecodingData data) {
+    return Schedule(
       expiry: data.dec(_f$expiry),
       previewHiddenUntil: data.dec(_f$previewHiddenUntil),
       key: data.dec(_f$key),
@@ -999,40 +992,67 @@ class ScheduleMapper extends RecordMapperBase<Schedule> {
   }
 }
 
-extension ScheduleMappable on Schedule {
-  Map<String, dynamic> toMap() {
-    return ScheduleMapper.ensureInitialized().encodeMap(this);
-  }
-
+mixin ScheduleMappable {
   String toJson() {
-    return ScheduleMapper.ensureInitialized().encodeJson(this);
+    return ScheduleMapper.ensureInitialized().encodeJson<Schedule>(
+      this as Schedule,
+    );
   }
 
-  ScheduleCopyWith<Schedule> get copyWith =>
-      _ScheduleCopyWithImpl(this, $identity, $identity);
+  Map<String, dynamic> toMap() {
+    return ScheduleMapper.ensureInitialized().encodeMap<Schedule>(
+      this as Schedule,
+    );
+  }
+
+  ScheduleCopyWith<Schedule, Schedule, Schedule> get copyWith =>
+      _ScheduleCopyWithImpl<Schedule, Schedule>(
+        this as Schedule,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return ScheduleMapper.ensureInitialized().stringifyValue(this as Schedule);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return ScheduleMapper.ensureInitialized().equalsValue(
+      this as Schedule,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return ScheduleMapper.ensureInitialized().hashValue(this as Schedule);
+  }
 }
 
-extension ScheduleValueCopy<$R> on ObjectCopyWith<$R, Schedule, Schedule> {
-  ScheduleCopyWith<$R> get $asSchedule =>
-      $base.as((v, t, t2) => _ScheduleCopyWithImpl(v, t, t2));
+extension ScheduleValueCopy<$R, $Out> on ObjectCopyWith<$R, Schedule, $Out> {
+  ScheduleCopyWith<$R, Schedule, $Out> get $asSchedule =>
+      $base.as((v, t, t2) => _ScheduleCopyWithImpl<$R, $Out>(v, t, t2));
 }
 
-abstract class ScheduleCopyWith<$R> implements RecordCopyWith<$R, Schedule> {
+abstract class ScheduleCopyWith<$R, $In extends Schedule, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
   $R call({
     DateTime? expiry,
     DateTime? previewHiddenUntil,
     String? key,
     String? resurgence,
   });
-  ScheduleCopyWith<$R2> $chain<$R2>(Then<Schedule, $R2> t);
+  ScheduleCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
-class _ScheduleCopyWithImpl<$R> extends RecordCopyWithBase<$R, Schedule>
-    implements ScheduleCopyWith<$R> {
+class _ScheduleCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, Schedule, $Out>
+    implements ScheduleCopyWith<$R, Schedule, $Out> {
   _ScheduleCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final RecordMapperBase<Schedule> $mapper =
+  late final ClassMapperBase<Schedule> $mapper =
       ScheduleMapper.ensureInitialized();
   @override
   $R call({
@@ -1049,7 +1069,7 @@ class _ScheduleCopyWithImpl<$R> extends RecordCopyWithBase<$R, Schedule>
     }),
   );
   @override
-  Schedule $make(CopyWithData data) => (
+  Schedule $make(CopyWithData data) => Schedule(
     expiry: data.get(#expiry, or: $value.expiry),
     previewHiddenUntil: data.get(
       #previewHiddenUntil,
@@ -1060,7 +1080,8 @@ class _ScheduleCopyWithImpl<$R> extends RecordCopyWithBase<$R, Schedule>
   );
 
   @override
-  ScheduleCopyWith<$R2> $chain<$R2>(Then<Schedule, $R2> t) =>
-      _ScheduleCopyWithImpl($value, $cast, t);
+  ScheduleCopyWith<$R2, Schedule, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _ScheduleCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 

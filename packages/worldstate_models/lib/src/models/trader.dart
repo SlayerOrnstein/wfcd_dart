@@ -49,9 +49,6 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 @MappableRecord()
 typedef TraderItem = ({String name, int primePrice, int regularPrice});
 
-@MappableRecord()
-typedef Schedule = ({DateTime expiry, DateTime? previewHiddenUntil, String? key, String? resurgence});
-
 @MappableClass()
 class Trader extends WorldstateObject with TraderMappable {
   Trader({
@@ -84,16 +81,7 @@ class Trader extends WorldstateObject with TraderMappable {
       character: deps.langs.fetchValue(raw.character ?? character ?? ''),
       inventory: raw.manifest.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
-      schedule: raw.scheduleInfo
-          ?.map<Schedule>(
-            (s) => (
-              expiry: parseDate(s.expiry),
-              previewHiddenUntil: parseDate(s.previewHiddenUntil),
-              key: s.featuredItem,
-              resurgence: s.featuredItem != null ? deps.langs.fetchValue(s.featuredItem!) : null,
-            ),
-          )
-          .toList(),
+      schedule: raw.scheduleInfo?.map<Schedule>((s) => Schedule.fromRaw(s, deps)).toList(),
     );
   }
 
@@ -112,4 +100,23 @@ class Trader extends WorldstateObject with TraderMappable {
 
   @override
   bool get isActive => super.isActive!;
+}
+
+@MappableClass()
+class Schedule with ScheduleMappable {
+  Schedule({required this.expiry, required this.previewHiddenUntil, this.key, this.resurgence});
+
+  factory Schedule.fromRaw(RawScheduleInfo raw, Dependency deps) {
+    return Schedule(
+      expiry: parseDate(raw.expiry),
+      previewHiddenUntil: parseDate(raw.previewHiddenUntil),
+      key: raw.featuredItem,
+      resurgence: raw.featuredItem != null ? deps.langs.fetchValue(raw.featuredItem!) : null,
+    );
+  }
+
+  DateTime expiry;
+  DateTime? previewHiddenUntil;
+  String? key;
+  String? resurgence;
 }
