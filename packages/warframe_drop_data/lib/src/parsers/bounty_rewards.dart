@@ -3,25 +3,38 @@ import 'package:html/dom.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
 import 'package:warframe_drop_data/src/utils.dart';
 
-enum BountyRewardIds {
+/// Enum for syndicate html IDs
+enum Syndicates {
+  /// Cetus
   cetus('cetusRewards'),
+
+  /// Solaris
   solaris('solarisRewards'),
+
+  /// Entrati
   deimos('deimosRewards'),
+
+  /// Zariman
   zariman('zarimanRewards'),
+
+  /// Cavia
   entrati('entratiLabRewards'),
+
+  /// Hex
   hex('hexRewards');
 
-  const BountyRewardIds(this.id);
+  const Syndicates(this.id);
 
   /// Html ID of the bounty reward table
   final String id;
 }
 
-List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
-  final table = body.getElementsByTagName('#$id').first.nextElementSibling;
+/// Parses syndicate bounty rewards
+List<BountyRewardTable>? parseBountyRewardTables(Element body, Syndicates syndicate) {
+  final table = body.getElementsByTagName('#${syndicate.id}').first.nextElementSibling;
   final tbody = table?.children.first;
   if (tbody == null) {
-    developer.log('no table for $id');
+    developer.log('no table for ${syndicate.id}');
     return null;
   }
 
@@ -31,8 +44,8 @@ List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
   String? completion;
   BountyRewardTable? rewardTable;
   String? rotation;
-  for (final row in tbody.children) {
-    final element = row.children[0];
+  for (final tr in tbody.children) {
+    final element = tr.children[0];
     var text = element.text;
 
     if (element.localName == 'th') {
@@ -53,11 +66,13 @@ List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
         rewardTable = BountyRewardTable(id: hash(text), level: text, rewards: Rotations());
       }
     } else if (element.localName == 'td' && !element.classes.contains('blank-row')) {
-      if (row.children.length == 2) stage = row.children[1].text;
+      if (tr.children.length == 2) stage = tr.children[1].text;
 
-      if (row.children.length == 3) {
-        final chance = parseChance(row.children[2].text);
-        text = row.children[1].text;
+      if (tr.children.length == 3) {
+        final chance = parseChanceWithRarity(tr.children[2].text);
+        if (chance == null) throw Exception('Failed to parse ${tr.children[2].text}');
+
+        text = tr.children[1].text;
         rotation ??= 'C';
 
         final stagesRegEx = RegExp('Stage (?<stage>[0-7])');
@@ -65,9 +80,9 @@ List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
           rotation,
           BountyReward(
             id: hash(text),
-            name: text,
-            rarity: chance?.rarity,
-            chance: chance?.chance,
+            item: text,
+            rarity: chance.rarity,
+            chance: chance.chance,
             stages: stagesRegEx
                 .allMatches(stage ?? '')
                 .map((m) => m.namedGroup('stage'))
@@ -77,6 +92,7 @@ List<BountyRewardTable>? parseBountyRewards(Element body, String id) {
                 .toList(),
             onFinalStage: stage?.toLowerCase() == 'final stage',
             onFirstCompletion: completion?.contains('First'),
+            status: null,
           ),
         );
       }

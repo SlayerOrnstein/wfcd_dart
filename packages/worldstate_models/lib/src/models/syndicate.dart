@@ -114,7 +114,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   });
 
   factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
-    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.dropData, raw, raw.isVault ?? false);
+    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.bountyRewardTable, raw, raw.isVault ?? false);
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
@@ -177,7 +177,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
   static (List<String> rewards, List<BountyStage> rewardDrops) _fetchBountyRewards(
     String resource,
-    DropData data,
+    List<BountyRewardTable> data,
     RawJob raw,
     bool isVault,
   ) {
@@ -190,13 +190,13 @@ class SyndicateBounty with SyndicateBountyMappable {
       (level, rotation) = _determineLocation(resource, raw, isVault);
     }
 
-    final table = data.bountyRewardTables.firstWhereOrNull((t) => t.level == level);
+    final table = data.firstWhereOrNull((t) => t.level == level);
     if (table == null) return ([], []);
 
     final rewards = table.rewards.fetchRotation(rotation);
     if (rewards.isEmpty) return ([], []);
 
-    final rewardStrings = rewards.map((r) => r.name).toSet().toList();
+    final rewardStrings = rewards.map((r) => r.item).toSet().toList();
 
     if (!isVault) {
       final stages = <int, BountyStage>{};
@@ -242,10 +242,10 @@ class RewardDrop with RewardDropMappable {
   factory RewardDrop.fromDrop(BountyReward drop) {
     // Don't usually see drop counts this high but you know, cast a wide net
     final countReg = RegExp('([0-9]{1,10})X');
-    final count = countReg.allMatches(drop.name);
+    final count = countReg.allMatches(drop.item);
 
     return RewardDrop(
-      item: drop.name.replaceAll(countReg, '').trim(),
+      item: drop.item.replaceAll(countReg, '').trim(),
       rarity: drop.rarity,
       chance: drop.chance,
       count: count.isNotEmpty ? int.parse(count.first.group(1)!) : 1,

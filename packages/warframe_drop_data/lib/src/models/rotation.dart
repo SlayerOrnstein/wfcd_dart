@@ -1,9 +1,14 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:warframe_drop_data/src/models/drop.dart';
 
 part 'rotation.mapper.dart';
 
+/// {@template rotations}
+/// Represents an ABC rotation
+/// {@endtemplate}
 @MappableClass()
-class Rotations<T extends RotationReward> with RotationsMappable<T> {
+class Rotations<T extends ItemDrop> with RotationsMappable<T> {
+  /// {@macro rotations}
   Rotations([List<T>? a, List<T>? b, List<T>? c]) : a = a ?? <T>[], b = b ?? <T>[], c = c ?? <T>[];
 
   /// Rotation A
@@ -18,7 +23,7 @@ class Rotations<T extends RotationReward> with RotationsMappable<T> {
   @MappableField(key: 'C')
   final List<T> c;
 
-  /// Add a reward in the given [rotation]
+  /// Add a reward in the given [Rotations]
   void addReward(String rotation, T reward) {
     switch (rotation) {
       case 'A':
@@ -41,25 +46,4 @@ class Rotations<T extends RotationReward> with RotationsMappable<T> {
       _ => throw Exception('Rotation $rotation is not valid.'),
     };
   }
-}
-
-/// {@template rotation_reward}
-/// Represents a [Rotations] reward
-/// {@endtemplate}
-@MappableClass(discriminatorKey: 'type')
-abstract class RotationReward with RotationRewardMappable {
-  /// {@macro rotation_reward}
-  RotationReward({required this.id, required this.name, required this.rarity, required this.chance});
-
-  /// Reward ID
-  final String id;
-
-  /// Reward name
-  final String name;
-
-  /// Rarity level
-  final String? rarity;
-
-  /// Drop chance
-  final double? chance;
 }

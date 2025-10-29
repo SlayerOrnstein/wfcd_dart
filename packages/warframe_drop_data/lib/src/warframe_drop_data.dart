@@ -4,8 +4,7 @@ import 'dart:isolate';
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:warframe_drop_data/src/models/drop_data.dart';
-import 'package:warframe_drop_data/src/parsers/blueprint_drops.dart';
-import 'package:warframe_drop_data/src/parsers/bounty_rewards.dart';
+import 'package:warframe_drop_data/src/parsers/parsers.dart';
 
 /// {@template warframe_drop_data}
 /// A Very Good Project created by Very Good CLI.
@@ -26,11 +25,15 @@ Future<DropData> buildDropData([Client? client]) async {
     final body = parse(res.body).body;
     if (body == null) throw Exception('failed to parse body');
 
-    final bountyRewards = BountyRewardIds.values.map((b) => parseBountyRewards(body, b.id));
-
     return DropData(
-      blueprintDrops: parseBlueprintDrops(body),
-      bountyRewardTables: bountyRewards.nonNulls.reduce((p, n) => [...p, ...n]),
+      blueprintDrops: parseBlueprintLocations(body),
+      bountyRewardTables: Syndicates.values
+          .map((b) => parseBountyRewardTables(body, b))
+          .nonNulls
+          .reduce((p, n) => [...p, ...n]),
+      resourcesByAvatar: parseAvatarDropTables(body, Avatars.resources) ?? [],
+      sigilsByAvatar: parseAvatarDropTables(body, Avatars.sigils) ?? [],
+      additionalItemsByAvatar: parseAvatarDropTables(body, Avatars.items) ?? [],
     );
   });
 }

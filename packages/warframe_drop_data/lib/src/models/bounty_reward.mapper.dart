@@ -180,7 +180,7 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
   static BountyRewardMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = BountyRewardMapper._());
-      RotationRewardMapper.ensureInitialized().addSubMapper(_instance!);
+      ItemDropMapper.ensureInitialized().addSubMapper(_instance!);
     }
     return _instance!;
   }
@@ -190,14 +190,14 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
 
   static String _$id(BountyReward v) => v.id;
   static const Field<BountyReward, String> _f$id = Field('id', _$id);
-  static String _$name(BountyReward v) => v.name;
-  static const Field<BountyReward, String> _f$name = Field('name', _$name);
-  static String? _$rarity(BountyReward v) => v.rarity;
+  static String _$item(BountyReward v) => v.item;
+  static const Field<BountyReward, String> _f$item = Field('item', _$item);
+  static String _$rarity(BountyReward v) => v.rarity;
   static const Field<BountyReward, String> _f$rarity = Field(
     'rarity',
     _$rarity,
   );
-  static double? _$chance(BountyReward v) => v.chance;
+  static double _$chance(BountyReward v) => v.chance;
   static const Field<BountyReward, double> _f$chance = Field(
     'chance',
     _$chance,
@@ -217,16 +217,22 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
     'onFirstCompletion',
     _$onFirstCompletion,
   );
+  static String? _$status(BountyReward v) => v.status;
+  static const Field<BountyReward, String> _f$status = Field(
+    'status',
+    _$status,
+  );
 
   @override
   final MappableFields<BountyReward> fields = const {
     #id: _f$id,
-    #name: _f$name,
+    #item: _f$item,
     #rarity: _f$rarity,
     #chance: _f$chance,
     #stages: _f$stages,
     #onFinalStage: _f$onFinalStage,
     #onFirstCompletion: _f$onFirstCompletion,
+    #status: _f$status,
   };
   @override
   final bool ignoreNull = true;
@@ -236,18 +242,18 @@ class BountyRewardMapper extends SubClassMapperBase<BountyReward> {
   @override
   final dynamic discriminatorValue = 'BountyReward';
   @override
-  late final ClassMapperBase superMapper =
-      RotationRewardMapper.ensureInitialized();
+  late final ClassMapperBase superMapper = ItemDropMapper.ensureInitialized();
 
   static BountyReward _instantiate(DecodingData data) {
     return BountyReward(
       id: data.dec(_f$id),
-      name: data.dec(_f$name),
+      item: data.dec(_f$item),
       rarity: data.dec(_f$rarity),
       chance: data.dec(_f$chance),
       stages: data.dec(_f$stages),
       onFinalStage: data.dec(_f$onFinalStage),
       onFirstCompletion: data.dec(_f$onFirstCompletion),
+      status: data.dec(_f$status),
     );
   }
 
@@ -312,17 +318,18 @@ extension BountyRewardValueCopy<$R, $Out>
 }
 
 abstract class BountyRewardCopyWith<$R, $In extends BountyReward, $Out>
-    implements RotationRewardCopyWith<$R, $In, $Out> {
+    implements ItemDropCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get stages;
   @override
   $R call({
     String? id,
-    String? name,
+    String? item,
     String? rarity,
     double? chance,
     List<int>? stages,
     bool? onFinalStage,
     bool? onFirstCompletion,
+    String? status,
   });
   BountyRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -345,27 +352,29 @@ class _BountyRewardCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? id,
-    String? name,
-    Object? rarity = $none,
-    Object? chance = $none,
+    String? item,
+    String? rarity,
+    double? chance,
     List<int>? stages,
     bool? onFinalStage,
     Object? onFirstCompletion = $none,
+    Object? status = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
-      if (name != null) #name: name,
-      if (rarity != $none) #rarity: rarity,
-      if (chance != $none) #chance: chance,
+      if (item != null) #item: item,
+      if (rarity != null) #rarity: rarity,
+      if (chance != null) #chance: chance,
       if (stages != null) #stages: stages,
       if (onFinalStage != null) #onFinalStage: onFinalStage,
       if (onFirstCompletion != $none) #onFirstCompletion: onFirstCompletion,
+      if (status != $none) #status: status,
     }),
   );
   @override
   BountyReward $make(CopyWithData data) => BountyReward(
     id: data.get(#id, or: $value.id),
-    name: data.get(#name, or: $value.name),
+    item: data.get(#item, or: $value.item),
     rarity: data.get(#rarity, or: $value.rarity),
     chance: data.get(#chance, or: $value.chance),
     stages: data.get(#stages, or: $value.stages),
@@ -374,6 +383,7 @@ class _BountyRewardCopyWithImpl<$R, $Out>
       #onFirstCompletion,
       or: $value.onFirstCompletion,
     ),
+    status: data.get(#status, or: $value.status),
   );
 
   @override

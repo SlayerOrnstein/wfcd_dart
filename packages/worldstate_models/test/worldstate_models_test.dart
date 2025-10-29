@@ -2,14 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:test/test.dart';
-import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/types.dart';
 
 void main() {
   final dir = Directory('./test/fixtures');
-  final deps = Dependency(DropData(blueprintDrops: [], bountyRewardTables: []));
+  final deps = Dependency([]);
 
   for (final fixture in dir.listSync()) {
     final file = File(fixture.path).readAsStringSync();
@@ -48,7 +47,9 @@ void main() {
       test('RawSyndicate -> SyndicateMission', () async {
         final syndicateMissions = List<JsonObject>.from(worldstate['SyndicateMissions'] as List<dynamic>);
         final missions = syndicateMissions.map(
-          (s) => RawSyndicate.fromMap(s).toSyndicate(Dependency(DropData(blueprintDrops: [], bountyRewardTables: []))),
+          (s) => RawSyndicate.fromMap(
+            s,
+          ).toSyndicate(Dependency([])),
         );
 
         expect(missions.toList(), isA<List<SyndicateMission>>());

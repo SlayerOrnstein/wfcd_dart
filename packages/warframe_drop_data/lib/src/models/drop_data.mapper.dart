@@ -16,6 +16,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
       MapperContainer.globals.use(_instance = DropDataMapper._());
       BlueprintPartMapper.ensureInitialized();
       BountyRewardTableMapper.ensureInitialized();
+      AvatarMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -27,16 +28,48 @@ class DropDataMapper extends ClassMapperBase<DropData> {
   static const Field<DropData, List<BlueprintPart>> _f$blueprintDrops = Field(
     'blueprintDrops',
     _$blueprintDrops,
+    opt: true,
+    def: const [],
   );
   static List<BountyRewardTable> _$bountyRewardTables(DropData v) =>
       v.bountyRewardTables;
   static const Field<DropData, List<BountyRewardTable>> _f$bountyRewardTables =
-      Field('bountyRewardTables', _$bountyRewardTables);
+      Field(
+        'bountyRewardTables',
+        _$bountyRewardTables,
+        opt: true,
+        def: const [],
+      );
+  static List<Avatar> _$resourcesByAvatar(DropData v) => v.resourcesByAvatar;
+  static const Field<DropData, List<Avatar>> _f$resourcesByAvatar = Field(
+    'resourcesByAvatar',
+    _$resourcesByAvatar,
+    opt: true,
+    def: const [],
+  );
+  static List<Avatar> _$sigilsByAvatar(DropData v) => v.sigilsByAvatar;
+  static const Field<DropData, List<Avatar>> _f$sigilsByAvatar = Field(
+    'sigilsByAvatar',
+    _$sigilsByAvatar,
+    opt: true,
+    def: const [],
+  );
+  static List<Avatar> _$additionalItemsByAvatar(DropData v) =>
+      v.additionalItemsByAvatar;
+  static const Field<DropData, List<Avatar>> _f$additionalItemsByAvatar = Field(
+    'additionalItemsByAvatar',
+    _$additionalItemsByAvatar,
+    opt: true,
+    def: const [],
+  );
 
   @override
   final MappableFields<DropData> fields = const {
     #blueprintDrops: _f$blueprintDrops,
     #bountyRewardTables: _f$bountyRewardTables,
+    #resourcesByAvatar: _f$resourcesByAvatar,
+    #sigilsByAvatar: _f$sigilsByAvatar,
+    #additionalItemsByAvatar: _f$additionalItemsByAvatar,
   };
   @override
   final bool ignoreNull = true;
@@ -45,6 +78,9 @@ class DropDataMapper extends ClassMapperBase<DropData> {
     return DropData(
       blueprintDrops: data.dec(_f$blueprintDrops),
       bountyRewardTables: data.dec(_f$bountyRewardTables),
+      resourcesByAvatar: data.dec(_f$resourcesByAvatar),
+      sigilsByAvatar: data.dec(_f$sigilsByAvatar),
+      additionalItemsByAvatar: data.dec(_f$additionalItemsByAvatar),
     );
   }
 
@@ -117,9 +153,18 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
     BountyRewardTableCopyWith<$R, BountyRewardTable, BountyRewardTable>
   >
   get bountyRewardTables;
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get resourcesByAvatar;
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get sigilsByAvatar;
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get additionalItemsByAvatar;
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
+    List<Avatar>? resourcesByAvatar,
+    List<Avatar>? sigilsByAvatar,
+    List<Avatar>? additionalItemsByAvatar,
   });
   DropDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -155,13 +200,41 @@ class _DropDataCopyWithImpl<$R, $Out>
     (v) => call(bountyRewardTables: v),
   );
   @override
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get resourcesByAvatar => ListCopyWith(
+    $value.resourcesByAvatar,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(resourcesByAvatar: v),
+  );
+  @override
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get sigilsByAvatar => ListCopyWith(
+    $value.sigilsByAvatar,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(sigilsByAvatar: v),
+  );
+  @override
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get additionalItemsByAvatar => ListCopyWith(
+    $value.additionalItemsByAvatar,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(additionalItemsByAvatar: v),
+  );
+  @override
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
+    List<Avatar>? resourcesByAvatar,
+    List<Avatar>? sigilsByAvatar,
+    List<Avatar>? additionalItemsByAvatar,
   }) => $apply(
     FieldCopyWithData({
       if (blueprintDrops != null) #blueprintDrops: blueprintDrops,
       if (bountyRewardTables != null) #bountyRewardTables: bountyRewardTables,
+      if (resourcesByAvatar != null) #resourcesByAvatar: resourcesByAvatar,
+      if (sigilsByAvatar != null) #sigilsByAvatar: sigilsByAvatar,
+      if (additionalItemsByAvatar != null)
+        #additionalItemsByAvatar: additionalItemsByAvatar,
     }),
   );
   @override
@@ -170,6 +243,15 @@ class _DropDataCopyWithImpl<$R, $Out>
     bountyRewardTables: data.get(
       #bountyRewardTables,
       or: $value.bountyRewardTables,
+    ),
+    resourcesByAvatar: data.get(
+      #resourcesByAvatar,
+      or: $value.resourcesByAvatar,
+    ),
+    sigilsByAvatar: data.get(#sigilsByAvatar, or: $value.sigilsByAvatar),
+    additionalItemsByAvatar: data.get(
+      #additionalItemsByAvatar,
+      or: $value.additionalItemsByAvatar,
     ),
   );
 

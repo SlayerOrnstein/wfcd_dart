@@ -1,1 +1,3 @@
-export 'blueprint_drops.dart';
+export 'avatar_drop_tables.dart';
+export 'blueprint_locations.dart';
+export 'bounty_rewards.dart';

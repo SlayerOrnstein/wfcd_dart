@@ -5,9 +5,11 @@ import 'package:warframe_drop_data/warframe_drop_data.dart';
 
 Future<void> main() async {
   final jsonEncode = const JsonEncoder.withIndent('   ').convert;
-  final dropRates = await buildDropData();
+  final data = (await buildDropData()).toMap();
 
-  File(
-    './bounty_rewards.json',
-  ).writeAsStringSync(jsonEncode(dropRates.bountyRewardTables.map((d) => d.toMap()).toList()));
+  for (final key in data.keys) {
+    File('./build/$key.json')
+      ..createSync(recursive: true)
+      ..writeAsStringSync(jsonEncode(data[key]));
+  }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print This is only an example
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';

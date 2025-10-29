@@ -16,6 +16,8 @@ dependencies:
     path: packages/cache
   dart_frog: ^1.1.0
   http: ^1.5.0
+  warframe_drop_data:
+    path: ../warframe_drop_data
   worldstate_models:
     path: ../worldstate_models
 

@@ -1,11 +1,16 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:warframe_drop_data/src/models/drop.dart';
 import 'package:warframe_drop_data/src/models/rotation.dart';
 
 part 'bounty_reward.mapper.dart';
 
+/// {@template bounty_reward_table}
+/// Bounty tier reward table
+/// {@endtemplate}
 @MappableClass()
 class BountyRewardTable with BountyRewardTableMappable {
-  BountyRewardTable({required this.id, required this.level, required this.rewards});
+  /// {@macro bounty_reward_table}
+  const BountyRewardTable({required this.id, required this.level, required this.rewards});
 
   /// Generated ID for this bounty table
   final String id;
@@ -17,16 +22,21 @@ class BountyRewardTable with BountyRewardTableMappable {
   final Rotations<BountyReward> rewards;
 }
 
+/// {@template bounty_reward}
+/// [BountyRewardTable] rewards
+/// {@endtemplate}
 @MappableClass(discriminatorValue: 'BountyReward')
-class BountyReward extends RotationReward with BountyRewardMappable {
-  BountyReward({
+class BountyReward extends ItemDrop with BountyRewardMappable {
+  /// {@macro bounty_reward}
+  const BountyReward({
     required super.id,
-    required super.name,
+    required super.item,
     required super.rarity,
     required super.chance,
     required this.stages,
     required this.onFinalStage,
     required this.onFirstCompletion,
+    required super.status,
   });
 
   /// Stages the reward can drop in
@@ -37,10 +47,4 @@ class BountyReward extends RotationReward with BountyRewardMappable {
 
   /// Whether this drops on subsequent Completions or not
   final bool? onFirstCompletion;
-
-  @override
-  double get chance => super.chance!;
-
-  @override
-  String get rarity => super.rarity!;
 }
