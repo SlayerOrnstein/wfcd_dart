@@ -88,7 +88,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
       vsInfestation: vsInfestation,
       count: raw.count,
       requiredRuns: raw.goal,
-      completion: (1 + raw.count ~/ raw.goal) * (vsInfestation ? 100 : 50),
+      completion: ((1 + raw.count / raw.goal) * (vsInfestation ? 100 : 50)).floor(),
       isCompleted: raw.completed,
       rewardTypes: [
         ...?attacker.reward?.countedItems?.map((c) => c.type),
@@ -136,16 +136,16 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
   @override
   String? get eta {
-    final estimatedRemainingTime = _estimateRemainingTime(activation, count, requiredRuns);
+    final estimatedRemainingTime = _estimateRemainingTime();
     return createEta(DateTime.fromMillisecondsSinceEpoch(estimatedRemainingTime, isUtc: true));
   }
 
-  static int _estimateRemainingTime(DateTime activation, int count, int requiredRuns) {
+  int _estimateRemainingTime() {
     final completedRuns = count.abs();
     final elapsedMs = DateTime.timestamp().difference(activation).inMilliseconds;
     final remaningRuns = requiredRuns - completedRuns;
 
-    return remaningRuns * (elapsedMs / completedRuns).floor();
+    return remaningRuns * (elapsedMs / (completedRuns == 0 ? 1 : completedRuns)).floor();
   }
 }
 
