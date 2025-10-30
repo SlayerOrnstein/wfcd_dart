@@ -45,8 +45,11 @@ class Reward with RewardMappable {
   final int? credits;
 
   /// Items being rewarded in string format
-  String? get itemString =>
-      countedItems?.fold('', (p, n) => '${p.isNotEmpty ? '$p +' : ''} ${n.count} ${n.key}').trim() ?? items?.join('+');
+  String? get itemString {
+    if (countedItems?.isEmpty ?? true) return items?.join(' + ');
+
+    return countedItems?.fold('', (p, n) => '${p.isNotEmpty ? '$p +' : ''} ${n.count} ${n.key}').trim();
+  }
 
   static CountedItem _toCountedItem(Map<String, dynamic> item, String locale) {
     final type = item['ItemType'] as String;

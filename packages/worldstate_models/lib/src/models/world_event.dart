@@ -81,9 +81,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
     required this.community,
     required this.goal,
     required this.clanGoal,
-    required this.reward,
-    required this.interimGoals,
-    required this.interimRewards,
+    required this.rewards,
     required this.tag,
     required this.affiliationTag,
     required this.bounties,
@@ -109,9 +107,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
       community: raw.community,
       goal: raw.goal,
       clanGoal: raw.clanGoal,
-      reward: raw.reward?.toReward(deps),
-      interimGoals: raw.interimGoals,
-      interimRewards: raw.interimRewards?.map((r) => r.toReward(deps)).toList(),
+      rewards: _mapEventRewards(raw, deps),
       tag: raw.tag,
       affiliationTag: raw.jobAffiliationTag != null ? langs.fetchValue(raw.jobAffiliationTag!) : null,
       bounties: raw.jobs?.map((j) => j.toBounty(deps)).toList(),
@@ -144,11 +140,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   final List<int>? clanGoal;
 
-  final Reward? reward;
-
-  final List<int>? interimGoals;
-
-  final List<Reward>? interimRewards;
+  final List<WorldEventReward>? rewards;
 
   final String tag;
 
@@ -164,4 +156,28 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   @override
   bool get isActive => super.isActive!;
+
+  static List<WorldEventReward> _mapEventRewards(RawGoal raw, Dependency deps) {
+    final rewards = <RawReward>[...?raw.interimRewards, ?raw.reward];
+    final goals = <int>[...?raw.interimGoals, if (raw.goal != null && raw.goal != 0) raw.goal!];
+    if (rewards.isEmpty && goals.isEmpty) return [];
+
+    final r = <WorldEventReward>[];
+    for (var i = 0; i < goals.length; i++) {
+      r.add(WorldEventReward(requiredScore: goals[i], reward: rewards[i].toReward(deps)));
+    }
+
+    return r;
+  }
+}
+
+@MappableClass()
+class WorldEventReward with WorldEventRewardMappable {
+  WorldEventReward({required this.requiredScore, required this.reward});
+
+  /// Score required to earn reward
+  final int requiredScore;
+
+  /// The reward itself
+  final Reward reward;
 }

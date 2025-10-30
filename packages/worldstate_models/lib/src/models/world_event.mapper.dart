@@ -468,7 +468,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
   static WorldEventMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = WorldEventMapper._());
-      RewardMapper.ensureInitialized();
+      WorldEventRewardMapper.ensureInitialized();
       SyndicateBountyMapper.ensureInitialized();
     }
     return _instance!;
@@ -542,17 +542,10 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     'clanGoal',
     _$clanGoal,
   );
-  static Reward? _$reward(WorldEvent v) => v.reward;
-  static const Field<WorldEvent, Reward> _f$reward = Field('reward', _$reward);
-  static List<int>? _$interimGoals(WorldEvent v) => v.interimGoals;
-  static const Field<WorldEvent, List<int>> _f$interimGoals = Field(
-    'interimGoals',
-    _$interimGoals,
-  );
-  static List<Reward>? _$interimRewards(WorldEvent v) => v.interimRewards;
-  static const Field<WorldEvent, List<Reward>> _f$interimRewards = Field(
-    'interimRewards',
-    _$interimRewards,
+  static List<WorldEventReward>? _$rewards(WorldEvent v) => v.rewards;
+  static const Field<WorldEvent, List<WorldEventReward>> _f$rewards = Field(
+    'rewards',
+    _$rewards,
   );
   static String _$tag(WorldEvent v) => v.tag;
   static const Field<WorldEvent, String> _f$tag = Field('tag', _$tag);
@@ -585,9 +578,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
     #community: _f$community,
     #goal: _f$goal,
     #clanGoal: _f$clanGoal,
-    #reward: _f$reward,
-    #interimGoals: _f$interimGoals,
-    #interimRewards: _f$interimRewards,
+    #rewards: _f$rewards,
     #tag: _f$tag,
     #affiliationTag: _f$affiliationTag,
     #bounties: _f$bounties,
@@ -613,9 +604,7 @@ class WorldEventMapper extends ClassMapperBase<WorldEvent> {
       community: data.dec(_f$community),
       goal: data.dec(_f$goal),
       clanGoal: data.dec(_f$clanGoal),
-      reward: data.dec(_f$reward),
-      interimGoals: data.dec(_f$interimGoals),
-      interimRewards: data.dec(_f$interimRewards),
+      rewards: data.dec(_f$rewards),
       tag: data.dec(_f$tag),
       affiliationTag: data.dec(_f$affiliationTag),
       bounties: data.dec(_f$bounties),
@@ -683,10 +672,12 @@ extension WorldEventValueCopy<$R, $Out>
 abstract class WorldEventCopyWith<$R, $In extends WorldEvent, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get clanGoal;
-  RewardCopyWith<$R, Reward, Reward>? get reward;
-  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get interimGoals;
-  ListCopyWith<$R, Reward, RewardCopyWith<$R, Reward, Reward>>?
-  get interimRewards;
+  ListCopyWith<
+    $R,
+    WorldEventReward,
+    WorldEventRewardCopyWith<$R, WorldEventReward, WorldEventReward>
+  >?
+  get rewards;
   ListCopyWith<
     $R,
     SyndicateBounty,
@@ -710,9 +701,7 @@ abstract class WorldEventCopyWith<$R, $In extends WorldEvent, $Out>
     bool? community,
     int? goal,
     List<int>? clanGoal,
-    Reward? reward,
-    List<int>? interimGoals,
-    List<Reward>? interimRewards,
+    List<WorldEventReward>? rewards,
     String? tag,
     String? affiliationTag,
     List<SyndicateBounty>? bounties,
@@ -738,24 +727,16 @@ class _WorldEventCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  RewardCopyWith<$R, Reward, Reward>? get reward =>
-      $value.reward?.copyWith.$chain((v) => call(reward: v));
-  @override
-  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get interimGoals =>
-      $value.interimGoals != null
+  ListCopyWith<
+    $R,
+    WorldEventReward,
+    WorldEventRewardCopyWith<$R, WorldEventReward, WorldEventReward>
+  >?
+  get rewards => $value.rewards != null
       ? ListCopyWith(
-          $value.interimGoals!,
-          (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(interimGoals: v),
-        )
-      : null;
-  @override
-  ListCopyWith<$R, Reward, RewardCopyWith<$R, Reward, Reward>>?
-  get interimRewards => $value.interimRewards != null
-      ? ListCopyWith(
-          $value.interimRewards!,
+          $value.rewards!,
           (v, t) => v.copyWith.$chain(t),
-          (v) => call(interimRewards: v),
+          (v) => call(rewards: v),
         )
       : null;
   @override
@@ -789,9 +770,7 @@ class _WorldEventCopyWithImpl<$R, $Out>
     Object? community = $none,
     Object? goal = $none,
     Object? clanGoal = $none,
-    Object? reward = $none,
-    Object? interimGoals = $none,
-    Object? interimRewards = $none,
+    Object? rewards = $none,
     String? tag,
     Object? affiliationTag = $none,
     Object? bounties = $none,
@@ -813,9 +792,7 @@ class _WorldEventCopyWithImpl<$R, $Out>
       if (community != $none) #community: community,
       if (goal != $none) #goal: goal,
       if (clanGoal != $none) #clanGoal: clanGoal,
-      if (reward != $none) #reward: reward,
-      if (interimGoals != $none) #interimGoals: interimGoals,
-      if (interimRewards != $none) #interimRewards: interimRewards,
+      if (rewards != $none) #rewards: rewards,
       if (tag != null) #tag: tag,
       if (affiliationTag != $none) #affiliationTag: affiliationTag,
       if (bounties != $none) #bounties: bounties,
@@ -839,9 +816,7 @@ class _WorldEventCopyWithImpl<$R, $Out>
     community: data.get(#community, or: $value.community),
     goal: data.get(#goal, or: $value.goal),
     clanGoal: data.get(#clanGoal, or: $value.clanGoal),
-    reward: data.get(#reward, or: $value.reward),
-    interimGoals: data.get(#interimGoals, or: $value.interimGoals),
-    interimRewards: data.get(#interimRewards, or: $value.interimRewards),
+    rewards: data.get(#rewards, or: $value.rewards),
     tag: data.get(#tag, or: $value.tag),
     affiliationTag: data.get(#affiliationTag, or: $value.affiliationTag),
     bounties: data.get(#bounties, or: $value.bounties),
@@ -851,5 +826,145 @@ class _WorldEventCopyWithImpl<$R, $Out>
   WorldEventCopyWith<$R2, WorldEvent, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   ) => _WorldEventCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class WorldEventRewardMapper extends ClassMapperBase<WorldEventReward> {
+  WorldEventRewardMapper._();
+
+  static WorldEventRewardMapper? _instance;
+  static WorldEventRewardMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = WorldEventRewardMapper._());
+      RewardMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'WorldEventReward';
+
+  static int _$requiredScore(WorldEventReward v) => v.requiredScore;
+  static const Field<WorldEventReward, int> _f$requiredScore = Field(
+    'requiredScore',
+    _$requiredScore,
+  );
+  static Reward _$reward(WorldEventReward v) => v.reward;
+  static const Field<WorldEventReward, Reward> _f$reward = Field(
+    'reward',
+    _$reward,
+  );
+
+  @override
+  final MappableFields<WorldEventReward> fields = const {
+    #requiredScore: _f$requiredScore,
+    #reward: _f$reward,
+  };
+  @override
+  final bool ignoreNull = true;
+
+  static WorldEventReward _instantiate(DecodingData data) {
+    return WorldEventReward(
+      requiredScore: data.dec(_f$requiredScore),
+      reward: data.dec(_f$reward),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static WorldEventReward fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<WorldEventReward>(map);
+  }
+
+  static WorldEventReward fromJson(String json) {
+    return ensureInitialized().decodeJson<WorldEventReward>(json);
+  }
+}
+
+mixin WorldEventRewardMappable {
+  String toJson() {
+    return WorldEventRewardMapper.ensureInitialized()
+        .encodeJson<WorldEventReward>(this as WorldEventReward);
+  }
+
+  Map<String, dynamic> toMap() {
+    return WorldEventRewardMapper.ensureInitialized()
+        .encodeMap<WorldEventReward>(this as WorldEventReward);
+  }
+
+  WorldEventRewardCopyWith<WorldEventReward, WorldEventReward, WorldEventReward>
+  get copyWith =>
+      _WorldEventRewardCopyWithImpl<WorldEventReward, WorldEventReward>(
+        this as WorldEventReward,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return WorldEventRewardMapper.ensureInitialized().stringifyValue(
+      this as WorldEventReward,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return WorldEventRewardMapper.ensureInitialized().equalsValue(
+      this as WorldEventReward,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return WorldEventRewardMapper.ensureInitialized().hashValue(
+      this as WorldEventReward,
+    );
+  }
+}
+
+extension WorldEventRewardValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, WorldEventReward, $Out> {
+  WorldEventRewardCopyWith<$R, WorldEventReward, $Out>
+  get $asWorldEventReward =>
+      $base.as((v, t, t2) => _WorldEventRewardCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class WorldEventRewardCopyWith<$R, $In extends WorldEventReward, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  RewardCopyWith<$R, Reward, Reward> get reward;
+  $R call({int? requiredScore, Reward? reward});
+  WorldEventRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
+}
+
+class _WorldEventRewardCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, WorldEventReward, $Out>
+    implements WorldEventRewardCopyWith<$R, WorldEventReward, $Out> {
+  _WorldEventRewardCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<WorldEventReward> $mapper =
+      WorldEventRewardMapper.ensureInitialized();
+  @override
+  RewardCopyWith<$R, Reward, Reward> get reward =>
+      $value.reward.copyWith.$chain((v) => call(reward: v));
+  @override
+  $R call({int? requiredScore, Reward? reward}) => $apply(
+    FieldCopyWithData({
+      if (requiredScore != null) #requiredScore: requiredScore,
+      if (reward != null) #reward: reward,
+    }),
+  );
+  @override
+  WorldEventReward $make(CopyWithData data) => WorldEventReward(
+    requiredScore: data.get(#requiredScore, or: $value.requiredScore),
+    reward: data.get(#reward, or: $value.reward),
+  );
+
+  @override
+  WorldEventRewardCopyWith<$R2, WorldEventReward, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _WorldEventRewardCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
