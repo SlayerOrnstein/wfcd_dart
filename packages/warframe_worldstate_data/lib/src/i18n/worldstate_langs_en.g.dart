@@ -107488,9 +107488,9 @@ class WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVault
 
   // Translations
 
-  /// en: 'Octavia Prime'
+  /// en: 'Octavia Prime Pack'
   @override
-  String get value => 'Octavia Prime';
+  String get value => 'Octavia Prime Pack';
 }
 
 // Path: languages.languages./Lotus/StoreItems/Powersuits/Nezha/NezhaPrime
