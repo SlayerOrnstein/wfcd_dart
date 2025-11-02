@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
 import 'package:worldstate_models/src/models/worldstate_object.dart';
@@ -93,17 +92,7 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
       faction: data.faction(raw.faction),
       missionType: data.missionType(raw.missionType),
       deviation: (title: deps.langs.fetchValue(deviation), description: deps.langs.fetchDescription(deviation)),
-      risks: raw.difficulties
-          .map(
-            (d) => d.risks.map(
-              (r) => (
-                title: deps.langs.fetchValue(r),
-                description: deps.langs.fetchDescription(r),
-                isElite: d.type == 'CD_HARD',
-              ),
-            ),
-          )
-          .flattenedToList,
+      risks: _dedupRisks(raw.difficulties, deps),
     );
   }
 
@@ -111,4 +100,21 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
   final String missionType;
   final ({String title, String description}) deviation;
   final List<ArchimedeaRisk> risks;
+
+  static List<ArchimedeaRisk> _dedupRisks(List<RawConquestDifficulty> raw, Dependency deps) {
+    final dedup = <String, ArchimedeaRisk>{};
+    for (final diff in raw) {
+      for (final risk in diff.risks) {
+        if (dedup.containsKey(risk)) continue;
+
+        dedup[risk] = (
+          title: deps.langs.fetchValue(risk),
+          description: deps.langs.fetchDescription(risk),
+          isElite: diff.type == 'CD_HARD',
+        );
+      }
+    }
+
+    return dedup.values.toList(growable: false);
+  }
 }
