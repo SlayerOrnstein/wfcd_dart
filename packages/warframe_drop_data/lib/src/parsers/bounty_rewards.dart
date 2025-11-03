@@ -6,19 +6,19 @@ import 'package:warframe_drop_data/src/utils.dart';
 /// Enum for syndicate html IDs
 enum Syndicates {
   /// Cetus
-  cetus('cetusRewards'),
+  ostron('cetusRewards'),
 
   /// Solaris
   solaris('solarisRewards'),
 
   /// Entrati
-  deimos('deimosRewards'),
+  entrati('deimosRewards'),
 
   /// Zariman
   zariman('zarimanRewards'),
 
   /// Cavia
-  entrati('entratiLabRewards'),
+  cavia('entratiLabRewards'),
 
   /// Hex
   hex('hexRewards');
