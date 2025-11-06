@@ -71,8 +71,8 @@ class Invasion extends WorldstateObject with InvasionMappable {
   });
 
   factory Invasion.fromRaw(RawInvasion raw, Dependency deps) {
-    final attacker = InvasionFaction.fromRaw(raw.attackerMissionInfo.faction, raw.attackerReward, deps);
-    final defender = InvasionFaction.fromRaw(raw.defenderMissionInfo.faction, raw.defenderReward, deps);
+    final attacker = InvasionFaction.fromRaw(raw.defenderMissionInfo.faction, raw.attackerReward, deps);
+    final defender = InvasionFaction.fromRaw(raw.attackerMissionInfo.faction, raw.defenderReward, deps);
     final vsInfestation = raw.faction == 'FC_INFESTATION';
 
     return Invasion(
