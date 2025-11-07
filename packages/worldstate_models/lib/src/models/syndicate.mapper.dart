@@ -658,8 +658,8 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
 
   static String? _$type(SyndicateBounty v) => v.type;
   static const Field<SyndicateBounty, String> _f$type = Field('type', _$type);
-  static List<String> _$rewards(SyndicateBounty v) => v.rewards;
-  static const Field<SyndicateBounty, List<String>> _f$rewards = Field(
+  static String _$rewards(SyndicateBounty v) => v.rewards;
+  static const Field<SyndicateBounty, String> _f$rewards = Field(
     'rewards',
     _$rewards,
   );
@@ -799,12 +799,11 @@ extension SyndicateBountyValueCopy<$R, $Out>
 
 abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get rewards;
   ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool;
   $R call({
     String? type,
-    List<String>? rewards,
+    String? rewards,
     int? masteryRequirment,
     int? minLevel,
     int? maxLevel,
@@ -828,13 +827,6 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   late final ClassMapperBase<SyndicateBounty> $mapper =
       SyndicateBountyMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get rewards =>
-      ListCopyWith(
-        $value.rewards,
-        (v, t) => ObjectCopyWith(v, $identity, t),
-        (v) => call(rewards: v),
-      );
-  @override
   ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool => ListCopyWith(
     $value.rewardPool,
@@ -844,7 +836,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   @override
   $R call({
     Object? type = $none,
-    List<String>? rewards,
+    String? rewards,
     int? masteryRequirment,
     int? minLevel,
     int? maxLevel,

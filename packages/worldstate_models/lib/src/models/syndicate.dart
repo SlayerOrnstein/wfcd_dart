@@ -118,7 +118,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
-      rewards: <String>[...rewards, if (rewards.isEmpty) 'Pattern Mismatch. Results inaccurate.'],
+      rewards: raw.rewards,
       rewardPool: drops,
       masteryRequirment: raw.masteryReq,
       minLevel: raw.minEnemyLevel,
@@ -131,7 +131,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   }
 
   final String? type;
-  final List<String> rewards;
+  final String rewards;
   final List<BountyStage> rewardPool;
   final int masteryRequirment;
   final int minLevel;
