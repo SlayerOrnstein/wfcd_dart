@@ -1,0 +1,43 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 2025-11-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.1`](#warframe_drop_data---v011)
+ - [`worldstate_models` - `v0.1.0+2`](#worldstate_models---v0102)
+ - [`worldstate_status` - `v1.0.1`](#worldstate_status---v101)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.1`
+
+---
+
+#### `warframe_drop_data` - `v0.1.1`
+
+ - **PERF**: isolate parsing for html doc. ([43f8a84e](https://github.com/SlayerOrnstein/wfcd_dart/commit/43f8a84e38153401d186ff5e6c5e6a0cffcedf89))
+ - **FIX**: pass syndicate reward string instead of a `List<String>`. ([2fbb93a0](https://github.com/SlayerOrnstein/wfcd_dart/commit/2fbb93a0ec0dc1c626944af1a1135921b0429f18))
+ - **FIX**: match Syndicates id enum to the actual syndicate name to avoid confusion. ([23387717](https://github.com/SlayerOrnstein/wfcd_dart/commit/23387717adc051c0524f7be12c62cfea4768371e))
+ - **FEAT**: split fetching  the drop data into it's own function. ([bdadc9e3](https://github.com/SlayerOrnstein/wfcd_dart/commit/bdadc9e381f408d1dd1cb0afbd528054fc0c02b2))
+
+#### `worldstate_models` - `v0.1.0+2`
+
+ - **FIX**: global operation value is nullable. ([c03377a9](https://github.com/SlayerOrnstein/wfcd_dart/commit/c03377a94b3ba32d9579fd3def7c12199b2f23b9))
+ - **FIX**: pass syndicate reward string instead of a `List<String>`. ([2fbb93a0](https://github.com/SlayerOrnstein/wfcd_dart/commit/2fbb93a0ec0dc1c626944af1a1135921b0429f18))
+ - **FIX**: invasions attacker/defender being inversed. ([acbac173](https://github.com/SlayerOrnstein/wfcd_dart/commit/acbac173e92d4d999921d4b3ab8fa01ee578cc4c))
+ - **FIX**: risk duplication for archimedeas. ([5351a651](https://github.com/SlayerOrnstein/wfcd_dart/commit/5351a6519e255306bd7ebf30dd77dc26d512d367))
+
