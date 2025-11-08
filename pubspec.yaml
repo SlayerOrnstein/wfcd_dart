@@ -18,11 +18,14 @@ melos:
   scripts:
     generate:
       run: melos exec --depends-on build_runner -- dart run build_runner build
+    analyze:
+      run: melos exec -- dart analyze --fatal-infos --fatal-warnings
     test:
       run: melos exec --depends-on test -- dart test
   command:
     version:
       branch: master
+      releaseUrl: true
       message: |
         chore(release): publish packages [skip ci]
 

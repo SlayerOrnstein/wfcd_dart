@@ -53,18 +53,13 @@ jobs:
         uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
+      - name: Install Melos
+        run: dart pub global activate melos
       - name: Install Dependencies
         run: dart pub get
       - name: Check Formatting
-        run: dart format --line-length 120 --set-exit-if-changed packages/worldstate_status
-      - name: 🕵️ Analyze
-        run: dart analyze --fatal-infos --fatal-warnings packages/worldstate_status
-      - name: 🧪 Run Tests
-        run: |
-          dart pub global activate coverage 1.2.0
-          dart test -j 4 --coverage=coverage --platform=vm && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=routes
-      - name: 📊 Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v3
-        with:
-          path: packages/worldstate_status/coverage/lcov.info
-          min_coverage: 20
+        run: melos format --line-length 120 --set-exit-if-changed
+      - name: Analyze
+        run: melos analyze
+      - name: Test
+        run: melos test
