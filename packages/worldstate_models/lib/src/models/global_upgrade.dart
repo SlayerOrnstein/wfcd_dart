@@ -21,7 +21,7 @@ class RawGlobalUpgrade extends BaseContentObject with RawGlobalUpgradeMappable {
   static const fromMap = RawGlobalUpgradeMapper.fromMap;
 
   final String upgradeType;
-  final String opertationType;
+  final String? opertationType;
   final int value;
   final String localizeTag;
   final String localizeDescTag;
@@ -44,7 +44,7 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
   });
 
   factory GlobalUpgrade.fromRaw(RawGlobalUpgrade raw, [String locale = 'en']) {
-    final operation = operationType(raw.opertationType, locale);
+    final operation = operationType(raw.opertationType ?? '', locale);
     final upgrade = upgradeType(raw.upgradeType, locale);
     final desc = '$upgrade ${operation.value} ${raw.value}${operation.symbol}';
 
@@ -53,7 +53,7 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       upgrade: upgradeType(raw.upgradeType, locale),
-      operation: operation.value,
+      operation: raw.opertationType != null ? operation.value : null,
       symbol: operation.symbol,
       value: raw.value,
       isExpired: DateTime.timestamp().isAfter(parseDate(raw.expiry)),
@@ -62,7 +62,7 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
   }
 
   final String upgrade;
-  final String operation;
+  final String? operation;
   final String symbol;
   final int value;
   final bool isExpired;

@@ -42,7 +42,7 @@ class RawGlobalUpgradeMapper extends ClassMapperBase<RawGlobalUpgrade> {
     _$upgradeType,
     key: r'UpgradeType',
   );
-  static String _$opertationType(RawGlobalUpgrade v) => v.opertationType;
+  static String? _$opertationType(RawGlobalUpgrade v) => v.opertationType;
   static const Field<RawGlobalUpgrade, String> _f$opertationType = Field(
     'opertationType',
     _$opertationType,
@@ -215,7 +215,7 @@ class _RawGlobalUpgradeCopyWithImpl<$R, $Out>
     Object? activation = $none,
     Object? expiry = $none,
     String? upgradeType,
-    String? opertationType,
+    Object? opertationType = $none,
     int? value,
     String? localizeTag,
     String? localizeDescTag,
@@ -225,7 +225,7 @@ class _RawGlobalUpgradeCopyWithImpl<$R, $Out>
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (upgradeType != null) #upgradeType: upgradeType,
-      if (opertationType != null) #opertationType: opertationType,
+      if (opertationType != $none) #opertationType: opertationType,
       if (value != null) #value: value,
       if (localizeTag != null) #localizeTag: localizeTag,
       if (localizeDescTag != null) #localizeDescTag: localizeDescTag,
@@ -280,7 +280,7 @@ class GlobalUpgradeMapper extends ClassMapperBase<GlobalUpgrade> {
     'upgrade',
     _$upgrade,
   );
-  static String _$operation(GlobalUpgrade v) => v.operation;
+  static String? _$operation(GlobalUpgrade v) => v.operation;
   static const Field<GlobalUpgrade, String> _f$operation = Field(
     'operation',
     _$operation,
@@ -422,7 +422,7 @@ class _GlobalUpgradeCopyWithImpl<$R, $Out>
     Object? activation = $none,
     Object? expiry = $none,
     String? upgrade,
-    String? operation,
+    Object? operation = $none,
     String? symbol,
     int? value,
     bool? isExpired,
@@ -433,7 +433,7 @@ class _GlobalUpgradeCopyWithImpl<$R, $Out>
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (upgrade != null) #upgrade: upgrade,
-      if (operation != null) #operation: operation,
+      if (operation != $none) #operation: operation,
       if (symbol != null) #symbol: symbol,
       if (value != null) #value: value,
       if (isExpired != null) #isExpired: isExpired,
