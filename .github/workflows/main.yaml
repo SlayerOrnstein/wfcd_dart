@@ -8,7 +8,6 @@ on:
   pull_request:
     paths:
       - ".github/workflows/main.yaml"
-      - ".github/workflows/run_check.yaml"
       - "packages/**"
       - "pubspec.yaml"
   push:
@@ -16,35 +15,11 @@ on:
       - master
     paths:
       - ".github/workflows/main.yaml"
-      - ".github/workflows/run_check.yaml"
       - "packages/**"
       - "pubspec.yaml"
 
 jobs:
-  semantic-pull-request:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
-
-  warframe_drop_data:
-    uses: ./.github/workflows/run_check.yaml
-    with:
-      working_directory: packages/warframe_drop_data
-
-  warframe_items:
-    uses: ./.github/workflows/run_check.yaml
-    with:
-      working_directory: packages/warframe_items
-
-  warframe_worldstate_data:
-    uses: ./.github/workflows/run_check.yaml
-    with:
-      working_directory: packages/warframe_worldstate_data
-
-  worldstate_models:
-    uses: ./.github/workflows/run_check.yaml
-    with:
-      working_directory: packages/worldstate_models
-
-  worldstate_status: # Convert this to a reusable workflow under status
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
