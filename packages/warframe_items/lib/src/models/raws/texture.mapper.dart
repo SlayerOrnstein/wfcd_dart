@@ -31,18 +31,11 @@ class TextureMapper extends ClassMapperBase<Texture> {
     'textureLocation',
     _$textureLocation,
   );
-  static String _$ext(Texture v) => v.ext;
-  static const Field<Texture, String> _f$ext = Field(
-    'ext',
-    _$ext,
-    mode: FieldMode.member,
-  );
 
   @override
   final MappableFields<Texture> fields = const {
     #uniqueName: _f$uniqueName,
     #textureLocation: _f$textureLocation,
-    #ext: _f$ext,
   };
 
   static Texture _instantiate(DecodingData data) {

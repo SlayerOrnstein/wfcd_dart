@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<module fileurl="file://$PROJECT_DIR$/packages/warframe_drop_data/melos_warframe_drop_data.iml" filepath="$PROJECT_DIR$/packages/warframe_drop_data/melos_warframe_drop_data.iml"/>
+<module fileurl="file://$PROJECT_DIR$/packages/warframe_items/melos_warframe_items.iml" filepath="$PROJECT_DIR$/packages/warframe_items/melos_warframe_items.iml"/>
+<module fileurl="file://$PROJECT_DIR$/packages/warframe_worldstate_data/melos_warframe_worldstate_data.iml" filepath="$PROJECT_DIR$/packages/warframe_worldstate_data/melos_warframe_worldstate_data.iml"/>
+<module fileurl="file://$PROJECT_DIR$/packages/worldstate_models/melos_worldstate_models.iml" filepath="$PROJECT_DIR$/packages/worldstate_models/melos_worldstate_models.iml"/>
+<module fileurl="file://$PROJECT_DIR$/packages/worldstate_status/melos_worldstate_status.iml" filepath="$PROJECT_DIR$/packages/worldstate_status/melos_worldstate_status.iml"/>
+<module fileurl="file://$PROJECT_DIR$/melos_wfcd_dart.iml" filepath="$PROJECT_DIR$/melos_wfcd_dart.iml"/>
+    </modules>
+  </component>
+</project>

@@ -1,7 +1,8 @@
 name: wfcd_dart
+repository: https://github.com/SlayerOrnstein/wfcd_dart
 
 environment:
-  sdk: '^3.9.0'
+  sdk: "^3.9.0"
 
 workspace:
   - packages/warframe_drop_data
@@ -9,3 +10,20 @@ workspace:
   - packages/warframe_worldstate_data
   - packages/worldstate_models
   - packages/worldstate_status
+
+dev_dependencies:
+  melos: ^7.3.0
+
+melos:
+  scripts:
+    generate:
+      run: melos exec --depends-on build_runner -- dart run build_runner build
+    test:
+      run: melos exec --depends-on test -- dart test
+  command:
+    version:
+      branch: master
+      message: |
+        chore(release): publish packages [skip ci]
+
+        {new_package_versions}
