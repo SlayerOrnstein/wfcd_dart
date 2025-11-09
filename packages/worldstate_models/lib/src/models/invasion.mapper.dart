@@ -531,10 +531,10 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     'completion',
     _$completion,
   );
-  static bool _$isCompleted(Invasion v) => v.isCompleted;
-  static const Field<Invasion, bool> _f$isCompleted = Field(
-    'isCompleted',
-    _$isCompleted,
+  static bool _$isComplete(Invasion v) => v.isComplete;
+  static const Field<Invasion, bool> _f$isComplete = Field(
+    'isComplete',
+    _$isComplete,
   );
   static List<String> _$rewardTypes(Invasion v) => v.rewardTypes;
   static const Field<Invasion, List<String>> _f$rewardTypes = Field(
@@ -557,7 +557,7 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     #count: _f$count,
     #requiredRuns: _f$requiredRuns,
     #completion: _f$completion,
-    #isCompleted: _f$isCompleted,
+    #isComplete: _f$isComplete,
     #rewardTypes: _f$rewardTypes,
   };
   @override
@@ -578,7 +578,7 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
       count: data.dec(_f$count),
       requiredRuns: data.dec(_f$requiredRuns),
       completion: data.dec(_f$completion),
-      isCompleted: data.dec(_f$isCompleted),
+      isComplete: data.dec(_f$isComplete),
       rewardTypes: data.dec(_f$rewardTypes),
     );
   }
@@ -657,7 +657,7 @@ abstract class InvasionCopyWith<$R, $In extends Invasion, $Out>
     int? count,
     int? requiredRuns,
     int? completion,
-    bool? isCompleted,
+    bool? isComplete,
     List<String>? rewardTypes,
   });
   InvasionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -699,7 +699,7 @@ class _InvasionCopyWithImpl<$R, $Out>
     int? count,
     int? requiredRuns,
     int? completion,
-    bool? isCompleted,
+    bool? isComplete,
     List<String>? rewardTypes,
   }) => $apply(
     FieldCopyWithData({
@@ -716,7 +716,7 @@ class _InvasionCopyWithImpl<$R, $Out>
       if (count != null) #count: count,
       if (requiredRuns != null) #requiredRuns: requiredRuns,
       if (completion != null) #completion: completion,
-      if (isCompleted != null) #isCompleted: isCompleted,
+      if (isComplete != null) #isComplete: isComplete,
       if (rewardTypes != null) #rewardTypes: rewardTypes,
     }),
   );
@@ -735,7 +735,7 @@ class _InvasionCopyWithImpl<$R, $Out>
     count: data.get(#count, or: $value.count),
     requiredRuns: data.get(#requiredRuns, or: $value.requiredRuns),
     completion: data.get(#completion, or: $value.completion),
-    isCompleted: data.get(#isCompleted, or: $value.isCompleted),
+    isComplete: data.get(#isComplete, or: $value.isComplete),
     rewardTypes: data.get(#rewardTypes, or: $value.rewardTypes),
   );
 

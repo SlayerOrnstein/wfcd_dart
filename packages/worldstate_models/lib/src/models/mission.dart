@@ -18,8 +18,8 @@ class RawMission with RawMissionMappable {
     required this.missionReward,
     required this.descText,
     required this.questReq,
-    required this.maxWaveNum,
     required this.difficulty,
+    this.maxWaveNum,
     this.archwingRequired = false,
     this.isSharkwingMission = false,
   });
@@ -36,7 +36,7 @@ class RawMission with RawMissionMappable {
   final RawReward missionReward;
   final String? descText;
   final String? questReq;
-  final int maxWaveNum;
+  final int? maxWaveNum;
   final int difficulty;
   final bool archwingRequired;
   final bool isSharkwingMission;

@@ -66,7 +66,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
     required this.count,
     required this.requiredRuns,
     required this.completion,
-    required this.isCompleted,
+    required this.isComplete,
     required this.rewardTypes,
   });
 
@@ -89,7 +89,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
       count: raw.count,
       requiredRuns: raw.goal,
       completion: ((1 + raw.count / raw.goal) * (vsInfestation ? 100 : 50)).floor(),
-      isCompleted: raw.completed,
+      isComplete: raw.completed,
       rewardTypes: [
         ...?attacker.reward?.countedItems?.map((c) => c.type),
         ...?defender.reward?.countedItems?.map((c) => c.type),
@@ -121,7 +121,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
   /// Grineer vs. Corpus invasions start at 50, Infested invasions start at 100
   final int completion;
 
-  final bool isCompleted;
+  final bool isComplete;
 
   final List<String> rewardTypes;
 

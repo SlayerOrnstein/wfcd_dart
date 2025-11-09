@@ -16,9 +16,13 @@ class RawConquest extends BaseContentObject with RawConquestMappable {
     required this.variables,
   }) : super(id: {});
 
+  static const fromMap = RawConquestMapper.fromMap;
+
   final String type;
   final List<RawConquestMission> missions;
   final List<String> variables;
+
+  Archimedea toArchimedea(Dependency deps) => Archimedea.fromRaw(this, deps);
 }
 
 @MappableRecord()

@@ -17,6 +17,8 @@ class RawSeasonInfo extends BaseContentObject with RawSeasonInfoMappable {
     required this.activeChallenges,
   }) : super(id: {});
 
+  static const fromMap = RawSeasonInfoMapper.fromMap;
+
   final String affiliationTag;
   final int season;
   final int phase;

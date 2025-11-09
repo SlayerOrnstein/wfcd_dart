@@ -14,7 +14,7 @@ class RawAlert extends BaseContentObject with RawAlertMappable {
     required super.expiry,
     required this.missionInfo,
     required this.tag,
-    required this.forceUnlock,
+    this.forceUnlock = false,
   });
 
   static const fromMap = RawAlertMapper.fromMap;

@@ -17,10 +17,14 @@ class RawCalendar extends BaseContentObject with RawCalendarMappable {
     required this.days,
   }) : super(id: {});
 
+  static const fromMap = RawCalendarMapper.fromMap;
+
   final String season;
   final int yearIteration;
   final int version;
   final List<RawCalendarDay> days;
+
+  Calendar toCalender(Dependency deps) => Calendar.fromRaw(this, deps);
 }
 
 @MappableRecord()

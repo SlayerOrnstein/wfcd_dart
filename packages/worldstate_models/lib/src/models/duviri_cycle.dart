@@ -12,8 +12,12 @@ enum DuviriState { sorrow, fear, joy, anger, envy }
 class RawCircuitChoice with RawCircuitChoiceMappable {
   RawCircuitChoice({required this.category, required this.choices});
 
+  static const fromMap = RawCircuitChoiceMapper.fromMap;
+
   final String category;
   final List<String> choices;
+
+  CircuitChoice toCircuitChoice() => CircuitChoice.fromRaw(this);
 }
 
 @MappableClass()
@@ -34,9 +38,7 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
       activation: phase.activation,
       expiry: phase.expiry,
       state: phase.state,
-      choices: raw
-          .map((c) => CircuitChoice(key: c.category, choices: c.choices.map(normalizeResourceName).toList()))
-          .toList(),
+      choices: raw.map(CircuitChoice.fromRaw).toList(),
     );
   }
 
@@ -56,6 +58,10 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
 @MappableClass()
 class CircuitChoice with CircuitChoiceMappable {
   CircuitChoice({required this.key, required this.choices});
+
+  factory CircuitChoice.fromRaw(RawCircuitChoice raw) {
+    return CircuitChoice(key: raw.category, choices: raw.choices.map(normalizeResourceName).toList());
+  }
 
   final String key;
   final List<String> choices;

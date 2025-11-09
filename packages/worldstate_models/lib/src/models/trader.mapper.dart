@@ -63,7 +63,7 @@ class RawTraderMapper extends ClassMapperBase<RawTrader> {
     _$scheduleInfo,
     key: r'ScheduleInfo',
   );
-  static List<RawTraderItem> _$manifest(RawTrader v) => v.manifest;
+  static List<RawTraderItem>? _$manifest(RawTrader v) => v.manifest;
   static const Field<RawTrader, List<RawTraderItem>> _f$manifest = Field(
     'manifest',
     _$manifest,
@@ -187,7 +187,7 @@ abstract class RawTraderCopyWith<$R, $In extends RawTrader, $Out>
     $R,
     RawTraderItem,
     ObjectCopyWith<$R, RawTraderItem, RawTraderItem>
-  >
+  >?
   get manifest;
   ListCopyWith<
     $R,
@@ -269,12 +269,14 @@ class _RawTraderCopyWithImpl<$R, $Out>
     $R,
     RawTraderItem,
     ObjectCopyWith<$R, RawTraderItem, RawTraderItem>
-  >
-  get manifest => ListCopyWith(
-    $value.manifest,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(manifest: v),
-  );
+  >?
+  get manifest => $value.manifest != null
+      ? ListCopyWith(
+          $value.manifest!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(manifest: v),
+        )
+      : null;
   @override
   ListCopyWith<
     $R,
@@ -297,7 +299,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
     String? node,
     Object? character = $none,
     Object? scheduleInfo = $none,
-    List<RawTraderItem>? manifest,
+    Object? manifest = $none,
     Object? evergreenManifest = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -308,7 +310,7 @@ class _RawTraderCopyWithImpl<$R, $Out>
       if (node != null) #node: node,
       if (character != $none) #character: character,
       if (scheduleInfo != $none) #scheduleInfo: scheduleInfo,
-      if (manifest != null) #manifest: manifest,
+      if (manifest != $none) #manifest: manifest,
       if (evergreenManifest != $none) #evergreenManifest: evergreenManifest,
     }),
   );
@@ -632,7 +634,7 @@ class TraderMapper extends ClassMapperBase<Trader> {
     'character',
     _$character,
   );
-  static List<TraderItem> _$inventory(Trader v) => v.inventory;
+  static List<TraderItem>? _$inventory(Trader v) => v.inventory;
   static const Field<Trader, List<TraderItem>> _f$inventory = Field(
     'inventory',
     _$inventory,
@@ -723,7 +725,7 @@ extension TraderValueCopy<$R, $Out> on ObjectCopyWith<$R, Trader, $Out> {
 
 abstract class TraderCopyWith<$R, $In extends Trader, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>
+  ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get inventory;
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems;
@@ -750,12 +752,14 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
   @override
   late final ClassMapperBase<Trader> $mapper = TraderMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>
-  get inventory => ListCopyWith(
-    $value.inventory,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(inventory: v),
-  );
+  ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
+  get inventory => $value.inventory != null
+      ? ListCopyWith(
+          $value.inventory!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(inventory: v),
+        )
+      : null;
   @override
   ListCopyWith<$R, TraderItem, ObjectCopyWith<$R, TraderItem, TraderItem>>?
   get evergreenItems => $value.evergreenItems != null
@@ -782,7 +786,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
     Object? initialStartDate = $none,
     String? node,
     String? character,
-    List<TraderItem>? inventory,
+    Object? inventory = $none,
     Object? evergreenItems = $none,
     Object? schedule = $none,
   }) => $apply(
@@ -793,7 +797,7 @@ class _TraderCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Trader, $Out>
       if (initialStartDate != $none) #initialStartDate: initialStartDate,
       if (node != null) #node: node,
       if (character != null) #character: character,
-      if (inventory != null) #inventory: inventory,
+      if (inventory != $none) #inventory: inventory,
       if (evergreenItems != $none) #evergreenItems: evergreenItems,
       if (schedule != $none) #schedule: schedule,
     }),

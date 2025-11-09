@@ -72,15 +72,16 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
     'questReq',
     _$questReq,
   );
-  static int _$maxWaveNum(RawMission v) => v.maxWaveNum;
-  static const Field<RawMission, int> _f$maxWaveNum = Field(
-    'maxWaveNum',
-    _$maxWaveNum,
-  );
   static int _$difficulty(RawMission v) => v.difficulty;
   static const Field<RawMission, int> _f$difficulty = Field(
     'difficulty',
     _$difficulty,
+  );
+  static int? _$maxWaveNum(RawMission v) => v.maxWaveNum;
+  static const Field<RawMission, int> _f$maxWaveNum = Field(
+    'maxWaveNum',
+    _$maxWaveNum,
+    opt: true,
   );
   static bool _$archwingRequired(RawMission v) => v.archwingRequired;
   static const Field<RawMission, bool> _f$archwingRequired = Field(
@@ -109,8 +110,8 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
     #missionReward: _f$missionReward,
     #descText: _f$descText,
     #questReq: _f$questReq,
-    #maxWaveNum: _f$maxWaveNum,
     #difficulty: _f$difficulty,
+    #maxWaveNum: _f$maxWaveNum,
     #archwingRequired: _f$archwingRequired,
     #isSharkwingMission: _f$isSharkwingMission,
   };
@@ -129,8 +130,8 @@ class RawMissionMapper extends ClassMapperBase<RawMission> {
       missionReward: data.dec(_f$missionReward),
       descText: data.dec(_f$descText),
       questReq: data.dec(_f$questReq),
-      maxWaveNum: data.dec(_f$maxWaveNum),
       difficulty: data.dec(_f$difficulty),
+      maxWaveNum: data.dec(_f$maxWaveNum),
       archwingRequired: data.dec(_f$archwingRequired),
       isSharkwingMission: data.dec(_f$isSharkwingMission),
     );
@@ -208,8 +209,8 @@ abstract class RawMissionCopyWith<$R, $In extends RawMission, $Out>
     RawReward? missionReward,
     String? descText,
     String? questReq,
-    int? maxWaveNum,
     int? difficulty,
+    int? maxWaveNum,
     bool? archwingRequired,
     bool? isSharkwingMission,
   });
@@ -239,8 +240,8 @@ class _RawMissionCopyWithImpl<$R, $Out>
     RawReward? missionReward,
     Object? descText = $none,
     Object? questReq = $none,
-    int? maxWaveNum,
     int? difficulty,
+    Object? maxWaveNum = $none,
     bool? archwingRequired,
     bool? isSharkwingMission,
   }) => $apply(
@@ -255,8 +256,8 @@ class _RawMissionCopyWithImpl<$R, $Out>
       if (missionReward != null) #missionReward: missionReward,
       if (descText != $none) #descText: descText,
       if (questReq != $none) #questReq: questReq,
-      if (maxWaveNum != null) #maxWaveNum: maxWaveNum,
       if (difficulty != null) #difficulty: difficulty,
+      if (maxWaveNum != $none) #maxWaveNum: maxWaveNum,
       if (archwingRequired != null) #archwingRequired: archwingRequired,
       if (isSharkwingMission != null) #isSharkwingMission: isSharkwingMission,
     }),
@@ -273,8 +274,8 @@ class _RawMissionCopyWithImpl<$R, $Out>
     missionReward: data.get(#missionReward, or: $value.missionReward),
     descText: data.get(#descText, or: $value.descText),
     questReq: data.get(#questReq, or: $value.questReq),
-    maxWaveNum: data.get(#maxWaveNum, or: $value.maxWaveNum),
     difficulty: data.get(#difficulty, or: $value.difficulty),
+    maxWaveNum: data.get(#maxWaveNum, or: $value.maxWaveNum),
     archwingRequired: data.get(#archwingRequired, or: $value.archwingRequired),
     isSharkwingMission: data.get(
       #isSharkwingMission,

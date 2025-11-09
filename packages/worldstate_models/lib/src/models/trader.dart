@@ -37,7 +37,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 
   final String? character;
 
-  final List<RawTraderItem> manifest;
+  final List<RawTraderItem>? manifest;
 
   final List<RawTraderItem>? evergreenManifest;
 
@@ -79,7 +79,7 @@ class Trader extends WorldstateObject with TraderMappable {
       initialStartDate: raw.initialStartDate != null ? parseDate(raw.initialStartDate) : null,
       node: deps.nodes.fetchNode(raw.node).name,
       character: deps.langs.fetchValue(raw.character ?? character ?? ''),
-      inventory: raw.manifest.map(toItem).toList(),
+      inventory: raw.manifest?.map(toItem).toList(),
       evergreenItems: raw.evergreenManifest?.map(toItem).toList(),
       schedule: raw.scheduleInfo?.map<Schedule>((s) => Schedule.fromRaw(s, deps)).toList(),
     );
@@ -88,7 +88,7 @@ class Trader extends WorldstateObject with TraderMappable {
   final DateTime? initialStartDate;
   final String node;
   final String character;
-  final List<TraderItem> inventory;
+  final List<TraderItem>? inventory;
   final List<TraderItem>? evergreenItems;
   final List<Schedule>? schedule;
 

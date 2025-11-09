@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:intl/intl.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
 
@@ -75,7 +76,7 @@ class Category with CategoryMappable {
     final langs = deps.langs;
 
     return Category(
-      category: raw.categoryName,
+      category: toBeginningOfSentenceCase(raw.categoryName.toLowerCase().replaceAll('_', ' ')),
       name: langs.fetchValue(raw.name),
       icon: raw.icon,
       addToMenu: raw.addToMenu ?? false,

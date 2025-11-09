@@ -57,6 +57,8 @@ class RawAlertMapper extends ClassMapperBase<RawAlert> {
     'forceUnlock',
     _$forceUnlock,
     key: r'ForceUnlock',
+    opt: true,
+    def: false,
   );
 
   @override
