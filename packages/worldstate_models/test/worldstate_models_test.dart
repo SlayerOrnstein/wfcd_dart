@@ -15,6 +15,7 @@ void main() {
   final fixtureFiles = dir.listSync().where((file) => file.path.endsWith('.json')).toList();
 
   if (fixtureFiles.isEmpty) {
+    // ignore: avoid_print not prod
     print('Warning: No .json fixtures found in ./test/fixtures. Skipping tests.');
     return;
   }
