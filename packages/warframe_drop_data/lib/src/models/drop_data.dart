@@ -17,6 +17,9 @@ class DropData with DropDataMappable {
     this.additionalItemsByAvatar = const [],
   });
 
+  /// Creates a [DropData] from map
+  static const fromMap = DropDataMapper.fromMap;
+
   /// Blueprint drop data
   final List<BlueprintPart> blueprintDrops;
 
