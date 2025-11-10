@@ -1,0 +1,4 @@
+## 0.1.1
+
+ - **FEAT**(profile_models): initial release. ([62a93d31](https://github.com/SlayerOrnstein/wfcd_dart/commit/62a93d313851517a084e12ad26e809773372fad2))
+
