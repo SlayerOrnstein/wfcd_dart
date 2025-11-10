@@ -15,6 +15,36 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_drop_data` - `v0.1.2`](#warframe_drop_data---v012)
+ - [`worldstate_models` - `v0.1.1+3`](#worldstate_models---v0113)
+ - [`worldstate_status` - `v1.0.5`](#worldstate_status---v105)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.1+3`
+ - `worldstate_status` - `v1.0.5`
+
+---
+
+#### `warframe_drop_data` - `v0.1.2`
+
+ - **FEAT**(warframe_drop_data): exposes `DropDataMapper.fromMap` in `DropData`. ([5ab0ad5b](https://github.com/SlayerOrnstein/wfcd_dart/commit/5ab0ad5b3ef89fbda3078ba73783a07525208039))
+
+
+## 2025-11-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.0+2`](#warframe_worldstate_data---v0102)
  - [`profile_models` - `v0.1.1+1`](#profile_models---v0111)
  - [`worldstate_models` - `v0.1.1+2`](#worldstate_models---v0112)
