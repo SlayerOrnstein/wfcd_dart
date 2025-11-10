@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.1+1`](#worldstate_models---v0111)
+ - [`worldstate_status` - `v1.0.3`](#worldstate_status---v103)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.3`
+
+---
+
+#### `worldstate_models` - `v0.1.1+1`
+
+ - **FIX**(worldstate_models): `RawFlashSale.bogoGet` and `RawFlashSale.bogoBuy` don't always exist. ([2869a87e](https://github.com/SlayerOrnstein/wfcd_dart/commit/2869a87eaeb757fe1befc5e232f8e98b240d35c6))
+
+
+## 2025-11-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.1`](#profile_models---v011)
  - [`worldstate_models` - `v0.1.1`](#worldstate_models---v011)
  - [`worldstate_status` - `v1.0.2`](#worldstate_status---v102)

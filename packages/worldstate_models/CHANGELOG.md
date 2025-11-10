@@ -1,3 +1,7 @@
+## 0.1.1+1
+
+ - **FIX**(worldstate_models): `RawFlashSale.bogoGet` and `RawFlashSale.bogoBuy` don't always exist. ([2869a87e](https://github.com/SlayerOrnstein/wfcd_dart/commit/2869a87eaeb757fe1befc5e232f8e98b240d35c6))
+
 ## 0.1.1
 
  - **FEAT**(profile_models): initial release. ([62a93d31](https://github.com/SlayerOrnstein/wfcd_dart/commit/62a93d313851517a084e12ad26e809773372fad2))
