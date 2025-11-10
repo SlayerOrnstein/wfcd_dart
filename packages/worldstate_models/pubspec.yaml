@@ -16,7 +16,10 @@ dependencies:
   intl: ">=0.20.2 <1.0.0"
   time: ^2.1.5
   warframe_drop_data:
-    path: ../warframe_drop_data
+    git:
+      url: https://github.com/SlayerOrnstein/wfcd_dart.git
+      path: packages/warframe_drop_data
+      ref: warframe_drop_data-v0.1.1
   warframe_worldstate_data:
     path: ../warframe_worldstate_data
 
