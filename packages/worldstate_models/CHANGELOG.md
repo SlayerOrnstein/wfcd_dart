@@ -1,3 +1,7 @@
+## 0.1.1+2
+
+ - Update a dependency to the latest release.
+
 ## 0.1.1+1
 
  - **FIX**(worldstate_models): `RawFlashSale.bogoGet` and `RawFlashSale.bogoBuy` don't always exist. ([2869a87e](https://github.com/SlayerOrnstein/wfcd_dart/commit/2869a87eaeb757fe1befc5e232f8e98b240d35c6))

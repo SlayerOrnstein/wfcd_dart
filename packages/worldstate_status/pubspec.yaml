@@ -1,6 +1,6 @@
 name: worldstate_status
 description: A new Dart Frog application
-version: 1.0.3
+version: 1.0.4
 publish_to: none
 
 environment:

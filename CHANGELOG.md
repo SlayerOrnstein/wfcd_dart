@@ -15,6 +15,38 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.0+2`](#warframe_worldstate_data---v0102)
+ - [`profile_models` - `v0.1.1+1`](#profile_models---v0111)
+ - [`worldstate_models` - `v0.1.1+2`](#worldstate_models---v0112)
+ - [`worldstate_status` - `v1.0.4`](#worldstate_status---v104)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+1`
+ - `worldstate_models` - `v0.1.1+2`
+ - `worldstate_status` - `v1.0.4`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.0+2`
+
+ - **FIX**(warframe_worldstate_data): added lang strings for archimedeas. ([3fc745c1](https://github.com/SlayerOrnstein/wfcd_dart/commit/3fc745c157bed234dcfe974e05552c2ddcbbcb0c))
+
+
+## 2025-11-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`worldstate_models` - `v0.1.1+1`](#worldstate_models---v0111)
  - [`worldstate_status` - `v1.0.3`](#worldstate_status---v103)
 
