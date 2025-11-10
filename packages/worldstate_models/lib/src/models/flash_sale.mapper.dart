@@ -51,13 +51,13 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
     _$discount,
     key: r'Discount',
   );
-  static num _$bogoBuy(RawFlashSale v) => v.bogoBuy;
+  static num? _$bogoBuy(RawFlashSale v) => v.bogoBuy;
   static const Field<RawFlashSale, num> _f$bogoBuy = Field(
     'bogoBuy',
     _$bogoBuy,
     key: r'BogoBuy',
   );
-  static num _$bogoGet(RawFlashSale v) => v.bogoGet;
+  static num? _$bogoGet(RawFlashSale v) => v.bogoGet;
   static const Field<RawFlashSale, num> _f$bogoGet = Field(
     'bogoGet',
     _$bogoGet,
@@ -232,8 +232,8 @@ class _RawFlashSaleCopyWithImpl<$R, $Out>
     bool? hideFromMarket,
     bool? supporterPack,
     num? discount,
-    num? bogoBuy,
-    num? bogoGet,
+    Object? bogoBuy = $none,
+    Object? bogoGet = $none,
     int? premiumOverride,
     int? regularOverride,
     Map<String, dynamic>? startDate,
@@ -245,8 +245,8 @@ class _RawFlashSaleCopyWithImpl<$R, $Out>
       if (hideFromMarket != null) #hideFromMarket: hideFromMarket,
       if (supporterPack != null) #supporterPack: supporterPack,
       if (discount != null) #discount: discount,
-      if (bogoBuy != null) #bogoBuy: bogoBuy,
-      if (bogoGet != null) #bogoGet: bogoGet,
+      if (bogoBuy != $none) #bogoBuy: bogoBuy,
+      if (bogoGet != $none) #bogoGet: bogoGet,
       if (premiumOverride != null) #premiumOverride: premiumOverride,
       if (regularOverride != null) #regularOverride: regularOverride,
       if (startDate != null) #startDate: startDate,

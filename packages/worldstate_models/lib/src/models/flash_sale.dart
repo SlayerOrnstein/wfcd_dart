@@ -27,8 +27,8 @@ class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
   final bool hideFromMarket;
   final bool supporterPack;
   final num discount;
-  final num bogoBuy;
-  final num bogoGet;
+  final num? bogoBuy;
+  final num? bogoGet;
   final int premiumOverride;
   final int regularOverride;
   final JsonObject startDate;
