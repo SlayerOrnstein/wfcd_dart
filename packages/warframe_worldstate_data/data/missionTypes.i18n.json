@@ -71,6 +71,9 @@
     },
     "MT_ASCENSION": {
       "value": "Ascension"
+    },
+    "MT_ENDLESS_CAPTURE": {
+      "value": "Legacyte Harvest"
     }
   }
 }

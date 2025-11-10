@@ -16608,6 +16608,7 @@ class WorldstateDataMissionTypesEn {
     'MT_DEFAULT': WorldstateDataMissionTypesTypesMtDefaultEn.internal(_root),
     'MT_VOID_CASCADE': WorldstateDataMissionTypesTypesMtVoidCascadeEn.internal(_root),
     'MT_ASCENSION': WorldstateDataMissionTypesTypesMtAscensionEn.internal(_root),
+    'MT_ENDLESS_CAPTURE': WorldstateDataMissionTypesTypesMtEndlessCaptureEn.internal(_root),
   };
 }
 
@@ -108465,6 +108466,19 @@ class WorldstateDataMissionTypesTypesMtAscensionEn with MissionType {
   /// en: 'Ascension'
   @override
   String get value => 'Ascension';
+}
+
+// Path: missionTypes.types.MT_ENDLESS_CAPTURE
+class WorldstateDataMissionTypesTypesMtEndlessCaptureEn with MissionType {
+  WorldstateDataMissionTypesTypesMtEndlessCaptureEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Legacyte Harvest'
+  @override
+  String get value => 'Legacyte Harvest';
 }
 
 // Path: operationTypes.types.MULTIPLY
