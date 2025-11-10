@@ -19470,6 +19470,38 @@
     "/Lotus/Upgrades/Calendar/GenerateOmniOrbsOnWeakKill": {
       "value": "Involuntary Transfusion",
       "desc": "Weakpoint kills have a 25% chance to generate an Universal Orb."
+    },
+    "NecramechActivation": {
+      "value": "Necramech Influx",
+      "desc": "Necramechs appear with greater frequency."
+    },
+    "DrainingResiduals": {
+      "value": "Devil's Bargain",
+      "desc": "Allies within 4m of slain enemies gain 25% Fire Rate at the cost of -50% Ammo Efficiency."
+    },
+    "FallFog": {
+      "value": "Foggy Fall",
+      "desc": "A fog limits vision across the mission zone."
+    },
+    "MutatedEnemies": {
+      "value": "Parallel Evolution",
+      "desc": "As the Legacyte evolves other enemies present also gain new abilities."
+    },
+    "CompetitionSpillover": {
+      "value": "Competitive Streak",
+      "desc": "Random negative penalties from Amir and Aoi's \"Faceoff\" mode will be applied throughtout the mission."
+    },
+    "TankStrongArmor": {
+      "value": "Thermian Plating",
+      "desc": "Only Thermian RPGs can damage the tank. Reinforcements that carry Thermian RPGs will arrive during the fight"
+    },
+    "ArtilleryBeacons": {
+      "value": "Artillery Beacons",
+      "desc": "When killed, Scaldra troops drop artillery beacons that summon bombardments."
+    },
+    "Withering": {
+      "value": "Untreatable",
+      "desc": "Pickups do not heal, and Health Orbs cannot be picked up."
     }
   }
 }

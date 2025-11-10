@@ -16565,6 +16565,14 @@ class WorldstateDataLanguagesEn {
         WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesEasyEn.internal(_root),
     '/Lotus/Upgrades/Calendar/GenerateOmniOrbsOnWeakKill':
         WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWeakKillEn.internal(_root),
+    'NecramechActivation': WorldstateDataLanguagesLanguagesNecramechActivationEn.internal(_root),
+    'DrainingResiduals': WorldstateDataLanguagesLanguagesDrainingResidualsEn.internal(_root),
+    'FallFog': WorldstateDataLanguagesLanguagesFallFogEn.internal(_root),
+    'MutatedEnemies': WorldstateDataLanguagesLanguagesMutatedEnemiesEn.internal(_root),
+    'CompetitionSpillover': WorldstateDataLanguagesLanguagesCompetitionSpilloverEn.internal(_root),
+    'TankStrongArmor': WorldstateDataLanguagesLanguagesTankStrongArmorEn.internal(_root),
+    'ArtilleryBeacons': WorldstateDataLanguagesLanguagesArtilleryBeaconsEn.internal(_root),
+    'Withering': WorldstateDataLanguagesLanguagesWitheringEn.internal(_root),
   };
 }
 
@@ -108007,6 +108015,144 @@ class WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWea
   /// en: 'Weakpoint kills have a 25% chance to generate an Universal Orb.'
   @override
   String? get desc => 'Weakpoint kills have a 25% chance to generate an Universal Orb.';
+}
+
+// Path: languages.languages.NecramechActivation
+class WorldstateDataLanguagesLanguagesNecramechActivationEn with Language {
+  WorldstateDataLanguagesLanguagesNecramechActivationEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Necramech Influx'
+  @override
+  String get value => 'Necramech Influx';
+
+  /// en: 'Necramechs appear with greater frequency.'
+  @override
+  String? get desc => 'Necramechs appear with greater frequency.';
+}
+
+// Path: languages.languages.DrainingResiduals
+class WorldstateDataLanguagesLanguagesDrainingResidualsEn with Language {
+  WorldstateDataLanguagesLanguagesDrainingResidualsEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Devil's Bargain'
+  @override
+  String get value => 'Devil\'s Bargain';
+
+  /// en: 'Allies within 4m of slain enemies gain 25% Fire Rate at the cost of -50% Ammo Efficiency.'
+  @override
+  String? get desc => 'Allies within 4m of slain enemies gain 25% Fire Rate at the cost of -50% Ammo Efficiency.';
+}
+
+// Path: languages.languages.FallFog
+class WorldstateDataLanguagesLanguagesFallFogEn with Language {
+  WorldstateDataLanguagesLanguagesFallFogEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Foggy Fall'
+  @override
+  String get value => 'Foggy Fall';
+
+  /// en: 'A fog limits vision across the mission zone.'
+  @override
+  String? get desc => 'A fog limits vision across the mission zone.';
+}
+
+// Path: languages.languages.MutatedEnemies
+class WorldstateDataLanguagesLanguagesMutatedEnemiesEn with Language {
+  WorldstateDataLanguagesLanguagesMutatedEnemiesEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Parallel Evolution'
+  @override
+  String get value => 'Parallel Evolution';
+
+  /// en: 'As the Legacyte evolves other enemies present also gain new abilities.'
+  @override
+  String? get desc => 'As the Legacyte evolves other enemies present also gain new abilities.';
+}
+
+// Path: languages.languages.CompetitionSpillover
+class WorldstateDataLanguagesLanguagesCompetitionSpilloverEn with Language {
+  WorldstateDataLanguagesLanguagesCompetitionSpilloverEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Competitive Streak'
+  @override
+  String get value => 'Competitive Streak';
+
+  /// en: 'Random negative penalties from Amir and Aoi's "Faceoff" mode will be applied throughtout the mission.'
+  @override
+  String? get desc =>
+      'Random negative penalties from Amir and Aoi\'s "Faceoff" mode will be applied throughtout the mission.';
+}
+
+// Path: languages.languages.TankStrongArmor
+class WorldstateDataLanguagesLanguagesTankStrongArmorEn with Language {
+  WorldstateDataLanguagesLanguagesTankStrongArmorEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Thermian Plating'
+  @override
+  String get value => 'Thermian Plating';
+
+  /// en: 'Only Thermian RPGs can damage the tank. Reinforcements that carry Thermian RPGs will arrive during the fight'
+  @override
+  String? get desc =>
+      'Only Thermian RPGs can damage the tank. Reinforcements that carry Thermian RPGs will arrive during the fight';
+}
+
+// Path: languages.languages.ArtilleryBeacons
+class WorldstateDataLanguagesLanguagesArtilleryBeaconsEn with Language {
+  WorldstateDataLanguagesLanguagesArtilleryBeaconsEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Artillery Beacons'
+  @override
+  String get value => 'Artillery Beacons';
+
+  /// en: 'When killed, Scaldra troops drop artillery beacons that summon bombardments.'
+  @override
+  String? get desc => 'When killed, Scaldra troops drop artillery beacons that summon bombardments.';
+}
+
+// Path: languages.languages.Withering
+class WorldstateDataLanguagesLanguagesWitheringEn with Language {
+  WorldstateDataLanguagesLanguagesWitheringEn.internal(this._root);
+
+  final WorldstateData _root; // ignore: unused_field
+
+  // Translations
+
+  /// en: 'Untreatable'
+  @override
+  String get value => 'Untreatable';
+
+  /// en: 'Pickups do not heal, and Health Orbs cannot be picked up.'
+  @override
+  String? get desc => 'Pickups do not heal, and Health Orbs cannot be picked up.';
 }
 
 // Path: missionTypes.types.MT_ARENA
