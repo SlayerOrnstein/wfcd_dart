@@ -15,6 +15,38 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.0+3`](#warframe_worldstate_data---v0103)
+ - [`profile_models` - `v0.1.1+2`](#profile_models---v0112)
+ - [`worldstate_models` - `v0.1.1+5`](#worldstate_models---v0115)
+ - [`worldstate_status` - `v1.0.7`](#worldstate_status---v107)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+2`
+ - `worldstate_models` - `v0.1.1+5`
+ - `worldstate_status` - `v1.0.7`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.0+3`
+
+ - **FIX**(worldstate_data): add `Legacyte Harvest` mission type. ([264fe7a5](https://github.com/SlayerOrnstein/wfcd_dart/commit/264fe7a5f3423324e027347371d805932654f324))
+
+
+## 2025-11-10
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_drop_data` - `v0.1.3`](#warframe_drop_data---v013)
  - [`worldstate_models` - `v0.1.1+4`](#worldstate_models---v0114)
  - [`worldstate_status` - `v1.0.6`](#worldstate_status---v106)
