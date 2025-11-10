@@ -11,7 +11,10 @@ resolution: workspace
 dependencies:
   dart_mappable: ^4.6.1
   warframe_worldstate_data:
-    path: ../warframe_worldstate_data
+    git:
+      url: https://github.com/SlayerOrnstein/wfcd_dart.git
+      path: packages/warframe_worldstate_data
+      ref: warframe_worldstate_data-v0.1.0+2
 
 dev_dependencies:
   build_runner: ^2.10.1
