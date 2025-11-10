@@ -26,6 +26,7 @@ melos:
   command:
     version:
       branch: master
+      updateGitTagRefs: true
       releaseUrl: true
       message: |
         chore(release): publish packages [skip ci]

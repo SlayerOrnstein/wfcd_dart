@@ -19,7 +19,7 @@ dependencies:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
       path: packages/warframe_drop_data
-      ref: warframe_drop_data-v0.1.2
+      ref: warframe_drop_data-v0.1.3
   warframe_worldstate_data:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
