@@ -1,3 +1,7 @@
+## 0.1.2
+
+ - **FEAT**(warframe_drop_data): exposes `DropDataMapper.fromMap` in `DropData`. ([5ab0ad5b](https://github.com/SlayerOrnstein/wfcd_dart/commit/5ab0ad5b3ef89fbda3078ba73783a07525208039))
+
 ## 0.1.1
 
  - **PERF**: isolate parsing for html doc. ([43f8a84e](https://github.com/SlayerOrnstein/wfcd_dart/commit/43f8a84e38153401d186ff5e6c5e6a0cffcedf89))
