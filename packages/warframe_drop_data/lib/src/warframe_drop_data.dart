@@ -13,7 +13,9 @@ const _dropData =
 /// Fetches the official drop data site
 Future<Element> fetchWarframeDropData([Client? client]) async {
   final res = await (client ?? Client()).get(Uri.parse(_dropData));
-  final document = await Isolate.run(() => parse(res.body));
+  final html = res.body;
+  final document = await Isolate.run(() => parse(html));
+
   return document.body!;
 }
 
