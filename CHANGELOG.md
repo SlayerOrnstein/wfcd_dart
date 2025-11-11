@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.3+1`](#warframe_drop_data---v0131)
+ - [`worldstate_models` - `v0.1.1+6`](#worldstate_models---v0116)
+ - [`worldstate_status` - `v1.0.8`](#worldstate_status---v108)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.1+6`
+ - `worldstate_status` - `v1.0.8`
+
+---
+
+#### `warframe_drop_data` - `v0.1.3+1`
+
+ - **FIX**(drop_data): `fetchWarframeDropData` should now (hopefully) be more isolate safe. ([83672a16](https://github.com/SlayerOrnstein/wfcd_dart/commit/83672a16614e9b390dd62b6706773bacf0438e5c))
+
+
 ## 2025-11-10
 
 ### Changes

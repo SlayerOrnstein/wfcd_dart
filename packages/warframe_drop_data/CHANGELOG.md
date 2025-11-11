@@ -1,3 +1,7 @@
+## 0.1.3+1
+
+ - **FIX**(drop_data): `fetchWarframeDropData` should now (hopefully) be more isolate safe. ([83672a16](https://github.com/SlayerOrnstein/wfcd_dart/commit/83672a16614e9b390dd62b6706773bacf0438e5c))
+
 ## 0.1.3
 
  - **FEAT**(warframe_drop_data): exposes `DropDataMapper.fromMap` in `DropData`. ([5ab0ad5b](https://github.com/SlayerOrnstein/wfcd_dart/commit/5ab0ad5b3ef89fbda3078ba73783a07525208039))
