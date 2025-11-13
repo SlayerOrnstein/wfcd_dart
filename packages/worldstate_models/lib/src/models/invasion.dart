@@ -129,9 +129,6 @@ class Invasion extends WorldstateObject with InvasionMappable {
   DateTime get activation => super.activation!;
 
   @override
-  DateTime get expiry => super.expiry!;
-
-  @override
   bool get isActive => super.isActive!;
 
   @override
