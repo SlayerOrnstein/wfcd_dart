@@ -1,6 +1,6 @@
 name: worldstate_models
 description: A Very Good Project created by Very Good CLI.
-version: 0.1.1+6
+version: 0.1.1+7
 publish_to: none
 
 environment:
