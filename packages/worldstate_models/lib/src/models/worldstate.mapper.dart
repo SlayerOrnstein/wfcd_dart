@@ -43,6 +43,12 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$time,
     key: r'Time',
   );
+  static String _$buildLabel(RawWorldstate v) => v.buildLabel;
+  static const Field<RawWorldstate, String> _f$buildLabel = Field(
+    'buildLabel',
+    _$buildLabel,
+    key: r'BuildLabel',
+  );
   static List<RawEvent> _$events(RawWorldstate v) => v.events;
   static const Field<RawWorldstate, List<RawEvent>> _f$events = Field(
     'events',
@@ -174,6 +180,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
   @override
   final MappableFields<RawWorldstate> fields = const {
     #time: _f$time,
+    #buildLabel: _f$buildLabel,
     #events: _f$events,
     #goals: _f$goals,
     #alerts: _f$alerts,
@@ -202,6 +209,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
   static RawWorldstate _instantiate(DecodingData data) {
     return RawWorldstate(
       time: data.dec(_f$time),
+      buildLabel: data.dec(_f$buildLabel),
       events: data.dec(_f$events),
       goals: data.dec(_f$goals),
       alerts: data.dec(_f$alerts),
@@ -367,6 +375,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
   get conquests;
   $R call({
     int? time,
+    String? buildLabel,
     List<RawEvent>? events,
     List<RawGoal>? goals,
     List<RawAlert>? alerts,
@@ -576,6 +585,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
   @override
   $R call({
     int? time,
+    String? buildLabel,
     List<RawEvent>? events,
     List<RawGoal>? goals,
     List<RawAlert>? alerts,
@@ -600,6 +610,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
   }) => $apply(
     FieldCopyWithData({
       if (time != null) #time: time,
+      if (buildLabel != null) #buildLabel: buildLabel,
       if (events != null) #events: events,
       if (goals != null) #goals: goals,
       if (alerts != null) #alerts: alerts,
@@ -627,6 +638,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
   @override
   RawWorldstate $make(CopyWithData data) => RawWorldstate(
     time: data.get(#time, or: $value.time),
+    buildLabel: data.get(#buildLabel, or: $value.buildLabel),
     events: data.get(#events, or: $value.events),
     goals: data.get(#goals, or: $value.goals),
     alerts: data.get(#alerts, or: $value.alerts),
@@ -706,6 +718,11 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
   static const Field<Worldstate, DateTime> _f$timestamp = Field(
     'timestamp',
     _$timestamp,
+  );
+  static String _$buildLabel(Worldstate v) => v.buildLabel;
+  static const Field<Worldstate, String> _f$buildLabel = Field(
+    'buildLabel',
+    _$buildLabel,
   );
   static List<News> _$news(Worldstate v) => v.news;
   static const Field<Worldstate, List<News>> _f$news = Field('news', _$news);
@@ -828,6 +845,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
   @override
   final MappableFields<Worldstate> fields = const {
     #timestamp: _f$timestamp,
+    #buildLabel: _f$buildLabel,
     #news: _f$news,
     #events: _f$events,
     #alerts: _f$alerts,
@@ -860,6 +878,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
   static Worldstate _instantiate(DecodingData data) {
     return Worldstate(
       timestamp: data.dec(_f$timestamp),
+      buildLabel: data.dec(_f$buildLabel),
       news: data.dec(_f$news),
       events: data.dec(_f$events),
       alerts: data.dec(_f$alerts),
@@ -997,6 +1016,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath;
   $R call({
     DateTime? timestamp,
+    String? buildLabel,
     List<News>? news,
     List<WorldEvent>? events,
     List<Alert>? alerts,
@@ -1170,6 +1190,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
   @override
   $R call({
     DateTime? timestamp,
+    String? buildLabel,
     List<News>? news,
     List<WorldEvent>? events,
     List<Alert>? alerts,
@@ -1198,6 +1219,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
+      if (buildLabel != null) #buildLabel: buildLabel,
       if (news != null) #news: news,
       if (events != null) #events: events,
       if (alerts != null) #alerts: alerts,
@@ -1229,6 +1251,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
   @override
   Worldstate $make(CopyWithData data) => Worldstate(
     timestamp: data.get(#timestamp, or: $value.timestamp),
+    buildLabel: data.get(#buildLabel, or: $value.buildLabel),
     news: data.get(#news, or: $value.news),
     events: data.get(#events, or: $value.events),
     alerts: data.get(#alerts, or: $value.alerts),

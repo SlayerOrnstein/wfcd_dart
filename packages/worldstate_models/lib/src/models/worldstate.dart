@@ -12,6 +12,7 @@ part 'worldstate.mapper.dart';
 class RawWorldstate with RawWorldstateMappable {
   RawWorldstate({
     required this.time,
+    required this.buildLabel,
     required this.events,
     required this.goals,
     required this.alerts,
@@ -40,6 +41,7 @@ class RawWorldstate with RawWorldstateMappable {
   static const fromMap = RawWorldstateMapper.fromMap;
 
   final int time;
+  final String buildLabel;
   final List<RawEvent> events;
   final List<RawGoal> goals;
   final List<RawAlert> alerts;
@@ -69,6 +71,7 @@ class RawWorldstate with RawWorldstateMappable {
 class Worldstate with WorldstateMappable {
   Worldstate({
     required this.timestamp,
+    required this.buildLabel,
     required this.news,
     required this.events,
     required this.alerts,
@@ -105,6 +108,7 @@ class Worldstate with WorldstateMappable {
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),
+      buildLabel: raw.buildLabel,
       news: parseArray(raw.events, (event) => News.fromRaw(event, deps.locale)),
       events: parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, deps)),
       alerts: parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, deps)),
@@ -138,6 +142,7 @@ class Worldstate with WorldstateMappable {
   static const fromMap = WorldstateMapper.fromMap;
 
   final DateTime timestamp;
+  final String buildLabel;
   final List<News> news;
   final List<WorldEvent> events;
   final List<Alert> alerts;
