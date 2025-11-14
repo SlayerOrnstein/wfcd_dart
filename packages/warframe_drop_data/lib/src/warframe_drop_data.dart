@@ -13,8 +13,8 @@ const _dropData =
 /// Fetches the official drop data site
 Future<Element> fetchWarframeDropData([Client? client]) async {
   final res = await (client ?? Client()).get(Uri.parse(_dropData));
-  final html = res.body;
-  final document = await Isolate.run(() => parse(html));
+  final html = res.bodyBytes;
+  final document = await Isolate.run(() => parse(html, encoding: 'utf-8'));
 
   return document.body!;
 }
@@ -33,6 +33,7 @@ Future<DropData> buildDropData([Client? client]) async {
       resourcesByAvatar: parseAvatarDropTables(body, Avatars.resources) ?? [],
       sigilsByAvatar: parseAvatarDropTables(body, Avatars.sigils) ?? [],
       additionalItemsByAvatar: parseAvatarDropTables(body, Avatars.items) ?? [],
+      missionRewards: parseMissionRewards(body) ?? [],
     );
   });
 }

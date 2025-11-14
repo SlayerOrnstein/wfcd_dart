@@ -8,13 +8,7 @@ part 'drop.mapper.dart';
 @MappableClass()
 class ItemDrop with ItemDropMappable {
   /// {@macro enemy_drop}
-  const ItemDrop({
-    required this.id,
-    required this.item,
-    required this.chance,
-    required this.rarity,
-    required this.status,
-  });
+  const ItemDrop({required this.id, required this.item, required this.chance, required this.rarity, this.status});
 
   /// Generated ID
   final String id;

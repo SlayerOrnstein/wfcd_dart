@@ -30,7 +30,11 @@ class ItemDropMapper extends ClassMapperBase<ItemDrop> {
   static String _$rarity(ItemDrop v) => v.rarity;
   static const Field<ItemDrop, String> _f$rarity = Field('rarity', _$rarity);
   static String? _$status(ItemDrop v) => v.status;
-  static const Field<ItemDrop, String> _f$status = Field('status', _$status);
+  static const Field<ItemDrop, String> _f$status = Field(
+    'status',
+    _$status,
+    opt: true,
+  );
 
   @override
   final MappableFields<ItemDrop> fields = const {

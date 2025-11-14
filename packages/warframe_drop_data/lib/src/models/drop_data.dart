@@ -15,6 +15,7 @@ class DropData with DropDataMappable {
     this.resourcesByAvatar = const [],
     this.sigilsByAvatar = const [],
     this.additionalItemsByAvatar = const [],
+    this.missionRewards = const [],
   });
 
   /// Creates a [DropData] from map
@@ -34,4 +35,7 @@ class DropData with DropDataMappable {
 
   /// Misc item drops by avatar
   final List<Avatar> additionalItemsByAvatar;
+
+  /// Rewards that drop in both endless and nonendless missions
+  final List<Planet> missionRewards;
 }
