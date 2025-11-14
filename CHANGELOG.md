@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.4`](#warframe_drop_data---v014)
+ - [`worldstate_models` - `v0.1.1+8`](#worldstate_models---v0118)
+ - [`worldstate_status` - `v1.0.10`](#worldstate_status---v1010)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.1+8`
+ - `worldstate_status` - `v1.0.10`
+
+---
+
+#### `warframe_drop_data` - `v0.1.4`
+
+ - **FEAT**(drops): add ability to parse mission rewards. ([d22777a4](https://github.com/SlayerOrnstein/wfcd_dart/commit/d22777a4593f5704552ca56fac2d699912116dff))
+
+
 ## 2025-11-13
 
 ### Changes

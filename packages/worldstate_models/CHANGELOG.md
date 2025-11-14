@@ -1,3 +1,7 @@
+## 0.1.1+8
+
+ - Update a dependency to the latest release.
+
 ## 0.1.1+7
 
  - **FIX**(worldstate): remove invasion null check operator. ([855ba8ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/855ba8baedd4d104039949e89c24fcfe2051951d))

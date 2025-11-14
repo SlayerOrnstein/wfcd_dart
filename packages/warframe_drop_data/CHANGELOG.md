@@ -1,3 +1,7 @@
+## 0.1.4
+
+ - **FEAT**(drops): add ability to parse mission rewards. ([d22777a4](https://github.com/SlayerOrnstein/wfcd_dart/commit/d22777a4593f5704552ca56fac2d699912116dff))
+
 ## 0.1.3+1
 
  - **FIX**(drop_data): `fetchWarframeDropData` should now (hopefully) be more isolate safe. ([83672a16](https://github.com/SlayerOrnstein/wfcd_dart/commit/83672a16614e9b390dd62b6706773bacf0438e5c))
