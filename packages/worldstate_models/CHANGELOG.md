@@ -1,3 +1,7 @@
+## 0.1.2
+
+ - **FEAT**(worldstate): expose build label under worldstate. ([926f11b5](https://github.com/SlayerOrnstein/wfcd_dart/commit/926f11b5a255733f9d0955ab0186f0516beccef0))
+
 ## 0.1.1+8
 
  - Update a dependency to the latest release.
