@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.5`](#warframe_drop_data---v015)
+ - [`worldstate_models` - `v0.1.2+1`](#worldstate_models---v0121)
+ - [`worldstate_status` - `v1.0.12`](#worldstate_status---v1012)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.2+1`
+ - `worldstate_status` - `v1.0.12`
+
+---
+
+#### `warframe_drop_data` - `v0.1.5`
+
+ - **FEAT**(drops): expose `fromMap` in data models. ([f79b23f8](https://github.com/SlayerOrnstein/wfcd_dart/commit/f79b23f8f5b83958d03de1004e6959c0e27455ad))
+
+
 ## 2025-11-14
 
 ### Changes

@@ -1,3 +1,7 @@
+## 0.1.5
+
+ - **FEAT**(drops): expose `fromMap` in data models. ([f79b23f8](https://github.com/SlayerOrnstein/wfcd_dart/commit/f79b23f8f5b83958d03de1004e6959c0e27455ad))
+
 ## 0.1.4
 
  - **FEAT**(drops): add ability to parse mission rewards. ([d22777a4](https://github.com/SlayerOrnstein/wfcd_dart/commit/d22777a4593f5704552ca56fac2d699912116dff))
