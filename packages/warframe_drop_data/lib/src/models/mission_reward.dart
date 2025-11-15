@@ -12,6 +12,9 @@ class Planet with PlanetMappable {
   /// {@macro planet}
   Planet({required this.name, required this.nodes});
 
+  /// Creates a [Planet] from map
+  static const fromMap = PlanetMapper.fromMap;
+
   /// Planet name
   final String name;
 
@@ -26,6 +29,9 @@ class Planet with PlanetMappable {
 abstract class Region with RegionMappable {
   /// {@macro node}
   Region({required this.name, required this.gameMode, required this.isEvent});
+
+  /// Get a either a [NodeEndless] or [NodeNonEndless] depending on type.
+  static const fromMap = RegionMapper.fromMap;
 
   /// Node name
   final String name;
@@ -45,6 +51,9 @@ class NodeEndless extends Region with NodeEndlessMappable {
   /// {@macro node_endless}
   NodeEndless({required super.name, required super.gameMode, required super.isEvent, required this.rewards});
 
+  /// Creates a [NodeEndless] from map
+  static const fromMap = NodeEndlessMapper.fromMap;
+
   /// Rewards per ABC rotation
   final Rotations rewards;
 }
@@ -56,6 +65,9 @@ class NodeEndless extends Region with NodeEndlessMappable {
 class NodeNonEndless extends Region with NodeNonEndlessMappable {
   /// {@macro node_nonendless}
   NodeNonEndless({required super.name, required super.gameMode, required super.isEvent, required this.rewards});
+
+  /// Creates a [NodeNonEndless] from map
+  static const fromMap = NodeNonEndlessMapper.fromMap;
 
   /// Possible drops recieved at the end of a mission
   final List<ItemDrop> rewards;

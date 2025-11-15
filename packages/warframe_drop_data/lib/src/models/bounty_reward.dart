@@ -12,6 +12,9 @@ class BountyRewardTable with BountyRewardTableMappable {
   /// {@macro bounty_reward_table}
   const BountyRewardTable({required this.id, required this.level, required this.rewards});
 
+  /// Create a [BountyRewardTable] from a map
+  static const fromMap = BountyRewardTableMapper.fromMap;
+
   /// Generated ID for this bounty table
   final String id;
 

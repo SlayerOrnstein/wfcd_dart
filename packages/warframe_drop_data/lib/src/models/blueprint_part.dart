@@ -11,6 +11,9 @@ class BlueprintPart with BlueprintPartMappable {
   /// {@macro blueprint_part}
   const BlueprintPart({required this.id, required this.name, required this.enemies});
 
+  /// Creates an [BlueprintPart] from map
+  static const fromMap = BlueprintPartMapper.fromMap;
+
   /// MD5 generated ID
   final String id;
 

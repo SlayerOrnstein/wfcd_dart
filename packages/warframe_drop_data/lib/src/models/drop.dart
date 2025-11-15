@@ -10,6 +10,9 @@ class ItemDrop with ItemDropMappable {
   /// {@macro enemy_drop}
   const ItemDrop({required this.id, required this.item, required this.chance, required this.rarity, this.status});
 
+  /// Creates an [ItemDrop] from map
+  static const fromMap = ItemDropMapper.fromMap;
+
   /// Generated ID
   final String id;
 

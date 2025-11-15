@@ -11,6 +11,9 @@ class Rotations<T extends ItemDrop> with RotationsMappable<T> {
   /// {@macro rotations}
   Rotations([List<T>? a, List<T>? b, List<T>? c]) : a = a ?? <T>[], b = b ?? <T>[], c = c ?? <T>[];
 
+  /// Get [Rotations] from map
+  static const fromMap = RotationsMapper.fromMap;
+
   /// Rotation A
   @MappableField(key: 'A')
   final List<T> a;

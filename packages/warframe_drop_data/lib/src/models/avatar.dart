@@ -11,6 +11,9 @@ class Avatar with AvatarMappable {
   /// {@macro enemy}
   Avatar({required this.id, required this.name, required this.chance, required this.drops});
 
+  /// Creates an [Avatar] from map
+  static const fromMap = AvatarMapper.fromMap;
+
   /// Generated ID
   final String id;
 
