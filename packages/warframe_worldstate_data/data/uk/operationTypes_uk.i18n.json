@@ -1,0 +1,8 @@
+{
+    "types(map)": {
+        "MULTIPLY": {
+            "value": "помножено на",
+            "symbol": "x"
+        }
+    }
+}

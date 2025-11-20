@@ -1,0 +1,12 @@
+{
+    "factions(map)": {
+        "FC_CORPUS": "Корпус",
+        "FC_CORRUPTED": "Орокіни",
+        "FC_GRINEER": "Ґрінери",
+        "FC_INFESTATION": "Заражені",
+        "FC_OROKIN": "Орокіни",
+        "FC_SENTIENT": "Свідомі",
+        "FC_MITW": "Людина у стіні",
+        "FC_NARMER": "Нармер"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "factions(map)": {
+        "FC_CORPUS": "Corpus",
+        "FC_CORRUPTED": "堕落者",
+        "FC_GRINEER": "Grineer",
+        "FC_INFESTATION": "Infested",
+        "FC_OROKIN": "奥罗金",
+        "FC_SENTIENT": "森蒂安",
+        "FC_MITW": "墙中人",
+        "FC_NARMER": "合一众"
+    }
+}

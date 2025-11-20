@@ -17,6 +17,8 @@ targets:
           format:
             enabled: true
             width: 120
+          sanitization:
+            enabled: false
           interfaces:
             ArchonShard: archonShards.shards.*
             SolNode: solNodes.nodes.*

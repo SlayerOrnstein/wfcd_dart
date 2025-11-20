@@ -3,10 +3,10 @@
 /// Source: data
 /// To regenerate, run: `dart run slang`
 ///
-/// Locales: 1
-/// Strings: 12362
+/// Locales: 14
+/// Strings: 172028 (12287 per locale)
 ///
-/// Built on 2025-11-10 at 21:27 UTC
+/// Built on 2025-11-20 at 23:29 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
@@ -16,6 +16,19 @@ import 'package:slang/generated.dart';
 import 'package:slang/slang.dart';
 export 'package:slang/slang.dart';
 
+import 'worldstate_langs_cs.g.dart' deferred as l_cs;
+import 'worldstate_langs_de.g.dart' deferred as l_de;
+import 'worldstate_langs_es.g.dart' deferred as l_es;
+import 'worldstate_langs_fr.g.dart' deferred as l_fr;
+import 'worldstate_langs_it.g.dart' deferred as l_it;
+import 'worldstate_langs_ko.g.dart' deferred as l_ko;
+import 'worldstate_langs_pl.g.dart' deferred as l_pl;
+import 'worldstate_langs_pt.g.dart' deferred as l_pt;
+import 'worldstate_langs_ru.g.dart' deferred as l_ru;
+import 'worldstate_langs_sr.g.dart' deferred as l_sr;
+import 'worldstate_langs_tr.g.dart' deferred as l_tr;
+import 'worldstate_langs_uk.g.dart' deferred as l_uk;
+import 'worldstate_langs_zh.g.dart' deferred as l_zh;
 part 'worldstate_langs_en.g.dart';
 
 /// Supported locales.
@@ -25,7 +38,20 @@ part 'worldstate_langs_en.g.dart';
 /// - Locale locale = WorldstateLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == WorldstateLocale.en) // locale check
 enum WorldstateLocale with BaseAppLocale<WorldstateLocale, WorldstateData> {
-  en(languageCode: 'en');
+  en(languageCode: 'en'),
+  cs(languageCode: 'cs'),
+  de(languageCode: 'de'),
+  es(languageCode: 'es'),
+  fr(languageCode: 'fr'),
+  it(languageCode: 'it'),
+  ko(languageCode: 'ko'),
+  pl(languageCode: 'pl'),
+  pt(languageCode: 'pt'),
+  ru(languageCode: 'ru'),
+  sr(languageCode: 'sr'),
+  tr(languageCode: 'tr'),
+  uk(languageCode: 'uk'),
+  zh(languageCode: 'zh');
 
   const WorldstateLocale({
     required this.languageCode,
@@ -53,6 +79,97 @@ enum WorldstateLocale with BaseAppLocale<WorldstateLocale, WorldstateData> {
           cardinalResolver: cardinalResolver,
           ordinalResolver: ordinalResolver,
         );
+      case WorldstateLocale.cs:
+        await l_cs.loadLibrary();
+        return l_cs.WorldstateDataCs(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.de:
+        await l_de.loadLibrary();
+        return l_de.WorldstateDataDe(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.es:
+        await l_es.loadLibrary();
+        return l_es.WorldstateDataEs(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.fr:
+        await l_fr.loadLibrary();
+        return l_fr.WorldstateDataFr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.it:
+        await l_it.loadLibrary();
+        return l_it.WorldstateDataIt(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.ko:
+        await l_ko.loadLibrary();
+        return l_ko.WorldstateDataKo(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.pl:
+        await l_pl.loadLibrary();
+        return l_pl.WorldstateDataPl(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.pt:
+        await l_pt.loadLibrary();
+        return l_pt.WorldstateDataPt(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.ru:
+        await l_ru.loadLibrary();
+        return l_ru.WorldstateDataRu(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.sr:
+        await l_sr.loadLibrary();
+        return l_sr.WorldstateDataSr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.tr:
+        await l_tr.loadLibrary();
+        return l_tr.WorldstateDataTr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.uk:
+        await l_uk.loadLibrary();
+        return l_uk.WorldstateDataUk(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.zh:
+        await l_zh.loadLibrary();
+        return l_zh.WorldstateDataZh(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
     }
   }
 
@@ -65,6 +182,84 @@ enum WorldstateLocale with BaseAppLocale<WorldstateLocale, WorldstateData> {
     switch (this) {
       case WorldstateLocale.en:
         return WorldstateDataEn(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.cs:
+        return l_cs.WorldstateDataCs(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.de:
+        return l_de.WorldstateDataDe(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.es:
+        return l_es.WorldstateDataEs(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.fr:
+        return l_fr.WorldstateDataFr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.it:
+        return l_it.WorldstateDataIt(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.ko:
+        return l_ko.WorldstateDataKo(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.pl:
+        return l_pl.WorldstateDataPl(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.pt:
+        return l_pt.WorldstateDataPt(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.ru:
+        return l_ru.WorldstateDataRu(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.sr:
+        return l_sr.WorldstateDataSr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.tr:
+        return l_tr.WorldstateDataTr(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.uk:
+        return l_uk.WorldstateDataUk(
+          overrides: overrides,
+          cardinalResolver: cardinalResolver,
+          ordinalResolver: ordinalResolver,
+        );
+      case WorldstateLocale.zh:
+        return l_zh.WorldstateDataZh(
           overrides: overrides,
           cardinalResolver: cardinalResolver,
           ordinalResolver: ordinalResolver,
