@@ -2,7 +2,7 @@ name: wfcd_dart
 repository: https://github.com/SlayerOrnstein/wfcd_dart
 
 environment:
-  sdk: "^3.9.0"
+  sdk: "^3.10.0"
 
 workspace:
   - packages/profile_models

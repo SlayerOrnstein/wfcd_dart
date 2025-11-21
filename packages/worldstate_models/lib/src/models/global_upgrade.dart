@@ -26,7 +26,8 @@ class RawGlobalUpgrade extends BaseContentObject with RawGlobalUpgradeMappable {
   final String localizeTag;
   final String localizeDescTag;
 
-  GlobalUpgrade toGlobalUpgrade([String locale = 'en']) => GlobalUpgrade.fromRaw(this, locale);
+  GlobalUpgrade toGlobalUpgrade([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
+      GlobalUpgrade.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -43,7 +44,7 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
     required this.description,
   });
 
-  factory GlobalUpgrade.fromRaw(RawGlobalUpgrade raw, [String locale = 'en']) {
+  factory GlobalUpgrade.fromRaw(RawGlobalUpgrade raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final operation = operationType(raw.opertationType ?? '', locale);
     final upgrade = upgradeType(raw.upgradeType, locale);
     final desc = '$upgrade ${operation.value} ${raw.value}${operation.symbol}';

@@ -30,7 +30,7 @@ class RawEvent with RawEventMappable {
   final bool mobileOnly;
   final bool community;
 
-  News toNews({String locale = 'en'}) => News.fromRaw(this, locale);
+  News toNews({WorldstateDataLocale locale = WorldstateDataLocale.en}) => News.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -51,7 +51,7 @@ class News with NewsMappable {
   });
 
   /// Used to create an instance straight from Worldstate API
-  factory News.fromRaw(RawEvent event, [String locale = 'en']) {
+  factory News.fromRaw(RawEvent event, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final date = parseDate(event.date);
     final messages = _buildTranslations(event.messages);
     final updateRegEx = RegExp('(update|hotfix)', caseSensitive: false);
@@ -68,7 +68,7 @@ class News with NewsMappable {
       isPriority: event.priority,
       isUpdate: event.prop?.contains(updateRegEx) ?? false,
       isPrimeAccess: event.prop?.contains(primeAccessRegEx) ?? false,
-      isStream: _getMessage(messages, 'en').contains(streamRegEx),
+      isStream: _getMessage(messages, .en).contains(streamRegEx),
       isMobileOnly: event.mobileOnly,
       isCommunity: event.community,
     );
@@ -112,8 +112,8 @@ class News with NewsMappable {
   /// ?
   final bool isCommunity;
 
-  static String _getMessage(Map<String, String> messages, String langCode) {
-    final message = messages[langCode] ?? messages.entries.firstOrNull?.value ?? '';
+  static String _getMessage(Map<String, String> messages, WorldstateDataLocale langCode) {
+    final message = messages[langCode.name] ?? messages.entries.firstOrNull?.value ?? '';
     if (message.contains('/Lotus/')) return normalizeResourceName(message);
 
     return message;

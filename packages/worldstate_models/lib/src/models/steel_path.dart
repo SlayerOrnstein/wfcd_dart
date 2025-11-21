@@ -20,7 +20,7 @@ class SteelPath extends WorldstateObject with SteelPathMappable {
     required this.evergreens,
   });
 
-  factory SteelPath.init([String locale = 'en']) {
+  factory SteelPath.init([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     const eightWeeks = DateTime.daysPerWeek * 8;
     const sevenDays = Duration.hoursPerDay * 7;
 

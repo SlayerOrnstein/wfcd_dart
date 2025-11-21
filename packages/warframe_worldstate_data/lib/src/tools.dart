@@ -1,5 +1,7 @@
 import 'package:warframe_worldstate_data/src/i18n/worldstate_langs.g.dart';
 
+enum WorldstateDataLocale { en, cs, de, es, fr, it, ko, pl, pt, ru, sr, tr, uk, zh }
+
 /// Basic function for title case strings
 String toTitleCase(String str) {
   return str.replaceAllMapped(RegExp(r'\w\S*'), (m) => m[0]![0].toUpperCase() + m[0]!.substring(1).toLowerCase());
@@ -16,9 +18,21 @@ String splitResourceName(String resourceName) {
 String normalizeResourceName(String uniqueName) => toTitleCase(splitResourceName(uniqueName.split('/').last));
 
 /// Get the raw [WorldstateLocale] localizations
-WorldstateData i18n([String locale = 'en']) {
+WorldstateData i18n([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
   return switch (locale) {
-    'en' => WorldstateLocale.en.buildSync(),
-    _ => WorldstateLocale.en.buildSync(),
+    .en => WorldstateLocale.en.buildSync(),
+    .cs => WorldstateLocale.cs.buildSync(),
+    .de => WorldstateLocale.de.buildSync(),
+    .es => WorldstateLocale.es.buildSync(),
+    .fr => WorldstateLocale.fr.buildSync(),
+    .it => WorldstateLocale.it.buildSync(),
+    .ko => WorldstateLocale.ko.buildSync(),
+    .pl => WorldstateLocale.pl.buildSync(),
+    .pt => WorldstateLocale.pt.buildSync(),
+    .ru => WorldstateLocale.ru.buildSync(),
+    .sr => WorldstateLocale.sr.buildSync(),
+    .tr => WorldstateLocale.tr.buildSync(),
+    .uk => WorldstateLocale.uk.buildSync(),
+    .zh => WorldstateLocale.zh.buildSync(),
   };
 }

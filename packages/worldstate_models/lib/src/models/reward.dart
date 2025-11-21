@@ -51,7 +51,7 @@ class Reward with RewardMappable {
     return countedItems?.fold('', (p, n) => '${p.isNotEmpty ? '$p +' : ''} ${n.count} ${n.key}').trim();
   }
 
-  static CountedItem _toCountedItem(Map<String, dynamic> item, String locale) {
+  static CountedItem _toCountedItem(Map<String, dynamic> item, WorldstateDataLocale locale) {
     final type = item['ItemType'] as String;
 
     return (

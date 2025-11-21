@@ -22,7 +22,7 @@ class RawSortie extends BaseContentObject with RawSortieMappable {
   final List<RawVariant>? variants;
   final List<RawVariant>? missions;
 
-  Sortie toSortie([String locale = 'en']) => Sortie.fromRaw(this, locale);
+  Sortie toSortie([WorldstateDataLocale locale = WorldstateDataLocale.en]) => Sortie.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -34,7 +34,7 @@ class RawVariant with RawVariantMappable {
   final String node;
   final String? tileset;
 
-  Variant toVariant([String locale = 'en']) => Variant.fromRaw(this, locale);
+  Variant toVariant([WorldstateDataLocale locale = WorldstateDataLocale.en]) => Variant.fromRaw(this, locale);
 }
 
 @MappableClass()
@@ -48,7 +48,7 @@ class Sortie extends WorldstateObject with SortieMappable {
     required this.missions,
   });
 
-  factory Sortie.fromRaw(RawSortie raw, [String locale = 'en']) {
+  factory Sortie.fromRaw(RawSortie raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final sortieEnemy = sortieFaction(raw.boss, locale);
     final missions = raw.variants ?? raw.missions ?? <RawVariant>[];
 
@@ -80,7 +80,7 @@ class Sortie extends WorldstateObject with SortieMappable {
 class Variant with VariantMappable {
   Variant({required this.type, required this.modifier, required this.node, required this.tileset});
 
-  factory Variant.fromRaw(RawVariant raw, [String locale = 'en']) {
+  factory Variant.fromRaw(RawVariant raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     return Variant(
       type: missionType(raw.missionType, locale),
       modifier: raw.modifierType != null ? sortieModifier(raw.modifierType!, locale) : null,

@@ -2,7 +2,7 @@ import 'package:warframe_worldstate_data/src/i18n/worldstate_langs.g.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 /// Conclave string data in the given [locale]
-ConclaveData conclave([String locale = 'en']) {
+ConclaveData conclave([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
   final data = i18n(locale).conclaveData;
 
   return ConclaveData(data.modes, data.challenges, data.categories, data.affectors);

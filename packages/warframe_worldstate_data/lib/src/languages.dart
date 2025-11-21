@@ -4,7 +4,7 @@ import 'package:warframe_worldstate_data/src/tools.dart';
 typedef LanguageString = ({String value, String? description});
 
 /// Direct access to lamguage strings
-Map<String, LanguageString> languages([String locale = 'en']) =>
+Map<String, LanguageString> languages([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
     i18n(locale).languages.languages.map((s, l) => MapEntry(s, (value: l.value, description: l.desc)));
 
 /// Extensions on [Map<String, Language>] to quickly get value and description for a given resource
