@@ -1265,6 +1265,11 @@
             "enemy": "Crossfire",
             "type": "Mirror Defense"
         },
+        "DeimosHub": {
+            "value": "Necralisk (Deimos)",
+            "enemy": "Tenno",
+            "type": "Relay"
+        },
         "SolNode706": {
             "value": "Horend (Deimos)",
             "enemy": "Infested",

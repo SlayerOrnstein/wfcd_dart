@@ -301,6 +301,8 @@ class _WorldstateDataFactionsDataPt extends WorldstateDataFactionsDataEn {
     'FC_SENTIENT': 'Sentient',
     'FC_MITW': 'Man in the Wall',
     'FC_NARMER': 'Narmer',
+    'FC_SCALDRA': 'Scaldra',
+    'FC_TECHROT': 'Techrot',
   };
 }
 
@@ -348,6 +350,10 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
     '/Lotus/Language/JadeShadows/JadeShadowsShortEventDesc':
         _WorldstateDataLanguagesLanguagesLotusLanguageJadeShadowsJadeShadowsShortEventDescPt._(_root),
     '/Lotus/Powersuits/Odalisk/Odalisk': _WorldstateDataLanguagesLanguagesLotusPowersuitsOdaliskOdaliskPt._(_root),
+    '/Lotus/StoreItems/Powersuits/Bard/OctaviaPrime':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsBardOctaviaPrimePt._(_root),
+    '/Lotus/StoreItems/Powersuits/Nezha/NezhaPrime':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsNezhaNezhaPrimePt._(_root),
     '/Lotus/StoreItems/Powersuits/Trapper/TrapperPrime':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsTrapperTrapperPrimePt._(_root),
     '/Lotus/StoreItems/Types/BoosterPacks/CalendarArtifactPack':
@@ -362,12 +368,32 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionMagNovaVaultABronzePt._(
           _root,
         ),
+    '/Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultABronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultABronzePt._(
+          _root,
+        ),
+    '/Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultBBronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultBBronzePt._(
+          _root,
+        ),
     '/Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionMagNovaVaultABronze':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionMagNovaVaultABronzePt._(
           _root,
         ),
+    '/Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultABronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultABronzePt._(
+          _root,
+        ),
+    '/Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultBBronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultBBronzePt._(
+          _root,
+        ),
     '/Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionMagNovaVaultABronze':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionMagNovaVaultABronzePt._(
+          _root,
+        ),
+    '/Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionNezhaOctaviaVaultABronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionNezhaOctaviaVaultABronzePt._(
           _root,
         ),
     '/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionBaroAkmagnusPrimeBronze':
@@ -380,6 +406,10 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         ),
     '/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionMagNovaVaultBBronze':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4VoidProjectionMagNovaVaultBBronzePt._(
+          _root,
+        ),
+    '/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionNezhaOctaviaVaultABronze':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4VoidProjectionNezhaOctaviaVaultABronzePt._(
           _root,
         ),
     '/Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionPBronze':
@@ -428,10 +458,16 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropGrineerCutterPt._(_root),
     '/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropGrineerFlak':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropGrineerFlakPt._(_root),
+    '/Lotus/StoreItems/Types/Items/ShipDecos/LisetPropShawzinPrime':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropShawzinPrimePt._(_root),
     '/Lotus/StoreItems/Types/Items/ShipDecos/MagPrimeBobbleHead':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosMagPrimeBobbleHeadPt._(_root),
+    '/Lotus/StoreItems/Types/Items/ShipDecos/NezhaPrimeBobbleHead':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNezhaPrimeBobbleHeadPt._(_root),
     '/Lotus/StoreItems/Types/Items/ShipDecos/NovaPrimeBobbleHead':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNovaPrimeBobbleHeadPt._(_root),
+    '/Lotus/StoreItems/Types/Items/ShipDecos/OctaviaPrimeBobbleHead':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosOctaviaPrimeBobbleHeadPt._(_root),
     '/Lotus/StoreItems/Types/Items/ShipDecos/ParazonPoster':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosParazonPosterPt._(_root),
     '/Lotus/StoreItems/Types/Items/ShipDecos/Plushies/Plushy2021QTCC':
@@ -562,6 +598,8 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsClanTwitchNecraloidBadgeItemPt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Effects/BaroEphemeraB':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsBaroEphemeraBPt._(_root),
+    '/Lotus/StoreItems/Upgrades/Skins/Effects/EphemeraNezhaPrime':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsEphemeraNezhaPrimePt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Effects/FootstepsMaple':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsFootstepsMaplePt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Infestation/NidusAlternateSkin':
@@ -602,6 +640,8 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesInfMembraneCapePt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Scarves/NezhaLeverianCape':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesNezhaLeverianCapePt._(_root),
+    '/Lotus/StoreItems/Upgrades/Skins/Scarves/PrimeOctaviaSyandana':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesPrimeOctaviaSyandanaPt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Scarves/PrimeTwitchScarf':
         _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesPrimeTwitchScarfPt._(_root),
     '/Lotus/StoreItems/Upgrades/Skins/Scarves/SolsticeBaroCape':
@@ -644,10 +684,22 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoArchwingPrimaryArchwingHeavyPistolsPrismaPrismaArchHeavyPistolsPt._(
           _root,
         ),
+    '/Lotus/StoreItems/Weapons/Tenno/LongGuns/PrimeTenora/TenoraPrimeWeapon':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoLongGunsPrimeTenoraTenoraPrimeWeaponPt._(_root),
+    '/Lotus/StoreItems/Weapons/Tenno/Melee/Polearms/PrimeGuandao/PrimeGuandaoWeapon':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoMeleePolearmsPrimeGuandaoPrimeGuandaoWeaponPt._(
+          _root,
+        ),
+    '/Lotus/StoreItems/Weapons/Tenno/Pistols/PrimePandero/PanderoPrimeWeapon':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimePanderoPanderoPrimeWeaponPt._(_root),
+    '/Lotus/StoreItems/Weapons/Tenno/Pistols/PrimeZakti/PrimeZaktiPistol':
+        _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimeZaktiPrimeZaktiPistolPt._(_root),
     '/Lotus/Types/Challenges/Calendar1999/CalendarDestroyPropsEasy':
         _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarDestroyPropsEasyPt._(_root),
     '/Lotus/Types/Challenges/Calendar1999/CalendarDestroyPropsMedium':
         _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarDestroyPropsMediumPt._(_root),
+    '/Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesEasy':
+        _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesEasyPt._(_root),
     '/Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesMedium':
         _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesMediumPt._(_root),
     '/Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesWithAbilitiesHard':
@@ -744,12 +796,24 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         ),
     '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVEdoPrimeArmorSet':
         _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVEdoPrimeArmorSetPt._(_root),
+    '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVGlissandaPrimeArmorSet':
+        _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVGlissandaPrimeArmorSetPt._(_root),
     '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVMagNovaPrimeDualPack':
         _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVMagNovaPrimeDualPackPt._(_root),
     '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVMagPrimeSinglePack':
         _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVMagPrimeSinglePackPt._(_root),
     '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNecraloidBundle':
         _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNecraloidBundlePt._(_root),
+    '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaOctaviaPrimeDualPack':
+        _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaOctaviaPrimeDualPackPt._(
+          _root,
+        ),
+    '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaPrimeSinglePack':
+        _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaPrimeSinglePackPt._(_root),
+    '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVOctaviaPrimeSinglePack':
+        _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVOctaviaPrimeSinglePackPt._(_root),
+    '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVRanshaPrimeArmorSet':
+        _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVRanshaPrimeArmorSetPt._(_root),
     '/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVTargisPrimeArmorSet':
         _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVTargisPrimeArmorSetPt._(_root),
     '/Lotus/Types/StoreItems/Packages/PrimeTokenPackA':
@@ -793,6 +857,8 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
         _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarFinisherChancePerComboMultiplierPt._(_root),
     '/Lotus/Upgrades/Calendar/GasChanceToPrimaryAndSecondary':
         _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGasChanceToPrimaryAndSecondaryPt._(_root),
+    '/Lotus/Upgrades/Calendar/GenerateOmniOrbsOnWeakKill':
+        _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWeakKillPt._(_root),
     '/Lotus/Upgrades/Calendar/GuidingMissilesChance':
         _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGuidingMissilesChancePt._(_root),
     '/Lotus/Upgrades/Calendar/HealingEffects': _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarHealingEffectsPt._(
@@ -14252,21 +14318,28 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
     'ArcadeAutomata': _WorldstateDataLanguagesLanguagesArcadeAutomataPt._(_root),
     'Armorless': _WorldstateDataLanguagesLanguagesArmorlessPt._(_root),
     'AssassinsSyndicate': _WorldstateDataLanguagesLanguagesAssassinsSyndicatePt._(_root),
+    'BalloonFest': _WorldstateDataLanguagesLanguagesBalloonFestPt._(_root),
     'CephalonSudaSyndicate': _WorldstateDataLanguagesLanguagesCephalonSudaSyndicatePt._(_root),
     'CetusSyndicate': _WorldstateDataLanguagesLanguagesCetusSyndicatePt._(_root),
     'ChemicalNoise': _WorldstateDataLanguagesLanguagesChemicalNoisePt._(_root),
     'ContactDamage': _WorldstateDataLanguagesLanguagesContactDamagePt._(_root),
+    'DecayingFlesh': _WorldstateDataLanguagesLanguagesDecayingFleshPt._(_root),
     'Deflectors': _WorldstateDataLanguagesLanguagesDeflectorsPt._(_root),
+    'DisruptiveSounds': _WorldstateDataLanguagesLanguagesDisruptiveSoundsPt._(_root),
     'DullBlades': _WorldstateDataLanguagesLanguagesDullBladesPt._(_root),
     'EMPBlackHole': _WorldstateDataLanguagesLanguagesEMPBlackHolePt._(_root),
+    'EfervonFog': _WorldstateDataLanguagesLanguagesEfervonFogPt._(_root),
     'EntratiSyndicate': _WorldstateDataLanguagesLanguagesEntratiSyndicatePt._(_root),
     'EscalateImmediately': _WorldstateDataLanguagesLanguagesEscalateImmediatelyPt._(_root),
     'EventSyndicate': _WorldstateDataLanguagesLanguagesEventSyndicatePt._(_root),
     'ExplosiveCrawlers': _WorldstateDataLanguagesLanguagesExplosiveCrawlersPt._(_root),
+    'FactionSwarm_Scaldra': _WorldstateDataLanguagesLanguagesFactionSwarmScaldraPt._(_root),
+    'FortifiedFoes': _WorldstateDataLanguagesLanguagesFortifiedFoesPt._(_root),
     'FragileNodes': _WorldstateDataLanguagesLanguagesFragileNodesPt._(_root),
     'Framecurse': _WorldstateDataLanguagesLanguagesFramecursePt._(_root),
     'Gearless': _WorldstateDataLanguagesLanguagesGearlessPt._(_root),
     'GrowingIncursion': _WorldstateDataLanguagesLanguagesGrowingIncursionPt._(_root),
+    'HarshWords': _WorldstateDataLanguagesLanguagesHarshWordsPt._(_root),
     'HeavyWarfare': _WorldstateDataLanguagesLanguagesHeavyWarfarePt._(_root),
     'HostileOvergrowth': _WorldstateDataLanguagesLanguagesHostileOvergrowthPt._(_root),
     'InfiniteTide': _WorldstateDataLanguagesLanguagesInfiniteTidePt._(_root),
@@ -14281,6 +14354,7 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
     'OverSensitive': _WorldstateDataLanguagesLanguagesOverSensitivePt._(_root),
     'PerrinSyndicate': _WorldstateDataLanguagesLanguagesPerrinSyndicatePt._(_root),
     'PointBlank': _WorldstateDataLanguagesLanguagesPointBlankPt._(_root),
+    'Quicksand': _WorldstateDataLanguagesLanguagesQuicksandPt._(_root),
     'QuillsSyndicate': _WorldstateDataLanguagesLanguagesQuillsSyndicatePt._(_root),
     'RadioLegion2Syndicate': _WorldstateDataLanguagesLanguagesRadioLegion2SyndicatePt._(_root),
     'RadioLegion3Syndicate': _WorldstateDataLanguagesLanguagesRadioLegion3SyndicatePt._(_root),
@@ -14293,13 +14367,17 @@ class _WorldstateDataLanguagesPt extends WorldstateDataLanguagesEn {
     'RadioLegionSyndicate': _WorldstateDataLanguagesLanguagesRadioLegionSyndicatePt._(_root),
     'RedVeilSyndicate': _WorldstateDataLanguagesLanguagesRedVeilSyndicatePt._(_root),
     'RegeneratingEnemies': _WorldstateDataLanguagesLanguagesRegeneratingEnemiesPt._(_root),
+    'Reinforcements': _WorldstateDataLanguagesLanguagesReinforcementsPt._(_root),
     'ShieldDelay': _WorldstateDataLanguagesLanguagesShieldDelayPt._(_root),
     'ShieldedFoes': _WorldstateDataLanguagesLanguagesShieldedFoesPt._(_root),
     'SolarisSyndicate': _WorldstateDataLanguagesLanguagesSolarisSyndicatePt._(_root),
+    'Starvation': _WorldstateDataLanguagesLanguagesStarvationPt._(_root),
     'SteelMeridianSyndicate': _WorldstateDataLanguagesLanguagesSteelMeridianSyndicatePt._(_root),
     'TechrotConjunction': _WorldstateDataLanguagesLanguagesTechrotConjunctionPt._(_root),
     'TimeDilation': _WorldstateDataLanguagesLanguagesTimeDilationPt._(_root),
+    'Undersupplied': _WorldstateDataLanguagesLanguagesUndersuppliedPt._(_root),
     'VentKidsSyndicate': _WorldstateDataLanguagesLanguagesVentKidsSyndicatePt._(_root),
+    'VoidAberration': _WorldstateDataLanguagesLanguagesVoidAberrationPt._(_root),
     'Voidburst': _WorldstateDataLanguagesLanguagesVoidburstPt._(_root),
     'VoxSyndicate': _WorldstateDataLanguagesLanguagesVoxSyndicatePt._(_root),
     'ZarimanSyndicate': _WorldstateDataLanguagesLanguagesZarimanSyndicatePt._(_root),
@@ -17146,6 +17224,36 @@ class _WorldstateDataLanguagesLanguagesLotusPowersuitsOdaliskOdaliskPt
   String get value => 'Protea';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Powersuits/Bard/OctaviaPrime
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsBardOctaviaPrimePt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsBardOctaviaPrimeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsBardOctaviaPrimePt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Octavia Prime';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Powersuits/Nezha/NezhaPrime
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsNezhaNezhaPrimePt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsNezhaNezhaPrimeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsNezhaNezhaPrimePt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Nezha Prime';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Powersuits/Trapper/TrapperPrime
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsTrapperTrapperPrimePt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsPowersuitsTrapperTrapperPrimeEn
@@ -17238,6 +17346,40 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1Void
   String get value => 'Lith M2 Relic';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultABronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultABronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultABronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultABronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Lith O3 Relic';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T1VoidProjectionNezhaOctaviaVaultBBronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultBBronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultBBronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT1VoidProjectionNezhaOctaviaVaultBBronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Lith G7 Relic';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionMagNovaVaultABronze
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionMagNovaVaultABronzePt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionMagNovaVaultABronzeEn
@@ -17254,6 +17396,40 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2Void
   String get value => 'Meso B3 Relic';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultABronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultABronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultABronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultABronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Meso N15 Relic';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T2VoidProjectionNezhaOctaviaVaultBBronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultBBronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultBBronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT2VoidProjectionNezhaOctaviaVaultBBronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Meso Z5 Relic';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionMagNovaVaultABronze
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionMagNovaVaultABronzePt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionMagNovaVaultABronzeEn
@@ -17268,6 +17444,23 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3Void
   // Translations
   @override
   String get value => 'Neo N9 Relic';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T3VoidProjectionNezhaOctaviaVaultABronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionNezhaOctaviaVaultABronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionNezhaOctaviaVaultABronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT3VoidProjectionNezhaOctaviaVaultABronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Neo T8 Relic';
 }
 
 // Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionBaroAkmagnusPrimeBronze
@@ -17316,6 +17509,23 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4Void
   // Translations
   @override
   String get value => 'Axi A5 Relic';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionNezhaOctaviaVaultABronze
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4VoidProjectionNezhaOctaviaVaultABronzePt
+    extends
+        WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4VoidProjectionNezhaOctaviaVaultABronzeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesGameProjectionsT4VoidProjectionNezhaOctaviaVaultABronzePt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Axi P5 Relic';
 }
 
 // Path: languages.languages./Lotus/StoreItems/Types/Game/Projections/T4VoidProjectionPBronze
@@ -17655,6 +17865,21 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPr
   String get value => 'Flak Fighter Decoration';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/LisetPropShawzinPrime
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropShawzinPrimePt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropShawzinPrimeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosLisetPropShawzinPrimePt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Aristei Prime Shawzin';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/MagPrimeBobbleHead
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosMagPrimeBobbleHeadPt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosMagPrimeBobbleHeadEn
@@ -17670,6 +17895,21 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosMagPrim
   String get value => 'Noggle Statue - Mag Prime';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/NezhaPrimeBobbleHead
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNezhaPrimeBobbleHeadPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNezhaPrimeBobbleHeadEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNezhaPrimeBobbleHeadPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Noggle Statue - Nezha Prime';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/NovaPrimeBobbleHead
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNovaPrimeBobbleHeadPt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNovaPrimeBobbleHeadEn
@@ -17683,6 +17923,21 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosNovaPri
   // Translations
   @override
   String get value => 'Noggle Statue - Nova Prime';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/OctaviaPrimeBobbleHead
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosOctaviaPrimeBobbleHeadPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosOctaviaPrimeBobbleHeadEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsTypesItemsShipDecosOctaviaPrimeBobbleHeadPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Noggle Statue - Octavia Prime';
 }
 
 // Path: languages.languages./Lotus/StoreItems/Types/Items/ShipDecos/ParazonPoster
@@ -18511,6 +18766,21 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsBaroEp
   String get value => 'Ki\'Teer Reverence Ephemera';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Upgrades/Skins/Effects/EphemeraNezhaPrime
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsEphemeraNezhaPrimePt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsEphemeraNezhaPrimeEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsEphemeraNezhaPrimePt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Baurahn Prime Ephemera';
+}
+
 // Path: languages.languages./Lotus/StoreItems/Upgrades/Skins/Effects/FootstepsMaple
 class _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsFootstepsMaplePt
     extends WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsEffectsFootstepsMapleEn
@@ -18787,6 +19057,21 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesNezhaL
   // Translations
   @override
   String get value => 'Reshantur Cult Syandana';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Upgrades/Skins/Scarves/PrimeOctaviaSyandana
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesPrimeOctaviaSyandanaPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesPrimeOctaviaSyandanaEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsUpgradesSkinsScarvesPrimeOctaviaSyandanaPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Serenidine Prime Syandana';
 }
 
 // Path: languages.languages./Lotus/StoreItems/Upgrades/Skins/Scarves/PrimeTwitchScarf
@@ -19070,6 +19355,70 @@ class _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoArchwingPrimar
   String get value => 'Prisma Dual Decurions';
 }
 
+// Path: languages.languages./Lotus/StoreItems/Weapons/Tenno/LongGuns/PrimeTenora/TenoraPrimeWeapon
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoLongGunsPrimeTenoraTenoraPrimeWeaponPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoLongGunsPrimeTenoraTenoraPrimeWeaponEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoLongGunsPrimeTenoraTenoraPrimeWeaponPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Tenora Prime';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Weapons/Tenno/Melee/Polearms/PrimeGuandao/PrimeGuandaoWeapon
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoMeleePolearmsPrimeGuandaoPrimeGuandaoWeaponPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoMeleePolearmsPrimeGuandaoPrimeGuandaoWeaponEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoMeleePolearmsPrimeGuandaoPrimeGuandaoWeaponPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Guandao Prime';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Weapons/Tenno/Pistols/PrimePandero/PanderoPrimeWeapon
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimePanderoPanderoPrimeWeaponPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimePanderoPanderoPrimeWeaponEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimePanderoPanderoPrimeWeaponPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Pandero Prime';
+}
+
+// Path: languages.languages./Lotus/StoreItems/Weapons/Tenno/Pistols/PrimeZakti/PrimeZaktiPistol
+class _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimeZaktiPrimeZaktiPistolPt
+    extends WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimeZaktiPrimeZaktiPistolEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusStoreItemsWeaponsTennoPistolsPrimeZaktiPrimeZaktiPistolPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Zakti Prime';
+}
+
 // Path: languages.languages./Lotus/Types/Challenges/Calendar1999/CalendarDestroyPropsEasy
 class _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarDestroyPropsEasyPt
     extends WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarDestroyPropsEasyEn
@@ -19102,6 +19451,23 @@ class _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarD
   String get value => 'Starve the beast';
   @override
   String? get desc => 'Destroy 150 Containers';
+}
+
+// Path: languages.languages./Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesEasy
+class _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesEasyPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesEasyEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesChallengesCalendar1999CalendarKillEnemiesEasyPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Even the odds';
+  @override
+  String? get desc => 'Kill 250 Enemies';
 }
 
 // Path: languages.languages./Lotus/Types/Challenges/Calendar1999/CalendarKillEnemiesMedium
@@ -19738,6 +20104,22 @@ class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaul
   String get value => 'Edo Prime Armor Set';
 }
 
+// Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVGlissandaPrimeArmorSet
+class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVGlissandaPrimeArmorSetPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVGlissandaPrimeArmorSetEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVGlissandaPrimeArmorSetPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Glissanda Prime Armor Set';
+}
+
 // Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVMagNovaPrimeDualPack
 class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVMagNovaPrimeDualPackPt
     extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVMagNovaPrimeDualPackEn
@@ -19784,6 +20166,70 @@ class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaul
   // Translations
   @override
   String get value => 'Necraloid Bundle';
+}
+
+// Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaOctaviaPrimeDualPack
+class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaOctaviaPrimeDualPackPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaOctaviaPrimeDualPackEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaOctaviaPrimeDualPackPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Nezha & Octavia Prime Dual Pack';
+}
+
+// Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaPrimeSinglePack
+class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaPrimeSinglePackPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaPrimeSinglePackEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVNezhaPrimeSinglePackPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Nezha Prime Pack';
+}
+
+// Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVOctaviaPrimeSinglePack
+class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVOctaviaPrimeSinglePackPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVOctaviaPrimeSinglePackEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVOctaviaPrimeSinglePackPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Octavia Prime';
+}
+
+// Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVRanshaPrimeArmorSet
+class _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVRanshaPrimeArmorSetPt
+    extends WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVRanshaPrimeArmorSetEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusTypesStoreItemsPackagesMegaPrimeVaultMPVRanshaPrimeArmorSetPt._(
+    WorldstateDataPt root,
+  ) : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Ransha Prime Armor Set';
 }
 
 // Path: languages.languages./Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVTargisPrimeArmorSet
@@ -20143,6 +20589,23 @@ class _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGasChanceToPrimaryAn
   String get value => 'Toxic Shot';
   @override
   String? get desc => 'Add 25% Gas Status Chance to Primary and Secondary weapons.';
+}
+
+// Path: languages.languages./Lotus/Upgrades/Calendar/GenerateOmniOrbsOnWeakKill
+class _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWeakKillPt
+    extends WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWeakKillEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesLotusUpgradesCalendarGenerateOmniOrbsOnWeakKillPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Involuntary Transfusion';
+  @override
+  String? get desc => 'Weakpoint kills have a 25% chance to generate an Universal Orb.';
 }
 
 // Path: languages.languages./Lotus/Upgrades/Calendar/GuidingMissilesChance
@@ -114392,6 +114855,20 @@ class _WorldstateDataLanguagesLanguagesAssassinsSyndicatePt extends WorldstateDa
   String get value => 'Assassins';
 }
 
+// Path: languages.languages.BalloonFest
+class _WorldstateDataLanguagesLanguagesBalloonFestPt extends WorldstateDataLanguagesLanguagesBalloonFestEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesBalloonFestPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Ballonfest';
+  @override
+  String? get desc => 'Scaldra Harbingers are more numerous and attack and move more quickly.';
+}
+
 // Path: languages.languages.CephalonSudaSyndicate
 class _WorldstateDataLanguagesLanguagesCephalonSudaSyndicatePt
     extends WorldstateDataLanguagesLanguagesCephalonSudaSyndicateEn
@@ -114447,6 +114924,20 @@ class _WorldstateDataLanguagesLanguagesContactDamagePt extends WorldstateDataLan
   String? get desc => 'Gain 1 Puncture Status Effect every time you take damage.';
 }
 
+// Path: languages.languages.DecayingFlesh
+class _WorldstateDataLanguagesLanguagesDecayingFleshPt extends WorldstateDataLanguagesLanguagesDecayingFleshEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesDecayingFleshPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Permanent Injury';
+  @override
+  String? get desc => 'Max health reduced each time health damage is taken';
+}
+
 // Path: languages.languages.Deflectors
 class _WorldstateDataLanguagesLanguagesDeflectorsPt extends WorldstateDataLanguagesLanguagesDeflectorsEn with Language {
   _WorldstateDataLanguagesLanguagesDeflectorsPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
@@ -114458,6 +114949,23 @@ class _WorldstateDataLanguagesLanguagesDeflectorsPt extends WorldstateDataLangua
   String get value => 'Fortified Foes';
   @override
   String? get desc => 'Guardian Eximus units may be encountered, including Guardian Eximus Necramechs.';
+}
+
+// Path: languages.languages.DisruptiveSounds
+class _WorldstateDataLanguagesLanguagesDisruptiveSoundsPt extends WorldstateDataLanguagesLanguagesDisruptiveSoundsEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesDisruptiveSoundsPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Vampire Rock';
+  @override
+  String? get desc =>
+      'Flare creates a field that disrupts player abilities while draining energy to boost Flare\'s health. Flare slowly loses health when no players are in range.';
 }
 
 // Path: languages.languages.DullBlades
@@ -114485,6 +114993,19 @@ class _WorldstateDataLanguagesLanguagesEMPBlackHolePt extends WorldstateDataLang
   String get value => 'Alluring Arcocanids';
   @override
   String? get desc => 'As Rogue Arcocanids charge attacks, they pull Warframes towards them.';
+}
+
+// Path: languages.languages.EfervonFog
+class _WorldstateDataLanguagesLanguagesEfervonFogPt extends WorldstateDataLanguagesLanguagesEfervonFogEn with Language {
+  _WorldstateDataLanguagesLanguagesEfervonFogPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Dense Fog';
+  @override
+  String? get desc => 'Efervon gas blankets the level. Enemies may drop filters that can provide a temporary reprieve.';
 }
 
 // Path: languages.languages.EntratiSyndicate
@@ -114547,6 +115068,37 @@ class _WorldstateDataLanguagesLanguagesExplosiveCrawlersPt extends WorldstateDat
   String? get desc => 'Rupturing Fragments replace Shuffling Fragments.';
 }
 
+// Path: languages.languages.FactionSwarm_Scaldra
+class _WorldstateDataLanguagesLanguagesFactionSwarmScaldraPt
+    extends WorldstateDataLanguagesLanguagesFactionSwarmScaldraEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesFactionSwarmScaldraPt._(WorldstateDataPt root)
+    : this._root = root,
+      super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Scaldra Speed Run';
+  @override
+  String? get desc => 'All enemies are replaced with Scaldra and move much faster.';
+}
+
+// Path: languages.languages.FortifiedFoes
+class _WorldstateDataLanguagesLanguagesFortifiedFoesPt extends WorldstateDataLanguagesLanguagesFortifiedFoesEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesFortifiedFoesPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Sealed Armor';
+  @override
+  String? get desc => 'Enemies take 90% less damage from non-weak point hits.';
+}
+
 // Path: languages.languages.FragileNodes
 class _WorldstateDataLanguagesLanguagesFragileNodesPt extends WorldstateDataLanguagesLanguagesFragileNodesEn
     with Language {
@@ -114602,6 +115154,19 @@ class _WorldstateDataLanguagesLanguagesGrowingIncursionPt extends WorldstateData
   @override
   String? get desc =>
       'Fissures rip into the mission, causing the Enemy Level to go up by 1 every 10s. Destroy them to stop the level from increasing further.';
+}
+
+// Path: languages.languages.HarshWords
+class _WorldstateDataLanguagesLanguagesHarshWordsPt extends WorldstateDataLanguagesLanguagesHarshWordsEn with Language {
+  _WorldstateDataLanguagesLanguagesHarshWordsPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Barbed Glyphs';
+  @override
+  String? get desc => 'Each Glyph inflicts a small amount of damage when collected.';
 }
 
 // Path: languages.languages.HeavyWarfare
@@ -114799,6 +115364,19 @@ class _WorldstateDataLanguagesLanguagesPointBlankPt extends WorldstateDataLangua
   String? get desc => 'Enemies will only take damage if a player is within 15m of them.';
 }
 
+// Path: languages.languages.Quicksand
+class _WorldstateDataLanguagesLanguagesQuicksandPt extends WorldstateDataLanguagesLanguagesQuicksandEn with Language {
+  _WorldstateDataLanguagesLanguagesQuicksandPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Entanglement';
+  @override
+  String? get desc => 'Allies within 4m of slain enemies endure reduced Movement Speed and Parkour Velocity.';
+}
+
 // Path: languages.languages.QuillsSyndicate
 class _WorldstateDataLanguagesLanguagesQuillsSyndicatePt extends WorldstateDataLanguagesLanguagesQuillsSyndicateEn
     with Language {
@@ -114977,6 +115555,20 @@ class _WorldstateDataLanguagesLanguagesRegeneratingEnemiesPt
   String? get desc => 'Enemy health slowly regenerates.';
 }
 
+// Path: languages.languages.Reinforcements
+class _WorldstateDataLanguagesLanguagesReinforcementsPt extends WorldstateDataLanguagesLanguagesReinforcementsEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesReinforcementsPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Coordinated Front';
+  @override
+  String? get desc => 'Eximus units support The Fragmented Tide and its final form.';
+}
+
 // Path: languages.languages.ShieldDelay
 class _WorldstateDataLanguagesLanguagesShieldDelayPt extends WorldstateDataLanguagesLanguagesShieldDelayEn
     with Language {
@@ -115017,6 +115609,19 @@ class _WorldstateDataLanguagesLanguagesSolarisSyndicatePt extends WorldstateData
   // Translations
   @override
   String get value => 'Solaris United';
+}
+
+// Path: languages.languages.Starvation
+class _WorldstateDataLanguagesLanguagesStarvationPt extends WorldstateDataLanguagesLanguagesStarvationEn with Language {
+  _WorldstateDataLanguagesLanguagesStarvationPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Ammo Deficit';
+  @override
+  String? get desc => 'Ammo restored by drops and gear is reduced 75%.';
 }
 
 // Path: languages.languages.SteelMeridianSyndicate
@@ -115065,6 +115670,20 @@ class _WorldstateDataLanguagesLanguagesTimeDilationPt extends WorldstateDataLang
   String? get desc => 'Ability durations reduced by 50%.';
 }
 
+// Path: languages.languages.Undersupplied
+class _WorldstateDataLanguagesLanguagesUndersuppliedPt extends WorldstateDataLanguagesLanguagesUndersuppliedEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesUndersuppliedPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Undersupplied';
+  @override
+  String? get desc => 'Max ammo on all weapons reduced by 75%';
+}
+
 // Path: languages.languages.VentKidsSyndicate
 class _WorldstateDataLanguagesLanguagesVentKidsSyndicatePt extends WorldstateDataLanguagesLanguagesVentKidsSyndicateEn
     with Language {
@@ -115077,6 +115696,20 @@ class _WorldstateDataLanguagesLanguagesVentKidsSyndicatePt extends WorldstateDat
   // Translations
   @override
   String get value => 'Vent Kids';
+}
+
+// Path: languages.languages.VoidAberration
+class _WorldstateDataLanguagesLanguagesVoidAberrationPt extends WorldstateDataLanguagesLanguagesVoidAberrationEn
+    with Language {
+  _WorldstateDataLanguagesLanguagesVoidAberrationPt._(WorldstateDataPt root) : this._root = root, super.internal(root);
+
+  final WorldstateDataPt _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get value => 'Vampyric Liminus';
+  @override
+  String? get desc => 'Slow moving, immortal, Duviri Liminus drain health and energy from allies who get too close.';
 }
 
 // Path: languages.languages.Voidburst

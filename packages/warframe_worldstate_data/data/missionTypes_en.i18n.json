@@ -74,6 +74,9 @@
         },
         "MT_ALCHEMY": {
             "value": "Alchemy"
+        },
+        "MT_ENDLESS_CAPTURE": {
+            "value": "Legacyte Harvest"
         }
     }
 }

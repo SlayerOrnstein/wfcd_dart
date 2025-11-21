@@ -1,5 +1,6 @@
 import 'package:warframe_worldstate_data/src/i18n/worldstate_langs.g.dart';
 
+// ignore: public_member_api_docs
 enum WorldstateDataLocale { en, cs, de, es, fr, it, ko, pl, pt, ru, sr, tr, uk, zh }
 
 /// Basic function for title case strings
