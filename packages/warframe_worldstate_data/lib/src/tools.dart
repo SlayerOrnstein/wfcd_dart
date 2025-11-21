@@ -20,20 +20,21 @@ String normalizeResourceName(String uniqueName) => toTitleCase(splitResourceName
 
 /// Get the raw [WorldstateLocale] localizations
 WorldstateData i18n([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return switch (locale) {
-    .en => WorldstateLocale.en.buildSync(),
-    .cs => WorldstateLocale.cs.buildSync(),
-    .de => WorldstateLocale.de.buildSync(),
-    .es => WorldstateLocale.es.buildSync(),
-    .fr => WorldstateLocale.fr.buildSync(),
-    .it => WorldstateLocale.it.buildSync(),
-    .ko => WorldstateLocale.ko.buildSync(),
-    .pl => WorldstateLocale.pl.buildSync(),
-    .pt => WorldstateLocale.pt.buildSync(),
-    .ru => WorldstateLocale.ru.buildSync(),
-    .sr => WorldstateLocale.sr.buildSync(),
-    .tr => WorldstateLocale.tr.buildSync(),
-    .uk => WorldstateLocale.uk.buildSync(),
-    .zh => WorldstateLocale.zh.buildSync(),
-  };
+  return WorldstateLocale.en.buildSync();
+  // return switch (locale) {
+  //   .en => WorldstateLocale.en.buildSync(),
+  //   .cs => WorldstateLocale.cs.buildSync(),
+  //   .de => WorldstateLocale.de.buildSync(),
+  //   .es => WorldstateLocale.es.buildSync(),
+  //   .fr => WorldstateLocale.fr.buildSync(),
+  //   .it => WorldstateLocale.it.buildSync(),
+  //   .ko => WorldstateLocale.ko.buildSync(),
+  //   .pl => WorldstateLocale.pl.buildSync(),
+  //   .pt => WorldstateLocale.pt.buildSync(),
+  //   .ru => WorldstateLocale.ru.buildSync(),
+  //   .sr => WorldstateLocale.sr.buildSync(),
+  //   .tr => WorldstateLocale.tr.buildSync(),
+  //   .uk => WorldstateLocale.uk.buildSync(),
+  //   .zh => WorldstateLocale.zh.buildSync(),
+  // };
 }
