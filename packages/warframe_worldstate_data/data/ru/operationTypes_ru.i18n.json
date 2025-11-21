@@ -1,8 +1,0 @@
-{
-    "types(map)": {
-        "MULTIPLY": {
-            "value": "умножена на",
-            "symbol": "х"
-        }
-    }
-}

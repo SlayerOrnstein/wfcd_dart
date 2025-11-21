@@ -113,10 +113,13 @@ void moveDir(Directory dir, String out, [String? locale]) {
       file.writeAsStringSync(formatNewData(data, name));
     }
 
-    if (type == FileSystemEntityType.directory) {
-      final newDir = Directory(join(out, name))..createSync(recursive: true);
-      moveDir(Directory(entity.path), newDir.path, name);
-    }
+    // Omit for now, there are too many lang entries. The Dart VM runs out of memory when compiling on flutter
+    // I've tried increasing the heap size with whatever I found and nothing so gonna just look for a way to get lang data from items
+    //
+    // if (type == FileSystemEntityType.directory) {
+    //   final newDir = Directory(join(out, name))..createSync(recursive: true);
+    //   moveDir(Directory(entity.path), newDir.path, name);
+    // }
   }
 }
 

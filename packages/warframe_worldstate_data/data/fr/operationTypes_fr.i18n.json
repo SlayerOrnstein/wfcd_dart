@@ -1,8 +1,0 @@
-{
-    "types(map)": {
-        "MULTIPLY": {
-            "value": "est multiplié par",
-            "symbol": "x"
-        }
-    }
-}
