@@ -1,3 +1,7 @@
+## 0.1.1+2
+
+ - **FIX**(data): removed other lang files. ([bf9a6426](https://github.com/SlayerOrnstein/wfcd_dart/commit/bf9a6426ce98077044eede90eb898397b4d1ce1b))
+
 ## 0.1.1+1
 
  - **FIX**(data): update language files. ([dec5b2c4](https://github.com/SlayerOrnstein/wfcd_dart/commit/dec5b2c4ccf8ecf7f1f33ce48c6f797d6f06f5b2))
