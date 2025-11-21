@@ -1,3 +1,7 @@
+## 0.1.1+3
+
+ - **FIX**(data): missed types. ([81b7660e](https://github.com/SlayerOrnstein/wfcd_dart/commit/81b7660e6002fdd30a9ccda6fc37a004f836c8d3))
+
 ## 0.1.1+2
 
  - **FIX**(data): removed other lang files. ([bf9a6426](https://github.com/SlayerOrnstein/wfcd_dart/commit/bf9a6426ce98077044eede90eb898397b4d1ce1b))

@@ -15,6 +15,38 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.1+3`](#warframe_worldstate_data---v0113)
+ - [`profile_models` - `v0.1.1+6`](#profile_models---v0116)
+ - [`worldstate_models` - `v0.1.3+3`](#worldstate_models---v0133)
+ - [`worldstate_status` - `v1.0.16`](#worldstate_status---v1016)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+6`
+ - `worldstate_models` - `v0.1.3+3`
+ - `worldstate_status` - `v1.0.16`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.1+3`
+
+ - **FIX**(data): missed types. ([81b7660e](https://github.com/SlayerOrnstein/wfcd_dart/commit/81b7660e6002fdd30a9ccda6fc37a004f836c8d3))
+
+
+## 2025-11-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.1+2`](#warframe_worldstate_data---v0112)
  - [`profile_models` - `v0.1.1+5`](#profile_models---v0115)
  - [`worldstate_models` - `v0.1.3+2`](#worldstate_models---v0132)
