@@ -1,3 +1,7 @@
+## 0.1.1+1
+
+ - **FIX**(data): update language files. ([dec5b2c4](https://github.com/SlayerOrnstein/wfcd_dart/commit/dec5b2c4ccf8ecf7f1f33ce48c6f797d6f06f5b2))
+
 ## 0.1.1
 
  - **FEAT**(data): expose all other langs provided by the js version of `warframe-worldstate-data`. ([132df836](https://github.com/SlayerOrnstein/wfcd_dart/commit/132df8367383f66f194f93578d45ceeba26616ce))

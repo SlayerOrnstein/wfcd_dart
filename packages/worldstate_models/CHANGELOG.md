@@ -1,3 +1,7 @@
+## 0.1.3+1
+
+ - Update a dependency to the latest release.
+
 ## 0.1.3
 
  - **FEAT**(data): expose all other langs provided by the js version of `warframe-worldstate-data`. ([132df836](https://github.com/SlayerOrnstein/wfcd_dart/commit/132df8367383f66f194f93578d45ceeba26616ce))
