@@ -104,12 +104,14 @@ class Worldstate with WorldstateMappable {
 
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
     final cetusBountyEnd = parseDate(raw.syndicateMissions.firstWhere((s) => s.tag == 'CetusSyndicate').expiry);
-    raw.events.retainWhere((n) => n.messages.firstWhereOrNull((m) => m['LanguageCode'] == deps.locale) != null);
+    final news = raw.events
+        .where((n) => n.messages.firstWhereOrNull((m) => m['LanguageCode'] == deps.locale.name) != null)
+        .toList();
 
     return Worldstate(
       timestamp: DateTime.fromMillisecondsSinceEpoch(raw.time * 1000, isUtc: true),
       buildLabel: raw.buildLabel,
-      news: parseArray(raw.events, (event) => News.fromRaw(event, deps.locale)),
+      news: parseArray(news, (event) => News.fromRaw(event, deps.locale)),
       events: parseArray(raw.goals, (goal) => WorldEvent.fromRaw(goal, deps)),
       alerts: parseArray(raw.alerts, (alert) => Alert.fromRaw(alert, deps)),
       sortie: Sortie.fromRaw(raw.sorties.first, deps.locale),
