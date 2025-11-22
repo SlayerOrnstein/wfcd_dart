@@ -1,3 +1,7 @@
+## 0.1.3+4
+
+ - **FIX**(worldstate): logic error when filtering news. ([be920ccf](https://github.com/SlayerOrnstein/wfcd_dart/commit/be920ccf718bde703645d99937e59d1f526ad06e))
+
 ## 0.1.3+3
 
  - Update a dependency to the latest release.

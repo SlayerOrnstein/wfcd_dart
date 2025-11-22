@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.3+4`](#worldstate_models---v0134)
+ - [`worldstate_status` - `v1.0.17`](#worldstate_status---v1017)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.17`
+
+---
+
+#### `worldstate_models` - `v0.1.3+4`
+
+ - **FIX**(worldstate): logic error when filtering news. ([be920ccf](https://github.com/SlayerOrnstein/wfcd_dart/commit/be920ccf718bde703645d99937e59d1f526ad06e))
+
+
+## 2025-11-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.1+3`](#warframe_worldstate_data---v0113)
  - [`profile_models` - `v0.1.1+6`](#profile_models---v0116)
  - [`worldstate_models` - `v0.1.3+3`](#worldstate_models---v0133)
