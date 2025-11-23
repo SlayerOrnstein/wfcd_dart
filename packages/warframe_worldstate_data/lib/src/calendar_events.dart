@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:warframe_worldstate_data/src/tools.dart';
 
 /// Calendar event types
 enum CalendarEvents {
@@ -24,9 +23,7 @@ enum CalendarEvents {
   final String translation;
 
   /// Translate a calendar event to in-game name
-  static String translateEvent(String uniqueName) {
-    final value = CalendarEvents.values.firstWhereOrNull((v) => v.uniqueName == uniqueName);
-
-    return value != null ? toTitleCase(value.name) : toTitleCase(uniqueName.replaceAll('CET_', ''));
+  static CalendarEvents fromString(String uniqueName) {
+    return CalendarEvents.values.firstWhereOrNull((v) => v.uniqueName == uniqueName) ?? CalendarEvents.plot;
   }
 }

@@ -899,16 +899,14 @@ class CalendarDayEventMapper extends ClassMapperBase<CalendarDayEvent> {
   @override
   final String id = 'CalendarDayEvent';
 
-  static String _$key(CalendarDayEvent v) => v.key;
-  static const Field<CalendarDayEvent, String> _f$key = Field('key', _$key);
-  static String _$type(CalendarDayEvent v) => v.type;
-  static const Field<CalendarDayEvent, String> _f$type = Field('type', _$type);
+  static CalendarEvents _$type(CalendarDayEvent v) => v.type;
+  static const Field<CalendarDayEvent, CalendarEvents> _f$type = Field(
+    'type',
+    _$type,
+  );
 
   @override
-  final MappableFields<CalendarDayEvent> fields = const {
-    #key: _f$key,
-    #type: _f$type,
-  };
+  final MappableFields<CalendarDayEvent> fields = const {#type: _f$type};
   @override
   final bool ignoreNull = true;
 
@@ -941,7 +939,7 @@ mixin CalendarDayEventMappable {
 
 abstract class CalendarDayEventCopyWith<$R, $In extends CalendarDayEvent, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? type});
+  $R call();
   CalendarDayEventCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -963,11 +961,6 @@ class CalendarDayChallengeMapper
   @override
   final String id = 'CalendarDayChallenge';
 
-  static String _$type(CalendarDayChallenge v) => v.type;
-  static const Field<CalendarDayChallenge, String> _f$type = Field(
-    'type',
-    _$type,
-  );
   static String _$title(CalendarDayChallenge v) => v.title;
   static const Field<CalendarDayChallenge, String> _f$title = Field(
     'title',
@@ -978,19 +971,18 @@ class CalendarDayChallengeMapper
     'description',
     _$description,
   );
-  static String _$key(CalendarDayChallenge v) => v.key;
-  static const Field<CalendarDayChallenge, String> _f$key = Field(
-    'key',
-    _$key,
+  static CalendarEvents _$type(CalendarDayChallenge v) => v.type;
+  static const Field<CalendarDayChallenge, CalendarEvents> _f$type = Field(
+    'type',
+    _$type,
     mode: FieldMode.member,
   );
 
   @override
   final MappableFields<CalendarDayChallenge> fields = const {
-    #type: _f$type,
     #title: _f$title,
     #description: _f$description,
-    #key: _f$key,
+    #type: _f$type,
   };
   @override
   final bool ignoreNull = true;
@@ -1005,7 +997,6 @@ class CalendarDayChallengeMapper
 
   static CalendarDayChallenge _instantiate(DecodingData data) {
     return CalendarDayChallenge(
-      type: data.dec(_f$type),
       title: data.dec(_f$title),
       description: data.dec(_f$description),
     );
@@ -1082,7 +1073,7 @@ abstract class CalendarDayChallengeCopyWith<
 >
     implements CalendarDayEventCopyWith<$R, $In, $Out> {
   @override
-  $R call({String? type, String? title, String? description});
+  $R call({String? title, String? description});
   CalendarDayChallengeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -1097,16 +1088,14 @@ class _CalendarDayChallengeCopyWithImpl<$R, $Out>
   late final ClassMapperBase<CalendarDayChallenge> $mapper =
       CalendarDayChallengeMapper.ensureInitialized();
   @override
-  $R call({String? type, String? title, String? description}) => $apply(
+  $R call({String? title, String? description}) => $apply(
     FieldCopyWithData({
-      if (type != null) #type: type,
       if (title != null) #title: title,
       if (description != null) #description: description,
     }),
   );
   @override
   CalendarDayChallenge $make(CopyWithData data) => CalendarDayChallenge(
-    type: data.get(#type, or: $value.type),
     title: data.get(#title, or: $value.title),
     description: data.get(#description, or: $value.description),
   );
@@ -1132,25 +1121,22 @@ class CalendarDayRewardMapper extends SubClassMapperBase<CalendarDayReward> {
   @override
   final String id = 'CalendarDayReward';
 
-  static String _$type(CalendarDayReward v) => v.type;
-  static const Field<CalendarDayReward, String> _f$type = Field('type', _$type);
   static String _$reward(CalendarDayReward v) => v.reward;
   static const Field<CalendarDayReward, String> _f$reward = Field(
     'reward',
     _$reward,
   );
-  static String _$key(CalendarDayReward v) => v.key;
-  static const Field<CalendarDayReward, String> _f$key = Field(
-    'key',
-    _$key,
+  static CalendarEvents _$type(CalendarDayReward v) => v.type;
+  static const Field<CalendarDayReward, CalendarEvents> _f$type = Field(
+    'type',
+    _$type,
     mode: FieldMode.member,
   );
 
   @override
   final MappableFields<CalendarDayReward> fields = const {
-    #type: _f$type,
     #reward: _f$reward,
-    #key: _f$key,
+    #type: _f$type,
   };
   @override
   final bool ignoreNull = true;
@@ -1164,10 +1150,7 @@ class CalendarDayRewardMapper extends SubClassMapperBase<CalendarDayReward> {
       CalendarDayEventMapper.ensureInitialized();
 
   static CalendarDayReward _instantiate(DecodingData data) {
-    return CalendarDayReward(
-      type: data.dec(_f$type),
-      reward: data.dec(_f$reward),
-    );
+    return CalendarDayReward(reward: data.dec(_f$reward));
   }
 
   @override
@@ -1242,7 +1225,7 @@ abstract class CalendarDayRewardCopyWith<
 >
     implements CalendarDayEventCopyWith<$R, $In, $Out> {
   @override
-  $R call({String? type, String? reward});
+  $R call({String? reward});
   CalendarDayRewardCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -1257,17 +1240,11 @@ class _CalendarDayRewardCopyWithImpl<$R, $Out>
   late final ClassMapperBase<CalendarDayReward> $mapper =
       CalendarDayRewardMapper.ensureInitialized();
   @override
-  $R call({String? type, String? reward}) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (reward != null) #reward: reward,
-    }),
-  );
+  $R call({String? reward}) =>
+      $apply(FieldCopyWithData({if (reward != null) #reward: reward}));
   @override
-  CalendarDayReward $make(CopyWithData data) => CalendarDayReward(
-    type: data.get(#type, or: $value.type),
-    reward: data.get(#reward, or: $value.reward),
-  );
+  CalendarDayReward $make(CopyWithData data) =>
+      CalendarDayReward(reward: data.get(#reward, or: $value.reward));
 
   @override
   CalendarDayRewardCopyWith<$R2, CalendarDayReward, $Out2> $chain<$R2, $Out2>(
@@ -1290,11 +1267,6 @@ class CalendarDayUpgradeMapper extends SubClassMapperBase<CalendarDayUpgrade> {
   @override
   final String id = 'CalendarDayUpgrade';
 
-  static String _$type(CalendarDayUpgrade v) => v.type;
-  static const Field<CalendarDayUpgrade, String> _f$type = Field(
-    'type',
-    _$type,
-  );
   static String _$name(CalendarDayUpgrade v) => v.name;
   static const Field<CalendarDayUpgrade, String> _f$name = Field(
     'name',
@@ -1305,19 +1277,18 @@ class CalendarDayUpgradeMapper extends SubClassMapperBase<CalendarDayUpgrade> {
     'description',
     _$description,
   );
-  static String _$key(CalendarDayUpgrade v) => v.key;
-  static const Field<CalendarDayUpgrade, String> _f$key = Field(
-    'key',
-    _$key,
+  static CalendarEvents _$type(CalendarDayUpgrade v) => v.type;
+  static const Field<CalendarDayUpgrade, CalendarEvents> _f$type = Field(
+    'type',
+    _$type,
     mode: FieldMode.member,
   );
 
   @override
   final MappableFields<CalendarDayUpgrade> fields = const {
-    #type: _f$type,
     #name: _f$name,
     #description: _f$description,
-    #key: _f$key,
+    #type: _f$type,
   };
   @override
   final bool ignoreNull = true;
@@ -1332,7 +1303,6 @@ class CalendarDayUpgradeMapper extends SubClassMapperBase<CalendarDayUpgrade> {
 
   static CalendarDayUpgrade _instantiate(DecodingData data) {
     return CalendarDayUpgrade(
-      type: data.dec(_f$type),
       name: data.dec(_f$name),
       description: data.dec(_f$description),
     );
@@ -1410,7 +1380,7 @@ abstract class CalendarDayUpgradeCopyWith<
 >
     implements CalendarDayEventCopyWith<$R, $In, $Out> {
   @override
-  $R call({String? type, String? name, String? description});
+  $R call({String? name, String? description});
   CalendarDayUpgradeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -1425,16 +1395,14 @@ class _CalendarDayUpgradeCopyWithImpl<$R, $Out>
   late final ClassMapperBase<CalendarDayUpgrade> $mapper =
       CalendarDayUpgradeMapper.ensureInitialized();
   @override
-  $R call({String? type, String? name, String? description}) => $apply(
+  $R call({String? name, String? description}) => $apply(
     FieldCopyWithData({
-      if (type != null) #type: type,
       if (name != null) #name: name,
       if (description != null) #description: description,
     }),
   );
   @override
   CalendarDayUpgrade $make(CopyWithData data) => CalendarDayUpgrade(
-    type: data.get(#type, or: $value.type),
     name: data.get(#name, or: $value.name),
     description: data.get(#description, or: $value.description),
   );
@@ -1461,11 +1429,6 @@ class CalendarDayBirthdayMapper
   @override
   final String id = 'CalendarDayBirthday';
 
-  static String _$type(CalendarDayBirthday v) => v.type;
-  static const Field<CalendarDayBirthday, String> _f$type = Field(
-    'type',
-    _$type,
-  );
   static String _$name(CalendarDayBirthday v) => v.name;
   static const Field<CalendarDayBirthday, String> _f$name = Field(
     'name',
@@ -1476,19 +1439,18 @@ class CalendarDayBirthdayMapper
     'conversation',
     _$conversation,
   );
-  static String _$key(CalendarDayBirthday v) => v.key;
-  static const Field<CalendarDayBirthday, String> _f$key = Field(
-    'key',
-    _$key,
+  static CalendarEvents _$type(CalendarDayBirthday v) => v.type;
+  static const Field<CalendarDayBirthday, CalendarEvents> _f$type = Field(
+    'type',
+    _$type,
     mode: FieldMode.member,
   );
 
   @override
   final MappableFields<CalendarDayBirthday> fields = const {
-    #type: _f$type,
     #name: _f$name,
     #conversation: _f$conversation,
-    #key: _f$key,
+    #type: _f$type,
   };
   @override
   final bool ignoreNull = true;
@@ -1503,7 +1465,6 @@ class CalendarDayBirthdayMapper
 
   static CalendarDayBirthday _instantiate(DecodingData data) {
     return CalendarDayBirthday(
-      type: data.dec(_f$type),
       name: data.dec(_f$name),
       conversation: data.dec(_f$conversation),
     );
@@ -1580,7 +1541,7 @@ abstract class CalendarDayBirthdayCopyWith<
 >
     implements CalendarDayEventCopyWith<$R, $In, $Out> {
   @override
-  $R call({String? type, String? name, String? conversation});
+  $R call({String? name, String? conversation});
   CalendarDayBirthdayCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -1595,16 +1556,14 @@ class _CalendarDayBirthdayCopyWithImpl<$R, $Out>
   late final ClassMapperBase<CalendarDayBirthday> $mapper =
       CalendarDayBirthdayMapper.ensureInitialized();
   @override
-  $R call({String? type, String? name, String? conversation}) => $apply(
+  $R call({String? name, String? conversation}) => $apply(
     FieldCopyWithData({
-      if (type != null) #type: type,
       if (name != null) #name: name,
       if (conversation != null) #conversation: conversation,
     }),
   );
   @override
   CalendarDayBirthday $make(CopyWithData data) => CalendarDayBirthday(
-    type: data.get(#type, or: $value.type),
     name: data.get(#name, or: $value.name),
     conversation: data.get(#conversation, or: $value.conversation),
   );
