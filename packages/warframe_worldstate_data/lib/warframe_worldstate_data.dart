@@ -2,6 +2,7 @@
 library;
 
 export 'src/archon_shards.dart';
+export 'src/calendar_events.dart';
 export 'src/conclave.dart';
 export 'src/focus_schools.dart';
 export 'src/languages.dart';
