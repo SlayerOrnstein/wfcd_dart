@@ -1,3 +1,7 @@
+## 0.1.3
+
+ - **FEAT**(worldstate): update Calendar model to use `CalendarEvents`. ([f7f982bc](https://github.com/SlayerOrnstein/wfcd_dart/commit/f7f982bcbf5bd8d4acba1e31182648b0dc713f5c))
+
 ## 0.1.2
 
  - **FEAT**(data): added a calendar event enum. ([7a80a2fa](https://github.com/SlayerOrnstein/wfcd_dart/commit/7a80a2faf78c8754eaca1e2aae4ed1b22b417f22))

@@ -15,6 +15,41 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.3`](#warframe_worldstate_data---v013)
+ - [`worldstate_models` - `v0.1.5`](#worldstate_models---v015)
+ - [`profile_models` - `v0.1.1+8`](#profile_models---v0118)
+ - [`worldstate_status` - `v1.0.19`](#worldstate_status---v1019)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+8`
+ - `worldstate_status` - `v1.0.19`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3`
+
+ - **FEAT**(worldstate): update Calendar model to use `CalendarEvents`. ([f7f982bc](https://github.com/SlayerOrnstein/wfcd_dart/commit/f7f982bcbf5bd8d4acba1e31182648b0dc713f5c))
+
+#### `worldstate_models` - `v0.1.5`
+
+ - **FEAT**(worldstate): update Calendar model to use `CalendarEvents`. ([f7f982bc](https://github.com/SlayerOrnstein/wfcd_dart/commit/f7f982bcbf5bd8d4acba1e31182648b0dc713f5c))
+
+
+## 2025-11-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.2`](#warframe_worldstate_data---v012)
  - [`worldstate_models` - `v0.1.4`](#worldstate_models---v014)
  - [`profile_models` - `v0.1.1+7`](#profile_models---v0117)
