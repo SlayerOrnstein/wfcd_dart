@@ -1,3 +1,7 @@
+## 0.1.4
+
+ - **FEAT**(data): added a calendar event enum. ([7a80a2fa](https://github.com/SlayerOrnstein/wfcd_dart/commit/7a80a2faf78c8754eaca1e2aae4ed1b22b417f22))
+
 ## 0.1.3+4
 
  - **FIX**(worldstate): logic error when filtering news. ([be920ccf](https://github.com/SlayerOrnstein/wfcd_dart/commit/be920ccf718bde703645d99937e59d1f526ad06e))

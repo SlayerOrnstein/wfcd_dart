@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-11-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_worldstate_data` - `v0.1.2`](#warframe_worldstate_data---v012)
+ - [`worldstate_models` - `v0.1.4`](#worldstate_models---v014)
+ - [`profile_models` - `v0.1.1+7`](#profile_models---v0117)
+ - [`worldstate_status` - `v1.0.18`](#worldstate_status---v1018)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+7`
+ - `worldstate_status` - `v1.0.18`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.2`
+
+ - **FEAT**(data): added a calendar event enum. ([7a80a2fa](https://github.com/SlayerOrnstein/wfcd_dart/commit/7a80a2faf78c8754eaca1e2aae4ed1b22b417f22))
+
+#### `worldstate_models` - `v0.1.4`
+
+ - **FEAT**(data): added a calendar event enum. ([7a80a2fa](https://github.com/SlayerOrnstein/wfcd_dart/commit/7a80a2faf78c8754eaca1e2aae4ed1b22b417f22))
+
+
 ## 2025-11-21
 
 ### Changes

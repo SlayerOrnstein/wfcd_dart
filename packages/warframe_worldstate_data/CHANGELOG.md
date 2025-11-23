@@ -1,3 +1,7 @@
+## 0.1.2
+
+ - **FEAT**(data): added a calendar event enum. ([7a80a2fa](https://github.com/SlayerOrnstein/wfcd_dart/commit/7a80a2faf78c8754eaca1e2aae4ed1b22b417f22))
+
 ## 0.1.1+3
 
  - **FIX**(data): missed types. ([81b7660e](https://github.com/SlayerOrnstein/wfcd_dart/commit/81b7660e6002fdd30a9ccda6fc37a004f836c8d3))
