@@ -144,7 +144,7 @@ final class CalendarDayReward extends CalendarDayEvent with CalendarDayRewardMap
 
 @MappableClass(discriminatorValue: 'CET_UPGRADE')
 final class CalendarDayUpgrade extends CalendarDayEvent with CalendarDayUpgradeMappable {
-  CalendarDayUpgrade({required this.name, required this.description}) : super(type: .challenge);
+  CalendarDayUpgrade({required this.name, required this.description}) : super(type: .upgrade);
 
   final String name;
   final String description;
