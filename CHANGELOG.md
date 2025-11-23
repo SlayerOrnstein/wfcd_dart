@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.5+1`](#worldstate_models---v0151)
+ - [`worldstate_status` - `v1.0.20`](#worldstate_status---v1020)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.20`
+
+---
+
+#### `worldstate_models` - `v0.1.5+1`
+
+ - **FIX**(worldstate): `CalendarDayUpgrade` had the incorrect type. ([40aa1308](https://github.com/SlayerOrnstein/wfcd_dart/commit/40aa130872410acf56875510f64fa64cd0f6f236))
+
+
+## 2025-11-22
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.3`](#warframe_worldstate_data---v013)
  - [`worldstate_models` - `v0.1.5`](#worldstate_models---v015)
  - [`profile_models` - `v0.1.1+8`](#profile_models---v0118)

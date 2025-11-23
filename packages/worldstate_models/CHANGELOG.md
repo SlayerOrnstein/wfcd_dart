@@ -1,3 +1,7 @@
+## 0.1.5+1
+
+ - **FIX**(worldstate): `CalendarDayUpgrade` had the incorrect type. ([40aa1308](https://github.com/SlayerOrnstein/wfcd_dart/commit/40aa130872410acf56875510f64fa64cd0f6f236))
+
 ## 0.1.5
 
  - **FEAT**(worldstate): update Calendar model to use `CalendarEvents`. ([f7f982bc](https://github.com/SlayerOrnstein/wfcd_dart/commit/f7f982bcbf5bd8d4acba1e31182648b0dc713f5c))
