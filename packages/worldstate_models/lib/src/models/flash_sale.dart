@@ -10,9 +10,6 @@ part 'flash_sale.mapper.dart';
 class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
   RawFlashSale({
     required this.typeName,
-    required this.showInMarket,
-    required this.hideFromMarket,
-    required this.supporterPack,
     required this.discount,
     required this.bogoBuy,
     required this.bogoGet,
@@ -20,17 +17,20 @@ class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
     required this.regularOverride,
     required this.startDate,
     required this.endDate,
+    this.showInMarket = false,
+    this.hideFromMarket = false,
+    this.supporterPack = false,
   }) : super(id: {});
 
   final String typeName;
   final bool showInMarket;
   final bool hideFromMarket;
   final bool supporterPack;
-  final num discount;
+  final num? discount;
   final num? bogoBuy;
   final num? bogoGet;
-  final int premiumOverride;
-  final int regularOverride;
+  final int? premiumOverride;
+  final int? regularOverride;
   final JsonObject startDate;
   final JsonObject endDate;
 
@@ -59,11 +59,11 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
       activation: activation,
       expiry: parseDate(raw.endDate),
       item: deps.langs.fetchValue(raw.typeName),
-      shownInMarket: raw.showInMarket,
+      shownInMarket: raw.showInMarket || raw.hideFromMarket || false,
       isSupporterPack: raw.supporterPack,
-      discount: raw.discount,
-      premiumOverride: raw.premiumOverride,
-      regularOverride: raw.regularOverride,
+      discount: raw.discount ?? 0,
+      premiumOverride: raw.premiumOverride ?? 0,
+      regularOverride: raw.regularOverride ?? 0,
     );
   }
 

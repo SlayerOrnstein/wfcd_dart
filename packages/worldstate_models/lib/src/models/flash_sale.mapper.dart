@@ -27,25 +27,7 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
     _$typeName,
     key: r'TypeName',
   );
-  static bool _$showInMarket(RawFlashSale v) => v.showInMarket;
-  static const Field<RawFlashSale, bool> _f$showInMarket = Field(
-    'showInMarket',
-    _$showInMarket,
-    key: r'ShowInMarket',
-  );
-  static bool _$hideFromMarket(RawFlashSale v) => v.hideFromMarket;
-  static const Field<RawFlashSale, bool> _f$hideFromMarket = Field(
-    'hideFromMarket',
-    _$hideFromMarket,
-    key: r'HideFromMarket',
-  );
-  static bool _$supporterPack(RawFlashSale v) => v.supporterPack;
-  static const Field<RawFlashSale, bool> _f$supporterPack = Field(
-    'supporterPack',
-    _$supporterPack,
-    key: r'SupporterPack',
-  );
-  static num _$discount(RawFlashSale v) => v.discount;
+  static num? _$discount(RawFlashSale v) => v.discount;
   static const Field<RawFlashSale, num> _f$discount = Field(
     'discount',
     _$discount,
@@ -63,13 +45,13 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
     _$bogoGet,
     key: r'BogoGet',
   );
-  static int _$premiumOverride(RawFlashSale v) => v.premiumOverride;
+  static int? _$premiumOverride(RawFlashSale v) => v.premiumOverride;
   static const Field<RawFlashSale, int> _f$premiumOverride = Field(
     'premiumOverride',
     _$premiumOverride,
     key: r'PremiumOverride',
   );
-  static int _$regularOverride(RawFlashSale v) => v.regularOverride;
+  static int? _$regularOverride(RawFlashSale v) => v.regularOverride;
   static const Field<RawFlashSale, int> _f$regularOverride = Field(
     'regularOverride',
     _$regularOverride,
@@ -87,13 +69,34 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
     _$endDate,
     key: r'EndDate',
   );
+  static bool _$showInMarket(RawFlashSale v) => v.showInMarket;
+  static const Field<RawFlashSale, bool> _f$showInMarket = Field(
+    'showInMarket',
+    _$showInMarket,
+    key: r'ShowInMarket',
+    opt: true,
+    def: false,
+  );
+  static bool _$hideFromMarket(RawFlashSale v) => v.hideFromMarket;
+  static const Field<RawFlashSale, bool> _f$hideFromMarket = Field(
+    'hideFromMarket',
+    _$hideFromMarket,
+    key: r'HideFromMarket',
+    opt: true,
+    def: false,
+  );
+  static bool _$supporterPack(RawFlashSale v) => v.supporterPack;
+  static const Field<RawFlashSale, bool> _f$supporterPack = Field(
+    'supporterPack',
+    _$supporterPack,
+    key: r'SupporterPack',
+    opt: true,
+    def: false,
+  );
 
   @override
   final MappableFields<RawFlashSale> fields = const {
     #typeName: _f$typeName,
-    #showInMarket: _f$showInMarket,
-    #hideFromMarket: _f$hideFromMarket,
-    #supporterPack: _f$supporterPack,
     #discount: _f$discount,
     #bogoBuy: _f$bogoBuy,
     #bogoGet: _f$bogoGet,
@@ -101,6 +104,9 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
     #regularOverride: _f$regularOverride,
     #startDate: _f$startDate,
     #endDate: _f$endDate,
+    #showInMarket: _f$showInMarket,
+    #hideFromMarket: _f$hideFromMarket,
+    #supporterPack: _f$supporterPack,
   };
   @override
   final bool ignoreNull = true;
@@ -108,9 +114,6 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
   static RawFlashSale _instantiate(DecodingData data) {
     return RawFlashSale(
       typeName: data.dec(_f$typeName),
-      showInMarket: data.dec(_f$showInMarket),
-      hideFromMarket: data.dec(_f$hideFromMarket),
-      supporterPack: data.dec(_f$supporterPack),
       discount: data.dec(_f$discount),
       bogoBuy: data.dec(_f$bogoBuy),
       bogoGet: data.dec(_f$bogoGet),
@@ -118,6 +121,9 @@ class RawFlashSaleMapper extends ClassMapperBase<RawFlashSale> {
       regularOverride: data.dec(_f$regularOverride),
       startDate: data.dec(_f$startDate),
       endDate: data.dec(_f$endDate),
+      showInMarket: data.dec(_f$showInMarket),
+      hideFromMarket: data.dec(_f$hideFromMarket),
+      supporterPack: data.dec(_f$supporterPack),
     );
   }
 
@@ -189,9 +195,6 @@ abstract class RawFlashSaleCopyWith<$R, $In extends RawFlashSale, $Out>
   get endDate;
   $R call({
     String? typeName,
-    bool? showInMarket,
-    bool? hideFromMarket,
-    bool? supporterPack,
     num? discount,
     num? bogoBuy,
     num? bogoGet,
@@ -199,6 +202,9 @@ abstract class RawFlashSaleCopyWith<$R, $In extends RawFlashSale, $Out>
     int? regularOverride,
     Map<String, dynamic>? startDate,
     Map<String, dynamic>? endDate,
+    bool? showInMarket,
+    bool? hideFromMarket,
+    bool? supporterPack,
   });
   RawFlashSaleCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -228,37 +234,34 @@ class _RawFlashSaleCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? typeName,
+    Object? discount = $none,
+    Object? bogoBuy = $none,
+    Object? bogoGet = $none,
+    Object? premiumOverride = $none,
+    Object? regularOverride = $none,
+    Map<String, dynamic>? startDate,
+    Map<String, dynamic>? endDate,
     bool? showInMarket,
     bool? hideFromMarket,
     bool? supporterPack,
-    num? discount,
-    Object? bogoBuy = $none,
-    Object? bogoGet = $none,
-    int? premiumOverride,
-    int? regularOverride,
-    Map<String, dynamic>? startDate,
-    Map<String, dynamic>? endDate,
   }) => $apply(
     FieldCopyWithData({
       if (typeName != null) #typeName: typeName,
+      if (discount != $none) #discount: discount,
+      if (bogoBuy != $none) #bogoBuy: bogoBuy,
+      if (bogoGet != $none) #bogoGet: bogoGet,
+      if (premiumOverride != $none) #premiumOverride: premiumOverride,
+      if (regularOverride != $none) #regularOverride: regularOverride,
+      if (startDate != null) #startDate: startDate,
+      if (endDate != null) #endDate: endDate,
       if (showInMarket != null) #showInMarket: showInMarket,
       if (hideFromMarket != null) #hideFromMarket: hideFromMarket,
       if (supporterPack != null) #supporterPack: supporterPack,
-      if (discount != null) #discount: discount,
-      if (bogoBuy != $none) #bogoBuy: bogoBuy,
-      if (bogoGet != $none) #bogoGet: bogoGet,
-      if (premiumOverride != null) #premiumOverride: premiumOverride,
-      if (regularOverride != null) #regularOverride: regularOverride,
-      if (startDate != null) #startDate: startDate,
-      if (endDate != null) #endDate: endDate,
     }),
   );
   @override
   RawFlashSale $make(CopyWithData data) => RawFlashSale(
     typeName: data.get(#typeName, or: $value.typeName),
-    showInMarket: data.get(#showInMarket, or: $value.showInMarket),
-    hideFromMarket: data.get(#hideFromMarket, or: $value.hideFromMarket),
-    supporterPack: data.get(#supporterPack, or: $value.supporterPack),
     discount: data.get(#discount, or: $value.discount),
     bogoBuy: data.get(#bogoBuy, or: $value.bogoBuy),
     bogoGet: data.get(#bogoGet, or: $value.bogoGet),
@@ -266,6 +269,9 @@ class _RawFlashSaleCopyWithImpl<$R, $Out>
     regularOverride: data.get(#regularOverride, or: $value.regularOverride),
     startDate: data.get(#startDate, or: $value.startDate),
     endDate: data.get(#endDate, or: $value.endDate),
+    showInMarket: data.get(#showInMarket, or: $value.showInMarket),
+    hideFromMarket: data.get(#hideFromMarket, or: $value.hideFromMarket),
+    supporterPack: data.get(#supporterPack, or: $value.supporterPack),
   );
 
   @override
