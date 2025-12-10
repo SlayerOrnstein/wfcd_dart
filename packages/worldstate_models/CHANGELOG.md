@@ -1,3 +1,7 @@
+## 0.1.5+2
+
+ - **FIX**(worldstate): parsing errors for new flash sale items. ([c5ca2e1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/c5ca2e1dfef2331fed0e9d7719b8b8f453cbba46))
+
 ## 0.1.5+1
 
  - **FIX**(worldstate): `CalendarDayUpgrade` had the incorrect type. ([40aa1308](https://github.com/SlayerOrnstein/wfcd_dart/commit/40aa130872410acf56875510f64fa64cd0f6f236))
