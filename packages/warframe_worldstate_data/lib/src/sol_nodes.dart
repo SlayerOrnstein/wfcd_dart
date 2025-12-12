@@ -1,12 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:warframe_worldstate_data/src/tools.dart';
-
-/// Represents a Node
-typedef Node = ({String name, String? enemy, String? type});
-
-/// Get SolNode data
-Map<String, Node> solNodes([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).solNodes.nodes.map((s, n) => MapEntry(s, (name: n.value, enemy: n.enemy, type: n.type)));
+import 'package:warframe_worldstate_data/src/i18n/i18n.dart';
 
 /// Extensions on [Map<String, SolNode>]
 extension SolNodeExtension on Map<String, Node> {

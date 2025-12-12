@@ -1,11 +1,5 @@
+import 'package:warframe_worldstate_data/src/i18n/i18n.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
-
-/// Represents an ArchonShard
-typedef ArchonShard = ({String name, Map<String, String> upgrades});
-
-/// Get all Archon Shard strings
-Map<String, ArchonShard> archonShards([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).archonShards.shards.map((s, a) => MapEntry(s, (name: a.value, upgrades: a.upgradeTypes)));
 
 /// Extensions for [Map<String, ArchonShard>]
 extension ArchonShardExtension on Map<String, ArchonShard> {

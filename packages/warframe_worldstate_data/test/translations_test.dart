@@ -22,26 +22,26 @@ void main() {
   });
 
   group('Conclave', () {
-    test('conclave() => get data', () => expect(conclave(), isA<ConclaveData>()));
+    test('conclave() => get data', () => expect(conclave().isNotEmpty, isTrue));
 
-    test('conclave().getModeString(string) => get matching mode', () {
-      expect(conclave().getModeString('PVPMODE_TEAMDEATHMATCH'), 'Team Annihilation');
+    test('getModeString(string) => get matching mode', () {
+      expect(getModeString('PVPMODE_TEAMDEATHMATCH'), 'Team Annihilation');
     });
 
-    test('conclave().getCategoryString(string) => get matching category', () {
-      expect(conclave().getCategoryString('PVPChallengeTypeCategory_WEEKLY_ROOT'), 'Weekly Category');
+    test('getCategoryString(string) => get matching category', () {
+      expect(getCategoryString('PVPChallengeTypeCategory_WEEKLY_ROOT'), 'Weekly Category');
     });
 
-    test('conclave().getChallenge(string) => get matching challenge', () {
-      expect(conclave().getChallenge('PVPTimedChallengeKillsPrimaryHARD'), (
+    test('getChallenge(string) => get matching challenge', () {
+      expect(getChallenge('PVPTimedChallengeKillsPrimaryHARD'), (
         title: 'Focused Primary Target',
         description: 'Kill 3 enemies with your Primary Weapon in a match',
         standing: 3000,
       ));
     });
 
-    test('conclave().getAffector(string) => get matching affect', () {
-      expect(conclave().getAffector('PVPTimedAffectorSuperMeleeDamage'), (
+    test('getAffector(string) => get matching affect', () {
+      expect(getAffector('PVPTimedAffectorSuperMeleeDamage'), (
         title: 'Extra Melee Damage',
         description: 'Extra Melee Damage - Melee Damage is increased',
       ));
@@ -131,10 +131,10 @@ void main() {
       expect(fissures(), isNotEmpty);
     });
 
-    test('fissure(string) => get the matching tier', () => expect(fissure('VoidT3'), (name: 'Neo', tier: 3)));
+    test('fissure(string) => get the matching tier', () => expect(fissure('VoidT3'), (value: 'Neo', tier: 3)));
 
     test('fissure(string) => normalize string when no match is found', () {
-      expect(fissure('VoidT7'), (name: 'VoidT7', tier: 7));
+      expect(fissure('VoidT7'), (value: 'VoidT7', tier: 7));
     });
   });
 
@@ -160,7 +160,7 @@ void main() {
     test(
       'sortieModifier(string) => get modifier type and description',
       () => expect(sortieModifier('SORTIE_MODIFIER_HAZARD_RADIATION'), (
-        type: 'Environmental Hazard: Radiation Pockets',
+        title: 'Environmental Hazard: Radiation Pockets',
         description: 'Any damage received will impart radiation effects, and so will green clouds around the tileset.',
       )),
     );
@@ -171,8 +171,6 @@ void main() {
     expect(steelPathOfferings().evergreen, isNotEmpty);
   });
 
-  // I want to test this anyways
-  // ignore: deprecated_member_use_from_same_package
   test('translateSeason(string) => normalize calendar season', () => expect(translateSeason('CST_WINTER'), 'Winter'));
 
   test('syndicate(string) => get the matching syndicate', () => expect(syndicate('VentKidsSyndicate'), 'Vent Kids'));

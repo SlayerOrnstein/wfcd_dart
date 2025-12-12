@@ -5,3 +5,6 @@
 .packages
 build/
 pubspec.lock
+
+# This doesn't need to be checked since its being embedded 
+data/

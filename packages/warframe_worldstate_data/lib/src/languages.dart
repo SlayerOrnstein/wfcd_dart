@@ -1,11 +1,5 @@
+import 'package:warframe_worldstate_data/src/i18n/i18n.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
-
-/// Represents a language string
-typedef LanguageString = ({String value, String? description});
-
-/// Direct access to lamguage strings
-Map<String, LanguageString> languages([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).languages.languages.map((s, l) => MapEntry(s, (value: l.value, description: l.desc)));
 
 /// Extensions on [Map<String, Language>] to quickly get value and description for a given resource
 extension LanguageExtension on Map<String, LanguageString> {

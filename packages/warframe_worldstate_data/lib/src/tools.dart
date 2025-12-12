@@ -1,6 +1,5 @@
-import 'package:warframe_worldstate_data/src/i18n/worldstate_langs.g.dart';
+// ignore_for_file: public_member_api_docs
 
-// ignore: public_member_api_docs
 enum WorldstateDataLocale { en, cs, de, es, fr, it, ko, pl, pt, ru, sr, tr, uk, zh }
 
 /// Basic function for title case strings
@@ -17,24 +16,3 @@ String splitResourceName(String resourceName) {
 
 /// Normalizes the [uniqueName] into a more human readable string
 String normalizeResourceName(String uniqueName) => toTitleCase(splitResourceName(uniqueName.split('/').last));
-
-/// Get the raw [WorldstateLocale] localizations
-WorldstateData i18n([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return WorldstateLocale.en.buildSync();
-  // return switch (locale) {
-  //   .en => WorldstateLocale.en.buildSync(),
-  //   .cs => WorldstateLocale.cs.buildSync(),
-  //   .de => WorldstateLocale.de.buildSync(),
-  //   .es => WorldstateLocale.es.buildSync(),
-  //   .fr => WorldstateLocale.fr.buildSync(),
-  //   .it => WorldstateLocale.it.buildSync(),
-  //   .ko => WorldstateLocale.ko.buildSync(),
-  //   .pl => WorldstateLocale.pl.buildSync(),
-  //   .pt => WorldstateLocale.pt.buildSync(),
-  //   .ru => WorldstateLocale.ru.buildSync(),
-  //   .sr => WorldstateLocale.sr.buildSync(),
-  //   .tr => WorldstateLocale.tr.buildSync(),
-  //   .uk => WorldstateLocale.uk.buildSync(),
-  //   .zh => WorldstateLocale.zh.buildSync(),
-  // };
-}

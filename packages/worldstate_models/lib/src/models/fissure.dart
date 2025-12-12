@@ -47,7 +47,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final tier = fissure(raw.modifier ?? raw.activeMissionTier!, deps.locale);
+    final modifier = fissure(raw.modifier ?? raw.activeMissionTier!, deps.locale);
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -56,8 +56,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       node: node.name,
       missionType: node.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
-      tier: tier.name,
-      tierNum: tier.tier,
+      tier: modifier.value,
+      tierNum: modifier.tier,
       isStorm: raw.node.contains('CrewBattle'),
       isSteelpath: raw.hard ?? false,
     );

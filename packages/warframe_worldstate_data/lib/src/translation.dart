@@ -1,29 +1,18 @@
-import 'package:warframe_worldstate_data/src/i18n/worldstate_langs.g.dart' as langs;
+import 'package:warframe_worldstate_data/src/i18n/i18n.dart';
+import 'package:warframe_worldstate_data/src/i18n/syndicates.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 import 'package:warframe_worldstate_data/src/types.dart';
-
-/// Get all faction strings in the given [locale]
-Map<String, String> factions([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).factionsData.factions;
 
 /// Get a faction string from the given [resource] in the given [locale]
 String faction(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
     factions(locale)[resource] ?? toTitleCase(resource.replaceAll('FC_', ''));
 
-/// Get all fissures
-Map<String, FissureModifier> fissures([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).fissureModifiers.modifiers.map((s, f) => MapEntry(s, (name: f.value, tier: int.parse(f.num))));
-
 /// Get fissure tier info based on [resource]
 ///
 /// Will fallback to sanitized version of [resource] if strings don't exist
 FissureModifier fissure(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return fissures(locale)[resource] ?? (name: resource, tier: int.parse(resource.replaceAll(RegExp('[a-zA-Z]+'), '')));
+  return fissures(locale)[resource] ?? (value: resource, tier: int.parse(resource.replaceAll(RegExp('[a-zA-Z]+'), '')));
 }
-
-/// Get all mission types
-Map<String, String> missionTypes([WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    i18n(locale).missionTypes.types.map((s, mt) => MapEntry(s, mt.value));
 
 /// Get mission type string.
 ///
@@ -34,27 +23,20 @@ String missionType(String resource, [WorldstateDataLocale locale = WorldstateDat
 
 /// Get the sortie boss and respective faction from [resource]
 SortieFaction sortieFaction(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  final boss = i18n(locale).sortieData.bosses[resource];
+  final bosses = sortieData(locale)['bosses'] as Map<String, dynamic>;
+  final boss = bosses[resource] as Map<String, dynamic>;
 
-  return (boss: boss?.name ?? resource, faction: boss?.faction ?? resource);
+  return (boss: boss['name'] ?? resource, faction: boss['faction'] ?? resource);
 }
 
 /// Get sortie modifier type and description from [resource]
 SortieModifier sortieModifier(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  final type = i18n(locale).sortieData.modifierTypes[resource] ?? toTitleCase(resource).replaceAll('_', ' ');
-  final desc = i18n(locale).sortieData.modifierDescriptions[resource];
+  final modifiers = sortieData(locale)['modifiers'] as Map<String, SortieModifier>;
+  final type = modifiers[resource];
+  if (type != null) return type;
 
-  return (type: type, description: desc ?? '[PH] $type Desc');
-}
-
-/// Get Steel path rotation and evergreen items
-SteelPathData steelPathOfferings([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  final data = i18n(locale).steelPath;
-
-  return (
-    rotation: data.rotation.map((s) => (name: s.name, cost: int.parse(s.cost))).toList(),
-    evergreen: data.evergreen.map((e) => (name: e.name, cost: int.parse(e.cost))).toList(),
-  );
+  final placeholder = toTitleCase(resource).replaceAll('_', ' ');
+  return (title: placeholder, description: '[PH] $placeholder Desc');
 }
 
 /// Translate Season to in-game names
@@ -63,38 +45,44 @@ String translateSeason(String season) => toTitleCase(season.replaceAll('CST_', '
 
 /// Get syndicate name
 String syndicate(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return i18n(locale).syndicatesData.syndicates[resource]?.name ?? normalizeResourceName(resource);
+  return syndicates(locale)[resource] ?? normalizeResourceName(resource);
 }
 
 /// Return all synthTargets in the given [locale]
 List<SynthTarget> synthTargets([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  SynthTargetLocation toLocation(langs.SynthTargetLocation l) {
+  SynthTargetLocation toLocation(Map<String, dynamic> l) {
     return (
-      lastVerified: l.last_verified,
-      level: l.level,
-      faction: l.faction,
-      spawnRate: l.spawn_rate,
-      mission: l.mission,
-      planet: l.planet,
-      type: l.type,
+      lastVerified: l['last_verified'] as String,
+      level: l['level'] as String,
+      faction: l['faction'] as String,
+      spawnRate: l['spawn_rate'] as String,
+      mission: l['mission'] as String,
+      planet: l['planet'] as String,
+      type: l['type'] as String,
     );
   }
 
-  return i18n(locale).synthTargets.targets
-      .map((t) => (name: t.name, imageKey: t.imageKey, locations: t.locations.map(toLocation).toList()))
+  return synthTargetsData(locale)
+      .map(
+        (t) => (
+          name: t['name'] as String,
+          imageKey: t['imageKey'] as String,
+          locations: List<Map<String, dynamic>>.from(t['locations'] as List<dynamic>).map(toLocation).toList(),
+        ),
+      )
       .toList();
 }
 
 /// Get global upgrade type
 String upgradeType(String type, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return i18n(locale).upgradeTypes.types[type]?.value ?? type;
+  return upgradeTypes(locale)[type] ?? type;
 }
 
 /// Get operation type
 ({String symbol, String value}) operationType(String type, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  final op = i18n(locale).operationTypes.types[type];
+  final op = operationTypes(locale)[type] as Map<String, dynamic>?;
 
   if (op == null) return (symbol: type, value: type);
 
-  return (symbol: op.symbol, value: op.value);
+  return (symbol: op['symbol'], value: op['value']);
 }
