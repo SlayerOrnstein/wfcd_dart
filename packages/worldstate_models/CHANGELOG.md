@@ -1,3 +1,7 @@
+## 0.1.5+3
+
+ - **PERF**(warframe_worldstate_data): improved the way data is embedded into AOT compile. ([4f02488e](https://github.com/SlayerOrnstein/wfcd_dart/commit/4f02488e1f735d64dabab95c09cd5ce52ae2be21))
+
 ## 0.1.5+2
 
  - **FIX**(worldstate): parsing errors for new flash sale items. ([c5ca2e1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/c5ca2e1dfef2331fed0e9d7719b8b8f453cbba46))

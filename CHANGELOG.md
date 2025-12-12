@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2025-12-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_worldstate_data` - `v0.1.3+1`](#warframe_worldstate_data---v0131)
+ - [`worldstate_models` - `v0.1.5+3`](#worldstate_models---v0153)
+ - [`profile_models` - `v0.1.1+9`](#profile_models---v0119)
+ - [`worldstate_status` - `v1.0.22`](#worldstate_status---v1022)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.1+9`
+ - `worldstate_status` - `v1.0.22`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+1`
+
+ - **PERF**(warframe_worldstate_data): improved the way data is embedded into AOT compile. ([4f02488e](https://github.com/SlayerOrnstein/wfcd_dart/commit/4f02488e1f735d64dabab95c09cd5ce52ae2be21))
+
+#### `worldstate_models` - `v0.1.5+3`
+
+ - **PERF**(warframe_worldstate_data): improved the way data is embedded into AOT compile. ([4f02488e](https://github.com/SlayerOrnstein/wfcd_dart/commit/4f02488e1f735d64dabab95c09cd5ce52ae2be21))
+
+
 ## 2025-12-10
 
 ### Changes

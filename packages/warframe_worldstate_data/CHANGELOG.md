@@ -1,3 +1,7 @@
+## 0.1.3+1
+
+ - **PERF**(warframe_worldstate_data): improved the way data is embedded into AOT compile. ([4f02488e](https://github.com/SlayerOrnstein/wfcd_dart/commit/4f02488e1f735d64dabab95c09cd5ce52ae2be21))
+
 ## 0.1.3
 
  - **FEAT**(worldstate): update Calendar model to use `CalendarEvents`. ([f7f982bc](https://github.com/SlayerOrnstein/wfcd_dart/commit/f7f982bcbf5bd8d4acba1e31182648b0dc713f5c))
