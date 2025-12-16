@@ -1,3 +1,7 @@
+## 0.1.3+2
+
+ - **FIX**(warframe-worldstate-data): update translations. ([afddd9a4](https://github.com/SlayerOrnstein/wfcd_dart/commit/afddd9a476bf1bcda45d55c1ebdd475197765600))
+
 ## 0.1.3+1
 
  - **PERF**(warframe_worldstate_data): improved the way data is embedded into AOT compile. ([4f02488e](https://github.com/SlayerOrnstein/wfcd_dart/commit/4f02488e1f735d64dabab95c09cd5ce52ae2be21))
