@@ -5,7 +5,7 @@ formatter:
 
 analyzer:
   exclude:
-    - lib/i18n/*.g.dart
+    - lib/src/i18n/*.g.dart
 
 linter:
   rules:
