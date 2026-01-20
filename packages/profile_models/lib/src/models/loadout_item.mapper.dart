@@ -16,6 +16,7 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
       MapperContainer.globals.use(_instance = RawLoadoutItemMapper._());
       RawItemConfigMapper.ensureInitialized();
       RawPolarityMapper.ensureInitialized();
+      RawArchonUpgradeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -85,6 +86,14 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
     _$polarity,
     key: r'Polarity',
   );
+  static List<RawArchonUpgrade>? _$archonCrystalUpgrades(RawLoadoutItem v) =>
+      v.archonCrystalUpgrades;
+  static const Field<RawLoadoutItem, List<RawArchonUpgrade>>
+  _f$archonCrystalUpgrades = Field(
+    'archonCrystalUpgrades',
+    _$archonCrystalUpgrades,
+    key: r'ArchonCrystalUpgrades',
+  );
   static String? _$focusLens(RawLoadoutItem v) => v.focusLens;
   static const Field<RawLoadoutItem, String> _f$focusLens = Field(
     'focusLens',
@@ -146,6 +155,7 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
     #xp: _f$xp,
     #polarized: _f$polarized,
     #polarity: _f$polarity,
+    #archonCrystalUpgrades: _f$archonCrystalUpgrades,
     #focusLens: _f$focusLens,
     #custimizationSlotPurchases: _f$custimizationSlotPurchases,
     #pricool: _f$pricool,
@@ -171,6 +181,7 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
       xp: data.dec(_f$xp),
       polarized: data.dec(_f$polarized),
       polarity: data.dec(_f$polarity),
+      archonCrystalUpgrades: data.dec(_f$archonCrystalUpgrades),
       focusLens: data.dec(_f$focusLens),
       custimizationSlotPurchases: data.dec(_f$custimizationSlotPurchases),
       pricool: data.dec(_f$pricool),
@@ -258,6 +269,12 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     RawPolarityCopyWith<$R, RawPolarity, RawPolarity>
   >?
   get polarity;
+  ListCopyWith<
+    $R,
+    RawArchonUpgrade,
+    RawArchonUpgradeCopyWith<$R, RawArchonUpgrade, RawArchonUpgrade>
+  >?
+  get archonCrystalUpgrades;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get infestationDate;
   $R call({
@@ -272,6 +289,7 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     int? xp,
     int? polarized,
     List<RawPolarity>? polarity,
+    List<RawArchonUpgrade>? archonCrystalUpgrades,
     String? focusLens,
     int? custimizationSlotPurchases,
     RawColorMap? pricool,
@@ -326,6 +344,19 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
         )
       : null;
   @override
+  ListCopyWith<
+    $R,
+    RawArchonUpgrade,
+    RawArchonUpgradeCopyWith<$R, RawArchonUpgrade, RawArchonUpgrade>
+  >?
+  get archonCrystalUpgrades => $value.archonCrystalUpgrades != null
+      ? ListCopyWith(
+          $value.archonCrystalUpgrades!,
+          (v, t) => v.copyWith.$chain(t),
+          (v) => call(archonCrystalUpgrades: v),
+        )
+      : null;
+  @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get infestationDate => $value.infestationDate != null
       ? MapCopyWith(
@@ -347,6 +378,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
     Object? xp = $none,
     Object? polarized = $none,
     Object? polarity = $none,
+    Object? archonCrystalUpgrades = $none,
     Object? focusLens = $none,
     Object? custimizationSlotPurchases = $none,
     Object? pricool = $none,
@@ -368,6 +400,8 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
       if (xp != $none) #xp: xp,
       if (polarized != $none) #polarized: polarized,
       if (polarity != $none) #polarity: polarity,
+      if (archonCrystalUpgrades != $none)
+        #archonCrystalUpgrades: archonCrystalUpgrades,
       if (focusLens != $none) #focusLens: focusLens,
       if (custimizationSlotPurchases != $none)
         #custimizationSlotPurchases: custimizationSlotPurchases,
@@ -395,6 +429,10 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
     xp: data.get(#xp, or: $value.xp),
     polarized: data.get(#polarized, or: $value.polarized),
     polarity: data.get(#polarity, or: $value.polarity),
+    archonCrystalUpgrades: data.get(
+      #archonCrystalUpgrades,
+      or: $value.archonCrystalUpgrades,
+    ),
     focusLens: data.get(#focusLens, or: $value.focusLens),
     custimizationSlotPurchases: data.get(
       #custimizationSlotPurchases,
@@ -423,6 +461,7 @@ class LoadoutItemMapper extends ClassMapperBase<LoadoutItem> {
       MapperContainer.globals.use(_instance = LoadoutItemMapper._());
       ItemConfigMapper.ensureInitialized();
       PolarityMapper.ensureInitialized();
+      ArchonUpgradeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -466,6 +505,10 @@ class LoadoutItemMapper extends ClassMapperBase<LoadoutItem> {
     'polarities',
     _$polarities,
   );
+  static List<ArchonUpgrade>? _$archonUpgrades(LoadoutItem v) =>
+      v.archonUpgrades;
+  static const Field<LoadoutItem, List<ArchonUpgrade>> _f$archonUpgrades =
+      Field('archonUpgrades', _$archonUpgrades);
   static String? _$focusLens(LoadoutItem v) => v.focusLens;
   static const Field<LoadoutItem, String> _f$focusLens = Field(
     'focusLens',
@@ -519,6 +562,7 @@ class LoadoutItemMapper extends ClassMapperBase<LoadoutItem> {
     #xp: _f$xp,
     #polarized: _f$polarized,
     #polarities: _f$polarities,
+    #archonUpgrades: _f$archonUpgrades,
     #focusLens: _f$focusLens,
     #customizationSlotPurchases: _f$customizationSlotPurchases,
     #primaryColor: _f$primaryColor,
@@ -542,6 +586,7 @@ class LoadoutItemMapper extends ClassMapperBase<LoadoutItem> {
       xp: data.dec(_f$xp),
       polarized: data.dec(_f$polarized),
       polarities: data.dec(_f$polarities),
+      archonUpgrades: data.dec(_f$archonUpgrades),
       focusLens: data.dec(_f$focusLens),
       customizationSlotPurchases: data.dec(_f$customizationSlotPurchases),
       primaryColor: data.dec(_f$primaryColor),
@@ -617,6 +662,12 @@ abstract class LoadoutItemCopyWith<$R, $In extends LoadoutItem, $Out>
   get configs;
   ListCopyWith<$R, Polarity, PolarityCopyWith<$R, Polarity, Polarity>>?
   get polarities;
+  ListCopyWith<
+    $R,
+    ArchonUpgrade,
+    ArchonUpgradeCopyWith<$R, ArchonUpgrade, ArchonUpgrade>
+  >?
+  get archonUpgrades;
   $R call({
     String? id,
     String? uniqueName,
@@ -627,6 +678,7 @@ abstract class LoadoutItemCopyWith<$R, $In extends LoadoutItem, $Out>
     int? xp,
     int? polarized,
     List<Polarity>? polarities,
+    List<ArchonUpgrade>? archonUpgrades,
     String? focusLens,
     int? customizationSlotPurchases,
     ColorMap? primaryColor,
@@ -664,6 +716,19 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
         )
       : null;
   @override
+  ListCopyWith<
+    $R,
+    ArchonUpgrade,
+    ArchonUpgradeCopyWith<$R, ArchonUpgrade, ArchonUpgrade>
+  >?
+  get archonUpgrades => $value.archonUpgrades != null
+      ? ListCopyWith(
+          $value.archonUpgrades!,
+          (v, t) => v.copyWith.$chain(t),
+          (v) => call(archonUpgrades: v),
+        )
+      : null;
+  @override
   $R call({
     String? id,
     String? uniqueName,
@@ -674,6 +739,7 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
     Object? xp = $none,
     Object? polarized = $none,
     Object? polarities = $none,
+    Object? archonUpgrades = $none,
     Object? focusLens = $none,
     int? customizationSlotPurchases,
     Object? primaryColor = $none,
@@ -693,6 +759,7 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
       if (xp != $none) #xp: xp,
       if (polarized != $none) #polarized: polarized,
       if (polarities != $none) #polarities: polarities,
+      if (archonUpgrades != $none) #archonUpgrades: archonUpgrades,
       if (focusLens != $none) #focusLens: focusLens,
       if (customizationSlotPurchases != null)
         #customizationSlotPurchases: customizationSlotPurchases,
@@ -715,6 +782,7 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
     xp: data.get(#xp, or: $value.xp),
     polarized: data.get(#polarized, or: $value.polarized),
     polarities: data.get(#polarities, or: $value.polarities),
+    archonUpgrades: data.get(#archonUpgrades, or: $value.archonUpgrades),
     focusLens: data.get(#focusLens, or: $value.focusLens),
     customizationSlotPurchases: data.get(
       #customizationSlotPurchases,

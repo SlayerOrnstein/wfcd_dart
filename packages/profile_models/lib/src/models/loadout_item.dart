@@ -1,4 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:profile_models/src/models/archon_upgrade.dart';
 import 'package:profile_models/src/models/color_map.dart';
 import 'package:profile_models/src/models/item_config.dart';
 import 'package:profile_models/src/models/polarity.dart';
@@ -20,6 +21,7 @@ class RawLoadoutItem with RawLoadoutItemMappable {
     required this.xp,
     required this.polarized,
     required this.polarity,
+    required this.archonCrystalUpgrades,
     required this.focusLens,
     required this.custimizationSlotPurchases,
     required this.pricool,
@@ -41,6 +43,7 @@ class RawLoadoutItem with RawLoadoutItemMappable {
   final int? xp;
   final int? polarized;
   final List<RawPolarity>? polarity;
+  final List<RawArchonUpgrade>? archonCrystalUpgrades;
   final String? focusLens;
   final int? custimizationSlotPurchases;
   final RawColorMap? pricool;
@@ -65,6 +68,7 @@ class LoadoutItem with LoadoutItemMappable {
     required this.xp,
     required this.polarized,
     required this.polarities,
+    required this.archonUpgrades,
     required this.focusLens,
     required this.customizationSlotPurchases,
     required this.primaryColor,
@@ -88,6 +92,7 @@ class LoadoutItem with LoadoutItemMappable {
       xp: raw.xp,
       polarized: raw.polarized,
       polarities: raw.polarity?.map((p) => p.toPolarity()).toList(),
+      archonUpgrades: raw.archonCrystalUpgrades?.map(ArchonUpgrade.fromRaw).toList(),
       focusLens: raw.focusLens,
       customizationSlotPurchases: raw.custimizationSlotPurchases ?? 0,
       primaryColor: raw.pricool?.toColorMap(),
@@ -108,6 +113,7 @@ class LoadoutItem with LoadoutItemMappable {
   final int? xp;
   final int? polarized;
   final List<Polarity>? polarities;
+  final List<ArchonUpgrade>? archonUpgrades;
   final String? focusLens;
   final int customizationSlotPurchases;
   final ColorMap? primaryColor;
