@@ -44,6 +44,8 @@ class RawProfile with RawProfileMappable {
     required this.alignment,
   });
 
+  static const fromJson = RawProfileMapper.fromJson;
+
   static const fromMap = RawProfileMapper.fromMap;
 
   final JsonObject accountId;
