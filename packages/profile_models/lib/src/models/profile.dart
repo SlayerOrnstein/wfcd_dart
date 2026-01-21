@@ -88,25 +88,42 @@ class RawProfile with RawProfileMappable {
 }
 
 @MappableRecord()
-typedef DailyStanding = ({
-  int daily,
-  int? conclave,
-  int? simaris,
-  int? ostron,
-  int? quills,
-  int? solaris,
-  int? ventKids,
-  int? voxSolaris,
-  int? entrati,
-  int? necraloid,
-  int? holdfasts,
-  int? kahl,
-  int? cavia,
-  int? hex,
-});
-
-@MappableRecord()
 typedef OperatorAlignment = ({num wisdom, num alignment});
+
+@MappableClass()
+class DailyStanding with DailyStandingMappable {
+  DailyStanding({
+    required this.daily,
+    this.conclave,
+    this.simaris,
+    this.ostron,
+    this.quills,
+    this.solaris,
+    this.ventKids,
+    this.voxSolaris,
+    this.entrati,
+    this.necraloid,
+    this.holdfasts,
+    this.kahl,
+    this.cavia,
+    this.hex,
+  });
+
+  final int daily;
+  final int? conclave;
+  final int? simaris;
+  final int? ostron;
+  final int? quills;
+  final int? solaris;
+  final int? ventKids;
+  final int? voxSolaris;
+  final int? entrati;
+  final int? necraloid;
+  final int? holdfasts;
+  final int? kahl;
+  final int? cavia;
+  final int? hex;
+}
 
 @MappableClass()
 class Profile with ProfileMappable {
@@ -140,7 +157,7 @@ class Profile with ProfileMappable {
       isHarvestable: raw.harvestable,
       isDeathSquadable: raw.deathSquadable,
       createdOn: parseDate(raw.created),
-      dailyStanding: (
+      dailyStanding: DailyStanding(
         daily: raw.dailyAffiliation,
         conclave: raw.dailyAffiliationPvp,
         simaris: raw.dailyAffiliationLibrary,

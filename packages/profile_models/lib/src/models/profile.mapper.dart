@@ -719,6 +719,287 @@ class _RawOperatorAlignmentCopyWithImpl<$R>
   ) => _RawOperatorAlignmentCopyWithImpl($value, $cast, t);
 }
 
+class DailyStandingMapper extends ClassMapperBase<DailyStanding> {
+  DailyStandingMapper._();
+
+  static DailyStandingMapper? _instance;
+  static DailyStandingMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = DailyStandingMapper._());
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'DailyStanding';
+
+  static int _$daily(DailyStanding v) => v.daily;
+  static const Field<DailyStanding, int> _f$daily = Field('daily', _$daily);
+  static int? _$conclave(DailyStanding v) => v.conclave;
+  static const Field<DailyStanding, int> _f$conclave = Field(
+    'conclave',
+    _$conclave,
+    opt: true,
+  );
+  static int? _$simaris(DailyStanding v) => v.simaris;
+  static const Field<DailyStanding, int> _f$simaris = Field(
+    'simaris',
+    _$simaris,
+    opt: true,
+  );
+  static int? _$ostron(DailyStanding v) => v.ostron;
+  static const Field<DailyStanding, int> _f$ostron = Field(
+    'ostron',
+    _$ostron,
+    opt: true,
+  );
+  static int? _$quills(DailyStanding v) => v.quills;
+  static const Field<DailyStanding, int> _f$quills = Field(
+    'quills',
+    _$quills,
+    opt: true,
+  );
+  static int? _$solaris(DailyStanding v) => v.solaris;
+  static const Field<DailyStanding, int> _f$solaris = Field(
+    'solaris',
+    _$solaris,
+    opt: true,
+  );
+  static int? _$ventKids(DailyStanding v) => v.ventKids;
+  static const Field<DailyStanding, int> _f$ventKids = Field(
+    'ventKids',
+    _$ventKids,
+    opt: true,
+  );
+  static int? _$voxSolaris(DailyStanding v) => v.voxSolaris;
+  static const Field<DailyStanding, int> _f$voxSolaris = Field(
+    'voxSolaris',
+    _$voxSolaris,
+    opt: true,
+  );
+  static int? _$entrati(DailyStanding v) => v.entrati;
+  static const Field<DailyStanding, int> _f$entrati = Field(
+    'entrati',
+    _$entrati,
+    opt: true,
+  );
+  static int? _$necraloid(DailyStanding v) => v.necraloid;
+  static const Field<DailyStanding, int> _f$necraloid = Field(
+    'necraloid',
+    _$necraloid,
+    opt: true,
+  );
+  static int? _$holdfasts(DailyStanding v) => v.holdfasts;
+  static const Field<DailyStanding, int> _f$holdfasts = Field(
+    'holdfasts',
+    _$holdfasts,
+    opt: true,
+  );
+  static int? _$kahl(DailyStanding v) => v.kahl;
+  static const Field<DailyStanding, int> _f$kahl = Field(
+    'kahl',
+    _$kahl,
+    opt: true,
+  );
+  static int? _$cavia(DailyStanding v) => v.cavia;
+  static const Field<DailyStanding, int> _f$cavia = Field(
+    'cavia',
+    _$cavia,
+    opt: true,
+  );
+  static int? _$hex(DailyStanding v) => v.hex;
+  static const Field<DailyStanding, int> _f$hex = Field(
+    'hex',
+    _$hex,
+    opt: true,
+  );
+
+  @override
+  final MappableFields<DailyStanding> fields = const {
+    #daily: _f$daily,
+    #conclave: _f$conclave,
+    #simaris: _f$simaris,
+    #ostron: _f$ostron,
+    #quills: _f$quills,
+    #solaris: _f$solaris,
+    #ventKids: _f$ventKids,
+    #voxSolaris: _f$voxSolaris,
+    #entrati: _f$entrati,
+    #necraloid: _f$necraloid,
+    #holdfasts: _f$holdfasts,
+    #kahl: _f$kahl,
+    #cavia: _f$cavia,
+    #hex: _f$hex,
+  };
+  @override
+  final bool ignoreNull = true;
+
+  static DailyStanding _instantiate(DecodingData data) {
+    return DailyStanding(
+      daily: data.dec(_f$daily),
+      conclave: data.dec(_f$conclave),
+      simaris: data.dec(_f$simaris),
+      ostron: data.dec(_f$ostron),
+      quills: data.dec(_f$quills),
+      solaris: data.dec(_f$solaris),
+      ventKids: data.dec(_f$ventKids),
+      voxSolaris: data.dec(_f$voxSolaris),
+      entrati: data.dec(_f$entrati),
+      necraloid: data.dec(_f$necraloid),
+      holdfasts: data.dec(_f$holdfasts),
+      kahl: data.dec(_f$kahl),
+      cavia: data.dec(_f$cavia),
+      hex: data.dec(_f$hex),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static DailyStanding fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<DailyStanding>(map);
+  }
+
+  static DailyStanding fromJson(String json) {
+    return ensureInitialized().decodeJson<DailyStanding>(json);
+  }
+}
+
+mixin DailyStandingMappable {
+  String toJson() {
+    return DailyStandingMapper.ensureInitialized().encodeJson<DailyStanding>(
+      this as DailyStanding,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return DailyStandingMapper.ensureInitialized().encodeMap<DailyStanding>(
+      this as DailyStanding,
+    );
+  }
+
+  DailyStandingCopyWith<DailyStanding, DailyStanding, DailyStanding>
+  get copyWith => _DailyStandingCopyWithImpl<DailyStanding, DailyStanding>(
+    this as DailyStanding,
+    $identity,
+    $identity,
+  );
+  @override
+  String toString() {
+    return DailyStandingMapper.ensureInitialized().stringifyValue(
+      this as DailyStanding,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return DailyStandingMapper.ensureInitialized().equalsValue(
+      this as DailyStanding,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return DailyStandingMapper.ensureInitialized().hashValue(
+      this as DailyStanding,
+    );
+  }
+}
+
+extension DailyStandingValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, DailyStanding, $Out> {
+  DailyStandingCopyWith<$R, DailyStanding, $Out> get $asDailyStanding =>
+      $base.as((v, t, t2) => _DailyStandingCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class DailyStandingCopyWith<$R, $In extends DailyStanding, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  $R call({
+    int? daily,
+    int? conclave,
+    int? simaris,
+    int? ostron,
+    int? quills,
+    int? solaris,
+    int? ventKids,
+    int? voxSolaris,
+    int? entrati,
+    int? necraloid,
+    int? holdfasts,
+    int? kahl,
+    int? cavia,
+    int? hex,
+  });
+  DailyStandingCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+}
+
+class _DailyStandingCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, DailyStanding, $Out>
+    implements DailyStandingCopyWith<$R, DailyStanding, $Out> {
+  _DailyStandingCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<DailyStanding> $mapper =
+      DailyStandingMapper.ensureInitialized();
+  @override
+  $R call({
+    int? daily,
+    Object? conclave = $none,
+    Object? simaris = $none,
+    Object? ostron = $none,
+    Object? quills = $none,
+    Object? solaris = $none,
+    Object? ventKids = $none,
+    Object? voxSolaris = $none,
+    Object? entrati = $none,
+    Object? necraloid = $none,
+    Object? holdfasts = $none,
+    Object? kahl = $none,
+    Object? cavia = $none,
+    Object? hex = $none,
+  }) => $apply(
+    FieldCopyWithData({
+      if (daily != null) #daily: daily,
+      if (conclave != $none) #conclave: conclave,
+      if (simaris != $none) #simaris: simaris,
+      if (ostron != $none) #ostron: ostron,
+      if (quills != $none) #quills: quills,
+      if (solaris != $none) #solaris: solaris,
+      if (ventKids != $none) #ventKids: ventKids,
+      if (voxSolaris != $none) #voxSolaris: voxSolaris,
+      if (entrati != $none) #entrati: entrati,
+      if (necraloid != $none) #necraloid: necraloid,
+      if (holdfasts != $none) #holdfasts: holdfasts,
+      if (kahl != $none) #kahl: kahl,
+      if (cavia != $none) #cavia: cavia,
+      if (hex != $none) #hex: hex,
+    }),
+  );
+  @override
+  DailyStanding $make(CopyWithData data) => DailyStanding(
+    daily: data.get(#daily, or: $value.daily),
+    conclave: data.get(#conclave, or: $value.conclave),
+    simaris: data.get(#simaris, or: $value.simaris),
+    ostron: data.get(#ostron, or: $value.ostron),
+    quills: data.get(#quills, or: $value.quills),
+    solaris: data.get(#solaris, or: $value.solaris),
+    ventKids: data.get(#ventKids, or: $value.ventKids),
+    voxSolaris: data.get(#voxSolaris, or: $value.voxSolaris),
+    entrati: data.get(#entrati, or: $value.entrati),
+    necraloid: data.get(#necraloid, or: $value.necraloid),
+    holdfasts: data.get(#holdfasts, or: $value.holdfasts),
+    kahl: data.get(#kahl, or: $value.kahl),
+    cavia: data.get(#cavia, or: $value.cavia),
+    hex: data.get(#hex, or: $value.hex),
+  );
+
+  @override
+  DailyStandingCopyWith<$R2, DailyStanding, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _DailyStandingCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
 class ProfileMapper extends ClassMapperBase<Profile> {
   ProfileMapper._();
 
@@ -915,6 +1196,7 @@ abstract class ProfileCopyWith<$R, $In extends Profile, $Out>
   LoadoutPresetCopyWith<$R, LoadoutPreset, LoadoutPreset>? get preset;
   LoadoutCopyWith<$R, Loadout, Loadout> get loadout;
   IntrinsicsCopyWith<$R, Intrinsics, Intrinsics> get intrinsics;
+  DailyStandingCopyWith<$R, DailyStanding, DailyStanding> get dailyStanding;
   $R call({
     String? id,
     String? username,
@@ -959,6 +1241,9 @@ class _ProfileCopyWithImpl<$R, $Out>
   @override
   IntrinsicsCopyWith<$R, Intrinsics, Intrinsics> get intrinsics =>
       $value.intrinsics.copyWith.$chain((v) => call(intrinsics: v));
+  @override
+  DailyStandingCopyWith<$R, DailyStanding, DailyStanding> get dailyStanding =>
+      $value.dailyStanding.copyWith.$chain((v) => call(dailyStanding: v));
   @override
   $R call({
     String? id,
@@ -1023,254 +1308,6 @@ class _ProfileCopyWithImpl<$R, $Out>
   @override
   ProfileCopyWith<$R2, Profile, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>
       _ProfileCopyWithImpl<$R2, $Out2>($value, $cast, t);
-}
-
-class DailyStandingMapper extends RecordMapperBase<DailyStanding> {
-  static DailyStandingMapper? _instance;
-  DailyStandingMapper._();
-
-  static DailyStandingMapper ensureInitialized() {
-    if (_instance == null) {
-      MapperContainer.globals.use(_instance = DailyStandingMapper._());
-      MapperBase.addType(
-        <A, B, C, D, E, F, G, H, I, J, K, L, M, N>(f) =>
-            f<
-              ({
-                A cavia,
-                B conclave,
-                C daily,
-                D entrati,
-                E hex,
-                F holdfasts,
-                G kahl,
-                H necraloid,
-                I ostron,
-                J quills,
-                K simaris,
-                L solaris,
-                M ventKids,
-                N voxSolaris,
-              })
-            >(),
-      );
-    }
-    return _instance!;
-  }
-
-  static int _$daily(DailyStanding v) => v.daily;
-  static const Field<DailyStanding, int> _f$daily = Field('daily', _$daily);
-  static int? _$conclave(DailyStanding v) => v.conclave;
-  static const Field<DailyStanding, int> _f$conclave = Field(
-    'conclave',
-    _$conclave,
-  );
-  static int? _$simaris(DailyStanding v) => v.simaris;
-  static const Field<DailyStanding, int> _f$simaris = Field(
-    'simaris',
-    _$simaris,
-  );
-  static int? _$ostron(DailyStanding v) => v.ostron;
-  static const Field<DailyStanding, int> _f$ostron = Field('ostron', _$ostron);
-  static int? _$quills(DailyStanding v) => v.quills;
-  static const Field<DailyStanding, int> _f$quills = Field('quills', _$quills);
-  static int? _$solaris(DailyStanding v) => v.solaris;
-  static const Field<DailyStanding, int> _f$solaris = Field(
-    'solaris',
-    _$solaris,
-  );
-  static int? _$ventKids(DailyStanding v) => v.ventKids;
-  static const Field<DailyStanding, int> _f$ventKids = Field(
-    'ventKids',
-    _$ventKids,
-  );
-  static int? _$voxSolaris(DailyStanding v) => v.voxSolaris;
-  static const Field<DailyStanding, int> _f$voxSolaris = Field(
-    'voxSolaris',
-    _$voxSolaris,
-  );
-  static int? _$entrati(DailyStanding v) => v.entrati;
-  static const Field<DailyStanding, int> _f$entrati = Field(
-    'entrati',
-    _$entrati,
-  );
-  static int? _$necraloid(DailyStanding v) => v.necraloid;
-  static const Field<DailyStanding, int> _f$necraloid = Field(
-    'necraloid',
-    _$necraloid,
-  );
-  static int? _$holdfasts(DailyStanding v) => v.holdfasts;
-  static const Field<DailyStanding, int> _f$holdfasts = Field(
-    'holdfasts',
-    _$holdfasts,
-  );
-  static int? _$kahl(DailyStanding v) => v.kahl;
-  static const Field<DailyStanding, int> _f$kahl = Field('kahl', _$kahl);
-  static int? _$cavia(DailyStanding v) => v.cavia;
-  static const Field<DailyStanding, int> _f$cavia = Field('cavia', _$cavia);
-  static int? _$hex(DailyStanding v) => v.hex;
-  static const Field<DailyStanding, int> _f$hex = Field('hex', _$hex);
-
-  @override
-  final MappableFields<DailyStanding> fields = const {
-    #daily: _f$daily,
-    #conclave: _f$conclave,
-    #simaris: _f$simaris,
-    #ostron: _f$ostron,
-    #quills: _f$quills,
-    #solaris: _f$solaris,
-    #ventKids: _f$ventKids,
-    #voxSolaris: _f$voxSolaris,
-    #entrati: _f$entrati,
-    #necraloid: _f$necraloid,
-    #holdfasts: _f$holdfasts,
-    #kahl: _f$kahl,
-    #cavia: _f$cavia,
-    #hex: _f$hex,
-  };
-
-  @override
-  Function get typeFactory =>
-      (f) => f<DailyStanding>();
-
-  @override
-  List<Type> apply(MappingContext context) {
-    return [];
-  }
-
-  static DailyStanding _instantiate(DecodingData<DailyStanding> data) {
-    return (
-      daily: data.dec(_f$daily),
-      conclave: data.dec(_f$conclave),
-      simaris: data.dec(_f$simaris),
-      ostron: data.dec(_f$ostron),
-      quills: data.dec(_f$quills),
-      solaris: data.dec(_f$solaris),
-      ventKids: data.dec(_f$ventKids),
-      voxSolaris: data.dec(_f$voxSolaris),
-      entrati: data.dec(_f$entrati),
-      necraloid: data.dec(_f$necraloid),
-      holdfasts: data.dec(_f$holdfasts),
-      kahl: data.dec(_f$kahl),
-      cavia: data.dec(_f$cavia),
-      hex: data.dec(_f$hex),
-    );
-  }
-
-  @override
-  final Function instantiate = _instantiate;
-
-  static DailyStanding fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<DailyStanding>(map);
-  }
-
-  static DailyStanding fromJson(String json) {
-    return ensureInitialized().decodeJson<DailyStanding>(json);
-  }
-}
-
-extension DailyStandingMappable on DailyStanding {
-  Map<String, dynamic> toMap() {
-    return DailyStandingMapper.ensureInitialized().encodeMap(this);
-  }
-
-  String toJson() {
-    return DailyStandingMapper.ensureInitialized().encodeJson(this);
-  }
-
-  DailyStandingCopyWith<DailyStanding> get copyWith =>
-      _DailyStandingCopyWithImpl(this, $identity, $identity);
-}
-
-extension DailyStandingValueCopy<$R>
-    on ObjectCopyWith<$R, DailyStanding, DailyStanding> {
-  DailyStandingCopyWith<$R> get $asDailyStanding =>
-      $base.as((v, t, t2) => _DailyStandingCopyWithImpl(v, t, t2));
-}
-
-abstract class DailyStandingCopyWith<$R>
-    implements RecordCopyWith<$R, DailyStanding> {
-  $R call({
-    int? daily,
-    int? conclave,
-    int? simaris,
-    int? ostron,
-    int? quills,
-    int? solaris,
-    int? ventKids,
-    int? voxSolaris,
-    int? entrati,
-    int? necraloid,
-    int? holdfasts,
-    int? kahl,
-    int? cavia,
-    int? hex,
-  });
-  DailyStandingCopyWith<$R2> $chain<$R2>(Then<DailyStanding, $R2> t);
-}
-
-class _DailyStandingCopyWithImpl<$R>
-    extends RecordCopyWithBase<$R, DailyStanding>
-    implements DailyStandingCopyWith<$R> {
-  _DailyStandingCopyWithImpl(super.value, super.then, super.then2);
-
-  @override
-  late final RecordMapperBase<DailyStanding> $mapper =
-      DailyStandingMapper.ensureInitialized();
-  @override
-  $R call({
-    int? daily,
-    Object? conclave = $none,
-    Object? simaris = $none,
-    Object? ostron = $none,
-    Object? quills = $none,
-    Object? solaris = $none,
-    Object? ventKids = $none,
-    Object? voxSolaris = $none,
-    Object? entrati = $none,
-    Object? necraloid = $none,
-    Object? holdfasts = $none,
-    Object? kahl = $none,
-    Object? cavia = $none,
-    Object? hex = $none,
-  }) => $apply(
-    FieldCopyWithData({
-      if (daily != null) #daily: daily,
-      if (conclave != $none) #conclave: conclave,
-      if (simaris != $none) #simaris: simaris,
-      if (ostron != $none) #ostron: ostron,
-      if (quills != $none) #quills: quills,
-      if (solaris != $none) #solaris: solaris,
-      if (ventKids != $none) #ventKids: ventKids,
-      if (voxSolaris != $none) #voxSolaris: voxSolaris,
-      if (entrati != $none) #entrati: entrati,
-      if (necraloid != $none) #necraloid: necraloid,
-      if (holdfasts != $none) #holdfasts: holdfasts,
-      if (kahl != $none) #kahl: kahl,
-      if (cavia != $none) #cavia: cavia,
-      if (hex != $none) #hex: hex,
-    }),
-  );
-  @override
-  DailyStanding $make(CopyWithData data) => (
-    daily: data.get(#daily, or: $value.daily),
-    conclave: data.get(#conclave, or: $value.conclave),
-    simaris: data.get(#simaris, or: $value.simaris),
-    ostron: data.get(#ostron, or: $value.ostron),
-    quills: data.get(#quills, or: $value.quills),
-    solaris: data.get(#solaris, or: $value.solaris),
-    ventKids: data.get(#ventKids, or: $value.ventKids),
-    voxSolaris: data.get(#voxSolaris, or: $value.voxSolaris),
-    entrati: data.get(#entrati, or: $value.entrati),
-    necraloid: data.get(#necraloid, or: $value.necraloid),
-    holdfasts: data.get(#holdfasts, or: $value.holdfasts),
-    kahl: data.get(#kahl, or: $value.kahl),
-    cavia: data.get(#cavia, or: $value.cavia),
-    hex: data.get(#hex, or: $value.hex),
-  );
-
-  @override
-  DailyStandingCopyWith<$R2> $chain<$R2>(Then<DailyStanding, $R2> t) =>
-      _DailyStandingCopyWithImpl($value, $cast, t);
 }
 
 class OperatorAlignmentMapper extends RecordMapperBase<OperatorAlignment> {
