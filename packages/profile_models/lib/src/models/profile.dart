@@ -159,6 +159,10 @@ class Profile with ProfileMappable {
     );
   }
 
+  static const fromJson = ProfileMapper.fromJson;
+
+  static const fromMap = ProfileMapper.fromMap;
+
   final String id;
   final String username;
   final List<String> platformUsernames;
