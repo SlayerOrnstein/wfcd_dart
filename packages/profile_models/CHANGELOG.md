@@ -1,3 +1,7 @@
+## 0.1.2+1
+
+ - **FIX**: expose `fromJson` and `fromMap` in `Profile`. ([6e182e95](https://github.com/SlayerOrnstein/wfcd_dart/commit/6e182e952fd2049eb46ca61b063a0b0f489641c6))
+
 ## 0.1.2
 
  - **FEAT**(profile_models): add archon shard upgrade to warframe loadouts. ([74387b88](https://github.com/SlayerOrnstein/wfcd_dart/commit/74387b885bbd2e9ab7513f01491a1a68d97e0365))

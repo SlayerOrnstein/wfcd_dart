@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+1`](#profile_models---v0121)
+
+---
+
+#### `profile_models` - `v0.1.2+1`
+
+ - **FIX**: expose `fromJson` and `fromMap` in `Profile`. ([6e182e95](https://github.com/SlayerOrnstein/wfcd_dart/commit/6e182e952fd2049eb46ca61b063a0b0f489641c6))
+
+
+## 2026-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2`](#profile_models---v012)
  - [`warframe_items` - `v0.1.1`](#warframe_items---v011)
 
