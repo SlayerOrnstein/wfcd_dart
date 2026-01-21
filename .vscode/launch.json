@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "wfcd_dart",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "profile_models",
+            "cwd": "packages\\profile_models",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "warframe_drop_data",
+            "cwd": "packages\\warframe_drop_data",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "warframe_items",
+            "cwd": "packages\\warframe_items",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "warframe_worldstate_data",
+            "cwd": "packages\\warframe_worldstate_data",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "worldstate_models",
+            "cwd": "packages\\worldstate_models",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "worldstate_status",
+            "cwd": "packages\\worldstate_status",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
