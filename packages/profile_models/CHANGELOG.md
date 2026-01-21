@@ -1,3 +1,7 @@
+## 0.1.2+2
+
+ - **FIX**(profile_models): exposed `fromJson` in `RawProfile`. ([2ca574d5](https://github.com/SlayerOrnstein/wfcd_dart/commit/2ca574d5749bcd907bd55b3b05a9475bdeff8981))
+
 ## 0.1.2+1
 
  - **FIX**: expose `fromJson` and `fromMap` in `Profile`. ([6e182e95](https://github.com/SlayerOrnstein/wfcd_dart/commit/6e182e952fd2049eb46ca61b063a0b0f489641c6))

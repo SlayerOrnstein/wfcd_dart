@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+2`](#profile_models---v0122)
+
+---
+
+#### `profile_models` - `v0.1.2+2`
+
+ - **FIX**(profile_models): exposed `fromJson` in `RawProfile`. ([2ca574d5](https://github.com/SlayerOrnstein/wfcd_dart/commit/2ca574d5749bcd907bd55b3b05a9475bdeff8981))
+
+
+## 2026-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+1`](#profile_models---v0121)
 
 ---
