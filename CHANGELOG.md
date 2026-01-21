@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+3`](#profile_models---v0123)
+
+---
+
+#### `profile_models` - `v0.1.2+3`
+
+ - **FIX**: `DailyStanding` is now a class instead of a Record. ([508c92db](https://github.com/SlayerOrnstein/wfcd_dart/commit/508c92db88736eab2a6ac3b431b47a425f6df6d6))
+
+
+## 2026-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+2`](#profile_models---v0122)
 
 ---

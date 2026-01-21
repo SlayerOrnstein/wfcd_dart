@@ -1,3 +1,7 @@
+## 0.1.2+3
+
+ - **FIX**: `DailyStanding` is now a class instead of a Record. ([508c92db](https://github.com/SlayerOrnstein/wfcd_dart/commit/508c92db88736eab2a6ac3b431b47a425f6df6d6))
+
 ## 0.1.2+2
 
  - **FIX**(profile_models): exposed `fromJson` in `RawProfile`. ([2ca574d5](https://github.com/SlayerOrnstein/wfcd_dart/commit/2ca574d5749bcd907bd55b3b05a9475bdeff8981))
