@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2`](#profile_models---v012)
+ - [`warframe_items` - `v0.1.1`](#warframe_items---v011)
+
+---
+
+#### `profile_models` - `v0.1.2`
+
+ - **FEAT**(profile_models): add archon shard upgrade to warframe loadouts. ([74387b88](https://github.com/SlayerOrnstein/wfcd_dart/commit/74387b885bbd2e9ab7513f01491a1a68d97e0365))
+
+#### `warframe_items` - `v0.1.1`
+
+ - **FEAT**(warframe_items): complete rewrite from previous code with bare minimun processing. ([edcf74d0](https://github.com/SlayerOrnstein/wfcd_dart/commit/edcf74d0ffa03e15aa499632e42268cae391b5e2))
+
+
 ## 2025-12-16
 
 ### Changes

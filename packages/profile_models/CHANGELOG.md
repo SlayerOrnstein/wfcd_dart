@@ -1,3 +1,7 @@
+## 0.1.2
+
+ - **FEAT**(profile_models): add archon shard upgrade to warframe loadouts. ([74387b88](https://github.com/SlayerOrnstein/wfcd_dart/commit/74387b885bbd2e9ab7513f01491a1a68d97e0365))
+
 ## 0.1.1+10
 
  - Update a dependency to the latest release.
