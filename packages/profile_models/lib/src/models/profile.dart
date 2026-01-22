@@ -7,7 +7,7 @@ import 'package:profile_models/src/utils/utils.dart';
 part 'profile.mapper.dart';
 
 @MappableRecord(caseStyle: CaseStyle.pascalCase)
-typedef RawOperatorAlignment = ({num wisdom, num alignment});
+typedef RawOperatorAlignment = ({double wisdom, double alignment});
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawProfile with RawProfileMappable {
@@ -88,7 +88,7 @@ class RawProfile with RawProfileMappable {
 }
 
 @MappableRecord()
-typedef OperatorAlignment = ({num wisdom, num alignment});
+typedef OperatorAlignment = ({double wisdom, double alignment});
 
 @MappableClass()
 class DailyStanding with DailyStandingMappable {

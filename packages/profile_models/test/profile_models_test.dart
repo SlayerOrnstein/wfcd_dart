@@ -17,5 +17,10 @@ void main() {
     test('can be sanitised', () {
       expect(RawProfile.fromMap(profile).toProfile(), isNotNull);
     });
+
+    test('can be converted to and from map', () {
+      final data = RawProfile.fromMap(profile).toProfile().toMap();
+      expect(Profile.fromMap(data), isNotNull);
+    });
   });
 }

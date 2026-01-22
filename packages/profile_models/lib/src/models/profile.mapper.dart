@@ -619,14 +619,14 @@ class RawOperatorAlignmentMapper
     return _instance!;
   }
 
-  static num _$wisdom(RawOperatorAlignment v) => v.wisdom;
-  static const Field<RawOperatorAlignment, num> _f$wisdom = Field(
+  static double _$wisdom(RawOperatorAlignment v) => v.wisdom;
+  static const Field<RawOperatorAlignment, double> _f$wisdom = Field(
     'wisdom',
     _$wisdom,
     key: r'Wisdom',
   );
-  static num _$alignment(RawOperatorAlignment v) => v.alignment;
-  static const Field<RawOperatorAlignment, num> _f$alignment = Field(
+  static double _$alignment(RawOperatorAlignment v) => v.alignment;
+  static const Field<RawOperatorAlignment, double> _f$alignment = Field(
     'alignment',
     _$alignment,
     key: r'Alignment',
@@ -686,7 +686,7 @@ extension RawOperatorAlignmentValueCopy<$R>
 
 abstract class RawOperatorAlignmentCopyWith<$R>
     implements RecordCopyWith<$R, RawOperatorAlignment> {
-  $R call({num? wisdom, num? alignment});
+  $R call({double? wisdom, double? alignment});
   RawOperatorAlignmentCopyWith<$R2> $chain<$R2>(
     Then<RawOperatorAlignment, $R2> t,
   );
@@ -701,7 +701,7 @@ class _RawOperatorAlignmentCopyWithImpl<$R>
   late final RecordMapperBase<RawOperatorAlignment> $mapper =
       RawOperatorAlignmentMapper.ensureInitialized();
   @override
-  $R call({num? wisdom, num? alignment}) => $apply(
+  $R call({double? wisdom, double? alignment}) => $apply(
     FieldCopyWithData({
       if (wisdom != null) #wisdom: wisdom,
       if (alignment != null) #alignment: alignment,
@@ -1322,13 +1322,13 @@ class OperatorAlignmentMapper extends RecordMapperBase<OperatorAlignment> {
     return _instance!;
   }
 
-  static num _$wisdom(OperatorAlignment v) => v.wisdom;
-  static const Field<OperatorAlignment, num> _f$wisdom = Field(
+  static double _$wisdom(OperatorAlignment v) => v.wisdom;
+  static const Field<OperatorAlignment, double> _f$wisdom = Field(
     'wisdom',
     _$wisdom,
   );
-  static num _$alignment(OperatorAlignment v) => v.alignment;
-  static const Field<OperatorAlignment, num> _f$alignment = Field(
+  static double _$alignment(OperatorAlignment v) => v.alignment;
+  static const Field<OperatorAlignment, double> _f$alignment = Field(
     'alignment',
     _$alignment,
   );
@@ -1385,7 +1385,7 @@ extension OperatorAlignmentValueCopy<$R>
 
 abstract class OperatorAlignmentCopyWith<$R>
     implements RecordCopyWith<$R, OperatorAlignment> {
-  $R call({num? wisdom, num? alignment});
+  $R call({double? wisdom, double? alignment});
   OperatorAlignmentCopyWith<$R2> $chain<$R2>(Then<OperatorAlignment, $R2> t);
 }
 
@@ -1398,7 +1398,7 @@ class _OperatorAlignmentCopyWithImpl<$R>
   late final RecordMapperBase<OperatorAlignment> $mapper =
       OperatorAlignmentMapper.ensureInitialized();
   @override
-  $R call({num? wisdom, num? alignment}) => $apply(
+  $R call({double? wisdom, double? alignment}) => $apply(
     FieldCopyWithData({
       if (wisdom != null) #wisdom: wisdom,
       if (alignment != null) #alignment: alignment,
