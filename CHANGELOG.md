@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+4`](#profile_models---v0124)
+
+---
+
+#### `profile_models` - `v0.1.2+4`
+
+ - **FIX**(profile_models): cast `OperatorAlignment` to double. ([281033dc](https://github.com/SlayerOrnstein/wfcd_dart/commit/281033dc0fa2e2f0fc2c400f171238a8bb17bab8))
+
+
+## 2026-01-21
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+3`](#profile_models---v0123)
 
 ---

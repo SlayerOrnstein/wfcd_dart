@@ -1,3 +1,7 @@
+## 0.1.2+4
+
+ - **FIX**(profile_models): cast `OperatorAlignment` to double. ([281033dc](https://github.com/SlayerOrnstein/wfcd_dart/commit/281033dc0fa2e2f0fc2c400f171238a8bb17bab8))
+
 ## 0.1.2+3
 
  - **FIX**: `DailyStanding` is now a class instead of a Record. ([508c92db](https://github.com/SlayerOrnstein/wfcd_dart/commit/508c92db88736eab2a6ac3b431b47a425f6df6d6))
