@@ -1,3 +1,7 @@
+## 0.1.5+6
+
+ - Update a dependency to the latest release.
+
 ## 0.1.5+5
 
  - **FIX**(profile_models): `platformNames` can be null when players don't have cross save enabled. ([91c1efc3](https://github.com/SlayerOrnstein/wfcd_dart/commit/91c1efc309b7a1b6d3593f290641ebc145dd1f4b))
