@@ -1,3 +1,7 @@
+## 0.1.2+5
+
+ - **FIX**(profile_models): `platformNames` can be null when players don't have cross save enabled. ([91c1efc3](https://github.com/SlayerOrnstein/wfcd_dart/commit/91c1efc309b7a1b6d3593f290641ebc145dd1f4b))
+
 ## 0.1.2+4
 
  - **FIX**(profile_models): cast `OperatorAlignment` to double. ([281033dc](https://github.com/SlayerOrnstein/wfcd_dart/commit/281033dc0fa2e2f0fc2c400f171238a8bb17bab8))

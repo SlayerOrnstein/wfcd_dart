@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-01-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2+5`](#profile_models---v0125)
+ - [`worldstate_models` - `v0.1.5+5`](#worldstate_models---v0155)
+ - [`worldstate_status` - `v1.0.24`](#worldstate_status---v1024)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.24`
+
+---
+
+#### `profile_models` - `v0.1.2+5`
+
+ - **FIX**(profile_models): `platformNames` can be null when players don't have cross save enabled. ([91c1efc3](https://github.com/SlayerOrnstein/wfcd_dart/commit/91c1efc309b7a1b6d3593f290641ebc145dd1f4b))
+
+#### `worldstate_models` - `v0.1.5+5`
+
+ - **FIX**(profile_models): `platformNames` can be null when players don't have cross save enabled. ([91c1efc3](https://github.com/SlayerOrnstein/wfcd_dart/commit/91c1efc309b7a1b6d3593f290641ebc145dd1f4b))
+
+
 ## 2026-01-21
 
 ### Changes

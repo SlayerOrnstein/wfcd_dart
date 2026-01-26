@@ -1,6 +1,6 @@
 name: worldstate_status
 description: A new Dart Frog application
-version: 1.0.23
+version: 1.0.24
 publish_to: none
 
 environment:
@@ -25,7 +25,7 @@ dependencies:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
       path: packages/worldstate_models
-      ref: worldstate_models-v0.1.5+4
+      ref: worldstate_models-v0.1.5+5
 
 dev_dependencies:
   dart_frog_lint: ^0.1.0
