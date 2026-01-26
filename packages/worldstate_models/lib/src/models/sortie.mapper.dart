@@ -710,7 +710,7 @@ class _VariantCopyWithImpl<$R, $Out>
       _VariantCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
-typedef _t$_R0<A, B> = ({A description, B type});
+typedef _t$_R0<A, B> = ({A description, B title});
 
 class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
   static _t$_R0Mapper? _instance;
@@ -719,7 +719,7 @@ class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
   static _t$_R0Mapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = _t$_R0Mapper._());
-      MapperBase.addType(<A, B>(f) => f<({A description, B type})>());
+      MapperBase.addType(<A, B>(f) => f<({A description, B title})>());
     }
     return _instance!;
   }
@@ -731,18 +731,18 @@ class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
     _$description,
     arg: _arg$description,
   );
-  static dynamic _$type(_t$_R0 v) => v.type;
-  static dynamic _arg$type<A, B>(f) => f<B>();
-  static const Field<_t$_R0, dynamic> _f$type = Field(
-    'type',
-    _$type,
-    arg: _arg$type,
+  static dynamic _$title(_t$_R0 v) => v.title;
+  static dynamic _arg$title<A, B>(f) => f<B>();
+  static const Field<_t$_R0, dynamic> _f$title = Field(
+    'title',
+    _$title,
+    arg: _arg$title,
   );
 
   @override
   final MappableFields<_t$_R0> fields = const {
     #description: _f$description,
-    #type: _f$type,
+    #title: _f$title,
   };
 
   @override
@@ -750,7 +750,7 @@ class _t$_R0Mapper extends RecordMapperBase<_t$_R0> {
       <A, B>(f) => f<_t$_R0<A, B>>();
 
   static _t$_R0<A, B> _instantiate<A, B>(DecodingData<_t$_R0> data) {
-    return (description: data.dec(_f$description), type: data.dec(_f$type));
+    return (description: data.dec(_f$description), title: data.dec(_f$title));
   }
 
   @override

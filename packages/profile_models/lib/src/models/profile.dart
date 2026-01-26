@@ -50,7 +50,7 @@ class RawProfile with RawProfileMappable {
 
   final JsonObject accountId;
   final String displayName;
-  final List<String> platformNames;
+  final List<String>? platformNames;
   final int playerLevel;
 
   @MappableField(key: 'LoadOutPreset')
@@ -149,7 +149,7 @@ class Profile with ProfileMappable {
     return Profile(
       id: parseId(raw.accountId),
       username: raw.displayName,
-      platformUsernames: raw.platformNames,
+      platformUsernames: raw.platformNames ?? <String>[],
       masteryRank: raw.playerLevel,
       preset: raw.loadoutPreset.toLoadoutPreset(),
       loadout: raw.loadoutInventory.toLoadout(),

@@ -37,7 +37,7 @@ class RawProfileMapper extends ClassMapperBase<RawProfile> {
     _$displayName,
     key: r'DisplayName',
   );
-  static List<String> _$platformNames(RawProfile v) => v.platformNames;
+  static List<String>? _$platformNames(RawProfile v) => v.platformNames;
   static const Field<RawProfile, List<String>> _f$platformNames = Field(
     'platformNames',
     _$platformNames,
@@ -346,7 +346,7 @@ abstract class RawProfileCopyWith<$R, $In extends RawProfile, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get accountId;
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
   get platformNames;
   RawLoadoutPresetCopyWith<$R, RawLoadoutPreset, RawLoadoutPreset>
   get loadoutPreset;
@@ -408,12 +408,14 @@ class _RawProfileCopyWithImpl<$R, $Out>
     (v) => call(accountId: v),
   );
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>
-  get platformNames => ListCopyWith(
-    $value.platformNames,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(platformNames: v),
-  );
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
+  get platformNames => $value.platformNames != null
+      ? ListCopyWith(
+          $value.platformNames!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(platformNames: v),
+        )
+      : null;
   @override
   RawLoadoutPresetCopyWith<$R, RawLoadoutPreset, RawLoadoutPreset>
   get loadoutPreset =>
@@ -449,7 +451,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
   $R call({
     Map<String, dynamic>? accountId,
     String? displayName,
-    List<String>? platformNames,
+    Object? platformNames = $none,
     int? playerLevel,
     RawLoadoutPreset? loadoutPreset,
     RawLoadout? loadoutInventory,
@@ -481,7 +483,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
     FieldCopyWithData({
       if (accountId != null) #accountId: accountId,
       if (displayName != null) #displayName: displayName,
-      if (platformNames != null) #platformNames: platformNames,
+      if (platformNames != $none) #platformNames: platformNames,
       if (playerLevel != null) #playerLevel: playerLevel,
       if (loadoutPreset != null) #loadoutPreset: loadoutPreset,
       if (loadoutInventory != null) #loadoutInventory: loadoutInventory,
