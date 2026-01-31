@@ -1,3 +1,7 @@
+## 0.1.2+8
+
+ - **FIX**(profile_models): improved parsing for archon crystals. ([b5d26e61](https://github.com/SlayerOrnstein/wfcd_dart/commit/b5d26e613673a896c979d47710e017a655b3e673))
+
 ## 0.1.2+7
 
  - Update a dependency to the latest release.

@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+8`](#profile_models---v0128)
+
+---
+
+#### `profile_models` - `v0.1.2+8`
+
+ - **FIX**(profile_models): improved parsing for archon crystals. ([b5d26e61](https://github.com/SlayerOrnstein/wfcd_dart/commit/b5d26e613673a896c979d47710e017a655b3e673))
+
+
+## 2026-01-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.3+4`](#warframe_worldstate_data---v0134)
  - [`profile_models` - `v0.1.2+7`](#profile_models---v0127)
  - [`warframe_items` - `v0.1.1+2`](#warframe_items---v0112)
