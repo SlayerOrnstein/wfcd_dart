@@ -40,7 +40,7 @@ class RawLoadoutPreset with RawLoadoutPresetMappable {
   @MappableField(key: 'Favorite')
   final bool favorite;
 
-  final String n;
+  final String? n;
   final RawSlotPreset s;
   final RawSlotPreset? l;
   final RawSlotPreset? p;
@@ -108,7 +108,7 @@ class LoadoutPreset with LoadoutPresetMappable {
   final String? focusSchool;
   final String icon;
   final bool isFavorite;
-  final String name;
+  final String? name;
   final SlotPreset warframe;
   final SlotPreset? primary;
   final SlotPreset? secondary;

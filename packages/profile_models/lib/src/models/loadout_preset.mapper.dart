@@ -198,7 +198,7 @@ class RawLoadoutPresetMapper extends ClassMapperBase<RawLoadoutPreset> {
     _$favorite,
     key: r'Favorite',
   );
-  static String _$n(RawLoadoutPreset v) => v.n;
+  static String? _$n(RawLoadoutPreset v) => v.n;
   static const Field<RawLoadoutPreset, String> _f$n = Field('n', _$n);
   static RawSlotPreset _$s(RawLoadoutPreset v) => v.s;
   static const Field<RawLoadoutPreset, RawSlotPreset> _f$s = Field('s', _$s);
@@ -369,7 +369,7 @@ class _RawLoadoutPresetCopyWithImpl<$R, $Out>
     Object? focusSchool = $none,
     String? presetIcon,
     bool? favorite,
-    String? n,
+    Object? n = $none,
     RawSlotPreset? s,
     Object? l = $none,
     Object? p = $none,
@@ -382,7 +382,7 @@ class _RawLoadoutPresetCopyWithImpl<$R, $Out>
       if (focusSchool != $none) #focusSchool: focusSchool,
       if (presetIcon != null) #presetIcon: presetIcon,
       if (favorite != null) #favorite: favorite,
-      if (n != null) #n: n,
+      if (n != $none) #n: n,
       if (s != null) #s: s,
       if (l != $none) #l: l,
       if (p != $none) #p: p,
@@ -593,7 +593,7 @@ class LoadoutPresetMapper extends ClassMapperBase<LoadoutPreset> {
   );
   static String _$icon(LoadoutPreset v) => v.icon;
   static const Field<LoadoutPreset, String> _f$icon = Field('icon', _$icon);
-  static String _$name(LoadoutPreset v) => v.name;
+  static String? _$name(LoadoutPreset v) => v.name;
   static const Field<LoadoutPreset, String> _f$name = Field('name', _$name);
   static SlotPreset _$warframe(LoadoutPreset v) => v.warframe;
   static const Field<LoadoutPreset, SlotPreset> _f$warframe = Field(
@@ -789,7 +789,7 @@ class _LoadoutPresetCopyWithImpl<$R, $Out>
   $R call({
     Object? focusSchool = $none,
     String? icon,
-    String? name,
+    Object? name = $none,
     SlotPreset? warframe,
     Object? primary = $none,
     Object? secondary = $none,
@@ -802,7 +802,7 @@ class _LoadoutPresetCopyWithImpl<$R, $Out>
     FieldCopyWithData({
       if (focusSchool != $none) #focusSchool: focusSchool,
       if (icon != null) #icon: icon,
-      if (name != null) #name: name,
+      if (name != $none) #name: name,
       if (warframe != null) #warframe: warframe,
       if (primary != $none) #primary: primary,
       if (secondary != $none) #secondary: secondary,
