@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-01-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2+10`](#profile_models---v01210)
+
+---
+
+#### `profile_models` - `v0.1.2+10`
+
+ - **FIX**(profile_models): presets with no name have nullable `n`. ([02e9a474](https://github.com/SlayerOrnstein/wfcd_dart/commit/02e9a4747c46797fc6297de7d61dc7da6fa732ff))
+
+
 ## 2026-01-30
 
 ### Changes

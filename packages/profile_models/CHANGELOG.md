@@ -1,3 +1,7 @@
+## 0.1.2+10
+
+ - **FIX**(profile_models): presets with no name have nullable `n`. ([02e9a474](https://github.com/SlayerOrnstein/wfcd_dart/commit/02e9a4747c46797fc6297de7d61dc7da6fa732ff))
+
 ## 0.1.2+9
 
  - **FIX**(profile_models): a few more last minute fixes to parsing. ([4ffa3250](https://github.com/SlayerOrnstein/wfcd_dart/commit/4ffa3250a9cc0cb66e8dbb0145ae1c6e755b6781))
