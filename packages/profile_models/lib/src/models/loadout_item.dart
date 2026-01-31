@@ -38,7 +38,7 @@ class RawLoadoutItem with RawLoadoutItemMappable {
   final List<RawItemConfig> configs;
   final String? upgradeType;
   final String? upgradeFingerprint;
-  final int features;
+  final int? features;
   final int upgradeVer;
   final int? xp;
   final int? polarized;
@@ -114,7 +114,7 @@ class LoadoutItem with LoadoutItemMappable {
   final String name;
   final String? nemesis;
   final List<ItemConfig> configs;
-  final int features;
+  final int? features;
   final int? xp;
   final int? polarized;
   final List<Polarity>? polarities;

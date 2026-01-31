@@ -60,7 +60,7 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
     _$upgradeFingerprint,
     key: r'UpgradeFingerprint',
   );
-  static int _$features(RawLoadoutItem v) => v.features;
+  static int? _$features(RawLoadoutItem v) => v.features;
   static const Field<RawLoadoutItem, int> _f$features = Field(
     'features',
     _$features,
@@ -365,7 +365,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
     List<RawItemConfig>? configs,
     Object? upgradeType = $none,
     Object? upgradeFingerprint = $none,
-    int? features,
+    Object? features = $none,
     int? upgradeVer,
     Object? xp = $none,
     Object? polarized = $none,
@@ -387,7 +387,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
       if (configs != null) #configs: configs,
       if (upgradeType != $none) #upgradeType: upgradeType,
       if (upgradeFingerprint != $none) #upgradeFingerprint: upgradeFingerprint,
-      if (features != null) #features: features,
+      if (features != $none) #features: features,
       if (upgradeVer != null) #upgradeVer: upgradeVer,
       if (xp != $none) #xp: xp,
       if (polarized != $none) #polarized: polarized,
@@ -480,7 +480,7 @@ class LoadoutItemMapper extends ClassMapperBase<LoadoutItem> {
     'configs',
     _$configs,
   );
-  static int _$features(LoadoutItem v) => v.features;
+  static int? _$features(LoadoutItem v) => v.features;
   static const Field<LoadoutItem, int> _f$features = Field(
     'features',
     _$features,
@@ -727,7 +727,7 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
     String? name,
     Object? nemesis = $none,
     List<ItemConfig>? configs,
-    int? features,
+    Object? features = $none,
     Object? xp = $none,
     Object? polarized = $none,
     Object? polarities = $none,
@@ -747,7 +747,7 @@ class _LoadoutItemCopyWithImpl<$R, $Out>
       if (name != null) #name: name,
       if (nemesis != $none) #nemesis: nemesis,
       if (configs != null) #configs: configs,
-      if (features != null) #features: features,
+      if (features != $none) #features: features,
       if (xp != $none) #xp: xp,
       if (polarized != $none) #polarized: polarized,
       if (polarities != $none) #polarities: polarities,
