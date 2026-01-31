@@ -61,7 +61,7 @@ class RawProfile with RawProfileMappable {
 
   final RawIntrinsics playerSkills;
   final JsonObject guildId;
-  final List<String> deathMarks;
+  final List<String>? deathMarks;
   final bool harvestable;
   final bool deathSquadable;
   final JsonObject created;

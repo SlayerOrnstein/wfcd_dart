@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -73,7 +74,7 @@ class RawProfileMapper extends ClassMapperBase<RawProfile> {
     _$guildId,
     key: r'GuildId',
   );
-  static List<String> _$deathMarks(RawProfile v) => v.deathMarks;
+  static List<String>? _$deathMarks(RawProfile v) => v.deathMarks;
   static const Field<RawProfile, List<String>> _f$deathMarks = Field(
     'deathMarks',
     _$deathMarks,
@@ -354,7 +355,7 @@ abstract class RawProfileCopyWith<$R, $In extends RawProfile, $Out>
   RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics> get playerSkills;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get guildId;
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get deathMarks;
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get deathMarks;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get created;
   $R call({
@@ -434,12 +435,14 @@ class _RawProfileCopyWithImpl<$R, $Out>
     (v) => call(guildId: v),
   );
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get deathMarks =>
-      ListCopyWith(
-        $value.deathMarks,
-        (v, t) => ObjectCopyWith(v, $identity, t),
-        (v) => call(deathMarks: v),
-      );
+  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
+  get deathMarks => $value.deathMarks != null
+      ? ListCopyWith(
+          $value.deathMarks!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(deathMarks: v),
+        )
+      : null;
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get created => MapCopyWith(
@@ -457,7 +460,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
     RawLoadout? loadoutInventory,
     RawIntrinsics? playerSkills,
     Map<String, dynamic>? guildId,
-    List<String>? deathMarks,
+    Object? deathMarks = $none,
     bool? harvestable,
     bool? deathSquadable,
     Map<String, dynamic>? created,
@@ -489,7 +492,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
       if (loadoutInventory != null) #loadoutInventory: loadoutInventory,
       if (playerSkills != null) #playerSkills: playerSkills,
       if (guildId != null) #guildId: guildId,
-      if (deathMarks != null) #deathMarks: deathMarks,
+      if (deathMarks != $none) #deathMarks: deathMarks,
       if (harvestable != null) #harvestable: harvestable,
       if (deathSquadable != null) #deathSquadable: deathSquadable,
       if (created != null) #created: created,

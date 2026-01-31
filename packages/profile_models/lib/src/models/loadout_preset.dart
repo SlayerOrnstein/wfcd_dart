@@ -32,7 +32,7 @@ class RawLoadoutPreset with RawLoadoutPresetMappable {
   });
 
   @MappableField(key: 'FocusSchool')
-  final String focusSchool;
+  final String? focusSchool;
 
   @MappableField(key: 'PresetIcon')
   final String presetIcon;
@@ -91,7 +91,7 @@ class LoadoutPreset with LoadoutPresetMappable {
 
   factory LoadoutPreset.fromRaw(RawLoadoutPreset raw) {
     return LoadoutPreset(
-      focusSchool: Polarities.translatePolarity(raw.focusSchool),
+      focusSchool: raw.focusSchool != null ? Polarities.translatePolarity(raw.focusSchool!) : null,
       icon: raw.presetIcon,
       isFavorite: raw.favorite,
       name: raw.n,
@@ -105,7 +105,7 @@ class LoadoutPreset with LoadoutPresetMappable {
     );
   }
 
-  final String focusSchool;
+  final String? focusSchool;
   final String icon;
   final bool isFavorite;
   final String name;

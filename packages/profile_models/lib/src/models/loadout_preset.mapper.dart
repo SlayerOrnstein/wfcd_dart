@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -179,7 +180,7 @@ class RawLoadoutPresetMapper extends ClassMapperBase<RawLoadoutPreset> {
   @override
   final String id = 'RawLoadoutPreset';
 
-  static String _$focusSchool(RawLoadoutPreset v) => v.focusSchool;
+  static String? _$focusSchool(RawLoadoutPreset v) => v.focusSchool;
   static const Field<RawLoadoutPreset, String> _f$focusSchool = Field(
     'focusSchool',
     _$focusSchool,
@@ -365,7 +366,7 @@ class _RawLoadoutPresetCopyWithImpl<$R, $Out>
       $value.b?.copyWith.$chain((v) => call(b: v));
   @override
   $R call({
-    String? focusSchool,
+    Object? focusSchool = $none,
     String? presetIcon,
     bool? favorite,
     String? n,
@@ -378,7 +379,7 @@ class _RawLoadoutPresetCopyWithImpl<$R, $Out>
     Object? b = $none,
   }) => $apply(
     FieldCopyWithData({
-      if (focusSchool != null) #focusSchool: focusSchool,
+      if (focusSchool != $none) #focusSchool: focusSchool,
       if (presetIcon != null) #presetIcon: presetIcon,
       if (favorite != null) #favorite: favorite,
       if (n != null) #n: n,
@@ -585,7 +586,7 @@ class LoadoutPresetMapper extends ClassMapperBase<LoadoutPreset> {
   @override
   final String id = 'LoadoutPreset';
 
-  static String _$focusSchool(LoadoutPreset v) => v.focusSchool;
+  static String? _$focusSchool(LoadoutPreset v) => v.focusSchool;
   static const Field<LoadoutPreset, String> _f$focusSchool = Field(
     'focusSchool',
     _$focusSchool,
@@ -786,7 +787,7 @@ class _LoadoutPresetCopyWithImpl<$R, $Out>
       $value.exaltedB?.copyWith.$chain((v) => call(exaltedB: v));
   @override
   $R call({
-    String? focusSchool,
+    Object? focusSchool = $none,
     String? icon,
     String? name,
     SlotPreset? warframe,
@@ -799,7 +800,7 @@ class _LoadoutPresetCopyWithImpl<$R, $Out>
     bool? isFavorite,
   }) => $apply(
     FieldCopyWithData({
-      if (focusSchool != null) #focusSchool: focusSchool,
+      if (focusSchool != $none) #focusSchool: focusSchool,
       if (icon != null) #icon: icon,
       if (name != null) #name: name,
       if (warframe != null) #warframe: warframe,

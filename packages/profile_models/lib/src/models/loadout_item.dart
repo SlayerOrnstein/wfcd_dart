@@ -43,7 +43,7 @@ class RawLoadoutItem with RawLoadoutItemMappable {
   final int? xp;
   final int? polarized;
   final List<RawPolarity>? polarity;
-  final List<RawArchonUpgrade>? archonCrystalUpgrades;
+  final List<dynamic>? archonCrystalUpgrades;
   final String? focusLens;
   final int? custimizationSlotPurchases;
   final RawColorMap? pricool;
@@ -82,6 +82,8 @@ class LoadoutItem with LoadoutItemMappable {
   factory LoadoutItem.fromRaw(RawLoadoutItem raw) {
     final names = raw.itemName?.split('|');
 
+    raw.archonCrystalUpgrades?.removeWhere((c) => c is! Map);
+
     return LoadoutItem(
       id: parseId(raw.itemId),
       uniqueName: raw.itemType,
@@ -92,7 +94,10 @@ class LoadoutItem with LoadoutItemMappable {
       xp: raw.xp,
       polarized: raw.polarized,
       polarities: raw.polarity?.map((p) => p.toPolarity()).toList(),
-      archonUpgrades: raw.archonCrystalUpgrades?.map(ArchonUpgrade.fromRaw).toList(),
+      archonUpgrades: raw.archonCrystalUpgrades
+          ?.map((c) => RawArchonUpgrade.fromMap(c as Map<String, dynamic>))
+          .map((c) => c.toArchonUpgrade())
+          .toList(),
       focusLens: raw.focusLens,
       customizationSlotPurchases: raw.custimizationSlotPurchases ?? 0,
       primaryColor: raw.pricool?.toColorMap(),

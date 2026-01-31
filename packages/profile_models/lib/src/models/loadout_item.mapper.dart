@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -16,7 +17,6 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
       MapperContainer.globals.use(_instance = RawLoadoutItemMapper._());
       RawItemConfigMapper.ensureInitialized();
       RawPolarityMapper.ensureInitialized();
-      RawArchonUpgradeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -86,14 +86,14 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
     _$polarity,
     key: r'Polarity',
   );
-  static List<RawArchonUpgrade>? _$archonCrystalUpgrades(RawLoadoutItem v) =>
+  static List<dynamic>? _$archonCrystalUpgrades(RawLoadoutItem v) =>
       v.archonCrystalUpgrades;
-  static const Field<RawLoadoutItem, List<RawArchonUpgrade>>
-  _f$archonCrystalUpgrades = Field(
-    'archonCrystalUpgrades',
-    _$archonCrystalUpgrades,
-    key: r'ArchonCrystalUpgrades',
-  );
+  static const Field<RawLoadoutItem, List<dynamic>> _f$archonCrystalUpgrades =
+      Field(
+        'archonCrystalUpgrades',
+        _$archonCrystalUpgrades,
+        key: r'ArchonCrystalUpgrades',
+      );
   static String? _$focusLens(RawLoadoutItem v) => v.focusLens;
   static const Field<RawLoadoutItem, String> _f$focusLens = Field(
     'focusLens',
@@ -269,11 +269,7 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     RawPolarityCopyWith<$R, RawPolarity, RawPolarity>
   >?
   get polarity;
-  ListCopyWith<
-    $R,
-    RawArchonUpgrade,
-    RawArchonUpgradeCopyWith<$R, RawArchonUpgrade, RawArchonUpgrade>
-  >?
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get archonCrystalUpgrades;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get infestationDate;
@@ -289,7 +285,7 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     int? xp,
     int? polarized,
     List<RawPolarity>? polarity,
-    List<RawArchonUpgrade>? archonCrystalUpgrades,
+    List<dynamic>? archonCrystalUpgrades,
     String? focusLens,
     int? custimizationSlotPurchases,
     RawColorMap? pricool,
@@ -344,15 +340,11 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  ListCopyWith<
-    $R,
-    RawArchonUpgrade,
-    RawArchonUpgradeCopyWith<$R, RawArchonUpgrade, RawArchonUpgrade>
-  >?
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get archonCrystalUpgrades => $value.archonCrystalUpgrades != null
       ? ListCopyWith(
           $value.archonCrystalUpgrades!,
-          (v, t) => v.copyWith.$chain(t),
+          (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(archonCrystalUpgrades: v),
         )
       : null;
