@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+9`](#profile_models---v0129)
+
+---
+
+#### `profile_models` - `v0.1.2+9`
+
+ - **FIX**(profile_models): a few more last minute fixes to parsing. ([4ffa3250](https://github.com/SlayerOrnstein/wfcd_dart/commit/4ffa3250a9cc0cb66e8dbb0145ae1c6e755b6781))
+
+
+## 2026-01-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+8`](#profile_models---v0128)
 
 ---

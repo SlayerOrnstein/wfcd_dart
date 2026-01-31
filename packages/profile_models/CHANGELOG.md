@@ -1,3 +1,7 @@
+## 0.1.2+9
+
+ - **FIX**(profile_models): a few more last minute fixes to parsing. ([4ffa3250](https://github.com/SlayerOrnstein/wfcd_dart/commit/4ffa3250a9cc0cb66e8dbb0145ae1c6e755b6781))
+
 ## 0.1.2+8
 
  - **FIX**(profile_models): improved parsing for archon crystals. ([b5d26e61](https://github.com/SlayerOrnstein/wfcd_dart/commit/b5d26e613673a896c979d47710e017a655b3e673))
