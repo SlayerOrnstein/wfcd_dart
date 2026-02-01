@@ -1,6 +1,6 @@
 name: profile_models
 description: A Very Good Project created by Very Good CLI.
-version: 0.1.2+10
+version: 0.1.2+11
 publish_to: none
 
 environment:

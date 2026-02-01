@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+11`](#profile_models---v01211)
+
+---
+
+#### `profile_models` - `v0.1.2+11`
+
+ - **FIX**(profile_models): nullable `Intrinsics`. ([a0cbdcba](https://github.com/SlayerOrnstein/wfcd_dart/commit/a0cbdcbaf97704f8c99dab868975a27ada686b99))
+
+
+## 2026-01-31
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+10`](#profile_models---v01210)
 
 ---
