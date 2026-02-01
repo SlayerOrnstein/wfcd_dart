@@ -59,7 +59,7 @@ class RawProfile with RawProfileMappable {
   @MappableField(key: 'LoadOutInventory')
   final RawLoadout loadoutInventory;
 
-  final RawIntrinsics playerSkills;
+  final RawIntrinsics? playerSkills;
   final JsonObject guildId;
   final List<String>? deathMarks;
   final bool harvestable;
@@ -153,7 +153,7 @@ class Profile with ProfileMappable {
       masteryRank: raw.playerLevel,
       preset: raw.loadoutPreset.toLoadoutPreset(),
       loadout: raw.loadoutInventory.toLoadout(),
-      intrinsics: raw.playerSkills.toInstrinsics(),
+      intrinsics: raw.playerSkills?.toInstrinsics(),
       isHarvestable: raw.harvestable,
       isDeathSquadable: raw.deathSquadable,
       createdOn: parseDate(raw.created),
@@ -188,7 +188,7 @@ class Profile with ProfileMappable {
   final int masteryRank;
   final LoadoutPreset? preset;
   final Loadout loadout;
-  final Intrinsics intrinsics;
+  final Intrinsics? intrinsics;
   final bool isHarvestable;
   final bool isDeathSquadable;
   final DateTime createdOn;

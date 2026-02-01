@@ -62,7 +62,7 @@ class RawProfileMapper extends ClassMapperBase<RawProfile> {
     _$loadoutInventory,
     key: r'LoadOutInventory',
   );
-  static RawIntrinsics _$playerSkills(RawProfile v) => v.playerSkills;
+  static RawIntrinsics? _$playerSkills(RawProfile v) => v.playerSkills;
   static const Field<RawProfile, RawIntrinsics> _f$playerSkills = Field(
     'playerSkills',
     _$playerSkills,
@@ -352,7 +352,7 @@ abstract class RawProfileCopyWith<$R, $In extends RawProfile, $Out>
   RawLoadoutPresetCopyWith<$R, RawLoadoutPreset, RawLoadoutPreset>
   get loadoutPreset;
   RawLoadoutCopyWith<$R, RawLoadout, RawLoadout> get loadoutInventory;
-  RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics> get playerSkills;
+  RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics>? get playerSkills;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get guildId;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get deathMarks;
@@ -425,8 +425,8 @@ class _RawProfileCopyWithImpl<$R, $Out>
   RawLoadoutCopyWith<$R, RawLoadout, RawLoadout> get loadoutInventory =>
       $value.loadoutInventory.copyWith.$chain((v) => call(loadoutInventory: v));
   @override
-  RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics> get playerSkills =>
-      $value.playerSkills.copyWith.$chain((v) => call(playerSkills: v));
+  RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics>? get playerSkills =>
+      $value.playerSkills?.copyWith.$chain((v) => call(playerSkills: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get guildId => MapCopyWith(
@@ -458,7 +458,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
     int? playerLevel,
     RawLoadoutPreset? loadoutPreset,
     RawLoadout? loadoutInventory,
-    RawIntrinsics? playerSkills,
+    Object? playerSkills = $none,
     Map<String, dynamic>? guildId,
     Object? deathMarks = $none,
     bool? harvestable,
@@ -490,7 +490,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
       if (playerLevel != null) #playerLevel: playerLevel,
       if (loadoutPreset != null) #loadoutPreset: loadoutPreset,
       if (loadoutInventory != null) #loadoutInventory: loadoutInventory,
-      if (playerSkills != null) #playerSkills: playerSkills,
+      if (playerSkills != $none) #playerSkills: playerSkills,
       if (guildId != null) #guildId: guildId,
       if (deathMarks != $none) #deathMarks: deathMarks,
       if (harvestable != null) #harvestable: harvestable,
@@ -1048,7 +1048,7 @@ class ProfileMapper extends ClassMapperBase<Profile> {
   );
   static Loadout _$loadout(Profile v) => v.loadout;
   static const Field<Profile, Loadout> _f$loadout = Field('loadout', _$loadout);
-  static Intrinsics _$intrinsics(Profile v) => v.intrinsics;
+  static Intrinsics? _$intrinsics(Profile v) => v.intrinsics;
   static const Field<Profile, Intrinsics> _f$intrinsics = Field(
     'intrinsics',
     _$intrinsics,
@@ -1200,7 +1200,7 @@ abstract class ProfileCopyWith<$R, $In extends Profile, $Out>
   get platformUsernames;
   LoadoutPresetCopyWith<$R, LoadoutPreset, LoadoutPreset>? get preset;
   LoadoutCopyWith<$R, Loadout, Loadout> get loadout;
-  IntrinsicsCopyWith<$R, Intrinsics, Intrinsics> get intrinsics;
+  IntrinsicsCopyWith<$R, Intrinsics, Intrinsics>? get intrinsics;
   DailyStandingCopyWith<$R, DailyStanding, DailyStanding> get dailyStanding;
   $R call({
     String? id,
@@ -1244,8 +1244,8 @@ class _ProfileCopyWithImpl<$R, $Out>
   LoadoutCopyWith<$R, Loadout, Loadout> get loadout =>
       $value.loadout.copyWith.$chain((v) => call(loadout: v));
   @override
-  IntrinsicsCopyWith<$R, Intrinsics, Intrinsics> get intrinsics =>
-      $value.intrinsics.copyWith.$chain((v) => call(intrinsics: v));
+  IntrinsicsCopyWith<$R, Intrinsics, Intrinsics>? get intrinsics =>
+      $value.intrinsics?.copyWith.$chain((v) => call(intrinsics: v));
   @override
   DailyStandingCopyWith<$R, DailyStanding, DailyStanding> get dailyStanding =>
       $value.dailyStanding.copyWith.$chain((v) => call(dailyStanding: v));
@@ -1257,7 +1257,7 @@ class _ProfileCopyWithImpl<$R, $Out>
     int? masteryRank,
     Object? preset = $none,
     Loadout? loadout,
-    Intrinsics? intrinsics,
+    Object? intrinsics = $none,
     bool? isHarvestable,
     bool? isDeathSquadable,
     DateTime? createdOn,
@@ -1274,7 +1274,7 @@ class _ProfileCopyWithImpl<$R, $Out>
       if (masteryRank != null) #masteryRank: masteryRank,
       if (preset != $none) #preset: preset,
       if (loadout != null) #loadout: loadout,
-      if (intrinsics != null) #intrinsics: intrinsics,
+      if (intrinsics != $none) #intrinsics: intrinsics,
       if (isHarvestable != null) #isHarvestable: isHarvestable,
       if (isDeathSquadable != null) #isDeathSquadable: isDeathSquadable,
       if (createdOn != null) #createdOn: createdOn,
