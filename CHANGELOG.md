@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-02-02
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_worldstate_data` - `v0.1.3+5`](#warframe_worldstate_data---v0135)
+ - [`profile_models` - `v0.1.2+12`](#profile_models---v01212)
+ - [`warframe_items` - `v0.1.1+3`](#warframe_items---v0113)
+ - [`worldstate_models` - `v0.1.5+8`](#worldstate_models---v0158)
+ - [`worldstate_status` - `v1.0.27`](#worldstate_status---v1027)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.2+12`
+ - `warframe_items` - `v0.1.1+3`
+ - `worldstate_models` - `v0.1.5+8`
+ - `worldstate_status` - `v1.0.27`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+5`
+
+ - **FIX**(warframe_worldstate_data): update translation files. ([e8f2837f](https://github.com/SlayerOrnstein/wfcd_dart/commit/e8f2837f36f9bd865b680d60b0540f09745d47c4))
+
+
 ## 2026-01-31
 
 ### Changes

@@ -1,3 +1,7 @@
+## 0.1.2+12
+
+ - Update a dependency to the latest release.
+
 ## 0.1.2+11
 
  - **FIX**(profile_models): nullable `Intrinsics`. ([a0cbdcba](https://github.com/SlayerOrnstein/wfcd_dart/commit/a0cbdcbaf97704f8c99dab868975a27ada686b99))
