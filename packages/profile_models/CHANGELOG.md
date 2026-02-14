@@ -1,3 +1,7 @@
+## 0.1.2+13
+
+ - **FIX**(profile_models): issues parsing presets when there are hidden slots. ([bc495411](https://github.com/SlayerOrnstein/wfcd_dart/commit/bc4954110a0739ef9c149fa54429c1c39f57634d))
+
 ## 0.1.2+12
 
  - Update a dependency to the latest release.

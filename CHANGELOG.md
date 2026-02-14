@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-02-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2+13`](#profile_models---v01213)
+
+---
+
+#### `profile_models` - `v0.1.2+13`
+
+ - **FIX**(profile_models): issues parsing presets when there are hidden slots. ([bc495411](https://github.com/SlayerOrnstein/wfcd_dart/commit/bc4954110a0739ef9c149fa54429c1c39f57634d))
+
+
 ## 2026-02-02
 
 ### Changes
