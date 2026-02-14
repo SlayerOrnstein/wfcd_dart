@@ -9,9 +9,9 @@ class RawSlotPreset with RawSlotPresetMappable {
   RawSlotPreset({required this.itemId, required this.mod, required this.cus, required this.hide});
 
   @MappableField(key: 'ItemId')
-  final JsonObject itemId;
-  final int mod;
-  final int cus;
+  final JsonObject? itemId;
+  final int? mod;
+  final int? cus;
   final bool? hide;
 }
 
@@ -57,19 +57,20 @@ class SlotPreset with SlotPresetMappable {
   SlotPreset({required this.id, required this.modPreset, required this.appearancePreset, this.isHidden = false});
 
   factory SlotPreset.fromRaw(RawSlotPreset raw) {
+    final isHidden = raw.hide ?? false;
     String toPreseChar(int code) => String.fromCharCode(64 + (code + 1));
 
     return SlotPreset(
-      id: parseId(raw.itemId),
-      modPreset: toPreseChar(raw.mod),
-      appearancePreset: toPreseChar(raw.cus),
-      isHidden: raw.hide ?? false,
+      id: isHidden ? null : parseId(raw.itemId!),
+      modPreset: isHidden ? null : toPreseChar(raw.mod!),
+      appearancePreset: isHidden ? null : toPreseChar(raw.cus!),
+      isHidden: isHidden,
     );
   }
 
-  final String id;
-  final String modPreset;
-  final String appearancePreset;
+  final String? id;
+  final String? modPreset;
+  final String? appearancePreset;
   final bool isHidden;
 }
 

@@ -22,15 +22,15 @@ class RawSlotPresetMapper extends ClassMapperBase<RawSlotPreset> {
   @override
   final String id = 'RawSlotPreset';
 
-  static Map<String, dynamic> _$itemId(RawSlotPreset v) => v.itemId;
+  static Map<String, dynamic>? _$itemId(RawSlotPreset v) => v.itemId;
   static const Field<RawSlotPreset, Map<String, dynamic>> _f$itemId = Field(
     'itemId',
     _$itemId,
     key: r'ItemId',
   );
-  static int _$mod(RawSlotPreset v) => v.mod;
+  static int? _$mod(RawSlotPreset v) => v.mod;
   static const Field<RawSlotPreset, int> _f$mod = Field('mod', _$mod);
-  static int _$cus(RawSlotPreset v) => v.cus;
+  static int? _$cus(RawSlotPreset v) => v.cus;
   static const Field<RawSlotPreset, int> _f$cus = Field('cus', _$cus);
   static bool? _$hide(RawSlotPreset v) => v.hide;
   static const Field<RawSlotPreset, bool> _f$hide = Field('hide', _$hide);
@@ -116,7 +116,7 @@ extension RawSlotPresetValueCopy<$R, $Out>
 
 abstract class RawSlotPresetCopyWith<$R, $In extends RawSlotPreset, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get itemId;
   $R call({Map<String, dynamic>? itemId, int? mod, int? cus, bool? hide});
   RawSlotPresetCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -131,23 +131,25 @@ class _RawSlotPresetCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawSlotPreset> $mapper =
       RawSlotPresetMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
-  get itemId => MapCopyWith(
-    $value.itemId,
-    (v, t) => ObjectCopyWith(v, $identity, t),
-    (v) => call(itemId: v),
-  );
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  get itemId => $value.itemId != null
+      ? MapCopyWith(
+          $value.itemId!,
+          (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(itemId: v),
+        )
+      : null;
   @override
   $R call({
-    Map<String, dynamic>? itemId,
-    int? mod,
-    int? cus,
+    Object? itemId = $none,
+    Object? mod = $none,
+    Object? cus = $none,
     Object? hide = $none,
   }) => $apply(
     FieldCopyWithData({
-      if (itemId != null) #itemId: itemId,
-      if (mod != null) #mod: mod,
-      if (cus != null) #cus: cus,
+      if (itemId != $none) #itemId: itemId,
+      if (mod != $none) #mod: mod,
+      if (cus != $none) #cus: cus,
       if (hide != $none) #hide: hide,
     }),
   );
@@ -427,14 +429,14 @@ class SlotPresetMapper extends ClassMapperBase<SlotPreset> {
   @override
   final String id = 'SlotPreset';
 
-  static String _$id(SlotPreset v) => v.id;
+  static String? _$id(SlotPreset v) => v.id;
   static const Field<SlotPreset, String> _f$id = Field('id', _$id);
-  static String _$modPreset(SlotPreset v) => v.modPreset;
+  static String? _$modPreset(SlotPreset v) => v.modPreset;
   static const Field<SlotPreset, String> _f$modPreset = Field(
     'modPreset',
     _$modPreset,
   );
-  static String _$appearancePreset(SlotPreset v) => v.appearancePreset;
+  static String? _$appearancePreset(SlotPreset v) => v.appearancePreset;
   static const Field<SlotPreset, String> _f$appearancePreset = Field(
     'appearancePreset',
     _$appearancePreset,
@@ -545,15 +547,15 @@ class _SlotPresetCopyWithImpl<$R, $Out>
       SlotPresetMapper.ensureInitialized();
   @override
   $R call({
-    String? id,
-    String? modPreset,
-    String? appearancePreset,
+    Object? id = $none,
+    Object? modPreset = $none,
+    Object? appearancePreset = $none,
     bool? isHidden,
   }) => $apply(
     FieldCopyWithData({
-      if (id != null) #id: id,
-      if (modPreset != null) #modPreset: modPreset,
-      if (appearancePreset != null) #appearancePreset: appearancePreset,
+      if (id != $none) #id: id,
+      if (modPreset != $none) #modPreset: modPreset,
+      if (appearancePreset != $none) #appearancePreset: appearancePreset,
       if (isHidden != null) #isHidden: isHidden,
     }),
   );
