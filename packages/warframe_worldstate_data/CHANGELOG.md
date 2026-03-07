@@ -1,3 +1,7 @@
+## 0.1.3+6
+
+ - **FIX**(worldstate_data): update translations. ([163087ed](https://github.com/SlayerOrnstein/wfcd_dart/commit/163087edc00e084d76105095dcb47d13031fe2fb))
+
 ## 0.1.3+5
 
  - **FIX**(warframe_worldstate_data): update translation files. ([e8f2837f](https://github.com/SlayerOrnstein/wfcd_dart/commit/e8f2837f36f9bd865b680d60b0540f09745d47c4))
