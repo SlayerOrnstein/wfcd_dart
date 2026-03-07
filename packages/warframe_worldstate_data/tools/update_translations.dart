@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:archive/archive_io.dart';
 import 'package:path/path.dart';
 
-const version = '3.1.24';
+const version = '3.8.1';
 const archiveLink = 'https://github.com/WFCD/warframe-worldstate-data/archive/refs/tags/v$version.zip';
 
 // Formats data into json structs that slang can use
