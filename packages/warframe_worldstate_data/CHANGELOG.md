@@ -1,3 +1,7 @@
+## 0.1.3+8
+
+ - **FIX**(worldstate_data): update translations. ([f4b166e4](https://github.com/SlayerOrnstein/wfcd_dart/commit/f4b166e46284ac9cb9b4257eb0e70450ac9a65ed))
+
 ## 0.1.3+7
 
  - **FIX**(worldstate-data): update translations. ([9d60caa0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9d60caa07d9ac746233eeedfdf8ddfc9c3480307))
