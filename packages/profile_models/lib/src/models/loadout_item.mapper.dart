@@ -15,7 +15,6 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
   static RawLoadoutItemMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = RawLoadoutItemMapper._());
-      RawItemConfigMapper.ensureInitialized();
       RawPolarityMapper.ensureInitialized();
     }
     return _instance!;
@@ -42,8 +41,8 @@ class RawLoadoutItemMapper extends ClassMapperBase<RawLoadoutItem> {
     _$itemName,
     key: r'ItemName',
   );
-  static List<RawItemConfig> _$configs(RawLoadoutItem v) => v.configs;
-  static const Field<RawLoadoutItem, List<RawItemConfig>> _f$configs = Field(
+  static List<dynamic> _$configs(RawLoadoutItem v) => v.configs;
+  static const Field<RawLoadoutItem, List<dynamic>> _f$configs = Field(
     'configs',
     _$configs,
     key: r'Configs',
@@ -257,12 +256,7 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get itemId;
-  ListCopyWith<
-    $R,
-    RawItemConfig,
-    RawItemConfigCopyWith<$R, RawItemConfig, RawItemConfig>
-  >
-  get configs;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get configs;
   ListCopyWith<
     $R,
     RawPolarity,
@@ -277,7 +271,7 @@ abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     Map<String, dynamic>? itemId,
     String? itemType,
     String? itemName,
-    List<RawItemConfig>? configs,
+    List<dynamic>? configs,
     String? upgradeType,
     String? upgradeFingerprint,
     int? features,
@@ -316,16 +310,12 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
     (v) => call(itemId: v),
   );
   @override
-  ListCopyWith<
-    $R,
-    RawItemConfig,
-    RawItemConfigCopyWith<$R, RawItemConfig, RawItemConfig>
-  >
-  get configs => ListCopyWith(
-    $value.configs,
-    (v, t) => v.copyWith.$chain(t),
-    (v) => call(configs: v),
-  );
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get configs =>
+      ListCopyWith(
+        $value.configs,
+        (v, t) => ObjectCopyWith(v, $identity, t),
+        (v) => call(configs: v),
+      );
   @override
   ListCopyWith<
     $R,
@@ -362,7 +352,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
     Map<String, dynamic>? itemId,
     String? itemType,
     Object? itemName = $none,
-    List<RawItemConfig>? configs,
+    List<dynamic>? configs,
     Object? upgradeType = $none,
     Object? upgradeFingerprint = $none,
     Object? features = $none,

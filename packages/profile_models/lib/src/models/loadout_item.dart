@@ -35,7 +35,7 @@ class RawLoadoutItem with RawLoadoutItemMappable {
   final JsonObject itemId;
   final String itemType;
   final String? itemName;
-  final List<RawItemConfig> configs;
+  final List<dynamic> configs;
   final String? upgradeType;
   final String? upgradeFingerprint;
   final int? features;
@@ -83,13 +83,18 @@ class LoadoutItem with LoadoutItemMappable {
     final names = raw.itemName?.split('|');
 
     raw.archonCrystalUpgrades?.removeWhere((c) => c is! Map);
+    raw.configs.retainWhere((i) => i is Map);
 
     return LoadoutItem(
       id: parseId(raw.itemId),
       uniqueName: raw.itemType,
       name: names?.first ?? raw.itemType, // TODO(Orn): find a way to translate this with items
       nemesis: names?.length != 2 ? null : names!.last,
-      configs: raw.configs.map(ItemConfig.fromRaw).toList(),
+      configs: raw.configs
+          .map((i) => Map<String, dynamic>.from(i as Map))
+          .map(RawItemConfig.fromMap)
+          .map(ItemConfig.fromRaw)
+          .toList(),
       features: raw.features,
       xp: raw.xp,
       polarized: raw.polarized,
