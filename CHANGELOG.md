@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-04-11
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2+17`](#profile_models---v01217)
+
+---
+
+#### `profile_models` - `v0.1.2+17`
+
+ - **FIX**(profile_models): a rare case where item config contains an empty array instead of only key-value maps. ([69f811f9](https://github.com/SlayerOrnstein/wfcd_dart/commit/69f811f903b77ebfe2fba7b84b8355efc942411f))
+
+
 ## 2026-04-04
 
 ### Changes

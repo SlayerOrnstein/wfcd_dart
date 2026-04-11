@@ -1,3 +1,7 @@
+## 0.1.2+17
+
+ - **FIX**(profile_models): a rare case where item config contains an empty array instead of only key-value maps. ([69f811f9](https://github.com/SlayerOrnstein/wfcd_dart/commit/69f811f903b77ebfe2fba7b84b8355efc942411f))
+
 ## 0.1.2+16
 
  - Update a dependency to the latest release.
