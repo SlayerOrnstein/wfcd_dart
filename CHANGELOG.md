@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-04-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_worldstate_data` - `v0.1.3+9`](#warframe_worldstate_data---v0139)
+ - [`worldstate_models` - `v0.1.6`](#worldstate_models---v016)
+ - [`profile_models` - `v0.1.2+18`](#profile_models---v01218)
+ - [`warframe_items` - `v0.1.1+7`](#warframe_items---v0117)
+ - [`worldstate_status` - `v1.0.31`](#worldstate_status---v1031)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.2+18`
+ - `warframe_items` - `v0.1.1+7`
+ - `worldstate_status` - `v1.0.31`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+9`
+
+ - **FIX**(worldstate_data): update translations. ([fc89d00e](https://github.com/SlayerOrnstein/wfcd_dart/commit/fc89d00ea3e5df994592117882b3af23650ea4d3))
+
+#### `worldstate_models` - `v0.1.6`
+
+ - **FEAT**(worldstate_model): use an enum for fissure tiers instead of a. ([09c239f2](https://github.com/SlayerOrnstein/wfcd_dart/commit/09c239f29c927fb7c27cb78bc2fc4c87b7a60f48))
+
+
 ## 2026-04-11
 
 ### Changes

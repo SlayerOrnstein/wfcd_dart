@@ -1,3 +1,7 @@
+## 0.1.6
+
+ - **FEAT**(worldstate_model): use an enum for fissure tiers instead of a. ([09c239f2](https://github.com/SlayerOrnstein/wfcd_dart/commit/09c239f29c927fb7c27cb78bc2fc4c87b7a60f48))
+
 ## 0.1.5+11
 
  - Update a dependency to the latest release.
