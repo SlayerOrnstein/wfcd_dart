@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
@@ -5,6 +7,17 @@ import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'fissure.mapper.dart';
+
+enum FissureTier {
+  lith,
+  meso,
+  neo,
+  axi,
+  requiem,
+  omnia,
+  // Only for new tiers that haven't been added. That means that any new tiers need to be added before unknown
+  unknown,
+}
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
@@ -47,7 +60,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final modifier = fissure(raw.modifier ?? raw.activeMissionTier!, deps.locale);
+    final maxTier = FissureTier.unknown.index;
+    final tier = int.tryParse((raw.modifier ?? raw.activeMissionTier!).replaceAll(RegExp(r'\D'), '')) ?? maxTier;
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -56,8 +70,8 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       node: node.name,
       missionType: node.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
-      tier: modifier.value,
-      tierNum: modifier.tier,
+      tier: FissureTier.values[tier],
+      tierNum: tier,
       isStorm: raw.node.contains('CrewBattle'),
       isSteelpath: raw.hard ?? false,
     );
@@ -66,7 +80,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final String node;
   final String missionType;
   final String faction;
-  final String tier;
+  final FissureTier tier;
   final int tierNum;
   final bool isStorm;
   final bool isSteelpath;
