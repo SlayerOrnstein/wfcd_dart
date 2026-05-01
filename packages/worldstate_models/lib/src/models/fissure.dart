@@ -6,6 +6,7 @@ import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'fissure.mapper.dart';
 
+@MappableEnum()
 enum FissureTier {
   lith,
   meso,

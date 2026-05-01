@@ -8,6 +8,72 @@
 
 part of 'fissure.dart';
 
+class FissureTierMapper extends EnumMapper<FissureTier> {
+  FissureTierMapper._();
+
+  static FissureTierMapper? _instance;
+  static FissureTierMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = FissureTierMapper._());
+    }
+    return _instance!;
+  }
+
+  static FissureTier fromValue(dynamic value) {
+    ensureInitialized();
+    return MapperContainer.globals.fromValue(value);
+  }
+
+  @override
+  FissureTier decode(dynamic value) {
+    switch (value) {
+      case r'lith':
+        return FissureTier.lith;
+      case r'meso':
+        return FissureTier.meso;
+      case r'neo':
+        return FissureTier.neo;
+      case r'axi':
+        return FissureTier.axi;
+      case r'requiem':
+        return FissureTier.requiem;
+      case r'omnia':
+        return FissureTier.omnia;
+      case r'unknown':
+        return FissureTier.unknown;
+      default:
+        throw MapperException.unknownEnumValue(value);
+    }
+  }
+
+  @override
+  dynamic encode(FissureTier self) {
+    switch (self) {
+      case FissureTier.lith:
+        return r'lith';
+      case FissureTier.meso:
+        return r'meso';
+      case FissureTier.neo:
+        return r'neo';
+      case FissureTier.axi:
+        return r'axi';
+      case FissureTier.requiem:
+        return r'requiem';
+      case FissureTier.omnia:
+        return r'omnia';
+      case FissureTier.unknown:
+        return r'unknown';
+    }
+  }
+}
+
+extension FissureTierMapperExtension on FissureTier {
+  String toValue() {
+    FissureTierMapper.ensureInitialized();
+    return MapperContainer.globals.toValue<FissureTier>(this) as String;
+  }
+}
+
 class RawActiveMissionMapper extends ClassMapperBase<RawActiveMission> {
   RawActiveMissionMapper._();
 
@@ -261,6 +327,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
   static VoidFissureMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = VoidFissureMapper._());
+      FissureTierMapper.ensureInitialized();
     }
     return _instance!;
   }
