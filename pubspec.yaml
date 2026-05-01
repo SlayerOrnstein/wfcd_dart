@@ -13,14 +13,14 @@ workspace:
   - packages/worldstate_status
 
 dev_dependencies:
-  melos: ^7.3.0
+  melos: ^7.5.1
 
 melos:
   scripts:
     build_runner:clean:
       run: melos exec --depends-on build_runner -- dart run build_runner clean
     build_runner:build:
-      run: melos exec --depends-on build_runner -- dart run build_runner build -d
+      run: melos exec --depends-on build_runner -- dart run build_runner build
     analyze:
       run: melos exec -- dart analyze --fatal-infos --fatal-warnings
     test:
