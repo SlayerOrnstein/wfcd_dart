@@ -59,8 +59,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final maxTier = FissureTier.unknown.index;
-    final tier = int.tryParse((raw.modifier ?? raw.activeMissionTier!).replaceAll(RegExp(r'\D'), '')) ?? maxTier;
+    final tier = int.parse((raw.modifier ?? raw.activeMissionTier!).replaceAll(RegExp(r'\D'), '')) - 1;
 
     return VoidFissure(
       id: parseId(raw.id),
