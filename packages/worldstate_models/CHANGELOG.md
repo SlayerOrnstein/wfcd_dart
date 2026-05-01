@@ -1,3 +1,7 @@
+## 0.1.6+1
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
 ## 0.1.6
 
  - **FEAT**(worldstate_model): use an enum for fissure tiers instead of a. ([09c239f2](https://github.com/SlayerOrnstein/wfcd_dart/commit/09c239f29c927fb7c27cb78bc2fc4c87b7a60f48))

@@ -1,3 +1,7 @@
+## 0.1.5+1
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
 ## 0.1.5
 
  - **FEAT**(drops): expose `fromMap` in data models. ([f79b23f8](https://github.com/SlayerOrnstein/wfcd_dart/commit/f79b23f8f5b83958d03de1004e6959c0e27455ad))

@@ -15,6 +15,49 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`profile_models` - `v0.1.2+19`](#profile_models---v01219)
+ - [`warframe_drop_data` - `v0.1.5+1`](#warframe_drop_data---v0151)
+ - [`warframe_items` - `v0.1.1+8`](#warframe_items---v0118)
+ - [`worldstate_models` - `v0.1.6+1`](#worldstate_models---v0161)
+ - [`worldstate_status` - `v1.0.32`](#worldstate_status---v1032)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.32`
+
+---
+
+#### `profile_models` - `v0.1.2+19`
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
+#### `warframe_drop_data` - `v0.1.5+1`
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
+#### `warframe_items` - `v0.1.1+8`
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
+#### `worldstate_models` - `v0.1.6+1`
+
+ - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
+
+
+## 2026-04-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.3+9`](#warframe_worldstate_data---v0139)
  - [`worldstate_models` - `v0.1.6`](#worldstate_models---v016)
  - [`profile_models` - `v0.1.2+18`](#profile_models---v01218)
