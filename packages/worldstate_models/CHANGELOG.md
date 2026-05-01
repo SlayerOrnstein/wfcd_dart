@@ -1,3 +1,7 @@
+## 0.1.6+2
+
+ - **FIX**(worldstate_model): mark `FissureTier` as a mappable. ([8cf159a6](https://github.com/SlayerOrnstein/wfcd_dart/commit/8cf159a69ed1c6e67426c427963aab97e1116eec))
+
 ## 0.1.6+1
 
  - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))

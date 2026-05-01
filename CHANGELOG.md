@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.6+2`](#worldstate_models---v0162)
+ - [`worldstate_status` - `v1.0.33`](#worldstate_status---v1033)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.33`
+
+---
+
+#### `worldstate_models` - `v0.1.6+2`
+
+ - **FIX**(worldstate_model): mark `FissureTier` as a mappable. ([8cf159a6](https://github.com/SlayerOrnstein/wfcd_dart/commit/8cf159a69ed1c6e67426c427963aab97e1116eec))
+
+
+## 2026-04-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+19`](#profile_models---v01219)
  - [`warframe_drop_data` - `v0.1.5+1`](#warframe_drop_data---v0151)
  - [`warframe_items` - `v0.1.1+8`](#warframe_items---v0118)
