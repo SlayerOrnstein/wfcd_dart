@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.6+3`](#worldstate_models---v0163)
+ - [`worldstate_status` - `v1.0.34`](#worldstate_status---v1034)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.34`
+
+---
+
+#### `worldstate_models` - `v0.1.6+3`
+
+ - **FIX**(worldstate_models): fissure tier didn't line up with `FissureTier`. ([b3335a62](https://github.com/SlayerOrnstein/wfcd_dart/commit/b3335a622bca254006d13b317ae3974a41418b85))
+
+
+## 2026-04-30
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`worldstate_models` - `v0.1.6+2`](#worldstate_models---v0162)
  - [`worldstate_status` - `v1.0.33`](#worldstate_status---v1033)
 

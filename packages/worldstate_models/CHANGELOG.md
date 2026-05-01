@@ -1,3 +1,7 @@
+## 0.1.6+3
+
+ - **FIX**(worldstate_models): fissure tier didn't line up with `FissureTier`. ([b3335a62](https://github.com/SlayerOrnstein/wfcd_dart/commit/b3335a622bca254006d13b317ae3974a41418b85))
+
 ## 0.1.6+2
 
  - **FIX**(worldstate_model): mark `FissureTier` as a mappable. ([8cf159a6](https://github.com/SlayerOrnstein/wfcd_dart/commit/8cf159a69ed1c6e67426c427963aab97e1116eec))
