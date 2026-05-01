@@ -116,7 +116,7 @@ extension RawSlotPresetValueCopy<$R, $Out>
 
 abstract class RawSlotPresetCopyWith<$R, $In extends RawSlotPreset, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get itemId;
   $R call({Map<String, dynamic>? itemId, int? mod, int? cus, bool? hide});
   RawSlotPresetCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -131,7 +131,7 @@ class _RawSlotPresetCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawSlotPreset> $mapper =
       RawSlotPresetMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get itemId => $value.itemId != null
       ? MapCopyWith(
           $value.itemId!,

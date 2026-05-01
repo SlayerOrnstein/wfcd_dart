@@ -345,7 +345,7 @@ extension RawProfileValueCopy<$R, $Out>
 
 abstract class RawProfileCopyWith<$R, $In extends RawProfile, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get accountId;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
   get platformNames;
@@ -353,10 +353,10 @@ abstract class RawProfileCopyWith<$R, $In extends RawProfile, $Out>
   get loadoutPreset;
   RawLoadoutCopyWith<$R, RawLoadout, RawLoadout> get loadoutInventory;
   RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics>? get playerSkills;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get guildId;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get deathMarks;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get created;
   $R call({
     Map<String, dynamic>? accountId,
@@ -402,7 +402,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawProfile> $mapper =
       RawProfileMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get accountId => MapCopyWith(
     $value.accountId,
     (v, t) => ObjectCopyWith(v, $identity, t),
@@ -428,7 +428,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
   RawIntrinsicsCopyWith<$R, RawIntrinsics, RawIntrinsics>? get playerSkills =>
       $value.playerSkills?.copyWith.$chain((v) => call(playerSkills: v));
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get guildId => MapCopyWith(
     $value.guildId,
     (v, t) => ObjectCopyWith(v, $identity, t),
@@ -444,7 +444,7 @@ class _RawProfileCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get created => MapCopyWith(
     $value.created,
     (v, t) => ObjectCopyWith(v, $identity, t),

@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -134,9 +135,9 @@ extension RawConquestValueCopy<$R, $Out>
 
 abstract class RawConquestCopyWith<$R, $In extends RawConquest, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get activation;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get expiry;
   ListCopyWith<
     $R,
@@ -164,7 +165,7 @@ class _RawConquestCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawConquest> $mapper =
       RawConquestMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get activation => $value.activation != null
       ? MapCopyWith(
           $value.activation!,
@@ -173,7 +174,7 @@ class _RawConquestCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get expiry => $value.expiry != null
       ? MapCopyWith(
           $value.expiry!,

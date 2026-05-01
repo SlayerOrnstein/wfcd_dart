@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -189,9 +190,9 @@ extension RawFlashSaleValueCopy<$R, $Out>
 
 abstract class RawFlashSaleCopyWith<$R, $In extends RawFlashSale, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get startDate;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get endDate;
   $R call({
     String? typeName,
@@ -218,14 +219,14 @@ class _RawFlashSaleCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawFlashSale> $mapper =
       RawFlashSaleMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get startDate => MapCopyWith(
     $value.startDate,
     (v, t) => ObjectCopyWith(v, $identity, t),
     (v) => call(startDate: v),
   );
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get endDate => MapCopyWith(
     $value.endDate,
     (v, t) => ObjectCopyWith(v, $identity, t),

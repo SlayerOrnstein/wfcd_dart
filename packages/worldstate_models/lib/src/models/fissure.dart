@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';

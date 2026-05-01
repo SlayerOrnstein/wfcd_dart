@@ -2,6 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 // ignore_for_file: type=lint
+// ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
@@ -160,14 +161,15 @@ extension RawEventValueCopy<$R, $Out> on ObjectCopyWith<$R, RawEvent, $Out> {
 
 abstract class RawEventCopyWith<$R, $In extends RawEvent, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get id;
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
+  get id;
   ListCopyWith<
     $R,
     Map<String, dynamic>,
     ObjectCopyWith<$R, Map<String, dynamic>, Map<String, dynamic>>
   >
   get messages;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get date;
   $R call({
     Map<String, dynamic>? id,
@@ -191,7 +193,7 @@ class _RawEventCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawEvent> $mapper =
       RawEventMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get id => MapCopyWith(
     $value.id,
     (v, t) => ObjectCopyWith(v, $identity, t),
@@ -209,7 +211,7 @@ class _RawEventCopyWithImpl<$R, $Out>
     (v) => call(messages: v),
   );
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get date => $value.date != null
       ? MapCopyWith(
           $value.date!,

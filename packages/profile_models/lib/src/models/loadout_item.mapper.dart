@@ -254,18 +254,18 @@ extension RawLoadoutItemValueCopy<$R, $Out>
 
 abstract class RawLoadoutItemCopyWith<$R, $In extends RawLoadoutItem, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get itemId;
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get configs;
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?> get configs;
   ListCopyWith<
     $R,
     RawPolarity,
     RawPolarityCopyWith<$R, RawPolarity, RawPolarity>
   >?
   get polarity;
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get archonCrystalUpgrades;
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get infestationDate;
   $R call({
     Map<String, dynamic>? itemId,
@@ -303,19 +303,19 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RawLoadoutItem> $mapper =
       RawLoadoutItemMapper.ensureInitialized();
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
   get itemId => MapCopyWith(
     $value.itemId,
     (v, t) => ObjectCopyWith(v, $identity, t),
     (v) => call(itemId: v),
   );
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>> get configs =>
-      ListCopyWith(
-        $value.configs,
-        (v, t) => ObjectCopyWith(v, $identity, t),
-        (v) => call(configs: v),
-      );
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>
+  get configs => ListCopyWith(
+    $value.configs,
+    (v, t) => ObjectCopyWith(v, $identity, t),
+    (v) => call(configs: v),
+  );
   @override
   ListCopyWith<
     $R,
@@ -330,7 +330,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get archonCrystalUpgrades => $value.archonCrystalUpgrades != null
       ? ListCopyWith(
           $value.archonCrystalUpgrades!,
@@ -339,7 +339,7 @@ class _RawLoadoutItemCopyWithImpl<$R, $Out>
         )
       : null;
   @override
-  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
+  MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>?>?
   get infestationDate => $value.infestationDate != null
       ? MapCopyWith(
           $value.infestationDate!,
