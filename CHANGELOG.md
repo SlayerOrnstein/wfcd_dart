@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_worldstate_data` - `v0.1.3+10`](#warframe_worldstate_data---v01310)
+ - [`worldstate_models` - `v0.1.6+4`](#worldstate_models---v0164)
+ - [`profile_models` - `v0.1.2+20`](#profile_models---v01220)
+ - [`warframe_items` - `v0.1.1+9`](#warframe_items---v0119)
+ - [`worldstate_status` - `v1.0.35`](#worldstate_status---v1035)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.2+20`
+ - `warframe_items` - `v0.1.1+9`
+ - `worldstate_status` - `v1.0.35`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+10`
+
+ - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))
+
+#### `worldstate_models` - `v0.1.6+4`
+
+ - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))
+
+
 ## 2026-04-30
 
 ### Changes

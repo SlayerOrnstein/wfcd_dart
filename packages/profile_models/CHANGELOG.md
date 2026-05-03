@@ -1,3 +1,7 @@
+## 0.1.2+20
+
+ - Update a dependency to the latest release.
+
 ## 0.1.2+19
 
  - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))

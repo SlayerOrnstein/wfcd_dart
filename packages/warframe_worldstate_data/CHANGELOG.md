@@ -1,3 +1,7 @@
+## 0.1.3+10
+
+ - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))
+
 ## 0.1.3+9
 
  - **FIX**(worldstate_data): update translations. ([fc89d00e](https://github.com/SlayerOrnstein/wfcd_dart/commit/fc89d00ea3e5df994592117882b3af23650ea4d3))

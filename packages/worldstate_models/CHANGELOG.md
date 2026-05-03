@@ -1,3 +1,7 @@
+## 0.1.6+4
+
+ - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))
+
 ## 0.1.6+3
 
  - **FIX**(worldstate_models): fissure tier didn't line up with `FissureTier`. ([b3335a62](https://github.com/SlayerOrnstein/wfcd_dart/commit/b3335a622bca254006d13b317ae3974a41418b85))
