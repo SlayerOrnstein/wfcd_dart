@@ -144,7 +144,7 @@ void main() {
           expect(first.id, isA<String>());
           expect(first.node, isA<String>());
           expect(first.missionType, isA<String>());
-          expect(first.tier, isA<String>());
+          expect(first.key, isA<String>());
           expect(first.expiry, isA<DateTime>());
           expect(first.isStorm, isA<bool>());
         }

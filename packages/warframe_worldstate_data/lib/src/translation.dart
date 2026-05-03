@@ -7,13 +7,6 @@ import 'package:warframe_worldstate_data/src/types.dart';
 String faction(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
     factions(locale)[resource] ?? toTitleCase(resource.replaceAll('FC_', ''));
 
-/// Get fissure tier info based on [resource]
-///
-/// Will fallback to sanitized version of [resource] if strings don't exist
-FissureModifier fissure(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-  return fissures(locale)[resource] ?? (value: resource, tier: int.parse(resource.replaceAll(RegExp('[a-zA-Z]+'), '')));
-}
-
 /// Get mission type string.
 ///
 /// A normalized version of the [resource] will be returned if one is not found.

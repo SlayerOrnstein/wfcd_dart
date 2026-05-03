@@ -6,18 +6,6 @@ import 'package:worldstate_models/src/utils/worldstate_utils.dart';
 
 part 'fissure.mapper.dart';
 
-@MappableEnum()
-enum FissureTier {
-  lith,
-  meso,
-  neo,
-  axi,
-  requiem,
-  omnia,
-  // Only for new tiers that haven't been added. That means that any new tiers need to be added before unknown
-  unknown,
-}
-
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
   RawActiveMission({
@@ -51,15 +39,13 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required this.node,
     required this.missionType,
     required this.faction,
-    required this.tier,
-    required this.tierNum,
+    required this.key,
     required this.isStorm,
     required this.isSteelpath,
   });
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final tier = int.parse((raw.modifier ?? raw.activeMissionTier!).replaceAll(RegExp(r'\D'), '')) - 1;
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -68,8 +54,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       node: node.name,
       missionType: node.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
-      tier: FissureTier.values[tier],
-      tierNum: tier,
+      key: raw.modifier ?? raw.activeMissionTier!,
       isStorm: raw.node.contains('CrewBattle'),
       isSteelpath: raw.hard ?? false,
     );
@@ -78,10 +63,11 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final String node;
   final String missionType;
   final String faction;
-  final FissureTier tier;
-  final int tierNum;
+  final String key;
   final bool isStorm;
   final bool isSteelpath;
+
+  FissureTier get tier => FissureTier.values[int.parse(key.replaceAll(RegExp(r'\D'), ''))];
 
   @override
   DateTime get activation => super.activation!;

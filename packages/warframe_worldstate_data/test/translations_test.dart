@@ -131,10 +131,22 @@ void main() {
       expect(fissures(), isNotEmpty);
     });
 
-    test('fissure(string) => get the matching tier', () => expect(fissure('VoidT3'), (value: 'Neo', tier: 3)));
+    test(
+      'fissure(string) => get the matching tier',
+      () => expect(fissureTranslations('VoidT3'), (value: 'Neo', tier: 3)),
+    );
 
     test('fissure(string) => normalize string when no match is found', () {
-      expect(fissure('VoidT7'), (value: 'VoidT7', tier: 7));
+      expect(fissureTranslations('VoidT7'), (value: 'VoidT7', tier: 7));
+    });
+
+    test(
+      'FissureTier.fromKey(string) => get the matching tier',
+      () => expect(FissureTier.fromKey('VoidT3'), FissureTier.neo),
+    );
+
+    test('fissure(string) => normalize string when no match is found', () {
+      expect(FissureTier.fromKey('VoidT7'), FissureTier.unknown);
     });
   });
 
