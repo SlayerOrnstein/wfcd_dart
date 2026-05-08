@@ -8,72 +8,6 @@
 
 part of 'fissure.dart';
 
-class FissureTierMapper extends EnumMapper<FissureTier> {
-  FissureTierMapper._();
-
-  static FissureTierMapper? _instance;
-  static FissureTierMapper ensureInitialized() {
-    if (_instance == null) {
-      MapperContainer.globals.use(_instance = FissureTierMapper._());
-    }
-    return _instance!;
-  }
-
-  static FissureTier fromValue(dynamic value) {
-    ensureInitialized();
-    return MapperContainer.globals.fromValue(value);
-  }
-
-  @override
-  FissureTier decode(dynamic value) {
-    switch (value) {
-      case r'lith':
-        return FissureTier.lith;
-      case r'meso':
-        return FissureTier.meso;
-      case r'neo':
-        return FissureTier.neo;
-      case r'axi':
-        return FissureTier.axi;
-      case r'requiem':
-        return FissureTier.requiem;
-      case r'omnia':
-        return FissureTier.omnia;
-      case r'unknown':
-        return FissureTier.unknown;
-      default:
-        throw MapperException.unknownEnumValue(value);
-    }
-  }
-
-  @override
-  dynamic encode(FissureTier self) {
-    switch (self) {
-      case FissureTier.lith:
-        return r'lith';
-      case FissureTier.meso:
-        return r'meso';
-      case FissureTier.neo:
-        return r'neo';
-      case FissureTier.axi:
-        return r'axi';
-      case FissureTier.requiem:
-        return r'requiem';
-      case FissureTier.omnia:
-        return r'omnia';
-      case FissureTier.unknown:
-        return r'unknown';
-    }
-  }
-}
-
-extension FissureTierMapperExtension on FissureTier {
-  String toValue() {
-    FissureTierMapper.ensureInitialized();
-    return MapperContainer.globals.toValue<FissureTier>(this) as String;
-  }
-}
-
 class RawActiveMissionMapper extends ClassMapperBase<RawActiveMission> {
   RawActiveMissionMapper._();
 
@@ -327,7 +261,6 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
   static VoidFissureMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = VoidFissureMapper._());
-      FissureTierMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -359,10 +292,8 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     'faction',
     _$faction,
   );
-  static FissureTier _$tier(VoidFissure v) => v.tier;
-  static const Field<VoidFissure, FissureTier> _f$tier = Field('tier', _$tier);
-  static int _$tierNum(VoidFissure v) => v.tierNum;
-  static const Field<VoidFissure, int> _f$tierNum = Field('tierNum', _$tierNum);
+  static String _$key(VoidFissure v) => v.key;
+  static const Field<VoidFissure, String> _f$key = Field('key', _$key);
   static bool _$isStorm(VoidFissure v) => v.isStorm;
   static const Field<VoidFissure, bool> _f$isStorm = Field(
     'isStorm',
@@ -382,8 +313,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     #node: _f$node,
     #missionType: _f$missionType,
     #faction: _f$faction,
-    #tier: _f$tier,
-    #tierNum: _f$tierNum,
+    #key: _f$key,
     #isStorm: _f$isStorm,
     #isSteelpath: _f$isSteelpath,
   };
@@ -398,8 +328,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
       node: data.dec(_f$node),
       missionType: data.dec(_f$missionType),
       faction: data.dec(_f$faction),
-      tier: data.dec(_f$tier),
-      tierNum: data.dec(_f$tierNum),
+      key: data.dec(_f$key),
       isStorm: data.dec(_f$isStorm),
       isSteelpath: data.dec(_f$isSteelpath),
     );
@@ -472,8 +401,7 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     String? node,
     String? missionType,
     String? faction,
-    FissureTier? tier,
-    int? tierNum,
+    String? key,
     bool? isStorm,
     bool? isSteelpath,
   });
@@ -496,8 +424,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     String? node,
     String? missionType,
     String? faction,
-    FissureTier? tier,
-    int? tierNum,
+    String? key,
     bool? isStorm,
     bool? isSteelpath,
   }) => $apply(
@@ -508,8 +435,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
       if (node != null) #node: node,
       if (missionType != null) #missionType: missionType,
       if (faction != null) #faction: faction,
-      if (tier != null) #tier: tier,
-      if (tierNum != null) #tierNum: tierNum,
+      if (key != null) #key: key,
       if (isStorm != null) #isStorm: isStorm,
       if (isSteelpath != null) #isSteelpath: isSteelpath,
     }),
@@ -522,8 +448,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     node: data.get(#node, or: $value.node),
     missionType: data.get(#missionType, or: $value.missionType),
     faction: data.get(#faction, or: $value.faction),
-    tier: data.get(#tier, or: $value.tier),
-    tierNum: data.get(#tierNum, or: $value.tierNum),
+    key: data.get(#key, or: $value.key),
     isStorm: data.get(#isStorm, or: $value.isStorm),
     isSteelpath: data.get(#isSteelpath, or: $value.isSteelpath),
   );

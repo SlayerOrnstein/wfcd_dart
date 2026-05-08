@@ -21,6 +21,8 @@ melos:
       run: melos exec --depends-on build_runner -- dart run build_runner clean
     build_runner:build:
       run: melos exec --depends-on build_runner -- dart run build_runner build
+    build_runner:watch:
+      run: melos exec --depends-on build_runner -- dart run build_runner watch
     analyze:
       run: melos exec -- dart analyze --fatal-infos --fatal-warnings
     test:
