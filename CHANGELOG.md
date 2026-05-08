@@ -15,6 +15,39 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_drop_data` - `v0.1.7`](#warframe_drop_data---v017)
+ - [`worldstate_models` - `v0.1.7`](#worldstate_models---v017)
+ - [`worldstate_status` - `v1.0.37`](#worldstate_status---v1037)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.37`
+
+---
+
+#### `warframe_drop_data` - `v0.1.7`
+
+ - **FEAT**(worldstate_models): fissures now include thier node mission rewards. ([9e8228f0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9e8228f06fd19a0a4522e06ba1a6a269ff806388))
+
+#### `worldstate_models` - `v0.1.7`
+
+ - **FEAT**(worldstate_models): fissures now include thier node mission rewards. ([9e8228f0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9e8228f06fd19a0a4522e06ba1a6a269ff806388))
+
+
+## 2026-05-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_drop_data` - `v0.1.6`](#warframe_drop_data---v016)
  - [`worldstate_models` - `v0.1.6+5`](#worldstate_models---v0165)
  - [`worldstate_status` - `v1.0.36`](#worldstate_status---v1036)

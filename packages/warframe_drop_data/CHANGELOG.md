@@ -1,3 +1,7 @@
+## 0.1.7
+
+ - **FEAT**(worldstate_models): fissures now include thier node mission rewards. ([9e8228f0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9e8228f06fd19a0a4522e06ba1a6a269ff806388))
+
 ## 0.1.6
 
  - **FEAT**(warframe_drop_data): add more parsed data. ([2fe3ad94](https://github.com/SlayerOrnstein/wfcd_dart/commit/2fe3ad946fd6603de80905130b80de2208529036))
