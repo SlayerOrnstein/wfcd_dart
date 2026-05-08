@@ -1,3 +1,7 @@
+## 0.1.7+1
+
+ - **FIX**(worldstate_models): fissure tier not being correctly parsed from key. ([ad600c59](https://github.com/SlayerOrnstein/wfcd_dart/commit/ad600c5901973a2c2ce23bef0e35f40d0c3f3742))
+
 ## 0.1.7
 
  - **FEAT**(worldstate_models): fissures now include thier node mission rewards. ([9e8228f0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9e8228f06fd19a0a4522e06ba1a6a269ff806388))

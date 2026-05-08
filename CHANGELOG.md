@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.7+1`](#worldstate_models---v0171)
+ - [`worldstate_status` - `v1.0.38`](#worldstate_status---v1038)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.38`
+
+---
+
+#### `worldstate_models` - `v0.1.7+1`
+
+ - **FIX**(worldstate_models): fissure tier not being correctly parsed from key. ([ad600c59](https://github.com/SlayerOrnstein/wfcd_dart/commit/ad600c5901973a2c2ce23bef0e35f40d0c3f3742))
+
+
+## 2026-05-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_drop_data` - `v0.1.7`](#warframe_drop_data---v017)
  - [`worldstate_models` - `v0.1.7`](#worldstate_models---v017)
  - [`worldstate_status` - `v1.0.37`](#worldstate_status---v1037)
