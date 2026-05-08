@@ -114,7 +114,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   });
 
   factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
-    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.bountyRewardTable, raw, raw.isVault ?? false);
+    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.rewardTables.bountyRewards, raw);
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
@@ -179,7 +179,6 @@ class SyndicateBounty with SyndicateBountyMappable {
     String resource,
     List<BountyRewardTable> data,
     RawJob raw,
-    bool isVault,
   ) {
     String level;
     String rotation;
@@ -187,7 +186,7 @@ class SyndicateBounty with SyndicateBountyMappable {
       level = 'plague star';
       rotation = 'Earth/Cetus (Level 15 - 25 Plague Star), Rot A';
     } else {
-      (level, rotation) = _determineLocation(resource, raw, isVault);
+      (level, rotation) = _determineLocation(resource, raw, raw.isVault ?? false);
     }
 
     final table = data.firstWhereOrNull((t) => t.level == level);
@@ -198,7 +197,7 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     final rewardStrings = rewards.map((r) => r.item).toSet().toList();
 
-    if (!isVault) {
+    if (!(raw.isVault ?? true)) {
       final stages = <int, BountyStage>{};
       var currentStage = 0;
       for (final reward in rewards) {

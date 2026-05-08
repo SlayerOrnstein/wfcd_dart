@@ -30,7 +30,7 @@ DropData buildDropData(Element body) {
     resourcesByAvatar: parseAvatarDropTables(body, Avatars.resources) ?? [],
     sigilsByAvatar: parseAvatarDropTables(body, Avatars.sigils) ?? [],
     additionalItemsByAvatar: parseAvatarDropTables(body, Avatars.items) ?? [],
-    missionRewards: parseMissionRewards(body) ?? [],
+    missionRewards: parseMissionRewards(body),
     relics: parseRelicRewards(body),
     modsByAvatar: parseEnemyModTables(body),
     questRewards: parseQuestRewards(body),

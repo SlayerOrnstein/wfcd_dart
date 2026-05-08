@@ -408,7 +408,7 @@ class NodeNonEndlessMapper extends SubClassMapperBase<NodeNonEndless> {
   @override
   final String discriminatorKey = 'type';
   @override
-  final dynamic discriminatorValue = 'non-endless';
+  final dynamic discriminatorValue = 'finite';
   @override
   late final ClassMapperBase superMapper = RegionMapper.ensureInitialized();
 

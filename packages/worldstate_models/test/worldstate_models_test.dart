@@ -9,7 +9,7 @@ import 'load_fixtures.dart';
 
 void main() {
   final dir = Directory('./test/fixtures');
-  final deps = Dependency([]);
+  final deps = Dependency();
 
   // Find all .json files in the fixtures directory
   final fixtureFiles = dir.listSync().where((file) => file.path.endsWith('.json')).toList();
@@ -119,7 +119,7 @@ void main() {
 
       test('RawSyndicate -> SyndicateMission', () async {
         final missions = fixture.syndicateMissions.map(
-          (s) => RawSyndicate.fromMap(s).toSyndicate(Dependency([])),
+          (s) => RawSyndicate.fromMap(s).toSyndicate(Dependency()),
         );
 
         expect(missions, isA<Iterable<SyndicateMission>>());

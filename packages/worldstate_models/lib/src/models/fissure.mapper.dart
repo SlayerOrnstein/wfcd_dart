@@ -261,6 +261,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
   static VoidFissureMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = VoidFissureMapper._());
+      RegionMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -304,6 +305,11 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     'isSteelpath',
     _$isSteelpath,
   );
+  static Region? _$rewardTable(VoidFissure v) => v.rewardTable;
+  static const Field<VoidFissure, Region> _f$rewardTable = Field(
+    'rewardTable',
+    _$rewardTable,
+  );
 
   @override
   final MappableFields<VoidFissure> fields = const {
@@ -316,6 +322,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     #key: _f$key,
     #isStorm: _f$isStorm,
     #isSteelpath: _f$isSteelpath,
+    #rewardTable: _f$rewardTable,
   };
   @override
   final bool ignoreNull = true;
@@ -331,6 +338,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
       key: data.dec(_f$key),
       isStorm: data.dec(_f$isStorm),
       isSteelpath: data.dec(_f$isSteelpath),
+      rewardTable: data.dec(_f$rewardTable),
     );
   }
 
@@ -394,6 +402,7 @@ extension VoidFissureValueCopy<$R, $Out>
 
 abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  RegionCopyWith<$R, Region, Region>? get rewardTable;
   $R call({
     String? id,
     DateTime? activation,
@@ -404,6 +413,7 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
+    Region? rewardTable,
   });
   VoidFissureCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -417,6 +427,9 @@ class _VoidFissureCopyWithImpl<$R, $Out>
   late final ClassMapperBase<VoidFissure> $mapper =
       VoidFissureMapper.ensureInitialized();
   @override
+  RegionCopyWith<$R, Region, Region>? get rewardTable =>
+      $value.rewardTable?.copyWith.$chain((v) => call(rewardTable: v));
+  @override
   $R call({
     String? id,
     Object? activation = $none,
@@ -427,6 +440,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
+    Object? rewardTable = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -438,6 +452,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
       if (key != null) #key: key,
       if (isStorm != null) #isStorm: isStorm,
       if (isSteelpath != null) #isSteelpath: isSteelpath,
+      if (rewardTable != $none) #rewardTable: rewardTable,
     }),
   );
   @override
@@ -451,6 +466,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     key: data.get(#key, or: $value.key),
     isStorm: data.get(#isStorm, or: $value.isStorm),
     isSteelpath: data.get(#isSteelpath, or: $value.isSteelpath),
+    rewardTable: data.get(#rewardTable, or: $value.rewardTable),
   );
 
   @override

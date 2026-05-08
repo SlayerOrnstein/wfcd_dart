@@ -61,7 +61,7 @@ class NodeEndless extends Region with NodeEndlessMappable {
 /// {@template node_nonendless}
 /// Node info for missions that give drops on completion
 /// {@endtemplate}
-@MappableClass(discriminatorValue: 'non-endless')
+@MappableClass(discriminatorValue: 'finite')
 class NodeNonEndless extends Region with NodeNonEndlessMappable {
   /// {@macro node_nonendless}
   NodeNonEndless({required super.name, required super.gameMode, required super.isEvent, required this.rewards});

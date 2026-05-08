@@ -31,7 +31,7 @@ enum Syndicates {
 }
 
 /// Parses syndicate bounty rewards
-List<BountyRewardTable>? parseBountyRewardTables(Element body, Syndicates syndicate) {
+List<BountyRewardTable> parseBountyRewardTables(Element body, Syndicates syndicate) {
   final table = body.getElementsByTagName('#${syndicate.id}').first.nextElementSibling;
   final tbody = table?.children.first;
   if (tbody == null) throw ParsingException('no table for ${syndicate.id}');

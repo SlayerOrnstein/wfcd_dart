@@ -10,7 +10,7 @@ ParsedLocation _updateLocation(ParsedLocation location, String Function(String o
 }
 
 /// Parses all mission rewards
-List<Planet>? parseMissionRewards(Element body) {
+List<Planet> parseMissionRewards(Element body) {
   final table = body.getElementsByTagName('#missionRewards').first.nextElementSibling;
   final tbody = table?.children.first;
   if (tbody == null) throw ParsingException("missionRewards table is empty when it shouldn't be");

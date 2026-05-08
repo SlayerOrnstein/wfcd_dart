@@ -1,4 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
@@ -42,10 +44,13 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required this.key,
     required this.isStorm,
     required this.isSteelpath,
+    required this.rewardTable,
   });
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
+    final planetTable = deps.rewardTables.missionRewards.firstWhereOrNull((i) => node.name.contains(i.name));
+    final nodeTable = planetTable?.nodes.firstWhereOrNull((n) => node.name.contains(n.name));
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -57,6 +62,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       key: raw.modifier ?? raw.activeMissionTier!,
       isStorm: raw.node.contains('CrewBattle'),
       isSteelpath: raw.hard ?? false,
+      rewardTable: nodeTable,
     );
   }
 
@@ -66,6 +72,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final String key;
   final bool isStorm;
   final bool isSteelpath;
+  final Region? rewardTable;
 
   FissureTier get tier => FissureTier.values[int.parse(key.replaceAll(RegExp(r'\D'), ''))];
 
