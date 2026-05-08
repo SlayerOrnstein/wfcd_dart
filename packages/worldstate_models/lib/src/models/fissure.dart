@@ -74,7 +74,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final bool isSteelpath;
   final Region? rewardTable;
 
-  FissureTier get tier => FissureTier.values[int.parse(key.replaceAll(RegExp(r'\D'), ''))];
+  FissureTier get tier => FissureTier.values[int.parse(key.replaceAll(RegExp(r'\D'), '')) - 1];
 
   @override
   DateTime get activation => super.activation!;
