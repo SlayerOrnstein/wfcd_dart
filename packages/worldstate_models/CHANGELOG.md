@@ -1,3 +1,7 @@
+## 0.1.6+5
+
+ - Update a dependency to the latest release.
+
 ## 0.1.6+4
 
  - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))

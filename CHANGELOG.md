@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-08
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.6`](#warframe_drop_data---v016)
+ - [`worldstate_models` - `v0.1.6+5`](#worldstate_models---v0165)
+ - [`worldstate_status` - `v1.0.36`](#worldstate_status---v1036)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.6+5`
+ - `worldstate_status` - `v1.0.36`
+
+---
+
+#### `warframe_drop_data` - `v0.1.6`
+
+ - **FEAT**(warframe_drop_data): add more parsed data. ([2fe3ad94](https://github.com/SlayerOrnstein/wfcd_dart/commit/2fe3ad946fd6603de80905130b80de2208529036))
+
+
 ## 2026-05-03
 
 ### Changes

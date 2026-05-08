@@ -1,3 +1,7 @@
+## 0.1.6
+
+ - **FEAT**(warframe_drop_data): add more parsed data. ([2fe3ad94](https://github.com/SlayerOrnstein/wfcd_dart/commit/2fe3ad946fd6603de80905130b80de2208529036))
+
 ## 0.1.5+1
 
  - **FIX**: run `build_runner` accross all projects. ([f755e6ba](https://github.com/SlayerOrnstein/wfcd_dart/commit/f755e6ba3aa6a7701c77f7b46c85306db32331ac))
