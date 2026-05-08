@@ -9,7 +9,7 @@ part 'avatar.mapper.dart';
 @MappableClass()
 class Avatar with AvatarMappable {
   /// {@macro enemy}
-  Avatar({required this.id, required this.name, required this.chance, required this.drops});
+  Avatar({required this.id, required this.name, required this.chance, required this.items});
 
   /// Creates an [Avatar] from map
   static const fromMap = AvatarMapper.fromMap;
@@ -23,6 +23,6 @@ class Avatar with AvatarMappable {
   /// Enemy's chances of droping an item
   final double chance;
 
-  /// Possible drops
-  final List<ItemDrop> drops;
+  /// Possible items droped for this avatar drops
+  final List<ItemDrop> items;
 }

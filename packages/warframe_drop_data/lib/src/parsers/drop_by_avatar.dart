@@ -48,7 +48,7 @@ List<Avatar>? parseAvatarDropTables(Element body, Avatars avatar) {
       }
 
       baseChance = double.parse(chance) / 100;
-      source = Avatar(id: hash(text), name: text, chance: baseChance, drops: []);
+      source = Avatar(id: hash(text), name: text, chance: baseChance, items: []);
     }
 
     if (element.localName == 'td') {
@@ -61,7 +61,7 @@ List<Avatar>? parseAvatarDropTables(Element body, Avatars avatar) {
 
       final fractional = itemChance.chance / 100 * baseChance;
 
-      source?.drops.add(
+      source?.items.add(
         ItemDrop(
           id: hash(item),
           item: item,

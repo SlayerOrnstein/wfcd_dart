@@ -1,5 +1,7 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
+import 'package:warframe_drop_data/src/models/quest_rewards.dart';
+import 'package:warframe_drop_data/warframe_drop_data.dart';
 
 part 'drop_data.mapper.dart';
 
@@ -16,6 +18,9 @@ class DropData with DropDataMappable {
     this.sigilsByAvatar = const [],
     this.additionalItemsByAvatar = const [],
     this.missionRewards = const [],
+    this.relics = const [],
+    this.modsByAvatar = const [],
+    this.questRewards = const [],
   });
 
   /// Creates a [DropData] from map
@@ -38,4 +43,13 @@ class DropData with DropDataMappable {
 
   /// Rewards that drop in both endless and nonendless missions
   final List<Planet> missionRewards;
+
+  /// Relic rewards per relic
+  final List<Relic> relics;
+
+  /// Mod drops by avatars
+  final List<Avatar> modsByAvatar;
+
+  /// Drops for quests
+  final List<QuestRewards> questRewards;
 }

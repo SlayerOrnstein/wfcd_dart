@@ -1,5 +1,6 @@
-import 'dart:developer' as developer;
 import 'package:html/dom.dart';
+import 'package:warframe_drop_data/src/exceptions.dart';
+import 'package:warframe_drop_data/src/extensions.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
 import 'package:warframe_drop_data/src/utils.dart';
 
@@ -33,10 +34,7 @@ enum Syndicates {
 List<BountyRewardTable>? parseBountyRewardTables(Element body, Syndicates syndicate) {
   final table = body.getElementsByTagName('#${syndicate.id}').first.nextElementSibling;
   final tbody = table?.children.first;
-  if (tbody == null) {
-    developer.log('no table for ${syndicate.id}');
-    return null;
-  }
+  if (tbody == null) throw ParsingException('no table for ${syndicate.id}');
 
   final rewards = <BountyRewardTable>[];
 
@@ -70,31 +68,30 @@ List<BountyRewardTable>? parseBountyRewardTables(Element body, Syndicates syndic
 
       if (tr.children.length == 3) {
         final chance = parseChanceWithRarity(tr.children[2].text);
-        if (chance == null) throw Exception('Failed to parse ${tr.children[2].text}');
+        if (chance == null) throw ParsingException('Failed to parse ${tr.children[2].text}');
 
         text = tr.children[1].text;
         rotation ??= 'C';
 
         final stagesRegEx = RegExp('Stage (?<stage>[0-7])');
-        rewardTable?.rewards.addReward(
-          rotation,
-          BountyReward(
-            id: hash(text),
-            item: text,
-            rarity: chance.rarity,
-            chance: chance.chance,
-            stages: stagesRegEx
-                .allMatches(stage ?? '')
-                .map((m) => m.namedGroup('stage'))
-                .nonNulls
-                .map(int.parse)
-                .toSet()
-                .toList(),
-            onFinalStage: stage?.toLowerCase() == 'final stage',
-            onFirstCompletion: completion?.contains('First'),
-            status: null,
-          ),
+        final reward = BountyReward(
+          id: hash(text),
+          item: text,
+          rarity: chance.rarity,
+          chance: chance.chance,
+          stages: stagesRegEx
+              .allMatches(stage ?? '')
+              .map((m) => m.namedGroup('stage'))
+              .nonNulls
+              .map(int.parse)
+              .toSet()
+              .toList(),
+          onFinalStage: stage?.toLowerCase() == 'final stage',
+          onFirstCompletion: completion?.contains('First'),
+          status: null,
         );
+
+        rewardTable?.rewards.addReward(rotation, reward);
       }
     }
   }

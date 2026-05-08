@@ -19,6 +19,8 @@ class DropDataMapper extends ClassMapperBase<DropData> {
       BountyRewardTableMapper.ensureInitialized();
       AvatarMapper.ensureInitialized();
       PlanetMapper.ensureInitialized();
+      RelicMapper.ensureInitialized();
+      QuestRewardsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -71,6 +73,27 @@ class DropDataMapper extends ClassMapperBase<DropData> {
     opt: true,
     def: const [],
   );
+  static List<Relic> _$relics(DropData v) => v.relics;
+  static const Field<DropData, List<Relic>> _f$relics = Field(
+    'relics',
+    _$relics,
+    opt: true,
+    def: const [],
+  );
+  static List<Avatar> _$modsByAvatar(DropData v) => v.modsByAvatar;
+  static const Field<DropData, List<Avatar>> _f$modsByAvatar = Field(
+    'modsByAvatar',
+    _$modsByAvatar,
+    opt: true,
+    def: const [],
+  );
+  static List<QuestRewards> _$questRewards(DropData v) => v.questRewards;
+  static const Field<DropData, List<QuestRewards>> _f$questRewards = Field(
+    'questRewards',
+    _$questRewards,
+    opt: true,
+    def: const [],
+  );
 
   @override
   final MappableFields<DropData> fields = const {
@@ -80,6 +103,9 @@ class DropDataMapper extends ClassMapperBase<DropData> {
     #sigilsByAvatar: _f$sigilsByAvatar,
     #additionalItemsByAvatar: _f$additionalItemsByAvatar,
     #missionRewards: _f$missionRewards,
+    #relics: _f$relics,
+    #modsByAvatar: _f$modsByAvatar,
+    #questRewards: _f$questRewards,
   };
   @override
   final bool ignoreNull = true;
@@ -92,6 +118,9 @@ class DropDataMapper extends ClassMapperBase<DropData> {
       sigilsByAvatar: data.dec(_f$sigilsByAvatar),
       additionalItemsByAvatar: data.dec(_f$additionalItemsByAvatar),
       missionRewards: data.dec(_f$missionRewards),
+      relics: data.dec(_f$relics),
+      modsByAvatar: data.dec(_f$modsByAvatar),
+      questRewards: data.dec(_f$questRewards),
     );
   }
 
@@ -172,6 +201,14 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
   get additionalItemsByAvatar;
   ListCopyWith<$R, Planet, PlanetCopyWith<$R, Planet, Planet>>
   get missionRewards;
+  ListCopyWith<$R, Relic, RelicCopyWith<$R, Relic, Relic>> get relics;
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>> get modsByAvatar;
+  ListCopyWith<
+    $R,
+    QuestRewards,
+    QuestRewardsCopyWith<$R, QuestRewards, QuestRewards>
+  >
+  get questRewards;
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
@@ -179,6 +216,9 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
     List<Avatar>? sigilsByAvatar,
     List<Avatar>? additionalItemsByAvatar,
     List<Planet>? missionRewards,
+    List<Relic>? relics,
+    List<Avatar>? modsByAvatar,
+    List<QuestRewards>? questRewards,
   });
   DropDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -242,6 +282,31 @@ class _DropDataCopyWithImpl<$R, $Out>
     (v) => call(missionRewards: v),
   );
   @override
+  ListCopyWith<$R, Relic, RelicCopyWith<$R, Relic, Relic>> get relics =>
+      ListCopyWith(
+        $value.relics,
+        (v, t) => v.copyWith.$chain(t),
+        (v) => call(relics: v),
+      );
+  @override
+  ListCopyWith<$R, Avatar, AvatarCopyWith<$R, Avatar, Avatar>>
+  get modsByAvatar => ListCopyWith(
+    $value.modsByAvatar,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(modsByAvatar: v),
+  );
+  @override
+  ListCopyWith<
+    $R,
+    QuestRewards,
+    QuestRewardsCopyWith<$R, QuestRewards, QuestRewards>
+  >
+  get questRewards => ListCopyWith(
+    $value.questRewards,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(questRewards: v),
+  );
+  @override
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
@@ -249,6 +314,9 @@ class _DropDataCopyWithImpl<$R, $Out>
     List<Avatar>? sigilsByAvatar,
     List<Avatar>? additionalItemsByAvatar,
     List<Planet>? missionRewards,
+    List<Relic>? relics,
+    List<Avatar>? modsByAvatar,
+    List<QuestRewards>? questRewards,
   }) => $apply(
     FieldCopyWithData({
       if (blueprintDrops != null) #blueprintDrops: blueprintDrops,
@@ -258,6 +326,9 @@ class _DropDataCopyWithImpl<$R, $Out>
       if (additionalItemsByAvatar != null)
         #additionalItemsByAvatar: additionalItemsByAvatar,
       if (missionRewards != null) #missionRewards: missionRewards,
+      if (relics != null) #relics: relics,
+      if (modsByAvatar != null) #modsByAvatar: modsByAvatar,
+      if (questRewards != null) #questRewards: questRewards,
     }),
   );
   @override
@@ -277,6 +348,9 @@ class _DropDataCopyWithImpl<$R, $Out>
       or: $value.additionalItemsByAvatar,
     ),
     missionRewards: data.get(#missionRewards, or: $value.missionRewards),
+    relics: data.get(#relics, or: $value.relics),
+    modsByAvatar: data.get(#modsByAvatar, or: $value.modsByAvatar),
+    questRewards: data.get(#questRewards, or: $value.questRewards),
   );
 
   @override

@@ -1,4 +1,5 @@
 import 'package:html/dom.dart';
+import 'package:warframe_drop_data/src/exceptions.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
 import 'package:warframe_drop_data/src/utils.dart';
 
@@ -6,6 +7,7 @@ import 'package:warframe_drop_data/src/utils.dart';
 List<BlueprintPart> parseBlueprintLocations(Element body) {
   final table = body.getElementsByTagName('#blueprintByDrop').first.nextElementSibling!;
   final tbody = table.children.first.children;
+
   final items = <BlueprintPart>[];
 
   BlueprintPart? item;
@@ -26,7 +28,7 @@ List<BlueprintPart> parseBlueprintLocations(Element body) {
 
     if (element.localName == 'td' && !element.classes.contains('blank-row')) {
       final chance = parseChanceWithRarity(tr.children[2].text);
-      if (chance == null) throw Exception('Failed to parse ${tr.children[2].text}');
+      if (chance == null) throw ParsingException('Failed to parse ${tr.children[2].text}');
 
       final itemDropChance = tr.children[1].text;
 

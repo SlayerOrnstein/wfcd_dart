@@ -25,28 +25,4 @@ class Rotations<T extends ItemDrop> with RotationsMappable<T> {
   /// Rotation C
   @MappableField(key: 'C')
   final List<T> c;
-
-  /// Add a reward in the given [Rotations]
-  void addReward(String rotation, T reward) {
-    switch (rotation) {
-      case 'A':
-        a.add(reward);
-      case 'B':
-        b.add(reward);
-      case 'C':
-        c.add(reward);
-      default:
-        throw Exception('Rotation $rotation is not valid.');
-    }
-  }
-
-  /// Get a rotation from string
-  List<T> fetchRotation(String rotation) {
-    return switch (rotation) {
-      'A' => a,
-      'B' => b,
-      'C' => c,
-      _ => throw Exception('Rotation $rotation is not valid.'),
-    };
-  }
 }

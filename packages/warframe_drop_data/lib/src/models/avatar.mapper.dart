@@ -29,15 +29,15 @@ class AvatarMapper extends ClassMapperBase<Avatar> {
   static const Field<Avatar, String> _f$name = Field('name', _$name);
   static double _$chance(Avatar v) => v.chance;
   static const Field<Avatar, double> _f$chance = Field('chance', _$chance);
-  static List<ItemDrop> _$drops(Avatar v) => v.drops;
-  static const Field<Avatar, List<ItemDrop>> _f$drops = Field('drops', _$drops);
+  static List<ItemDrop> _$items(Avatar v) => v.items;
+  static const Field<Avatar, List<ItemDrop>> _f$items = Field('items', _$items);
 
   @override
   final MappableFields<Avatar> fields = const {
     #id: _f$id,
     #name: _f$name,
     #chance: _f$chance,
-    #drops: _f$drops,
+    #items: _f$items,
   };
   @override
   final bool ignoreNull = true;
@@ -47,7 +47,7 @@ class AvatarMapper extends ClassMapperBase<Avatar> {
       id: data.dec(_f$id),
       name: data.dec(_f$name),
       chance: data.dec(_f$chance),
-      drops: data.dec(_f$drops),
+      items: data.dec(_f$items),
     );
   }
 
@@ -98,8 +98,8 @@ extension AvatarValueCopy<$R, $Out> on ObjectCopyWith<$R, Avatar, $Out> {
 abstract class AvatarCopyWith<$R, $In extends Avatar, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, ItemDrop, ItemDropCopyWith<$R, ItemDrop, ItemDrop>>
-  get drops;
-  $R call({String? id, String? name, double? chance, List<ItemDrop>? drops});
+  get items;
+  $R call({String? id, String? name, double? chance, List<ItemDrop>? items});
   AvatarCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -111,19 +111,19 @@ class _AvatarCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Avatar, $Out>
   late final ClassMapperBase<Avatar> $mapper = AvatarMapper.ensureInitialized();
   @override
   ListCopyWith<$R, ItemDrop, ItemDropCopyWith<$R, ItemDrop, ItemDrop>>
-  get drops => ListCopyWith(
-    $value.drops,
+  get items => ListCopyWith(
+    $value.items,
     (v, t) => v.copyWith.$chain(t),
-    (v) => call(drops: v),
+    (v) => call(items: v),
   );
   @override
-  $R call({String? id, String? name, double? chance, List<ItemDrop>? drops}) =>
+  $R call({String? id, String? name, double? chance, List<ItemDrop>? items}) =>
       $apply(
         FieldCopyWithData({
           if (id != null) #id: id,
           if (name != null) #name: name,
           if (chance != null) #chance: chance,
-          if (drops != null) #drops: drops,
+          if (items != null) #items: items,
         }),
       );
   @override
@@ -131,7 +131,7 @@ class _AvatarCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Avatar, $Out>
     id: data.get(#id, or: $value.id),
     name: data.get(#name, or: $value.name),
     chance: data.get(#chance, or: $value.chance),
-    drops: data.get(#drops, or: $value.drops),
+    items: data.get(#items, or: $value.items),
   );
 
   @override

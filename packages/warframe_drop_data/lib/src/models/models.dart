@@ -5,4 +5,5 @@ export 'drop.dart';
 export 'drop_data.dart';
 export 'drop_slim.dart';
 export 'mission_reward.dart';
+export 'relic.dart';
 export 'rotation.dart';
