@@ -197,36 +197,34 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     final rewardStrings = rewards.map((r) => r.item).toSet().toList();
 
-    if (!(raw.isVault ?? true)) {
-      final stages = <int, BountyStage>{};
-      var currentStage = 0;
-      for (final reward in rewards) {
-        final drop = RewardDrop.fromDrop(reward);
+    if (raw.isVault ?? false) return (rewardStrings, [(stage: 1, rewards: rewards.map(RewardDrop.fromDrop).toList())]);
 
-        if (!reward.onFinalStage) {
-          for (final stage in reward.stages) {
-            if (currentStage < stage) currentStage = stage;
-            stages.update(
-              stage,
-              (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
-              ifAbsent: () => (stage: stage, rewards: [drop]),
-            );
-          }
+    final stages = <int, BountyStage>{};
+    var currentStage = 0;
+    for (final reward in rewards) {
+      final drop = RewardDrop.fromDrop(reward);
 
-          final stage = currentStage + 1;
+      if (!reward.onFinalStage) {
+        for (final stage in reward.stages) {
+          if (currentStage < stage) currentStage = stage;
           stages.update(
             stage,
             (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
             ifAbsent: () => (stage: stage, rewards: [drop]),
           );
         }
-      }
 
-      stages.removeWhere((key, value) => key > raw.xpAmounts.length);
-      return (rewardStrings, stages.entries.map((entry) => entry.value).toList());
+        final stage = currentStage + 1;
+        stages.update(
+          stage,
+          (stage) => (stage: stage.stage, rewards: [...stage.rewards, drop]),
+          ifAbsent: () => (stage: stage, rewards: [drop]),
+        );
+      }
     }
 
-    return (rewardStrings, [(stage: 1, rewards: rewards.map(RewardDrop.fromDrop).toList())]);
+    stages.removeWhere((key, value) => key > raw.xpAmounts.length);
+    return (rewardStrings, stages.entries.map((entry) => entry.value).toList());
   }
 }
 
