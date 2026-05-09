@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-09
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.7+2`](#worldstate_models---v0172)
+ - [`worldstate_status` - `v1.0.39`](#worldstate_status---v1039)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.39`
+
+---
+
+#### `worldstate_models` - `v0.1.7+2`
+
+ - **FIX**(worldstate_models): not correctly parsing staged bounties. ([6b913e4f](https://github.com/SlayerOrnstein/wfcd_dart/commit/6b913e4fb86647b717bfcfef89415b8cebf7c428))
+
+
 ## 2026-05-08
 
 ### Changes

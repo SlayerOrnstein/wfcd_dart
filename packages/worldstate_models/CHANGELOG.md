@@ -1,3 +1,7 @@
+## 0.1.7+2
+
+ - **FIX**(worldstate_models): not correctly parsing staged bounties. ([6b913e4f](https://github.com/SlayerOrnstein/wfcd_dart/commit/6b913e4fb86647b717bfcfef89415b8cebf7c428))
+
 ## 0.1.7+1
 
  - **FIX**(worldstate_models): fissure tier not being correctly parsed from key. ([ad600c59](https://github.com/SlayerOrnstein/wfcd_dart/commit/ad600c5901973a2c2ce23bef0e35f40d0c3f3742))
