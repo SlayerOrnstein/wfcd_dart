@@ -305,10 +305,10 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     'isSteelpath',
     _$isSteelpath,
   );
-  static Region? _$rewardTable(VoidFissure v) => v.rewardTable;
-  static const Field<VoidFissure, Region> _f$rewardTable = Field(
-    'rewardTable',
-    _$rewardTable,
+  static List<Region> _$rewardTables(VoidFissure v) => v.rewardTables;
+  static const Field<VoidFissure, List<Region>> _f$rewardTables = Field(
+    'rewardTables',
+    _$rewardTables,
   );
 
   @override
@@ -322,7 +322,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     #key: _f$key,
     #isStorm: _f$isStorm,
     #isSteelpath: _f$isSteelpath,
-    #rewardTable: _f$rewardTable,
+    #rewardTables: _f$rewardTables,
   };
   @override
   final bool ignoreNull = true;
@@ -338,7 +338,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
       key: data.dec(_f$key),
       isStorm: data.dec(_f$isStorm),
       isSteelpath: data.dec(_f$isSteelpath),
-      rewardTable: data.dec(_f$rewardTable),
+      rewardTables: data.dec(_f$rewardTables),
     );
   }
 
@@ -402,7 +402,7 @@ extension VoidFissureValueCopy<$R, $Out>
 
 abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  RegionCopyWith<$R, Region, Region>? get rewardTable;
+  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>> get rewardTables;
   $R call({
     String? id,
     DateTime? activation,
@@ -413,7 +413,7 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
-    Region? rewardTable,
+    List<Region>? rewardTables,
   });
   VoidFissureCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -427,8 +427,12 @@ class _VoidFissureCopyWithImpl<$R, $Out>
   late final ClassMapperBase<VoidFissure> $mapper =
       VoidFissureMapper.ensureInitialized();
   @override
-  RegionCopyWith<$R, Region, Region>? get rewardTable =>
-      $value.rewardTable?.copyWith.$chain((v) => call(rewardTable: v));
+  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>>
+  get rewardTables => ListCopyWith(
+    $value.rewardTables,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(rewardTables: v),
+  );
   @override
   $R call({
     String? id,
@@ -440,7 +444,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
-    Object? rewardTable = $none,
+    List<Region>? rewardTables,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -452,7 +456,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
       if (key != null) #key: key,
       if (isStorm != null) #isStorm: isStorm,
       if (isSteelpath != null) #isSteelpath: isSteelpath,
-      if (rewardTable != $none) #rewardTable: rewardTable,
+      if (rewardTables != null) #rewardTables: rewardTables,
     }),
   );
   @override
@@ -466,7 +470,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     key: data.get(#key, or: $value.key),
     isStorm: data.get(#isStorm, or: $value.isStorm),
     isSteelpath: data.get(#isSteelpath, or: $value.isSteelpath),
-    rewardTable: data.get(#rewardTable, or: $value.rewardTable),
+    rewardTables: data.get(#rewardTables, or: $value.rewardTables),
   );
 
   @override
