@@ -1,3 +1,8 @@
+## 0.1.7+3
+
+ - **REFACTOR**: remove unused import. ([d3f7ab7d](https://github.com/SlayerOrnstein/wfcd_dart/commit/d3f7ab7d4d3fa49a9857c25212d0f0c5801d275c))
+ - **FIX**: improved fissure reward pool to include extras/caches. ([c37d7f01](https://github.com/SlayerOrnstein/wfcd_dart/commit/c37d7f01d7c0018b8184d36fd20b4f431cd704d8))
+
 ## 0.1.7+2
 
  - **FIX**(worldstate_models): not correctly parsing staged bounties. ([6b913e4f](https://github.com/SlayerOrnstein/wfcd_dart/commit/6b913e4fb86647b717bfcfef89415b8cebf7c428))

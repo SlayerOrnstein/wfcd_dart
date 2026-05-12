@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-12
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.7+3`](#worldstate_models---v0173)
+ - [`worldstate_status` - `v1.0.40`](#worldstate_status---v1040)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.40`
+
+---
+
+#### `worldstate_models` - `v0.1.7+3`
+
+ - **REFACTOR**: remove unused import. ([d3f7ab7d](https://github.com/SlayerOrnstein/wfcd_dart/commit/d3f7ab7d4d3fa49a9857c25212d0f0c5801d275c))
+ - **FIX**: improved fissure reward pool to include extras/caches. ([c37d7f01](https://github.com/SlayerOrnstein/wfcd_dart/commit/c37d7f01d7c0018b8184d36fd20b4f431cd704d8))
+
+
 ## 2026-05-09
 
 ### Changes
