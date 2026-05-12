@@ -95,7 +95,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
       for (final node in p.nodes) {
         // Don't need reward pools for events in the context of fissures
-        if (node.name != nodeName || node.isEvent) continue;
+        if (!node.name.contains(nodeName) || node.isEvent) continue;
         tables.add(node);
       }
 
