@@ -48,13 +48,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final isStorm = raw.node.contains('CrewBattle');
-    final regions = _findMissionRewards(
-      node.name,
-      deps.rewardTables.missionRewards,
-      isStorm: isStorm,
-      isHard: raw.hard ?? false,
-    );
+    final regions = _findMissionRewards(node.name, deps.rewardTables.missionRewards);
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -64,7 +58,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       missionType: node.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
       key: raw.modifier ?? raw.activeMissionTier!,
-      isStorm: isStorm,
+      isStorm: raw.node.contains('CrewBattle'),
       isSteelpath: raw.hard ?? false,
       rewardTables: regions,
     );
@@ -89,12 +83,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   @override
   bool get isActive => super.isActive!;
 
-  static List<Region> _findMissionRewards(
-    String node,
-    List<Planet> planets, {
-    bool isStorm = false,
-    bool isHard = false,
-  }) {
+  static List<Region> _findMissionRewards(String node, List<Planet> planets) {
     final planet = RegExp(r'\(([^)]+)\)').firstMatch(node)?.group(1);
     if (planet == null) return throw FormatException('the give node is not valid: $node');
 
