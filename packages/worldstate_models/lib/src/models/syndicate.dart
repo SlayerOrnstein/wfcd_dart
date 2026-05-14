@@ -114,7 +114,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   });
 
   factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
-    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.rewardTables.bountyRewards, raw);
+    final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.dropData.bountyRewardTables, raw);
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,

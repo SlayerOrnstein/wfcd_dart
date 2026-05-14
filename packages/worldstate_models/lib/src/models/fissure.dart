@@ -43,12 +43,13 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required this.key,
     required this.isStorm,
     required this.isSteelpath,
-    required this.rewardTables,
+    required this.rewardPools,
   });
 
   factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
-    final regions = _findMissionRewards(node.name, deps.rewardTables.missionRewards);
+    final isStorm = raw.node.contains('CrewBattle');
+    final rewardPools = _findRewardPools(node.name, deps.dropData, isStrom: isStorm);
 
     return VoidFissure(
       id: parseId(raw.id),
@@ -58,9 +59,9 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       missionType: node.type ?? raw.missionType ?? raw.node,
       faction: node.enemy ?? raw.node,
       key: raw.modifier ?? raw.activeMissionTier!,
-      isStorm: raw.node.contains('CrewBattle'),
+      isStorm: isStorm,
       isSteelpath: raw.hard ?? false,
-      rewardTables: regions,
+      rewardPools: rewardPools,
     );
   }
 
@@ -70,7 +71,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   final String key;
   final bool isStorm;
   final bool isSteelpath;
-  final List<Region> rewardTables;
+  final List<RegionRewardPool> rewardPools;
 
   FissureTier get tier => FissureTier.values[int.parse(key.replaceAll(RegExp(r'\D'), '')) - 1];
 
@@ -83,25 +84,24 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
   @override
   bool get isActive => super.isActive!;
 
-  static List<Region> _findMissionRewards(String node, List<Planet> planets) {
+  static List<RegionRewardPool> _findRewardPools(String node, DropData drops, {bool isStrom = false}) {
     final planet = RegExp(r'\(([^)]+)\)').firstMatch(node)?.group(1);
     if (planet == null) return throw FormatException('the give node is not valid: $node');
-
     final nodeName = node.split('(').first.trim();
-    final tables = <Region>[];
-    for (final p in planets) {
-      // Data does not include 'Proxima' in its naming scheme
-      if (!p.name.startsWith(planet)) continue;
 
-      for (final node in p.nodes) {
-        // Don't need reward pools for events in the context of fissures
-        if (!node.name.contains(nodeName) || node.isEvent) continue;
-        tables.add(node);
-      }
+    // Data does not include 'Proxima' in its naming scheme
+    final p = drops.missionRewards.firstWhere((p) => p.name.startsWith(planet));
+    final rewardPools = p.findRewardPools(nodeName).toList();
 
-      break; // Don't need to go through the rest of the planets at this point
+    // Void storms have end of mission reward bonus
+    if (isStrom) {
+      final voidStormBonus = drops.transientRewards.where(
+        (r) => r.name.contains('Void Storm') && r.name.contains(planet),
+      );
+      
+      rewardPools.addAll(voidStormBonus);
     }
 
-    return tables;
+    return rewardPools;
   }
 }

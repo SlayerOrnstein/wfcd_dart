@@ -261,7 +261,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
   static VoidFissureMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = VoidFissureMapper._());
-      RegionMapper.ensureInitialized();
+      RegionRewardPoolMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -305,11 +305,9 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     'isSteelpath',
     _$isSteelpath,
   );
-  static List<Region> _$rewardTables(VoidFissure v) => v.rewardTables;
-  static const Field<VoidFissure, List<Region>> _f$rewardTables = Field(
-    'rewardTables',
-    _$rewardTables,
-  );
+  static List<RegionRewardPool> _$rewardPools(VoidFissure v) => v.rewardPools;
+  static const Field<VoidFissure, List<RegionRewardPool>> _f$rewardPools =
+      Field('rewardPools', _$rewardPools);
 
   @override
   final MappableFields<VoidFissure> fields = const {
@@ -322,7 +320,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     #key: _f$key,
     #isStorm: _f$isStorm,
     #isSteelpath: _f$isSteelpath,
-    #rewardTables: _f$rewardTables,
+    #rewardPools: _f$rewardPools,
   };
   @override
   final bool ignoreNull = true;
@@ -338,7 +336,7 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
       key: data.dec(_f$key),
       isStorm: data.dec(_f$isStorm),
       isSteelpath: data.dec(_f$isSteelpath),
-      rewardTables: data.dec(_f$rewardTables),
+      rewardPools: data.dec(_f$rewardPools),
     );
   }
 
@@ -402,7 +400,12 @@ extension VoidFissureValueCopy<$R, $Out>
 
 abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>> get rewardTables;
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get rewardPools;
   $R call({
     String? id,
     DateTime? activation,
@@ -413,7 +416,7 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
-    List<Region>? rewardTables,
+    List<RegionRewardPool>? rewardPools,
   });
   VoidFissureCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -427,11 +430,15 @@ class _VoidFissureCopyWithImpl<$R, $Out>
   late final ClassMapperBase<VoidFissure> $mapper =
       VoidFissureMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>>
-  get rewardTables => ListCopyWith(
-    $value.rewardTables,
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get rewardPools => ListCopyWith(
+    $value.rewardPools,
     (v, t) => v.copyWith.$chain(t),
-    (v) => call(rewardTables: v),
+    (v) => call(rewardPools: v),
   );
   @override
   $R call({
@@ -444,7 +451,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     String? key,
     bool? isStorm,
     bool? isSteelpath,
-    List<Region>? rewardTables,
+    List<RegionRewardPool>? rewardPools,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -456,7 +463,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
       if (key != null) #key: key,
       if (isStorm != null) #isStorm: isStorm,
       if (isSteelpath != null) #isSteelpath: isSteelpath,
-      if (rewardTables != null) #rewardTables: rewardTables,
+      if (rewardPools != null) #rewardPools: rewardPools,
     }),
   );
   @override
@@ -470,7 +477,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     key: data.get(#key, or: $value.key),
     isStorm: data.get(#isStorm, or: $value.isStorm),
     isSteelpath: data.get(#isSteelpath, or: $value.isSteelpath),
-    rewardTables: data.get(#rewardTables, or: $value.rewardTables),
+    rewardPools: data.get(#rewardPools, or: $value.rewardPools),
   );
 
   @override

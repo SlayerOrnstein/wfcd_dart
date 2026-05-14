@@ -9,21 +9,14 @@ import 'package:worldstate_models/worldstate_models.dart';
 
 Future<void> main() async {
   final dropPage = await fetchWarframeDropData();
-  final rewards = (
-    bountyRewards: [
-      Syndicates.ostron,
-      Syndicates.solaris,
-      Syndicates.entrati,
-    ].map((b) => parseBountyRewardTables(dropPage, b)).nonNulls.reduce((p, n) => [...p, ...n]),
-    missionRewards: parseMissionRewards(dropPage),
-  );
+  final drops = buildDropData(dropPage);
 
   final response = await http.get(Uri.parse('https://api.warframe.com/cdn/worldState.php'));
   final map = json.decode(response.body) as Map<String, dynamic>;
 
   // you can  also use parseBountyRewardTables if you just want to use the table and nothing else
   // final data = await buildDropData();
-  final deps = Dependency(rewardTables: rewards);
+  final deps = Dependency(dropData: drops);
   final raw = RawWorldstate.fromMap(map);
   final worldstate = raw.toWorldstate(deps);
 
