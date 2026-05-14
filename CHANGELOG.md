@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_drop_data` - `v0.1.8`](#warframe_drop_data---v018)
+ - [`worldstate_models` - `v0.1.7+4`](#worldstate_models---v0174)
+ - [`worldstate_status` - `v1.0.41`](#worldstate_status---v1041)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.41`
+
+---
+
+#### `warframe_drop_data` - `v0.1.8`
+
+ - **FEAT**: (worldstate_drop_data): add dynamic locaton rewards. ([c6e6b798](https://github.com/SlayerOrnstein/wfcd_dart/commit/c6e6b7985d74486cebe0a96908a104dacb615eb4))
+
+#### `worldstate_models` - `v0.1.7+4`
+
+ - **REFACTOR**: clean up function variables for fissures. ([e4fcefa6](https://github.com/SlayerOrnstein/wfcd_dart/commit/e4fcefa6e99c6aa5cdb5b4698de5b9eb9d2af3ad))
+ - **FIX**(worldstate_models): include void storm bonus rewards. ([947a24a9](https://github.com/SlayerOrnstein/wfcd_dart/commit/947a24a9ddc9bf11a779661f1e76a7fb0bb0ca91))
+ - **FIX**: small logic error when picking up extra reward pools. ([5aff80f9](https://github.com/SlayerOrnstein/wfcd_dart/commit/5aff80f947ea3d2b7b312345fe7f42151c768037))
+
+
 ## 2026-05-12
 
 ### Changes

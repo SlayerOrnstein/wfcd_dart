@@ -1,6 +1,6 @@
 name: worldstate_status
 description: A new Dart Frog application
-version: 1.0.40
+version: 1.0.41
 publish_to: none
 
 environment:
@@ -20,12 +20,12 @@ dependencies:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
       path: packages/warframe_drop_data
-      ref: warframe_drop_data-v0.1.7
+      ref: warframe_drop_data-v0.1.8
   worldstate_models:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
       path: packages/worldstate_models
-      ref: worldstate_models-v0.1.7+3
+      ref: worldstate_models-v0.1.7+4
 
 dev_dependencies:
   dart_frog_lint: ^0.1.0

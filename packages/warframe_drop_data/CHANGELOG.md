@@ -1,3 +1,7 @@
+## 0.1.8
+
+ - **FEAT**: (worldstate_drop_data): add dynamic locaton rewards. ([c6e6b798](https://github.com/SlayerOrnstein/wfcd_dart/commit/c6e6b7985d74486cebe0a96908a104dacb615eb4))
+
 ## 0.1.7
 
  - **FEAT**(worldstate_models): fissures now include thier node mission rewards. ([9e8228f0](https://github.com/SlayerOrnstein/wfcd_dart/commit/9e8228f06fd19a0a4522e06ba1a6a269ff806388))

@@ -1,3 +1,9 @@
+## 0.1.7+4
+
+ - **REFACTOR**: clean up function variables for fissures. ([e4fcefa6](https://github.com/SlayerOrnstein/wfcd_dart/commit/e4fcefa6e99c6aa5cdb5b4698de5b9eb9d2af3ad))
+ - **FIX**(worldstate_models): include void storm bonus rewards. ([947a24a9](https://github.com/SlayerOrnstein/wfcd_dart/commit/947a24a9ddc9bf11a779661f1e76a7fb0bb0ca91))
+ - **FIX**: small logic error when picking up extra reward pools. ([5aff80f9](https://github.com/SlayerOrnstein/wfcd_dart/commit/5aff80f947ea3d2b7b312345fe7f42151c768037))
+
 ## 0.1.7+3
 
  - **REFACTOR**: remove unused import. ([d3f7ab7d](https://github.com/SlayerOrnstein/wfcd_dart/commit/d3f7ab7d4d3fa49a9857c25212d0f0c5801d275c))
