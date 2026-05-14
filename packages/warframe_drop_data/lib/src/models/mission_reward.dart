@@ -26,7 +26,7 @@ class Planet with PlanetMappable {
 /// Base Class for both endless and non-endless nodes.
 /// {@endtemplate}
 @MappableClass(discriminatorKey: 'type')
-abstract class RegionRewardPool with RegionRewardPoolMappable {
+sealed class RegionRewardPool with RegionRewardPoolMappable {
   /// {@macro node}
   RegionRewardPool({required this.name, this.gameMode, this.isEvent});
 
@@ -47,7 +47,7 @@ abstract class RegionRewardPool with RegionRewardPoolMappable {
 /// Node info for missions that give drops on completion
 /// {@endtemplate}
 @MappableClass(discriminatorValue: 'end_of_mission')
-class SingleRewardPool extends RegionRewardPool with SingleRewardPoolMappable {
+final class SingleRewardPool extends RegionRewardPool with SingleRewardPoolMappable {
   /// {@macro node_nonendless}
   SingleRewardPool({required super.name, super.gameMode, super.isEvent, List<ItemDrop>? rewards})
     : rewards = rewards ?? [];
@@ -63,7 +63,7 @@ class SingleRewardPool extends RegionRewardPool with SingleRewardPoolMappable {
 /// Node info for missions with [Rotations]
 /// {@endtemplate}
 @MappableClass(discriminatorValue: 'rotations')
-class MultiRewardPool extends RegionRewardPool with MultiRewardPoolMappable {
+final class MultiRewardPool extends RegionRewardPool with MultiRewardPoolMappable {
   /// {@macro node_endless}
   MultiRewardPool({required super.name, super.gameMode, super.isEvent, Rotations? rewards})
     : rewards = rewards ?? Rotations.empty();
