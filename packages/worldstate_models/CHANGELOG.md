@@ -1,3 +1,7 @@
+## 0.1.7+5
+
+ - Update a dependency to the latest release.
+
 ## 0.1.7+4
 
  - **REFACTOR**: clean up function variables for fissures. ([e4fcefa6](https://github.com/SlayerOrnstein/wfcd_dart/commit/e4fcefa6e99c6aa5cdb5b4698de5b9eb9d2af3ad))

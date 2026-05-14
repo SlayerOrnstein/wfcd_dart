@@ -15,6 +15,36 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_drop_data` - `v0.1.8+1`](#warframe_drop_data---v0181)
+ - [`worldstate_models` - `v0.1.7+5`](#worldstate_models---v0175)
+ - [`worldstate_status` - `v1.0.42`](#worldstate_status---v1042)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_models` - `v0.1.7+5`
+ - `worldstate_status` - `v1.0.42`
+
+---
+
+#### `warframe_drop_data` - `v0.1.8+1`
+
+ - **FIX**(warframe_drop_data): use sealed class for `RegionRewardPool`. ([42ead886](https://github.com/SlayerOrnstein/wfcd_dart/commit/42ead886a52ec43a5470506ea4fd60cc4edb5645))
+
+
+## 2026-05-14
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_drop_data` - `v0.1.8`](#warframe_drop_data---v018)
  - [`worldstate_models` - `v0.1.7+4`](#worldstate_models---v0174)
  - [`worldstate_status` - `v1.0.41`](#worldstate_status---v1041)

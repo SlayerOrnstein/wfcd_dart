@@ -1,3 +1,7 @@
+## 0.1.8+1
+
+ - **FIX**(warframe_drop_data): use sealed class for `RegionRewardPool`. ([42ead886](https://github.com/SlayerOrnstein/wfcd_dart/commit/42ead886a52ec43a5470506ea4fd60cc4edb5645))
+
 ## 0.1.8
 
  - **FEAT**: (worldstate_drop_data): add dynamic locaton rewards. ([c6e6b798](https://github.com/SlayerOrnstein/wfcd_dart/commit/c6e6b7985d74486cebe0a96908a104dacb615eb4))
