@@ -15,7 +15,7 @@ List<Planet> parseMissionRewards(Element body) {
   final tbody = table?.children.first;
   if (tbody == null) throw ParsingException("missionRewards table is empty when it shouldn't be");
 
-  final missionRewards = <String, Map<String, Region>>{};
+  final missionRewards = <String, Map<String, RegionRewardPool>>{};
 
   late ParsedLocation location;
   String? rotation;
@@ -29,7 +29,7 @@ List<Planet> parseMissionRewards(Element body) {
       if (tmp != null) {
         location = tmp;
 
-        missionRewards.putIfAbsent(location.planet, () => <String, Region>{});
+        missionRewards.putIfAbsent(location.planet, () => <String, RegionRewardPool>{});
 
         final node = missionRewards[location.planet]?[location.node];
         if (node != null && location.gameMode == 'Hard') {
@@ -57,18 +57,18 @@ List<Planet> parseMissionRewards(Element body) {
 
       if (rotation == null) {
         var node = location.node;
-        if (missionRewards[location.planet]?[node] is! NodeNonEndless) {
+        if (missionRewards[location.planet]?[node] is! SingleRewardPool) {
           node += ' (override)';
         }
 
         missionRewards[location.planet]?.update(
           location.node,
           (region) {
-            final reg = region as NodeNonEndless;
+            final reg = region as SingleRewardPool;
             if (reg.rewards.contains(item)) return reg;
             return reg..rewards.add(item);
           },
-          ifAbsent: () => NodeNonEndless(
+          ifAbsent: () => SingleRewardPool(
             name: location.node,
             gameMode: location.gameMode,
             isEvent: location.isEvent,
@@ -77,22 +77,22 @@ List<Planet> parseMissionRewards(Element body) {
         );
       } else {
         var node = location.node;
-        if (missionRewards[location.planet]?[node] is! NodeEndless) {
+        if (missionRewards[location.planet]?[node] is! MultiRewardPool) {
           node += ' (override)';
         }
 
         missionRewards[location.planet]?.update(
           node,
           (region) {
-            final reg = region as NodeEndless;
+            final reg = region as MultiRewardPool;
             if (reg.rewards.fetchRotation(rotation!).contains(item)) return reg;
             return reg..rewards.addReward(rotation, item);
           },
-          ifAbsent: () => NodeEndless(
+          ifAbsent: () => MultiRewardPool(
             name: location.node,
             gameMode: location.gameMode,
             isEvent: location.isEvent,
-            rewards: Rotations(),
+            rewards: Rotations.empty(),
           )..rewards.addReward(rotation!, item),
         );
       }

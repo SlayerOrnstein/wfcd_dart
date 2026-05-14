@@ -61,7 +61,7 @@ List<BountyRewardTable> parseBountyRewardTables(Element body, Syndicates syndica
       } else {
         if (rewardTable != null) rewards.add(rewardTable);
 
-        rewardTable = BountyRewardTable(id: hash(text), level: text, rewards: Rotations());
+        rewardTable = BountyRewardTable(id: hash(text), level: text, rewards: Rotations.empty());
       }
     } else if (element.localName == 'td' && !element.classes.contains('blank-row')) {
       if (tr.children.length == 2) stage = tr.children[1].text;

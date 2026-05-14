@@ -32,7 +32,6 @@ class RotationsMapper extends ClassMapperBase<Rotations> {
     'a',
     _$a,
     key: r'A',
-    opt: true,
     arg: _arg$a,
   );
   static List<ItemDrop> _$b(Rotations v) => v.b;
@@ -41,7 +40,6 @@ class RotationsMapper extends ClassMapperBase<Rotations> {
     'b',
     _$b,
     key: r'B',
-    opt: true,
     arg: _arg$b,
   );
   static List<ItemDrop> _$c(Rotations v) => v.c;
@@ -50,7 +48,6 @@ class RotationsMapper extends ClassMapperBase<Rotations> {
     'c',
     _$c,
     key: r'C',
-    opt: true,
     arg: _arg$c,
   );
 
@@ -60,7 +57,7 @@ class RotationsMapper extends ClassMapperBase<Rotations> {
   final bool ignoreNull = true;
 
   static Rotations<T> _instantiate<T extends ItemDrop>(DecodingData data) {
-    return Rotations(data.dec(_f$a), data.dec(_f$b), data.dec(_f$c));
+    return Rotations(a: data.dec(_f$a), b: data.dec(_f$b), c: data.dec(_f$c));
   }
 
   @override
@@ -162,18 +159,18 @@ class _RotationsCopyWithImpl<$R, $Out, T extends ItemDrop>
     (v) => call(c: v),
   );
   @override
-  $R call({Object? a = $none, Object? b = $none, Object? c = $none}) => $apply(
+  $R call({List<T>? a, List<T>? b, List<T>? c}) => $apply(
     FieldCopyWithData({
-      if (a != $none) #a: a,
-      if (b != $none) #b: b,
-      if (c != $none) #c: c,
+      if (a != null) #a: a,
+      if (b != null) #b: b,
+      if (c != null) #c: c,
     }),
   );
   @override
   Rotations<T> $make(CopyWithData data) => Rotations(
-    data.get(#a, or: $value.a),
-    data.get(#b, or: $value.b),
-    data.get(#c, or: $value.c),
+    a: data.get(#a, or: $value.a),
+    b: data.get(#b, or: $value.b),
+    c: data.get(#c, or: $value.c),
   );
 
   @override

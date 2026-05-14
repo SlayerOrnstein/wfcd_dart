@@ -7,13 +7,10 @@ import 'package:http/http.dart';
 import 'package:path/path.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 
-const dropData =
-    'https://warframe-web-assets.nyc3.cdn.digitaloceanspaces.com/uploads/cms/hnfvc0o3jnfvc873njb03enrf56.html';
-
 Future<void> main() async {
   final jsonEncode = const JsonEncoder.withIndent('   ').convert;
 
-  final res = await get(Uri.parse(dropData));
+  final res = await get(Uri.parse(warframeDropDataPage));
   final html = res.bodyBytes;
   final document = parse(html, encoding: 'utf-8').body;
   if (document == null) throw Exception('Failed to get page');

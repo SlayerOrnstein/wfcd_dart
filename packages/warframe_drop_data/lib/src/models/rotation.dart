@@ -9,7 +9,10 @@ part 'rotation.mapper.dart';
 @MappableClass()
 class Rotations<T extends ItemDrop> with RotationsMappable<T> {
   /// {@macro rotations}
-  Rotations([List<T>? a, List<T>? b, List<T>? c]) : a = a ?? <T>[], b = b ?? <T>[], c = c ?? <T>[];
+  Rotations({required this.a, required this.b, required this.c});
+
+  /// Create an empty rotation
+  factory Rotations.empty() => Rotations(a: [], b: [], c: []);
 
   /// Get [Rotations] from map
   static const fromMap = RotationsMapper.fromMap;

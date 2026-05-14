@@ -19,56 +19,58 @@ class Planet with PlanetMappable {
   final String name;
 
   /// Nodes on said planet
-  final List<Region> nodes;
+  final List<RegionRewardPool> nodes;
 }
 
 /// {@template node}
 /// Base Class for both endless and non-endless nodes.
 /// {@endtemplate}
 @MappableClass(discriminatorKey: 'type')
-abstract class Region with RegionMappable {
+abstract class RegionRewardPool with RegionRewardPoolMappable {
   /// {@macro node}
-  Region({required this.name, required this.gameMode, required this.isEvent});
+  RegionRewardPool({required this.name, this.gameMode, this.isEvent});
 
-  /// Get a either a [NodeEndless] or [NodeNonEndless] depending on type.
-  static const fromMap = RegionMapper.fromMap;
+  /// Get a either a [MultiRewardPool] or [SingleRewardPool] depending on type.
+  static const fromMap = RegionRewardPoolMapper.fromMap;
 
   /// Node name
   final String name;
 
   /// Node mission type
-  final String gameMode;
+  final String? gameMode;
 
   /// Whether or not this is an event node
-  final bool isEvent;
-}
-
-/// {@template node_endless}
-/// Node info for missions with [Rotations]
-/// {@endtemplate}
-@MappableClass(discriminatorValue: 'endless')
-class NodeEndless extends Region with NodeEndlessMappable {
-  /// {@macro node_endless}
-  NodeEndless({required super.name, required super.gameMode, required super.isEvent, required this.rewards});
-
-  /// Creates a [NodeEndless] from map
-  static const fromMap = NodeEndlessMapper.fromMap;
-
-  /// Rewards per ABC rotation
-  final Rotations rewards;
+  final bool? isEvent;
 }
 
 /// {@template node_nonendless}
 /// Node info for missions that give drops on completion
 /// {@endtemplate}
-@MappableClass(discriminatorValue: 'finite')
-class NodeNonEndless extends Region with NodeNonEndlessMappable {
+@MappableClass(discriminatorValue: 'end_of_mission')
+class SingleRewardPool extends RegionRewardPool with SingleRewardPoolMappable {
   /// {@macro node_nonendless}
-  NodeNonEndless({required super.name, required super.gameMode, required super.isEvent, required this.rewards});
+  SingleRewardPool({required super.name, super.gameMode, super.isEvent, List<ItemDrop>? rewards})
+    : rewards = rewards ?? [];
 
-  /// Creates a [NodeNonEndless] from map
-  static const fromMap = NodeNonEndlessMapper.fromMap;
+  /// Creates a [SingleRewardPool] from map
+  static const fromMap = SingleRewardPoolMapper.fromMap;
 
   /// Possible drops recieved at the end of a mission
   final List<ItemDrop> rewards;
+}
+
+/// {@template node_endless}
+/// Node info for missions with [Rotations]
+/// {@endtemplate}
+@MappableClass(discriminatorValue: 'rotations')
+class MultiRewardPool extends RegionRewardPool with MultiRewardPoolMappable {
+  /// {@macro node_endless}
+  MultiRewardPool({required super.name, super.gameMode, super.isEvent, Rotations? rewards})
+    : rewards = rewards ?? Rotations.empty();
+
+  /// Creates a [MultiRewardPool] from map
+  static const fromMap = MultiRewardPoolMapper.fromMap;
+
+  /// Rewards per ABC rotation
+  final Rotations rewards;
 }

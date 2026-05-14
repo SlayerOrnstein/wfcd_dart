@@ -5,14 +5,13 @@ import 'package:html/parser.dart';
 import 'package:http/http.dart';
 import 'package:warframe_drop_data/src/models/models.dart';
 import 'package:warframe_drop_data/src/parsers/parsers.dart';
-import 'package:warframe_drop_data/src/parsers/quest_rewards.dart';
 
-const _dropData =
+const warframeDropDataPage =
     'https://warframe-web-assets.nyc3.cdn.digitaloceanspaces.com/uploads/cms/hnfvc0o3jnfvc873njb03enrf56.html';
 
 /// Fetches the official drop data site
 Future<Element> fetchWarframeDropData([Client? client]) async {
-  final res = await (client ?? Client()).get(Uri.parse(_dropData));
+  final res = await (client ?? Client()).get(Uri.parse(warframeDropDataPage));
   final html = res.bodyBytes;
   final document = parse(html, encoding: 'utf-8');
 
@@ -34,5 +33,6 @@ DropData buildDropData(Element body) {
     relics: parseRelicRewards(body),
     modsByAvatar: parseEnemyModTables(body),
     questRewards: parseQuestRewards(body),
+    transientRewards: parseTransientRewards(body),
   );
 }

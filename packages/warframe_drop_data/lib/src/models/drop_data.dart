@@ -21,6 +21,7 @@ class DropData with DropDataMappable {
     this.relics = const [],
     this.modsByAvatar = const [],
     this.questRewards = const [],
+    this.transientRewards = const [],
   });
 
   /// Creates a [DropData] from map
@@ -52,4 +53,7 @@ class DropData with DropDataMappable {
 
   /// Drops for quests
   final List<QuestRewards> questRewards;
+
+  /// Dynamic rewards
+  final List<RegionRewardPool> transientRewards;
 }

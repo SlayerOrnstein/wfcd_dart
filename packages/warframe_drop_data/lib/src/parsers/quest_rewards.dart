@@ -24,7 +24,7 @@ List<QuestRewards> parseQuestRewards(Element element) {
       } else {
         if (questRewards != null) quests.add(questRewards);
 
-        questRewards = QuestRewards(id: hash(text), quest: text, rewards: Rotations());
+        questRewards = QuestRewards(id: hash(text), quest: text, rewards: Rotations.empty());
       }
     }
 

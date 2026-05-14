@@ -15,7 +15,7 @@ class PlanetMapper extends ClassMapperBase<Planet> {
   static PlanetMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = PlanetMapper._());
-      RegionMapper.ensureInitialized();
+      RegionRewardPoolMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -25,8 +25,11 @@ class PlanetMapper extends ClassMapperBase<Planet> {
 
   static String _$name(Planet v) => v.name;
   static const Field<Planet, String> _f$name = Field('name', _$name);
-  static List<Region> _$nodes(Planet v) => v.nodes;
-  static const Field<Planet, List<Region>> _f$nodes = Field('nodes', _$nodes);
+  static List<RegionRewardPool> _$nodes(Planet v) => v.nodes;
+  static const Field<Planet, List<RegionRewardPool>> _f$nodes = Field(
+    'nodes',
+    _$nodes,
+  );
 
   @override
   final MappableFields<Planet> fields = const {
@@ -86,8 +89,13 @@ extension PlanetValueCopy<$R, $Out> on ObjectCopyWith<$R, Planet, $Out> {
 
 abstract class PlanetCopyWith<$R, $In extends Planet, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>> get nodes;
-  $R call({String? name, List<Region>? nodes});
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get nodes;
+  $R call({String? name, List<RegionRewardPool>? nodes});
   PlanetCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -98,14 +106,18 @@ class _PlanetCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Planet, $Out>
   @override
   late final ClassMapperBase<Planet> $mapper = PlanetMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, Region, RegionCopyWith<$R, Region, Region>> get nodes =>
-      ListCopyWith(
-        $value.nodes,
-        (v, t) => v.copyWith.$chain(t),
-        (v) => call(nodes: v),
-      );
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get nodes => ListCopyWith(
+    $value.nodes,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(nodes: v),
+  );
   @override
-  $R call({String? name, List<Region>? nodes}) => $apply(
+  $R call({String? name, List<RegionRewardPool>? nodes}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
       if (nodes != null) #nodes: nodes,
@@ -122,34 +134,39 @@ class _PlanetCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Planet, $Out>
       _PlanetCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
-class RegionMapper extends ClassMapperBase<Region> {
-  RegionMapper._();
+class RegionRewardPoolMapper extends ClassMapperBase<RegionRewardPool> {
+  RegionRewardPoolMapper._();
 
-  static RegionMapper? _instance;
-  static RegionMapper ensureInitialized() {
+  static RegionRewardPoolMapper? _instance;
+  static RegionRewardPoolMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = RegionMapper._());
-      NodeEndlessMapper.ensureInitialized();
-      NodeNonEndlessMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = RegionRewardPoolMapper._());
+      SingleRewardPoolMapper.ensureInitialized();
+      MultiRewardPoolMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'Region';
+  final String id = 'RegionRewardPool';
 
-  static String _$name(Region v) => v.name;
-  static const Field<Region, String> _f$name = Field('name', _$name);
-  static String _$gameMode(Region v) => v.gameMode;
-  static const Field<Region, String> _f$gameMode = Field(
+  static String _$name(RegionRewardPool v) => v.name;
+  static const Field<RegionRewardPool, String> _f$name = Field('name', _$name);
+  static String? _$gameMode(RegionRewardPool v) => v.gameMode;
+  static const Field<RegionRewardPool, String> _f$gameMode = Field(
     'gameMode',
     _$gameMode,
+    opt: true,
   );
-  static bool _$isEvent(Region v) => v.isEvent;
-  static const Field<Region, bool> _f$isEvent = Field('isEvent', _$isEvent);
+  static bool? _$isEvent(RegionRewardPool v) => v.isEvent;
+  static const Field<RegionRewardPool, bool> _f$isEvent = Field(
+    'isEvent',
+    _$isEvent,
+    opt: true,
+  );
 
   @override
-  final MappableFields<Region> fields = const {
+  final MappableFields<RegionRewardPool> fields = const {
     #name: _f$name,
     #gameMode: _f$gameMode,
     #isEvent: _f$isEvent,
@@ -157,9 +174,9 @@ class RegionMapper extends ClassMapperBase<Region> {
   @override
   final bool ignoreNull = true;
 
-  static Region _instantiate(DecodingData data) {
+  static RegionRewardPool _instantiate(DecodingData data) {
     throw MapperException.missingSubclass(
-      'Region',
+      'RegionRewardPool',
       'type',
       '${data.value['type']}',
     );
@@ -168,64 +185,69 @@ class RegionMapper extends ClassMapperBase<Region> {
   @override
   final Function instantiate = _instantiate;
 
-  static Region fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<Region>(map);
+  static RegionRewardPool fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<RegionRewardPool>(map);
   }
 
-  static Region fromJson(String json) {
-    return ensureInitialized().decodeJson<Region>(json);
+  static RegionRewardPool fromJson(String json) {
+    return ensureInitialized().decodeJson<RegionRewardPool>(json);
   }
 }
 
-mixin RegionMappable {
+mixin RegionRewardPoolMappable {
   String toJson();
   Map<String, dynamic> toMap();
-  RegionCopyWith<Region, Region, Region> get copyWith;
+  RegionRewardPoolCopyWith<RegionRewardPool, RegionRewardPool, RegionRewardPool>
+  get copyWith;
 }
 
-abstract class RegionCopyWith<$R, $In extends Region, $Out>
+abstract class RegionRewardPoolCopyWith<$R, $In extends RegionRewardPool, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   $R call({String? name, String? gameMode, bool? isEvent});
-  RegionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
+  RegionRewardPoolCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
 }
 
-class NodeEndlessMapper extends SubClassMapperBase<NodeEndless> {
-  NodeEndlessMapper._();
+class SingleRewardPoolMapper extends SubClassMapperBase<SingleRewardPool> {
+  SingleRewardPoolMapper._();
 
-  static NodeEndlessMapper? _instance;
-  static NodeEndlessMapper ensureInitialized() {
+  static SingleRewardPoolMapper? _instance;
+  static SingleRewardPoolMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = NodeEndlessMapper._());
-      RegionMapper.ensureInitialized().addSubMapper(_instance!);
-      RotationsMapper.ensureInitialized();
+      MapperContainer.globals.use(_instance = SingleRewardPoolMapper._());
+      RegionRewardPoolMapper.ensureInitialized().addSubMapper(_instance!);
       ItemDropMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'NodeEndless';
+  final String id = 'SingleRewardPool';
 
-  static String _$name(NodeEndless v) => v.name;
-  static const Field<NodeEndless, String> _f$name = Field('name', _$name);
-  static String _$gameMode(NodeEndless v) => v.gameMode;
-  static const Field<NodeEndless, String> _f$gameMode = Field(
+  static String _$name(SingleRewardPool v) => v.name;
+  static const Field<SingleRewardPool, String> _f$name = Field('name', _$name);
+  static String? _$gameMode(SingleRewardPool v) => v.gameMode;
+  static const Field<SingleRewardPool, String> _f$gameMode = Field(
     'gameMode',
     _$gameMode,
+    opt: true,
   );
-  static bool _$isEvent(NodeEndless v) => v.isEvent;
-  static const Field<NodeEndless, bool> _f$isEvent = Field(
+  static bool? _$isEvent(SingleRewardPool v) => v.isEvent;
+  static const Field<SingleRewardPool, bool> _f$isEvent = Field(
     'isEvent',
     _$isEvent,
+    opt: true,
   );
-  static Rotations<ItemDrop> _$rewards(NodeEndless v) => v.rewards;
-  static const Field<NodeEndless, Rotations<ItemDrop>> _f$rewards = Field(
+  static List<ItemDrop> _$rewards(SingleRewardPool v) => v.rewards;
+  static const Field<SingleRewardPool, List<ItemDrop>> _f$rewards = Field(
     'rewards',
     _$rewards,
+    opt: true,
   );
 
   @override
-  final MappableFields<NodeEndless> fields = const {
+  final MappableFields<SingleRewardPool> fields = const {
     #name: _f$name,
     #gameMode: _f$gameMode,
     #isEvent: _f$isEvent,
@@ -237,12 +259,13 @@ class NodeEndlessMapper extends SubClassMapperBase<NodeEndless> {
   @override
   final String discriminatorKey = 'type';
   @override
-  final dynamic discriminatorValue = 'endless';
+  final dynamic discriminatorValue = 'end_of_mission';
   @override
-  late final ClassMapperBase superMapper = RegionMapper.ensureInitialized();
+  late final ClassMapperBase superMapper =
+      RegionRewardPoolMapper.ensureInitialized();
 
-  static NodeEndless _instantiate(DecodingData data) {
-    return NodeEndless(
+  static SingleRewardPool _instantiate(DecodingData data) {
+    return SingleRewardPool(
       name: data.dec(_f$name),
       gameMode: data.dec(_f$gameMode),
       isEvent: data.dec(_f$isEvent),
@@ -253,236 +276,65 @@ class NodeEndlessMapper extends SubClassMapperBase<NodeEndless> {
   @override
   final Function instantiate = _instantiate;
 
-  static NodeEndless fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<NodeEndless>(map);
+  static SingleRewardPool fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<SingleRewardPool>(map);
   }
 
-  static NodeEndless fromJson(String json) {
-    return ensureInitialized().decodeJson<NodeEndless>(json);
+  static SingleRewardPool fromJson(String json) {
+    return ensureInitialized().decodeJson<SingleRewardPool>(json);
   }
 }
 
-mixin NodeEndlessMappable {
+mixin SingleRewardPoolMappable {
   String toJson() {
-    return NodeEndlessMapper.ensureInitialized().encodeJson<NodeEndless>(
-      this as NodeEndless,
-    );
+    return SingleRewardPoolMapper.ensureInitialized()
+        .encodeJson<SingleRewardPool>(this as SingleRewardPool);
   }
 
   Map<String, dynamic> toMap() {
-    return NodeEndlessMapper.ensureInitialized().encodeMap<NodeEndless>(
-      this as NodeEndless,
-    );
+    return SingleRewardPoolMapper.ensureInitialized()
+        .encodeMap<SingleRewardPool>(this as SingleRewardPool);
   }
 
-  NodeEndlessCopyWith<NodeEndless, NodeEndless, NodeEndless> get copyWith =>
-      _NodeEndlessCopyWithImpl<NodeEndless, NodeEndless>(
-        this as NodeEndless,
+  SingleRewardPoolCopyWith<SingleRewardPool, SingleRewardPool, SingleRewardPool>
+  get copyWith =>
+      _SingleRewardPoolCopyWithImpl<SingleRewardPool, SingleRewardPool>(
+        this as SingleRewardPool,
         $identity,
         $identity,
       );
   @override
   String toString() {
-    return NodeEndlessMapper.ensureInitialized().stringifyValue(
-      this as NodeEndless,
+    return SingleRewardPoolMapper.ensureInitialized().stringifyValue(
+      this as SingleRewardPool,
     );
   }
 
   @override
   bool operator ==(Object other) {
-    return NodeEndlessMapper.ensureInitialized().equalsValue(
-      this as NodeEndless,
+    return SingleRewardPoolMapper.ensureInitialized().equalsValue(
+      this as SingleRewardPool,
       other,
     );
   }
 
   @override
   int get hashCode {
-    return NodeEndlessMapper.ensureInitialized().hashValue(this as NodeEndless);
-  }
-}
-
-extension NodeEndlessValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, NodeEndless, $Out> {
-  NodeEndlessCopyWith<$R, NodeEndless, $Out> get $asNodeEndless =>
-      $base.as((v, t, t2) => _NodeEndlessCopyWithImpl<$R, $Out>(v, t, t2));
-}
-
-abstract class NodeEndlessCopyWith<$R, $In extends NodeEndless, $Out>
-    implements RegionCopyWith<$R, $In, $Out> {
-  RotationsCopyWith<$R, Rotations<ItemDrop>, Rotations<ItemDrop>, ItemDrop>
-  get rewards;
-  @override
-  $R call({
-    String? name,
-    String? gameMode,
-    bool? isEvent,
-    Rotations<ItemDrop>? rewards,
-  });
-  NodeEndlessCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
-}
-
-class _NodeEndlessCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, NodeEndless, $Out>
-    implements NodeEndlessCopyWith<$R, NodeEndless, $Out> {
-  _NodeEndlessCopyWithImpl(super.value, super.then, super.then2);
-
-  @override
-  late final ClassMapperBase<NodeEndless> $mapper =
-      NodeEndlessMapper.ensureInitialized();
-  @override
-  RotationsCopyWith<$R, Rotations<ItemDrop>, Rotations<ItemDrop>, ItemDrop>
-  get rewards => $value.rewards.copyWith.$chain((v) => call(rewards: v));
-  @override
-  $R call({
-    String? name,
-    String? gameMode,
-    bool? isEvent,
-    Rotations<ItemDrop>? rewards,
-  }) => $apply(
-    FieldCopyWithData({
-      if (name != null) #name: name,
-      if (gameMode != null) #gameMode: gameMode,
-      if (isEvent != null) #isEvent: isEvent,
-      if (rewards != null) #rewards: rewards,
-    }),
-  );
-  @override
-  NodeEndless $make(CopyWithData data) => NodeEndless(
-    name: data.get(#name, or: $value.name),
-    gameMode: data.get(#gameMode, or: $value.gameMode),
-    isEvent: data.get(#isEvent, or: $value.isEvent),
-    rewards: data.get(#rewards, or: $value.rewards),
-  );
-
-  @override
-  NodeEndlessCopyWith<$R2, NodeEndless, $Out2> $chain<$R2, $Out2>(
-    Then<$Out2, $R2> t,
-  ) => _NodeEndlessCopyWithImpl<$R2, $Out2>($value, $cast, t);
-}
-
-class NodeNonEndlessMapper extends SubClassMapperBase<NodeNonEndless> {
-  NodeNonEndlessMapper._();
-
-  static NodeNonEndlessMapper? _instance;
-  static NodeNonEndlessMapper ensureInitialized() {
-    if (_instance == null) {
-      MapperContainer.globals.use(_instance = NodeNonEndlessMapper._());
-      RegionMapper.ensureInitialized().addSubMapper(_instance!);
-      ItemDropMapper.ensureInitialized();
-    }
-    return _instance!;
-  }
-
-  @override
-  final String id = 'NodeNonEndless';
-
-  static String _$name(NodeNonEndless v) => v.name;
-  static const Field<NodeNonEndless, String> _f$name = Field('name', _$name);
-  static String _$gameMode(NodeNonEndless v) => v.gameMode;
-  static const Field<NodeNonEndless, String> _f$gameMode = Field(
-    'gameMode',
-    _$gameMode,
-  );
-  static bool _$isEvent(NodeNonEndless v) => v.isEvent;
-  static const Field<NodeNonEndless, bool> _f$isEvent = Field(
-    'isEvent',
-    _$isEvent,
-  );
-  static List<ItemDrop> _$rewards(NodeNonEndless v) => v.rewards;
-  static const Field<NodeNonEndless, List<ItemDrop>> _f$rewards = Field(
-    'rewards',
-    _$rewards,
-  );
-
-  @override
-  final MappableFields<NodeNonEndless> fields = const {
-    #name: _f$name,
-    #gameMode: _f$gameMode,
-    #isEvent: _f$isEvent,
-    #rewards: _f$rewards,
-  };
-  @override
-  final bool ignoreNull = true;
-
-  @override
-  final String discriminatorKey = 'type';
-  @override
-  final dynamic discriminatorValue = 'finite';
-  @override
-  late final ClassMapperBase superMapper = RegionMapper.ensureInitialized();
-
-  static NodeNonEndless _instantiate(DecodingData data) {
-    return NodeNonEndless(
-      name: data.dec(_f$name),
-      gameMode: data.dec(_f$gameMode),
-      isEvent: data.dec(_f$isEvent),
-      rewards: data.dec(_f$rewards),
-    );
-  }
-
-  @override
-  final Function instantiate = _instantiate;
-
-  static NodeNonEndless fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<NodeNonEndless>(map);
-  }
-
-  static NodeNonEndless fromJson(String json) {
-    return ensureInitialized().decodeJson<NodeNonEndless>(json);
-  }
-}
-
-mixin NodeNonEndlessMappable {
-  String toJson() {
-    return NodeNonEndlessMapper.ensureInitialized().encodeJson<NodeNonEndless>(
-      this as NodeNonEndless,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return NodeNonEndlessMapper.ensureInitialized().encodeMap<NodeNonEndless>(
-      this as NodeNonEndless,
-    );
-  }
-
-  NodeNonEndlessCopyWith<NodeNonEndless, NodeNonEndless, NodeNonEndless>
-  get copyWith => _NodeNonEndlessCopyWithImpl<NodeNonEndless, NodeNonEndless>(
-    this as NodeNonEndless,
-    $identity,
-    $identity,
-  );
-  @override
-  String toString() {
-    return NodeNonEndlessMapper.ensureInitialized().stringifyValue(
-      this as NodeNonEndless,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return NodeNonEndlessMapper.ensureInitialized().equalsValue(
-      this as NodeNonEndless,
-      other,
-    );
-  }
-
-  @override
-  int get hashCode {
-    return NodeNonEndlessMapper.ensureInitialized().hashValue(
-      this as NodeNonEndless,
+    return SingleRewardPoolMapper.ensureInitialized().hashValue(
+      this as SingleRewardPool,
     );
   }
 }
 
-extension NodeNonEndlessValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, NodeNonEndless, $Out> {
-  NodeNonEndlessCopyWith<$R, NodeNonEndless, $Out> get $asNodeNonEndless =>
-      $base.as((v, t, t2) => _NodeNonEndlessCopyWithImpl<$R, $Out>(v, t, t2));
+extension SingleRewardPoolValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, SingleRewardPool, $Out> {
+  SingleRewardPoolCopyWith<$R, SingleRewardPool, $Out>
+  get $asSingleRewardPool =>
+      $base.as((v, t, t2) => _SingleRewardPoolCopyWithImpl<$R, $Out>(v, t, t2));
 }
 
-abstract class NodeNonEndlessCopyWith<$R, $In extends NodeNonEndless, $Out>
-    implements RegionCopyWith<$R, $In, $Out> {
+abstract class SingleRewardPoolCopyWith<$R, $In extends SingleRewardPool, $Out>
+    implements RegionRewardPoolCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, ItemDrop, ItemDropCopyWith<$R, ItemDrop, ItemDrop>>
   get rewards;
   @override
@@ -492,19 +344,19 @@ abstract class NodeNonEndlessCopyWith<$R, $In extends NodeNonEndless, $Out>
     bool? isEvent,
     List<ItemDrop>? rewards,
   });
-  NodeNonEndlessCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+  SingleRewardPoolCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
 }
 
-class _NodeNonEndlessCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, NodeNonEndless, $Out>
-    implements NodeNonEndlessCopyWith<$R, NodeNonEndless, $Out> {
-  _NodeNonEndlessCopyWithImpl(super.value, super.then, super.then2);
+class _SingleRewardPoolCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, SingleRewardPool, $Out>
+    implements SingleRewardPoolCopyWith<$R, SingleRewardPool, $Out> {
+  _SingleRewardPoolCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<NodeNonEndless> $mapper =
-      NodeNonEndlessMapper.ensureInitialized();
+  late final ClassMapperBase<SingleRewardPool> $mapper =
+      SingleRewardPoolMapper.ensureInitialized();
   @override
   ListCopyWith<$R, ItemDrop, ItemDropCopyWith<$R, ItemDrop, ItemDrop>>
   get rewards => ListCopyWith(
@@ -515,19 +367,19 @@ class _NodeNonEndlessCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? name,
-    String? gameMode,
-    bool? isEvent,
-    List<ItemDrop>? rewards,
+    Object? gameMode = $none,
+    Object? isEvent = $none,
+    Object? rewards = $none,
   }) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
-      if (gameMode != null) #gameMode: gameMode,
-      if (isEvent != null) #isEvent: isEvent,
-      if (rewards != null) #rewards: rewards,
+      if (gameMode != $none) #gameMode: gameMode,
+      if (isEvent != $none) #isEvent: isEvent,
+      if (rewards != $none) #rewards: rewards,
     }),
   );
   @override
-  NodeNonEndless $make(CopyWithData data) => NodeNonEndless(
+  SingleRewardPool $make(CopyWithData data) => SingleRewardPool(
     name: data.get(#name, or: $value.name),
     gameMode: data.get(#gameMode, or: $value.gameMode),
     isEvent: data.get(#isEvent, or: $value.isEvent),
@@ -535,8 +387,190 @@ class _NodeNonEndlessCopyWithImpl<$R, $Out>
   );
 
   @override
-  NodeNonEndlessCopyWith<$R2, NodeNonEndless, $Out2> $chain<$R2, $Out2>(
+  SingleRewardPoolCopyWith<$R2, SingleRewardPool, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
-  ) => _NodeNonEndlessCopyWithImpl<$R2, $Out2>($value, $cast, t);
+  ) => _SingleRewardPoolCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class MultiRewardPoolMapper extends SubClassMapperBase<MultiRewardPool> {
+  MultiRewardPoolMapper._();
+
+  static MultiRewardPoolMapper? _instance;
+  static MultiRewardPoolMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = MultiRewardPoolMapper._());
+      RegionRewardPoolMapper.ensureInitialized().addSubMapper(_instance!);
+      RotationsMapper.ensureInitialized();
+      ItemDropMapper.ensureInitialized();
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'MultiRewardPool';
+
+  static String _$name(MultiRewardPool v) => v.name;
+  static const Field<MultiRewardPool, String> _f$name = Field('name', _$name);
+  static String? _$gameMode(MultiRewardPool v) => v.gameMode;
+  static const Field<MultiRewardPool, String> _f$gameMode = Field(
+    'gameMode',
+    _$gameMode,
+    opt: true,
+  );
+  static bool? _$isEvent(MultiRewardPool v) => v.isEvent;
+  static const Field<MultiRewardPool, bool> _f$isEvent = Field(
+    'isEvent',
+    _$isEvent,
+    opt: true,
+  );
+  static Rotations<ItemDrop> _$rewards(MultiRewardPool v) => v.rewards;
+  static const Field<MultiRewardPool, Rotations<ItemDrop>> _f$rewards = Field(
+    'rewards',
+    _$rewards,
+    opt: true,
+  );
+
+  @override
+  final MappableFields<MultiRewardPool> fields = const {
+    #name: _f$name,
+    #gameMode: _f$gameMode,
+    #isEvent: _f$isEvent,
+    #rewards: _f$rewards,
+  };
+  @override
+  final bool ignoreNull = true;
+
+  @override
+  final String discriminatorKey = 'type';
+  @override
+  final dynamic discriminatorValue = 'rotations';
+  @override
+  late final ClassMapperBase superMapper =
+      RegionRewardPoolMapper.ensureInitialized();
+
+  static MultiRewardPool _instantiate(DecodingData data) {
+    return MultiRewardPool(
+      name: data.dec(_f$name),
+      gameMode: data.dec(_f$gameMode),
+      isEvent: data.dec(_f$isEvent),
+      rewards: data.dec(_f$rewards),
+    );
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static MultiRewardPool fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<MultiRewardPool>(map);
+  }
+
+  static MultiRewardPool fromJson(String json) {
+    return ensureInitialized().decodeJson<MultiRewardPool>(json);
+  }
+}
+
+mixin MultiRewardPoolMappable {
+  String toJson() {
+    return MultiRewardPoolMapper.ensureInitialized()
+        .encodeJson<MultiRewardPool>(this as MultiRewardPool);
+  }
+
+  Map<String, dynamic> toMap() {
+    return MultiRewardPoolMapper.ensureInitialized().encodeMap<MultiRewardPool>(
+      this as MultiRewardPool,
+    );
+  }
+
+  MultiRewardPoolCopyWith<MultiRewardPool, MultiRewardPool, MultiRewardPool>
+  get copyWith =>
+      _MultiRewardPoolCopyWithImpl<MultiRewardPool, MultiRewardPool>(
+        this as MultiRewardPool,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return MultiRewardPoolMapper.ensureInitialized().stringifyValue(
+      this as MultiRewardPool,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return MultiRewardPoolMapper.ensureInitialized().equalsValue(
+      this as MultiRewardPool,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return MultiRewardPoolMapper.ensureInitialized().hashValue(
+      this as MultiRewardPool,
+    );
+  }
+}
+
+extension MultiRewardPoolValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, MultiRewardPool, $Out> {
+  MultiRewardPoolCopyWith<$R, MultiRewardPool, $Out> get $asMultiRewardPool =>
+      $base.as((v, t, t2) => _MultiRewardPoolCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class MultiRewardPoolCopyWith<$R, $In extends MultiRewardPool, $Out>
+    implements RegionRewardPoolCopyWith<$R, $In, $Out> {
+  RotationsCopyWith<$R, Rotations<ItemDrop>, Rotations<ItemDrop>, ItemDrop>
+  get rewards;
+  @override
+  $R call({
+    String? name,
+    String? gameMode,
+    bool? isEvent,
+    Rotations<ItemDrop>? rewards,
+  });
+  MultiRewardPoolCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
+}
+
+class _MultiRewardPoolCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, MultiRewardPool, $Out>
+    implements MultiRewardPoolCopyWith<$R, MultiRewardPool, $Out> {
+  _MultiRewardPoolCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<MultiRewardPool> $mapper =
+      MultiRewardPoolMapper.ensureInitialized();
+  @override
+  RotationsCopyWith<$R, Rotations<ItemDrop>, Rotations<ItemDrop>, ItemDrop>
+  get rewards => ($value.rewards as Rotations<ItemDrop>).copyWith.$chain(
+    (v) => call(rewards: v),
+  );
+  @override
+  $R call({
+    String? name,
+    Object? gameMode = $none,
+    Object? isEvent = $none,
+    Object? rewards = $none,
+  }) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (gameMode != $none) #gameMode: gameMode,
+      if (isEvent != $none) #isEvent: isEvent,
+      if (rewards != $none) #rewards: rewards,
+    }),
+  );
+  @override
+  MultiRewardPool $make(CopyWithData data) => MultiRewardPool(
+    name: data.get(#name, or: $value.name),
+    gameMode: data.get(#gameMode, or: $value.gameMode),
+    isEvent: data.get(#isEvent, or: $value.isEvent),
+    rewards: data.get(#rewards, or: $value.rewards),
+  );
+
+  @override
+  MultiRewardPoolCopyWith<$R2, MultiRewardPool, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _MultiRewardPoolCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 

@@ -21,6 +21,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
       PlanetMapper.ensureInitialized();
       RelicMapper.ensureInitialized();
       QuestRewardsMapper.ensureInitialized();
+      RegionRewardPoolMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -94,6 +95,10 @@ class DropDataMapper extends ClassMapperBase<DropData> {
     opt: true,
     def: const [],
   );
+  static List<RegionRewardPool> _$transientRewards(DropData v) =>
+      v.transientRewards;
+  static const Field<DropData, List<RegionRewardPool>> _f$transientRewards =
+      Field('transientRewards', _$transientRewards, opt: true, def: const []);
 
   @override
   final MappableFields<DropData> fields = const {
@@ -106,6 +111,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
     #relics: _f$relics,
     #modsByAvatar: _f$modsByAvatar,
     #questRewards: _f$questRewards,
+    #transientRewards: _f$transientRewards,
   };
   @override
   final bool ignoreNull = true;
@@ -121,6 +127,7 @@ class DropDataMapper extends ClassMapperBase<DropData> {
       relics: data.dec(_f$relics),
       modsByAvatar: data.dec(_f$modsByAvatar),
       questRewards: data.dec(_f$questRewards),
+      transientRewards: data.dec(_f$transientRewards),
     );
   }
 
@@ -209,6 +216,12 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
     QuestRewardsCopyWith<$R, QuestRewards, QuestRewards>
   >
   get questRewards;
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get transientRewards;
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
@@ -219,6 +232,7 @@ abstract class DropDataCopyWith<$R, $In extends DropData, $Out>
     List<Relic>? relics,
     List<Avatar>? modsByAvatar,
     List<QuestRewards>? questRewards,
+    List<RegionRewardPool>? transientRewards,
   });
   DropDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -307,6 +321,17 @@ class _DropDataCopyWithImpl<$R, $Out>
     (v) => call(questRewards: v),
   );
   @override
+  ListCopyWith<
+    $R,
+    RegionRewardPool,
+    RegionRewardPoolCopyWith<$R, RegionRewardPool, RegionRewardPool>
+  >
+  get transientRewards => ListCopyWith(
+    $value.transientRewards,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(transientRewards: v),
+  );
+  @override
   $R call({
     List<BlueprintPart>? blueprintDrops,
     List<BountyRewardTable>? bountyRewardTables,
@@ -317,6 +342,7 @@ class _DropDataCopyWithImpl<$R, $Out>
     List<Relic>? relics,
     List<Avatar>? modsByAvatar,
     List<QuestRewards>? questRewards,
+    List<RegionRewardPool>? transientRewards,
   }) => $apply(
     FieldCopyWithData({
       if (blueprintDrops != null) #blueprintDrops: blueprintDrops,
@@ -329,6 +355,7 @@ class _DropDataCopyWithImpl<$R, $Out>
       if (relics != null) #relics: relics,
       if (modsByAvatar != null) #modsByAvatar: modsByAvatar,
       if (questRewards != null) #questRewards: questRewards,
+      if (transientRewards != null) #transientRewards: transientRewards,
     }),
   );
   @override
@@ -351,6 +378,7 @@ class _DropDataCopyWithImpl<$R, $Out>
     relics: data.get(#relics, or: $value.relics),
     modsByAvatar: data.get(#modsByAvatar, or: $value.modsByAvatar),
     questRewards: data.get(#questRewards, or: $value.questRewards),
+    transientRewards: data.get(#transientRewards, or: $value.transientRewards),
   );
 
   @override
