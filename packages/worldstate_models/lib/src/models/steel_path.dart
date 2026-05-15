@@ -21,8 +21,8 @@ class SteelPath extends WorldstateObject with SteelPathMappable {
   });
 
   factory SteelPath.init([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
-    const eightWeeks = DateTime.daysPerWeek * 8;
-    const sevenDays = Duration.hoursPerDay * 7;
+    const eightWeeks = (DateTime.daysPerWeek * 8) * Duration.secondsPerDay;
+    const sevenDays = DateTime.daysPerWeek * Duration.secondsPerDay;
 
     final now = DateTime.timestamp();
     final sSinceStart = now.difference(start).inSeconds;
