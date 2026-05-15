@@ -1,3 +1,7 @@
+## 0.1.7+6
+
+ - **FIX**(worldstate_models): steel path offering being incorrect. ([e1710efc](https://github.com/SlayerOrnstein/wfcd_dart/commit/e1710efc975d9f936b1f467be710fad96f482b19))
+
 ## 0.1.7+5
 
  - Update a dependency to the latest release.

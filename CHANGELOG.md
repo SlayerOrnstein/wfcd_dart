@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-05-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.7+6`](#worldstate_models---v0176)
+ - [`worldstate_status` - `v1.0.43`](#worldstate_status---v1043)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.43`
+
+---
+
+#### `worldstate_models` - `v0.1.7+6`
+
+ - **FIX**(worldstate_models): steel path offering being incorrect. ([e1710efc](https://github.com/SlayerOrnstein/wfcd_dart/commit/e1710efc975d9f936b1f467be710fad96f482b19))
+
+
 ## 2026-05-14
 
 ### Changes
