@@ -1,3 +1,7 @@
+## 0.1.7+7
+
+ - **FIX**(worldstate_models): fallback to an empty reward list in fissures. ([100ab6bb](https://github.com/SlayerOrnstein/wfcd_dart/commit/100ab6bb687d20997f20bb2286e4d75a1f04b752))
+
 ## 0.1.7+6
 
  - **FIX**(worldstate_models): steel path offering being incorrect. ([e1710efc](https://github.com/SlayerOrnstein/wfcd_dart/commit/e1710efc975d9f936b1f467be710fad96f482b19))
