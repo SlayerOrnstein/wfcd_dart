@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
@@ -90,18 +91,18 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     final nodeName = node.split('(').first.trim();
 
     // Data does not include 'Proxima' in its naming scheme
-    final p = drops.missionRewards.firstWhere((p) => p.name.startsWith(planet));
-    final rewardPools = p.findRewardPools(nodeName).toList();
+    final p = drops.missionRewards.firstWhereOrNull((p) => p.name.startsWith(planet));
+    final rewardPools = p?.findRewardPools(nodeName).toList();
 
     // Void storms have end of mission reward bonus
     if (isStrom) {
       final voidStormBonus = drops.transientRewards.where(
         (r) => r.name.contains('Void Storm') && r.name.contains(planet),
       );
-      
-      rewardPools.addAll(voidStormBonus);
+
+      rewardPools?.addAll(voidStormBonus);
     }
 
-    return rewardPools;
+    return rewardPools ?? [];
   }
 }
