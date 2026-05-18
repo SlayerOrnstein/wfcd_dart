@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'upgrade_types.g.dart';
@@ -26,44 +26,44 @@ Map<String, String> upgradeTypes([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(minifyValue(data));
 }
 
-@EmbedStr('/data/upgradeTypes')
+@EmbedBinary('/data/upgradeTypes')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/upgradeTypes')
+@EmbedBinary('/data/cs/upgradeTypes')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/upgradeTypes')
+@EmbedBinary('/data/de/upgradeTypes')
 const _de = _$_de;
 
-@EmbedStr('/data/es/upgradeTypes')
+@EmbedBinary('/data/es/upgradeTypes')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/upgradeTypes')
+@EmbedBinary('/data/fr/upgradeTypes')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/upgradeTypes')
+@EmbedBinary('/data/it/upgradeTypes')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/upgradeTypes')
+@EmbedBinary('/data/ko/upgradeTypes')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/upgradeTypes')
+@EmbedBinary('/data/pl/upgradeTypes')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/upgradeTypes')
+@EmbedBinary('/data/pt/upgradeTypes')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/upgradeTypes')
+@EmbedBinary('/data/ru/upgradeTypes')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/upgradeTypes')
+@EmbedBinary('/data/sr/upgradeTypes')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/upgradeTypes')
+@EmbedBinary('/data/tr/upgradeTypes')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/upgradeTypes')
+@EmbedBinary('/data/uk/upgradeTypes')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/upgradeTypes')
+@EmbedBinary('/data/zh/upgradeTypes')
 const _zh = _$_zh;

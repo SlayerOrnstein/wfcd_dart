@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'languages.g.dart';
@@ -33,44 +33,44 @@ Map<String, LanguageString> languages([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(map);
 }
 
-@EmbedStr('/data/languages')
+@EmbedBinary('/data/languages')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/languages')
+@EmbedBinary('/data/cs/languages')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/languages')
+@EmbedBinary('/data/de/languages')
 const _de = _$_de;
 
-@EmbedStr('/data/es/languages')
+@EmbedBinary('/data/es/languages')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/languages')
+@EmbedBinary('/data/fr/languages')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/languages')
+@EmbedBinary('/data/it/languages')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/languages')
+@EmbedBinary('/data/ko/languages')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/languages')
+@EmbedBinary('/data/pl/languages')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/languages')
+@EmbedBinary('/data/pt/languages')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/languages')
+@EmbedBinary('/data/ru/languages')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/languages')
+@EmbedBinary('/data/sr/languages')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/languages')
+@EmbedBinary('/data/tr/languages')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/languages')
+@EmbedBinary('/data/uk/languages')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/languages')
+@EmbedBinary('/data/zh/languages')
 const _zh = _$_zh;

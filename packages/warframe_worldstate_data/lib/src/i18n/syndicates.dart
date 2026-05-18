@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'syndicates.g.dart';
@@ -28,44 +28,44 @@ Map<String, String> syndicates([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(minified);
 }
 
-@EmbedStr('/data/syndicatesData')
+@EmbedBinary('/data/syndicatesData')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/syndicatesData')
+@EmbedBinary('/data/cs/syndicatesData')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/syndicatesData')
+@EmbedBinary('/data/de/syndicatesData')
 const _de = _$_de;
 
-@EmbedStr('/data/es/syndicatesData')
+@EmbedBinary('/data/es/syndicatesData')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/syndicatesData')
+@EmbedBinary('/data/fr/syndicatesData')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/syndicatesData')
+@EmbedBinary('/data/it/syndicatesData')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/syndicatesData')
+@EmbedBinary('/data/ko/syndicatesData')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/syndicatesData')
+@EmbedBinary('/data/pl/syndicatesData')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/syndicatesData')
+@EmbedBinary('/data/pt/syndicatesData')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/syndicatesData')
+@EmbedBinary('/data/ru/syndicatesData')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/syndicatesData')
+@EmbedBinary('/data/sr/syndicatesData')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/syndicatesData')
+@EmbedBinary('/data/tr/syndicatesData')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/syndicatesData')
+@EmbedBinary('/data/uk/syndicatesData')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/syndicatesData')
+@EmbedBinary('/data/zh/syndicatesData')
 const _zh = _$_zh;

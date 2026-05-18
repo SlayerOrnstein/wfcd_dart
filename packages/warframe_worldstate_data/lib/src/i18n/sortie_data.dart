@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'sortie_data.g.dart';
@@ -41,44 +41,44 @@ Map<String, dynamic> sortieData([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(data);
 }
 
-@EmbedStr('/data/sortieData')
+@EmbedBinary('/data/sortieData')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/sortieData')
+@EmbedBinary('/data/cs/sortieData')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/sortieData')
+@EmbedBinary('/data/de/sortieData')
 const _de = _$_de;
 
-@EmbedStr('/data/es/sortieData')
+@EmbedBinary('/data/es/sortieData')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/sortieData')
+@EmbedBinary('/data/fr/sortieData')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/sortieData')
+@EmbedBinary('/data/it/sortieData')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/sortieData')
+@EmbedBinary('/data/ko/sortieData')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/sortieData')
+@EmbedBinary('/data/pl/sortieData')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/sortieData')
+@EmbedBinary('/data/pt/sortieData')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/sortieData')
+@EmbedBinary('/data/ru/sortieData')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/sortieData')
+@EmbedBinary('/data/sr/sortieData')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/sortieData')
+@EmbedBinary('/data/tr/sortieData')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/sortieData')
+@EmbedBinary('/data/uk/sortieData')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/sortieData')
+@EmbedBinary('/data/zh/sortieData')
 const _zh = _$_zh;

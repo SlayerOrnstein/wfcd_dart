@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'mission_types.g.dart';
@@ -26,44 +26,44 @@ Map<String, String> missionTypes([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(minifyValue(data));
 }
 
-@EmbedStr('/data/missionTypes')
+@EmbedBinary('/data/missionTypes')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/missionTypes')
+@EmbedBinary('/data/cs/missionTypes')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/missionTypes')
+@EmbedBinary('/data/de/missionTypes')
 const _de = _$_de;
 
-@EmbedStr('/data/es/missionTypes')
+@EmbedBinary('/data/es/missionTypes')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/missionTypes')
+@EmbedBinary('/data/fr/missionTypes')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/missionTypes')
+@EmbedBinary('/data/it/missionTypes')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/missionTypes')
+@EmbedBinary('/data/ko/missionTypes')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/missionTypes')
+@EmbedBinary('/data/pl/missionTypes')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/missionTypes')
+@EmbedBinary('/data/pt/missionTypes')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/missionTypes')
+@EmbedBinary('/data/ru/missionTypes')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/missionTypes')
+@EmbedBinary('/data/sr/missionTypes')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/missionTypes')
+@EmbedBinary('/data/tr/missionTypes')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/missionTypes')
+@EmbedBinary('/data/uk/missionTypes')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/missionTypes')
+@EmbedBinary('/data/zh/missionTypes')
 const _zh = _$_zh;

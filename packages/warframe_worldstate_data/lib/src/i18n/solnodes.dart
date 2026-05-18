@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'solnodes.g.dart';
@@ -33,44 +33,44 @@ Map<String, Node> solNodes([WorldstateDataLocale locale = .en]) {
   );
 }
 
-@EmbedStr('/data/solnodes')
+@EmbedBinary('/data/solnodes')
 const _en = _$_en;
 
-@EmbedStr('/data/cs/solnodes')
+@EmbedBinary('/data/cs/solnodes')
 const _cs = _$_cs;
 
-@EmbedStr('/data/de/solnodes')
+@EmbedBinary('/data/de/solnodes')
 const _de = _$_de;
 
-@EmbedStr('/data/es/solnodes')
+@EmbedBinary('/data/es/solnodes')
 const _es = _$_es;
 
-@EmbedStr('/data/fr/solnodes')
+@EmbedBinary('/data/fr/solnodes')
 const _fr = _$_fr;
 
-@EmbedStr('/data/it/solnodes')
+@EmbedBinary('/data/it/solnodes')
 const _it = _$_it;
 
-@EmbedStr('/data/ko/solnodes')
+@EmbedBinary('/data/ko/solnodes')
 const _ko = _$_ko;
 
-@EmbedStr('/data/pl/solnodes')
+@EmbedBinary('/data/pl/solnodes')
 const _pl = _$_pl;
 
-@EmbedStr('/data/pt/solnodes')
+@EmbedBinary('/data/pt/solnodes')
 const _pt = _$_pt;
 
-@EmbedStr('/data/ru/solnodes')
+@EmbedBinary('/data/ru/solnodes')
 const _ru = _$_ru;
 
-@EmbedStr('/data/sr/solnodes')
+@EmbedBinary('/data/sr/solnodes')
 const _sr = _$_sr;
 
-@EmbedStr('/data/tr/solnodes')
+@EmbedBinary('/data/tr/solnodes')
 const _tr = _$_tr;
 
-@EmbedStr('/data/uk/solnodes')
+@EmbedBinary('/data/uk/solnodes')
 const _uk = _$_uk;
 
-@EmbedStr('/data/zh/solnodes')
+@EmbedBinary('/data/zh/solnodes')
 const _zh = _$_zh;
