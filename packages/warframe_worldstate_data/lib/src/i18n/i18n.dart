@@ -2,6 +2,7 @@ export 'archon_shards.dart';
 export 'conclave_data.dart';
 export 'factions.dart';
 export 'fissure_modifiers.dart';
+export 'i18n_tools.dart';
 export 'languages.dart';
 export 'mission_types.dart';
 export 'operation_types.dart';

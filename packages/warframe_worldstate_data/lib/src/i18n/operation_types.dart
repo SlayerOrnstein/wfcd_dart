@@ -1,6 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
-import 'package:warframe_worldstate_data/src/tools.dart';
+import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
 
 part 'operation_types.g.dart';
 
@@ -26,44 +25,44 @@ Map<String, dynamic> operationTypes([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(data);
 }
 
-@EmbedBinary('/data/operationTypes')
+@EmbedStr('/data/operationTypes')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/operationTypes')
+@EmbedStr('/data/cs/operationTypes')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/operationTypes')
+@EmbedStr('/data/de/operationTypes')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/operationTypes')
+@EmbedStr('/data/es/operationTypes')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/operationTypes')
+@EmbedStr('/data/fr/operationTypes')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/operationTypes')
+@EmbedStr('/data/it/operationTypes')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/operationTypes')
+@EmbedStr('/data/ko/operationTypes')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/operationTypes')
+@EmbedStr('/data/pl/operationTypes')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/operationTypes')
+@EmbedStr('/data/pt/operationTypes')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/operationTypes')
+@EmbedStr('/data/ru/operationTypes')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/operationTypes')
+@EmbedStr('/data/sr/operationTypes')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/operationTypes')
+@EmbedStr('/data/tr/operationTypes')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/operationTypes')
+@EmbedStr('/data/uk/operationTypes')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/operationTypes')
+@EmbedStr('/data/zh/operationTypes')
 const _zh = _$_zh;

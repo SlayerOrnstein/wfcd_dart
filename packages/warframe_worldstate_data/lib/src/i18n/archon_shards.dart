@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'archon_shards.g.dart';
@@ -36,44 +36,44 @@ Map<String, ArchonShard> archonShards([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(minified);
 }
 
-@EmbedBinary('/data/archonShards')
+@EmbedStr('/data/archonShards')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/archonShards')
+@EmbedStr('/data/cs/archonShards')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/archonShards')
+@EmbedStr('/data/de/archonShards')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/archonShards')
+@EmbedStr('/data/es/archonShards')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/archonShards')
+@EmbedStr('/data/fr/archonShards')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/archonShards')
+@EmbedStr('/data/it/archonShards')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/archonShards')
+@EmbedStr('/data/ko/archonShards')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/archonShards')
+@EmbedStr('/data/pl/archonShards')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/archonShards')
+@EmbedStr('/data/pt/archonShards')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/archonShards')
+@EmbedStr('/data/ru/archonShards')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/archonShards')
+@EmbedStr('/data/sr/archonShards')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/archonShards')
+@EmbedStr('/data/tr/archonShards')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/archonShards')
+@EmbedStr('/data/uk/archonShards')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/archonShards')
+@EmbedStr('/data/zh/archonShards')
 const _zh = _$_zh;

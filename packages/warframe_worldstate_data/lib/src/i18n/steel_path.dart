@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'steel_path.g.dart';
@@ -38,44 +38,44 @@ SteelPathData steelPathOfferings([WorldstateDataLocale locale = .en]) {
   );
 }
 
-@EmbedBinary('/data/steelPath')
+@EmbedStr('/data/steelPath')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/steelPath')
+@EmbedStr('/data/cs/steelPath')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/steelPath')
+@EmbedStr('/data/de/steelPath')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/steelPath')
+@EmbedStr('/data/es/steelPath')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/steelPath')
+@EmbedStr('/data/fr/steelPath')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/steelPath')
+@EmbedStr('/data/it/steelPath')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/steelPath')
+@EmbedStr('/data/ko/steelPath')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/steelPath')
+@EmbedStr('/data/pl/steelPath')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/steelPath')
+@EmbedStr('/data/pt/steelPath')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/steelPath')
+@EmbedStr('/data/ru/steelPath')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/steelPath')
+@EmbedStr('/data/sr/steelPath')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/steelPath')
+@EmbedStr('/data/tr/steelPath')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/steelPath')
+@EmbedStr('/data/uk/steelPath')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/steelPath')
+@EmbedStr('/data/zh/steelPath')
 const _zh = _$_zh;

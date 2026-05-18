@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'fissure_modifiers.g.dart';
@@ -34,44 +34,44 @@ Map<String, FissureModifier> fissures([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(mapped);
 }
 
-@EmbedBinary('/data/fissureModifiers')
+@EmbedStr('/data/fissureModifiers')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/fissureModifiers')
+@EmbedStr('/data/cs/fissureModifiers')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/fissureModifiers')
+@EmbedStr('/data/de/fissureModifiers')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/fissureModifiers')
+@EmbedStr('/data/es/fissureModifiers')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/fissureModifiers')
+@EmbedStr('/data/fr/fissureModifiers')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/fissureModifiers')
+@EmbedStr('/data/it/fissureModifiers')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/fissureModifiers')
+@EmbedStr('/data/ko/fissureModifiers')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/fissureModifiers')
+@EmbedStr('/data/pl/fissureModifiers')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/fissureModifiers')
+@EmbedStr('/data/pt/fissureModifiers')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/fissureModifiers')
+@EmbedStr('/data/ru/fissureModifiers')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/fissureModifiers')
+@EmbedStr('/data/sr/fissureModifiers')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/fissureModifiers')
+@EmbedStr('/data/tr/fissureModifiers')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/fissureModifiers')
+@EmbedStr('/data/uk/fissureModifiers')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/fissureModifiers')
+@EmbedStr('/data/zh/fissureModifiers')
 const _zh = _$_zh;

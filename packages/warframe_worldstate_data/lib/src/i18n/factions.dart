@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'factions.g.dart';
@@ -26,44 +26,44 @@ Map<String, String> factions([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(minifyValue(data));
 }
 
-@EmbedBinary('/data/factionsData')
+@EmbedStr('/data/factionsData')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/factionsData')
+@EmbedStr('/data/cs/factionsData')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/factionsData')
+@EmbedStr('/data/de/factionsData')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/factionsData')
+@EmbedStr('/data/es/factionsData')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/factionsData')
+@EmbedStr('/data/fr/factionsData')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/factionsData')
+@EmbedStr('/data/it/factionsData')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/factionsData')
+@EmbedStr('/data/ko/factionsData')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/factionsData')
+@EmbedStr('/data/pl/factionsData')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/factionsData')
+@EmbedStr('/data/pt/factionsData')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/factionsData')
+@EmbedStr('/data/ru/factionsData')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/factionsData')
+@EmbedStr('/data/sr/factionsData')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/factionsData')
+@EmbedStr('/data/tr/factionsData')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/factionsData')
+@EmbedStr('/data/uk/factionsData')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/factionsData')
+@EmbedStr('/data/zh/factionsData')
 const _zh = _$_zh;

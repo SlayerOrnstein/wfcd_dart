@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 /// Decodes the embedded json string
-T decodeData<T>(List<int> data) {
-  return utf8.decoder.fuse(json.decoder).convert(data) as T;
+T decodeData<T>(String data) {
+  return json.decode(data) as T;
 }
 
 /// Decodes a json array enforcing [T]
-List<T> decodeArrayData<T>(List<int> data) {
+List<T> decodeArrayData<T>(String data) {
   return decodeData<List<dynamic>>(data).cast<T>();
 }
 

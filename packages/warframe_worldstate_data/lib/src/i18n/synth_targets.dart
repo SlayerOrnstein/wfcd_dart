@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'synth_targets.g.dart';
@@ -26,44 +26,44 @@ List<Map<String, dynamic>> synthTargetsData([WorldstateDataLocale locale = .en])
   return List.unmodifiable(data);
 }
 
-@EmbedBinary('/data/synthTargets')
+@EmbedStr('/data/synthTargets')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/synthTargets')
+@EmbedStr('/data/cs/synthTargets')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/synthTargets')
+@EmbedStr('/data/de/synthTargets')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/synthTargets')
+@EmbedStr('/data/es/synthTargets')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/synthTargets')
+@EmbedStr('/data/fr/synthTargets')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/synthTargets')
+@EmbedStr('/data/it/synthTargets')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/synthTargets')
+@EmbedStr('/data/ko/synthTargets')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/synthTargets')
+@EmbedStr('/data/pl/synthTargets')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/synthTargets')
+@EmbedStr('/data/pt/synthTargets')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/synthTargets')
+@EmbedStr('/data/ru/synthTargets')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/synthTargets')
+@EmbedStr('/data/sr/synthTargets')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/synthTargets')
+@EmbedStr('/data/tr/synthTargets')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/synthTargets')
+@EmbedStr('/data/uk/synthTargets')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/synthTargets')
+@EmbedStr('/data/zh/synthTargets')
 const _zh = _$_zh;

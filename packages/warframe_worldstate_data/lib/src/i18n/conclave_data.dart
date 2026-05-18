@@ -1,5 +1,5 @@
 import 'package:embed_annotation/embed_annotation.dart';
-import 'package:warframe_worldstate_data/src/i18n_tools.dart';
+import 'package:warframe_worldstate_data/src/i18n/i18n_tools.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 
 part 'conclave_data.g.dart';
@@ -28,44 +28,44 @@ Map<String, dynamic> conclave([WorldstateDataLocale locale = .en]) {
   return Map.unmodifiable(data);
 }
 
-@EmbedBinary('/data/conclaveData')
+@EmbedStr('/data/conclaveData')
 const _en = _$_en;
 
-@EmbedBinary('/data/cs/conclaveData')
+@EmbedStr('/data/cs/conclaveData')
 const _cs = _$_cs;
 
-@EmbedBinary('/data/de/conclaveData')
+@EmbedStr('/data/de/conclaveData')
 const _de = _$_de;
 
-@EmbedBinary('/data/es/conclaveData')
+@EmbedStr('/data/es/conclaveData')
 const _es = _$_es;
 
-@EmbedBinary('/data/fr/conclaveData')
+@EmbedStr('/data/fr/conclaveData')
 const _fr = _$_fr;
 
-@EmbedBinary('/data/it/conclaveData')
+@EmbedStr('/data/it/conclaveData')
 const _it = _$_it;
 
-@EmbedBinary('/data/ko/conclaveData')
+@EmbedStr('/data/ko/conclaveData')
 const _ko = _$_ko;
 
-@EmbedBinary('/data/pl/conclaveData')
+@EmbedStr('/data/pl/conclaveData')
 const _pl = _$_pl;
 
-@EmbedBinary('/data/pt/conclaveData')
+@EmbedStr('/data/pt/conclaveData')
 const _pt = _$_pt;
 
-@EmbedBinary('/data/ru/conclaveData')
+@EmbedStr('/data/ru/conclaveData')
 const _ru = _$_ru;
 
-@EmbedBinary('/data/sr/conclaveData')
+@EmbedStr('/data/sr/conclaveData')
 const _sr = _$_sr;
 
-@EmbedBinary('/data/tr/conclaveData')
+@EmbedStr('/data/tr/conclaveData')
 const _tr = _$_tr;
 
-@EmbedBinary('/data/uk/conclaveData')
+@EmbedStr('/data/uk/conclaveData')
 const _uk = _$_uk;
 
-@EmbedBinary('/data/zh/conclaveData')
+@EmbedStr('/data/zh/conclaveData')
 const _zh = _$_zh;
