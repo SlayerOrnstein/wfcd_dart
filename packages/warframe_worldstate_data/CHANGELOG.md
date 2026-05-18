@@ -1,3 +1,7 @@
+## 0.1.3+12
+
+ - **PERF**: optimization when parsing embeded lang files". ([9fc4433c](https://github.com/SlayerOrnstein/wfcd_dart/commit/9fc4433c642437560991b8b1a05f3ee6c3ec3223))
+
 ## 0.1.3+11
 
  - **PERF**: optimization when parsing embeded lang files. ([d7bd1c6a](https://github.com/SlayerOrnstein/wfcd_dart/commit/d7bd1c6af6db0da6d942b4af5160e081dd6569af))

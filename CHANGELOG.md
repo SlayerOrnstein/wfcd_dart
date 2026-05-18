@@ -15,6 +15,40 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.3+12`](#warframe_worldstate_data---v01312)
+ - [`profile_models` - `v0.1.2+22`](#profile_models---v01222)
+ - [`warframe_items` - `v0.1.1+11`](#warframe_items---v01111)
+ - [`worldstate_models` - `v0.1.7+9`](#worldstate_models---v0179)
+ - [`worldstate_status` - `v1.0.46`](#worldstate_status---v1046)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.2+22`
+ - `warframe_items` - `v0.1.1+11`
+ - `worldstate_models` - `v0.1.7+9`
+ - `worldstate_status` - `v1.0.46`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+12`
+
+ - **PERF**: optimization when parsing embeded lang files". ([9fc4433c](https://github.com/SlayerOrnstein/wfcd_dart/commit/9fc4433c642437560991b8b1a05f3ee6c3ec3223))
+
+
+## 2026-05-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`warframe_worldstate_data` - `v0.1.3+11`](#warframe_worldstate_data---v01311)
  - [`profile_models` - `v0.1.2+21`](#profile_models---v01221)
  - [`warframe_items` - `v0.1.1+10`](#warframe_items---v01110)
