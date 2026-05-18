@@ -6,6 +6,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "pub"
-    directory: "/packages/*"
+    directory: "/"
     schedule:
       interval: "daily"
