@@ -1,3 +1,7 @@
+## 0.1.3+11
+
+ - **PERF**: optimization when parsing embeded lang files. ([d7bd1c6a](https://github.com/SlayerOrnstein/wfcd_dart/commit/d7bd1c6af6db0da6d942b4af5160e081dd6569af))
+
 ## 0.1.3+10
 
  - **FIX**: improved `FissureTier` to work with translations. ([1927446e](https://github.com/SlayerOrnstein/wfcd_dart/commit/1927446e6058428d18150ea667bd1a1b8eea2436))
