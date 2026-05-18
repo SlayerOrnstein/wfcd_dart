@@ -29,5 +29,5 @@ dependencies:
 
 dev_dependencies:
   dart_frog_lint: ^0.1.0
-  mocktail: ^1.0.3
-  test: ^1.25.5
+  mocktail: ^1.0.5
+  test: ^1.31.1

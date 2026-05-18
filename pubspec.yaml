@@ -2,18 +2,15 @@ name: wfcd_dart
 repository: https://github.com/SlayerOrnstein/wfcd_dart
 
 environment:
-  sdk: "^3.10.0"
+  sdk: "^3.11.0"
 
 workspace:
-  - packages/profile_models
-  - packages/warframe_drop_data
-  - packages/warframe_items
-  - packages/warframe_worldstate_data
-  - packages/worldstate_models
-  - packages/worldstate_status
+  - packages/*
 
 dev_dependencies:
-  melos: ^7.5.1
+  build_runner: ^2.15.0
+  melos: ^7.7.0
+  very_good_analysis: 10.2.0
 
 melos:
   scripts:

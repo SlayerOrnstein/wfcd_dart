@@ -13,9 +13,7 @@ dependencies:
   embed_annotation: ^1.2.3
 
 dev_dependencies:
-  archive: ^4.0.7
-  build_runner: ^2.10.4
+  archive: ^4.0.9
   embed: ^1.6.4
   path: ^1.9.1
-  test: ^1.26.3
-  very_good_analysis: ^10.0.0
+  test: ^1.31.1
