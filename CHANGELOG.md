@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-06-06
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.7+10`](#worldstate_models---v01710)
+ - [`worldstate_status` - `v1.0.47`](#worldstate_status---v1047)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.47`
+
+---
+
+#### `worldstate_models` - `v0.1.7+10`
+
+ - **FIX**(worldstate_models): use an enum to denote Archimedea's type. ([0dc359e4](https://github.com/SlayerOrnstein/wfcd_dart/commit/0dc359e4f073ed2a21944889d46b700b993a0513))
+
+
 ## 2026-05-18
 
 ### Changes

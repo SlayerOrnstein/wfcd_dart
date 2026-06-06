@@ -1,3 +1,7 @@
+## 0.1.7+10
+
+ - **FIX**(worldstate_models): use an enum to denote Archimedea's type. ([0dc359e4](https://github.com/SlayerOrnstein/wfcd_dart/commit/0dc359e4f073ed2a21944889d46b700b993a0513))
+
 ## 0.1.7+9
 
  - Update a dependency to the latest release.
