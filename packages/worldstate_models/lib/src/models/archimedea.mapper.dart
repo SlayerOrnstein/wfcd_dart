@@ -1,12 +1,62 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
-// ignore_for_file: type=lint
+// ignore_for_file: inference_failure_on_function_invocation, type=lint
 // ignore_for_file: invalid_use_of_protected_member
 // ignore_for_file: unused_element, unnecessary_cast, override_on_non_overriding_member
 // ignore_for_file: strict_raw_type, inference_failure_on_untyped_parameter
 
 part of 'archimedea.dart';
+
+class ArchimedeaTypeMapper extends EnumMapper<ArchimedeaType> {
+  ArchimedeaTypeMapper._();
+
+  static ArchimedeaTypeMapper? _instance;
+  static ArchimedeaTypeMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ArchimedeaTypeMapper._());
+    }
+    return _instance!;
+  }
+
+  static ArchimedeaType fromValue(dynamic value) {
+    ensureInitialized();
+    return MapperContainer.globals.fromValue(value);
+  }
+
+  @override
+  ArchimedeaType decode(dynamic value) {
+    switch (value) {
+      case r'deep':
+        return ArchimedeaType.deep;
+      case r'temporal':
+        return ArchimedeaType.temporal;
+      case r'unknonw':
+        return ArchimedeaType.unknonw;
+      default:
+        throw MapperException.unknownEnumValue(value);
+    }
+  }
+
+  @override
+  dynamic encode(ArchimedeaType self) {
+    switch (self) {
+      case ArchimedeaType.deep:
+        return r'deep';
+      case ArchimedeaType.temporal:
+        return r'temporal';
+      case ArchimedeaType.unknonw:
+        return r'unknonw';
+    }
+  }
+}
+
+extension ArchimedeaTypeMapperExtension on ArchimedeaType {
+  String toValue() {
+    ArchimedeaTypeMapper.ensureInitialized();
+    return MapperContainer.globals.toValue<ArchimedeaType>(this) as String;
+  }
+}
 
 class RawConquestMapper extends ClassMapperBase<RawConquest> {
   RawConquestMapper._();
@@ -417,6 +467,7 @@ class RawConquestDifficultyMapper
   static RawConquestDifficultyMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = RawConquestDifficultyMapper._());
+      
       MapperBase.addType(<A, B, C>(f) => f<({A deviation, B risks, C type})>());
     }
     return _instance!;
@@ -539,6 +590,7 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
   static ArchimedeaMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = ArchimedeaMapper._());
+      ArchimedeaTypeMapper.ensureInitialized();
       ArchimedeaMissionMapper.ensureInitialized();
       _t$_R0Mapper.ensureInitialized();
     }
@@ -560,8 +612,11 @@ class ArchimedeaMapper extends ClassMapperBase<Archimedea> {
     'expiry',
     _$expiry,
   );
-  static String _$type(Archimedea v) => v.type;
-  static const Field<Archimedea, String> _f$type = Field('type', _$type);
+  static ArchimedeaType _$type(Archimedea v) => v.type;
+  static const Field<Archimedea, ArchimedeaType> _f$type = Field(
+    'type',
+    _$type,
+  );
   static List<ArchimedeaMission> _$missions(Archimedea v) => v.missions;
   static const Field<Archimedea, List<ArchimedeaMission>> _f$missions = Field(
     'missions',
@@ -671,7 +726,7 @@ abstract class ArchimedeaCopyWith<$R, $In extends Archimedea, $Out>
     String? id,
     DateTime? activation,
     DateTime? expiry,
-    String? type,
+    ArchimedeaType? type,
     List<ArchimedeaMission>? missions,
     List<PersonalModifiers>? personalModifiers,
   });
@@ -713,7 +768,7 @@ class _ArchimedeaCopyWithImpl<$R, $Out>
     String? id,
     Object? activation = $none,
     Object? expiry = $none,
-    String? type,
+    ArchimedeaType? type,
     List<ArchimedeaMission>? missions,
     List<PersonalModifiers>? personalModifiers,
   }) => $apply(

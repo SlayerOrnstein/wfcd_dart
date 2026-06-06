@@ -6,8 +6,44 @@ import 'package:worldstate_models/src/utils/utils.dart';
 
 part 'archimedea.mapper.dart';
 
+/// Mission type including well... self explanatory
+@MappableRecord()
+typedef RawConquestDifficulty = ({String type, String deviation, List<String> risks});
+
+/// Read the name
+typedef PersonalModifiers = ({String title, String description});
+
+/// Readable version of [RawConquest.variables]
+typedef ArchimedeaRisk = ({String title, String description, bool isElite});
+
+/// Type of the current [Archimedea] instance
+@MappableEnum()
+enum ArchimedeaType {
+  /// Deep Archimedea
+  deep(),
+
+  /// Temporal Archimedea
+  temporal(),
+
+  /// New or unknown yet
+  unknonw;
+
+  /// Get a type based on its ID
+  static ArchimedeaType fromId(String id) {
+    return switch (id) {
+      'CT_LAB' => ArchimedeaType.deep,
+      'CT_HEX' => ArchimedeaType.temporal,
+      _ => ArchimedeaType.unknonw,
+    };
+  }
+}
+
+/// {@template raw_conquest}
+/// Data class to hold the raw input for [Archimedea]
+/// {@endtemplate}
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawConquest extends BaseContentObject with RawConquestMappable {
+  /// {@macro raw_conquest}
   RawConquest({
     required super.activation,
     required super.expiry,
@@ -16,28 +52,39 @@ class RawConquest extends BaseContentObject with RawConquestMappable {
     required this.variables,
   }) : super(id: {});
 
-  static const fromMap = RawConquestMapper.fromMap;
+  /// {macro raw_conquest}
+  factory RawConquest.fromMap(Map<String, dynamic> map) => RawConquestMapper.fromMap(map);
 
+  /// Raw sttring for conquest type
   final String type;
+
+  /// Missions in this instance including risk and deviations
   final List<RawConquestMission> missions;
+
+  /// Personal modifiers internal names
   final List<String> variables;
 
+  /// Easy helper to go from raw to [Archimedea]
   Archimedea toArchimedea(Dependency deps) => Archimedea.fromRaw(this, deps);
 }
 
-@MappableRecord()
-typedef RawConquestDifficulty = ({String type, String deviation, List<String> risks});
-
+/// {@template raw_conquest_mission}
+/// An instance of a raw mission for [RawConquest]
+/// {@endtemplate}
 @MappableClass()
 class RawConquestMission with RawConquestMissionMappable {
+  /// {@macro raw_conquest_mission}
   RawConquestMission({required this.faction, required this.missionType, required this.difficulties});
 
+  /// Enemy faction
   final String faction;
+
+  /// Mission type
   final String missionType;
+
+  /// diviations
   final List<RawConquestDifficulty> difficulties;
 }
-
-typedef PersonalModifiers = ({String title, String description});
 
 @MappableClass()
 class Archimedea extends WorldstateObject with ArchimedeaMappable {
@@ -57,11 +104,7 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
       id: id,
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
-      type: switch (raw.type) {
-        'CT_HEX' => 'Temporal',
-        'CT_LAB' => 'Deep',
-        _ => raw.type,
-      },
+      type: ArchimedeaType.fromId(raw.type),
       missions: raw.missions.map((m) => ArchimedeaMission.fromRaw(m, deps)).toList(),
       personalModifiers: raw.variables
           .map((r) => (title: deps.langs.fetchValue(r), description: deps.langs.fetchDescription(r)))
@@ -69,7 +112,7 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
     );
   }
 
-  final String type;
+  final ArchimedeaType type;
   final List<ArchimedeaMission> missions;
   final List<PersonalModifiers> personalModifiers;
 
@@ -82,8 +125,6 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
   @override
   bool get isActive => super.isActive!;
 }
-
-typedef ArchimedeaRisk = ({String title, String description, bool isElite});
 
 @MappableClass()
 class ArchimedeaMission with ArchimedeaMissionMappable {
@@ -100,25 +141,30 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
     );
   }
 
+  /// Enemy faction
   final String faction;
+
+  /// Mission type
   final String missionType;
+
+  /// Mission deviation
   final ({String title, String description}) deviation;
+
+  /// Rist variables for both normal and elite
   final List<ArchimedeaRisk> risks;
 
   static List<ArchimedeaRisk> _dedupRisks(List<RawConquestDifficulty> raw, Dependency deps) {
-    final dedup = <String, ArchimedeaRisk>{};
+    final dedup = <ArchimedeaRisk>{};
     for (final diff in raw) {
       for (final risk in diff.risks) {
-        if (dedup.containsKey(risk)) continue;
-
-        dedup[risk] = (
+        dedup.add((
           title: deps.langs.fetchValue(risk),
           description: deps.langs.fetchDescription(risk),
           isElite: diff.type == 'CD_HARD',
-        );
+        ));
       }
     }
 
-    return dedup.values.toList(growable: false);
+    return dedup.toList(growable: false);
   }
 }
