@@ -29,7 +29,7 @@ class RawWorldstate with RawWorldstateMappable {
     required this.dailyDeals,
     required this.voidStorms,
     required this.projectPct,
-    required this.endlessXpChoices,
+    required this.endlessXpSchedule,
     required this.seasonInfo,
     required this.knownCalendarSeasons,
     required this.conquests,
@@ -58,7 +58,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawDailyDeal> dailyDeals;
   final List<RawActiveMission> voidStorms;
   final List<num> projectPct;
-  final List<RawCircuitChoice> endlessXpChoices;
+  final List<RawChoiceObject> endlessXpSchedule;
   final RawSeasonInfo? seasonInfo;
   final List<RawCalendar> knownCalendarSeasons;
   final List<RawConquest> conquests;
@@ -126,7 +126,7 @@ class Worldstate with WorldstateMappable {
       vaultTrader: Trader.fromRaw(raw.primeVaultTraders.first, deps, character: 'Varzia'),
       dailyDeals: parseArray(raw.dailyDeals, (deal) => DailyDeal.fromRaw(deal, deps)),
       constructionProgress: ConstructionProgress.fromRaw(raw.projectPct),
-      duviriCycle: DuviriCycle.fromRaw(raw.endlessXpChoices),
+      duviriCycle: DuviriCycle.fromRaw(raw.endlessXpSchedule[0]),
       nightwave: raw.seasonInfo != null ? Nightwave.fromRaw(raw.seasonInfo!, deps) : null,
       calendar: Calendar.fromRaw(raw.knownCalendarSeasons.first, deps),
       archimedeas: raw.conquests.map((c) => Archimedea.fromRaw(c, deps)).toList(),

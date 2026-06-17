@@ -66,43 +66,188 @@ extension DuviriStateMapperExtension on DuviriState {
   }
 }
 
-class RawCircuitChoiceMapper extends ClassMapperBase<RawCircuitChoice> {
-  RawCircuitChoiceMapper._();
+class RawChoiceObjectMapper extends ClassMapperBase<RawChoiceObject> {
+  RawChoiceObjectMapper._();
 
-  static RawCircuitChoiceMapper? _instance;
-  static RawCircuitChoiceMapper ensureInitialized() {
+  static RawChoiceObjectMapper? _instance;
+  static RawChoiceObjectMapper ensureInitialized() {
     if (_instance == null) {
-      MapperContainer.globals.use(_instance = RawCircuitChoiceMapper._());
+      MapperContainer.globals.use(_instance = RawChoiceObjectMapper._());
+      RawCategoryChoicesMapper.ensureInitialized();
     }
     return _instance!;
   }
 
   @override
-  final String id = 'RawCircuitChoice';
+  final String id = 'RawChoiceObject';
 
-  static String _$category(RawCircuitChoice v) => v.category;
-  static const Field<RawCircuitChoice, String> _f$category = Field(
+  static List<RawCategoryChoices> _$categoryChoices(RawChoiceObject v) =>
+      v.categoryChoices;
+  static const Field<RawChoiceObject, List<RawCategoryChoices>>
+  _f$categoryChoices = Field(
+    'categoryChoices',
+    _$categoryChoices,
+    key: r'CategoryChoices',
+  );
+
+  @override
+  final MappableFields<RawChoiceObject> fields = const {
+    #categoryChoices: _f$categoryChoices,
+  };
+  @override
+  final bool ignoreNull = true;
+
+  static RawChoiceObject _instantiate(DecodingData data) {
+    return RawChoiceObject(categoryChoices: data.dec(_f$categoryChoices));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static RawChoiceObject fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<RawChoiceObject>(map);
+  }
+
+  static RawChoiceObject fromJson(String json) {
+    return ensureInitialized().decodeJson<RawChoiceObject>(json);
+  }
+}
+
+mixin RawChoiceObjectMappable {
+  String toJson() {
+    return RawChoiceObjectMapper.ensureInitialized()
+        .encodeJson<RawChoiceObject>(this as RawChoiceObject);
+  }
+
+  Map<String, dynamic> toMap() {
+    return RawChoiceObjectMapper.ensureInitialized().encodeMap<RawChoiceObject>(
+      this as RawChoiceObject,
+    );
+  }
+
+  RawChoiceObjectCopyWith<RawChoiceObject, RawChoiceObject, RawChoiceObject>
+  get copyWith =>
+      _RawChoiceObjectCopyWithImpl<RawChoiceObject, RawChoiceObject>(
+        this as RawChoiceObject,
+        $identity,
+        $identity,
+      );
+  @override
+  String toString() {
+    return RawChoiceObjectMapper.ensureInitialized().stringifyValue(
+      this as RawChoiceObject,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return RawChoiceObjectMapper.ensureInitialized().equalsValue(
+      this as RawChoiceObject,
+      other,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return RawChoiceObjectMapper.ensureInitialized().hashValue(
+      this as RawChoiceObject,
+    );
+  }
+}
+
+extension RawChoiceObjectValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, RawChoiceObject, $Out> {
+  RawChoiceObjectCopyWith<$R, RawChoiceObject, $Out> get $asRawChoiceObject =>
+      $base.as((v, t, t2) => _RawChoiceObjectCopyWithImpl<$R, $Out>(v, t, t2));
+}
+
+abstract class RawChoiceObjectCopyWith<$R, $In extends RawChoiceObject, $Out>
+    implements ClassCopyWith<$R, $In, $Out> {
+  ListCopyWith<
+    $R,
+    RawCategoryChoices,
+    RawCategoryChoicesCopyWith<$R, RawCategoryChoices, RawCategoryChoices>
+  >
+  get categoryChoices;
+  $R call({List<RawCategoryChoices>? categoryChoices});
+  RawChoiceObjectCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  );
+}
+
+class _RawChoiceObjectCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, RawChoiceObject, $Out>
+    implements RawChoiceObjectCopyWith<$R, RawChoiceObject, $Out> {
+  _RawChoiceObjectCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<RawChoiceObject> $mapper =
+      RawChoiceObjectMapper.ensureInitialized();
+  @override
+  ListCopyWith<
+    $R,
+    RawCategoryChoices,
+    RawCategoryChoicesCopyWith<$R, RawCategoryChoices, RawCategoryChoices>
+  >
+  get categoryChoices => ListCopyWith(
+    $value.categoryChoices,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(categoryChoices: v),
+  );
+  @override
+  $R call({List<RawCategoryChoices>? categoryChoices}) => $apply(
+    FieldCopyWithData({
+      if (categoryChoices != null) #categoryChoices: categoryChoices,
+    }),
+  );
+  @override
+  RawChoiceObject $make(CopyWithData data) => RawChoiceObject(
+    categoryChoices: data.get(#categoryChoices, or: $value.categoryChoices),
+  );
+
+  @override
+  RawChoiceObjectCopyWith<$R2, RawChoiceObject, $Out2> $chain<$R2, $Out2>(
+    Then<$Out2, $R2> t,
+  ) => _RawChoiceObjectCopyWithImpl<$R2, $Out2>($value, $cast, t);
+}
+
+class RawCategoryChoicesMapper extends ClassMapperBase<RawCategoryChoices> {
+  RawCategoryChoicesMapper._();
+
+  static RawCategoryChoicesMapper? _instance;
+  static RawCategoryChoicesMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = RawCategoryChoicesMapper._());
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'RawCategoryChoices';
+
+  static String _$category(RawCategoryChoices v) => v.category;
+  static const Field<RawCategoryChoices, String> _f$category = Field(
     'category',
     _$category,
     key: r'Category',
   );
-  static List<String> _$choices(RawCircuitChoice v) => v.choices;
-  static const Field<RawCircuitChoice, List<String>> _f$choices = Field(
+  static List<String> _$choices(RawCategoryChoices v) => v.choices;
+  static const Field<RawCategoryChoices, List<String>> _f$choices = Field(
     'choices',
     _$choices,
     key: r'Choices',
   );
 
   @override
-  final MappableFields<RawCircuitChoice> fields = const {
+  final MappableFields<RawCategoryChoices> fields = const {
     #category: _f$category,
     #choices: _f$choices,
   };
   @override
   final bool ignoreNull = true;
 
-  static RawCircuitChoice _instantiate(DecodingData data) {
-    return RawCircuitChoice(
+  static RawCategoryChoices _instantiate(DecodingData data) {
+    return RawCategoryChoices(
       category: data.dec(_f$category),
       choices: data.dec(_f$choices),
     );
@@ -111,80 +256,89 @@ class RawCircuitChoiceMapper extends ClassMapperBase<RawCircuitChoice> {
   @override
   final Function instantiate = _instantiate;
 
-  static RawCircuitChoice fromMap(Map<String, dynamic> map) {
-    return ensureInitialized().decodeMap<RawCircuitChoice>(map);
+  static RawCategoryChoices fromMap(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<RawCategoryChoices>(map);
   }
 
-  static RawCircuitChoice fromJson(String json) {
-    return ensureInitialized().decodeJson<RawCircuitChoice>(json);
+  static RawCategoryChoices fromJson(String json) {
+    return ensureInitialized().decodeJson<RawCategoryChoices>(json);
   }
 }
 
-mixin RawCircuitChoiceMappable {
+mixin RawCategoryChoicesMappable {
   String toJson() {
-    return RawCircuitChoiceMapper.ensureInitialized()
-        .encodeJson<RawCircuitChoice>(this as RawCircuitChoice);
+    return RawCategoryChoicesMapper.ensureInitialized()
+        .encodeJson<RawCategoryChoices>(this as RawCategoryChoices);
   }
 
   Map<String, dynamic> toMap() {
-    return RawCircuitChoiceMapper.ensureInitialized()
-        .encodeMap<RawCircuitChoice>(this as RawCircuitChoice);
+    return RawCategoryChoicesMapper.ensureInitialized()
+        .encodeMap<RawCategoryChoices>(this as RawCategoryChoices);
   }
 
-  RawCircuitChoiceCopyWith<RawCircuitChoice, RawCircuitChoice, RawCircuitChoice>
+  RawCategoryChoicesCopyWith<
+    RawCategoryChoices,
+    RawCategoryChoices,
+    RawCategoryChoices
+  >
   get copyWith =>
-      _RawCircuitChoiceCopyWithImpl<RawCircuitChoice, RawCircuitChoice>(
-        this as RawCircuitChoice,
+      _RawCategoryChoicesCopyWithImpl<RawCategoryChoices, RawCategoryChoices>(
+        this as RawCategoryChoices,
         $identity,
         $identity,
       );
   @override
   String toString() {
-    return RawCircuitChoiceMapper.ensureInitialized().stringifyValue(
-      this as RawCircuitChoice,
+    return RawCategoryChoicesMapper.ensureInitialized().stringifyValue(
+      this as RawCategoryChoices,
     );
   }
 
   @override
   bool operator ==(Object other) {
-    return RawCircuitChoiceMapper.ensureInitialized().equalsValue(
-      this as RawCircuitChoice,
+    return RawCategoryChoicesMapper.ensureInitialized().equalsValue(
+      this as RawCategoryChoices,
       other,
     );
   }
 
   @override
   int get hashCode {
-    return RawCircuitChoiceMapper.ensureInitialized().hashValue(
-      this as RawCircuitChoice,
+    return RawCategoryChoicesMapper.ensureInitialized().hashValue(
+      this as RawCategoryChoices,
     );
   }
 }
 
-extension RawCircuitChoiceValueCopy<$R, $Out>
-    on ObjectCopyWith<$R, RawCircuitChoice, $Out> {
-  RawCircuitChoiceCopyWith<$R, RawCircuitChoice, $Out>
-  get $asRawCircuitChoice =>
-      $base.as((v, t, t2) => _RawCircuitChoiceCopyWithImpl<$R, $Out>(v, t, t2));
+extension RawCategoryChoicesValueCopy<$R, $Out>
+    on ObjectCopyWith<$R, RawCategoryChoices, $Out> {
+  RawCategoryChoicesCopyWith<$R, RawCategoryChoices, $Out>
+  get $asRawCategoryChoices => $base.as(
+    (v, t, t2) => _RawCategoryChoicesCopyWithImpl<$R, $Out>(v, t, t2),
+  );
 }
 
-abstract class RawCircuitChoiceCopyWith<$R, $In extends RawCircuitChoice, $Out>
+abstract class RawCategoryChoicesCopyWith<
+  $R,
+  $In extends RawCategoryChoices,
+  $Out
+>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get choices;
   $R call({String? category, List<String>? choices});
-  RawCircuitChoiceCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
+  RawCategoryChoicesCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
 }
 
-class _RawCircuitChoiceCopyWithImpl<$R, $Out>
-    extends ClassCopyWithBase<$R, RawCircuitChoice, $Out>
-    implements RawCircuitChoiceCopyWith<$R, RawCircuitChoice, $Out> {
-  _RawCircuitChoiceCopyWithImpl(super.value, super.then, super.then2);
+class _RawCategoryChoicesCopyWithImpl<$R, $Out>
+    extends ClassCopyWithBase<$R, RawCategoryChoices, $Out>
+    implements RawCategoryChoicesCopyWith<$R, RawCategoryChoices, $Out> {
+  _RawCategoryChoicesCopyWithImpl(super.value, super.then, super.then2);
 
   @override
-  late final ClassMapperBase<RawCircuitChoice> $mapper =
-      RawCircuitChoiceMapper.ensureInitialized();
+  late final ClassMapperBase<RawCategoryChoices> $mapper =
+      RawCategoryChoicesMapper.ensureInitialized();
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get choices =>
       ListCopyWith(
@@ -200,15 +354,15 @@ class _RawCircuitChoiceCopyWithImpl<$R, $Out>
     }),
   );
   @override
-  RawCircuitChoice $make(CopyWithData data) => RawCircuitChoice(
+  RawCategoryChoices $make(CopyWithData data) => RawCategoryChoices(
     category: data.get(#category, or: $value.category),
     choices: data.get(#choices, or: $value.choices),
   );
 
   @override
-  RawCircuitChoiceCopyWith<$R2, RawCircuitChoice, $Out2> $chain<$R2, $Out2>(
+  RawCategoryChoicesCopyWith<$R2, RawCategoryChoices, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
-  ) => _RawCircuitChoiceCopyWithImpl<$R2, $Out2>($value, $cast, t);
+  ) => _RawCategoryChoicesCopyWithImpl<$R2, $Out2>($value, $cast, t);
 }
 
 class DuviriCycleMapper extends ClassMapperBase<DuviriCycle> {

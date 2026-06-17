@@ -27,7 +27,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       RawInvasionMapper.ensureInitialized();
       RawTraderMapper.ensureInitialized();
       RawDailyDealMapper.ensureInitialized();
-      RawCircuitChoiceMapper.ensureInitialized();
+      RawChoiceObjectMapper.ensureInitialized();
       RawSeasonInfoMapper.ensureInitialized();
       RawCalendarMapper.ensureInitialized();
       RawConquestMapper.ensureInitialized();
@@ -143,13 +143,13 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$projectPct,
     key: r'ProjectPct',
   );
-  static List<RawCircuitChoice> _$endlessXpChoices(RawWorldstate v) =>
-      v.endlessXpChoices;
-  static const Field<RawWorldstate, List<RawCircuitChoice>>
-  _f$endlessXpChoices = Field(
-    'endlessXpChoices',
-    _$endlessXpChoices,
-    key: r'EndlessXpChoices',
+  static List<RawChoiceObject> _$endlessXpSchedule(RawWorldstate v) =>
+      v.endlessXpSchedule;
+  static const Field<RawWorldstate, List<RawChoiceObject>>
+  _f$endlessXpSchedule = Field(
+    'endlessXpSchedule',
+    _$endlessXpSchedule,
+    key: r'EndlessXpSchedule',
   );
   static RawSeasonInfo? _$seasonInfo(RawWorldstate v) => v.seasonInfo;
   static const Field<RawWorldstate, RawSeasonInfo> _f$seasonInfo = Field(
@@ -198,7 +198,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     #dailyDeals: _f$dailyDeals,
     #voidStorms: _f$voidStorms,
     #projectPct: _f$projectPct,
-    #endlessXpChoices: _f$endlessXpChoices,
+    #endlessXpSchedule: _f$endlessXpSchedule,
     #seasonInfo: _f$seasonInfo,
     #knownCalendarSeasons: _f$knownCalendarSeasons,
     #conquests: _f$conquests,
@@ -227,7 +227,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       dailyDeals: data.dec(_f$dailyDeals),
       voidStorms: data.dec(_f$voidStorms),
       projectPct: data.dec(_f$projectPct),
-      endlessXpChoices: data.dec(_f$endlessXpChoices),
+      endlessXpSchedule: data.dec(_f$endlessXpSchedule),
       seasonInfo: data.dec(_f$seasonInfo),
       knownCalendarSeasons: data.dec(_f$knownCalendarSeasons),
       conquests: data.dec(_f$conquests),
@@ -357,10 +357,10 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
   ListCopyWith<$R, num, ObjectCopyWith<$R, num, num>> get projectPct;
   ListCopyWith<
     $R,
-    RawCircuitChoice,
-    RawCircuitChoiceCopyWith<$R, RawCircuitChoice, RawCircuitChoice>
+    RawChoiceObject,
+    RawChoiceObjectCopyWith<$R, RawChoiceObject, RawChoiceObject>
   >
-  get endlessXpChoices;
+  get endlessXpSchedule;
   RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo>? get seasonInfo;
   ListCopyWith<
     $R,
@@ -393,7 +393,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     List<RawDailyDeal>? dailyDeals,
     List<RawActiveMission>? voidStorms,
     List<num>? projectPct,
-    List<RawCircuitChoice>? endlessXpChoices,
+    List<RawChoiceObject>? endlessXpSchedule,
     RawSeasonInfo? seasonInfo,
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
@@ -550,13 +550,13 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
   @override
   ListCopyWith<
     $R,
-    RawCircuitChoice,
-    RawCircuitChoiceCopyWith<$R, RawCircuitChoice, RawCircuitChoice>
+    RawChoiceObject,
+    RawChoiceObjectCopyWith<$R, RawChoiceObject, RawChoiceObject>
   >
-  get endlessXpChoices => ListCopyWith(
-    $value.endlessXpChoices,
+  get endlessXpSchedule => ListCopyWith(
+    $value.endlessXpSchedule,
     (v, t) => v.copyWith.$chain(t),
-    (v) => call(endlessXpChoices: v),
+    (v) => call(endlessXpSchedule: v),
   );
   @override
   RawSeasonInfoCopyWith<$R, RawSeasonInfo, RawSeasonInfo>? get seasonInfo =>
@@ -603,7 +603,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     List<RawDailyDeal>? dailyDeals,
     List<RawActiveMission>? voidStorms,
     List<num>? projectPct,
-    List<RawCircuitChoice>? endlessXpChoices,
+    List<RawChoiceObject>? endlessXpSchedule,
     Object? seasonInfo = $none,
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
@@ -628,7 +628,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
       if (dailyDeals != null) #dailyDeals: dailyDeals,
       if (voidStorms != null) #voidStorms: voidStorms,
       if (projectPct != null) #projectPct: projectPct,
-      if (endlessXpChoices != null) #endlessXpChoices: endlessXpChoices,
+      if (endlessXpSchedule != null) #endlessXpSchedule: endlessXpSchedule,
       if (seasonInfo != $none) #seasonInfo: seasonInfo,
       if (knownCalendarSeasons != null)
         #knownCalendarSeasons: knownCalendarSeasons,
@@ -662,7 +662,10 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     dailyDeals: data.get(#dailyDeals, or: $value.dailyDeals),
     voidStorms: data.get(#voidStorms, or: $value.voidStorms),
     projectPct: data.get(#projectPct, or: $value.projectPct),
-    endlessXpChoices: data.get(#endlessXpChoices, or: $value.endlessXpChoices),
+    endlessXpSchedule: data.get(
+      #endlessXpSchedule,
+      or: $value.endlessXpSchedule,
+    ),
     seasonInfo: data.get(#seasonInfo, or: $value.seasonInfo),
     knownCalendarSeasons: data.get(
       #knownCalendarSeasons,

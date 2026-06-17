@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:io';
 
+import 'package:path/path.dart' as path;
 import 'package:test/test.dart';
 import 'package:worldstate_models/src/models/models.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
@@ -8,7 +9,7 @@ import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'load_fixtures.dart';
 
 void main() {
-  final dir = Directory('./test/fixtures');
+  final dir = Directory(path.join('.', 'test', 'fixtures'));
   final deps = Dependency();
 
   // Find all .json files in the fixtures directory
@@ -253,7 +254,9 @@ void main() {
       // });
 
       test('RawEndlessXpChoice -> CircuitChoices', () {
-        final choices = fixture.endlessXpChoices.map((c) => RawCircuitChoice.fromMap(c).toCircuitChoice());
+        final choices = RawChoiceObject.fromMap(
+          fixture.endlessXpChoices[0],
+        ).categoryChoices.map((c) => c.toCircuitChoice());
 
         expect(choices, isA<Iterable<CircuitChoice>>());
         if (choices.isNotEmpty) {
@@ -323,7 +326,7 @@ void main() {
         if (conquests.isNotEmpty) {
           final first = conquests.first;
           expect(first, isA<Archimedea>());
-          expect(first.type, isA<String>());
+          expect(first.type, isA<ArchimedeaType>());
           expect(first.expiry, isA<DateTime>());
           expect(first.missions, isA<List<ArchimedeaMission>>());
           expect(first.missions, isNotEmpty);

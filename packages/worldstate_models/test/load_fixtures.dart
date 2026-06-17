@@ -195,7 +195,7 @@ class WorldstateFixture {
 
   /// Get the EndlessXpChoices array
   List<Map<String, dynamic>> get endlessXpChoices {
-    return (data['EndlessXpChoices'] as List).cast<Map<String, dynamic>>();
+    return (data['EndlessXpSchedule'] as List).cast<Map<String, dynamic>>();
   }
 
   /// Get the KnownCalendarSeasons array

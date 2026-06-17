@@ -29,4 +29,5 @@ dependencies:
 dev_dependencies:
   dart_mappable_builder: ^4.6.1
   mocktail: ^1.0.5
+  path: ^1.9.1
   test: ^1.31.1
