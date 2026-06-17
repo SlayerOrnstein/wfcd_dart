@@ -1,3 +1,7 @@
+## 0.1.7+11
+
+ - **FIX**(worldstate_models): update for `Jade Shadows: Constellations`. ([54061268](https://github.com/SlayerOrnstein/wfcd_dart/commit/540612684b2bf646cf9c103e9c200cf98c5770be))
+
 ## 0.1.7+10
 
  - **FIX**(worldstate_models): use an enum to denote Archimedea's type. ([0dc359e4](https://github.com/SlayerOrnstein/wfcd_dart/commit/0dc359e4f073ed2a21944889d46b700b993a0513))
