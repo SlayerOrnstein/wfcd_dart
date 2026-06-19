@@ -154,17 +154,19 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
   final List<ArchimedeaRisk> risks;
 
   static List<ArchimedeaRisk> _dedupRisks(List<RawConquestDifficulty> raw, Dependency deps) {
-    final dedup = <ArchimedeaRisk>{};
+    final dedup = <String, ArchimedeaRisk>{};
     for (final diff in raw) {
       for (final risk in diff.risks) {
-        dedup.add((
+        if (dedup.containsKey(risk)) continue;
+
+        dedup[risk] = (
           title: deps.langs.fetchValue(risk),
           description: deps.langs.fetchDescription(risk),
           isElite: diff.type == 'CD_HARD',
-        ));
+        );
       }
     }
 
-    return dedup.toList(growable: false);
+    return dedup.values.toList(growable: false);
   }
 }

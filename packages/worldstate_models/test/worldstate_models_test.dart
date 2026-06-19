@@ -324,12 +324,13 @@ void main() {
         expect(conquests, isA<List<Archimedea>>());
 
         if (conquests.isNotEmpty) {
-          final first = conquests.first;
-          expect(first, isA<Archimedea>());
-          expect(first.type, isA<ArchimedeaType>());
-          expect(first.expiry, isA<DateTime>());
-          expect(first.missions, isA<List<ArchimedeaMission>>());
-          expect(first.missions, isNotEmpty);
+          final conquest = conquests.first;
+          expect(conquest, isA<Archimedea>());
+          expect(conquest.type, isA<ArchimedeaType>());
+          expect(conquest.expiry, isA<DateTime>());
+          expect(conquest.missions, isA<List<ArchimedeaMission>>());
+          expect(conquest.missions, isNotEmpty);
+          expect(conquest.missions.first.risks.length, lessThan(3));
         }
       }, skip: !fixture.data.containsKey('Conquests') ? 'No Conquests in this fixture' : false);
     });
