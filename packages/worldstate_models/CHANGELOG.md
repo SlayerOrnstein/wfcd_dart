@@ -1,3 +1,7 @@
+## 0.1.7+12
+
+ - **FIX**(worldstate_models): `Archimedea.risks` not being deduped. ([35698c9b](https://github.com/SlayerOrnstein/wfcd_dart/commit/35698c9b5dac867911f1591eb51daf2735c6e45c))
+
 ## 0.1.7+11
 
  - **FIX**(worldstate_models): update for `Jade Shadows: Constellations`. ([54061268](https://github.com/SlayerOrnstein/wfcd_dart/commit/540612684b2bf646cf9c103e9c200cf98c5770be))

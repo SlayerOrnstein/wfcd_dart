@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-06-18
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.7+12`](#worldstate_models---v01712)
+ - [`worldstate_status` - `v1.0.49`](#worldstate_status---v1049)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.49`
+
+---
+
+#### `worldstate_models` - `v0.1.7+12`
+
+ - **FIX**(worldstate_models): `Archimedea.risks` not being deduped. ([35698c9b](https://github.com/SlayerOrnstein/wfcd_dart/commit/35698c9b5dac867911f1591eb51daf2735c6e45c))
+
+
 ## 2026-06-17
 
 ### Changes
