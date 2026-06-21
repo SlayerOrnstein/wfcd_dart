@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-06-20
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.8`](#worldstate_models---v018)
+ - [`worldstate_status` - `v1.0.50`](#worldstate_status---v1050)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.50`
+
+---
+
+#### `worldstate_models` - `v0.1.8`
+
+ - **FEAT**(worldstate-models): added clan initiative models. ([5224ed96](https://github.com/SlayerOrnstein/wfcd_dart/commit/5224ed968bf99f87e0066f35afe129163dfcc28a))
+
+
 ## 2026-06-18
 
 ### Changes

@@ -1,3 +1,7 @@
+## 0.1.8
+
+ - **FEAT**(worldstate-models): added clan initiative models. ([5224ed96](https://github.com/SlayerOrnstein/wfcd_dart/commit/5224ed968bf99f87e0066f35afe129163dfcc28a))
+
 ## 0.1.7+12
 
  - **FIX**(worldstate_models): `Archimedea.risks` not being deduped. ([35698c9b](https://github.com/SlayerOrnstein/wfcd_dart/commit/35698c9b5dac867911f1591eb51daf2735c6e45c))
