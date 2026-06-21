@@ -34,6 +34,7 @@ class RawWorldstate with RawWorldstateMappable {
     required this.knownCalendarSeasons,
     required this.conquests,
     required this.tmp,
+    required this.weeklyVaultBonusRewards,
   });
 
   static const fromJson = RawWorldstateMapper.fromJson;
@@ -63,6 +64,7 @@ class RawWorldstate with RawWorldstateMappable {
   final List<RawCalendar> knownCalendarSeasons;
   final List<RawConquest> conquests;
   final String tmp;
+  final List<WeeklyVaultBonusRewards> weeklyVaultBonusRewards;
 
   Worldstate toWorldstate(Dependency deps) => Worldstate.fromRaw(this, deps);
 }
@@ -97,8 +99,16 @@ class Worldstate with WorldstateMappable {
     required this.zarimanCycle,
     required this.sentientOutpost,
     required this.steelPath,
+    required this.clanInitiative,
   });
 
+  ///
+  factory Worldstate.fromJson(String json) => WorldstateMapper.fromJson(json);
+
+  ///
+  factory Worldstate.fromMap(Map<String, dynamic> map) => WorldstateMapper.fromMap(map);
+
+  ///
   factory Worldstate.fromRaw(RawWorldstate raw, Dependency deps) {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
 
@@ -136,38 +146,91 @@ class Worldstate with WorldstateMappable {
       zarimanCycle: ZarimanCycle.fromBountiesEndDate(cetusBountyEnd),
       sentientOutpost: SentientOutpost.fromSfn(tmp['sfn'] as int?),
       steelPath: SteelPath.init(),
+      clanInitiative: parseArray(raw.weeklyVaultBonusRewards, (week) => ClanInitiative.fromRaw(week, deps)).first,
     );
   }
 
-  static const fromJson = WorldstateMapper.fromJson;
-
-  static const fromMap = WorldstateMapper.fromMap;
-
+  ///  Timestamp for this generated state
   final DateTime timestamp;
+
+  /// Build label for the currently released game version
   final String buildLabel;
+
+  /// Warframe news
   final List<News> news;
+
+  /// Current on going events
   final List<WorldEvent> events;
+
+  /// Currently on going alerts
   final List<Alert> alerts;
+
+  /// Current sortie
   final Sortie sortie;
+
+  /// Current archon hunt
   final Sortie archonHunt;
+
+  /// Current syndicate bounties/nodes
   final List<SyndicateMission> syndicateMissions;
+
+  /// Current on going fissures
   final List<VoidFissure> fissures;
+
+  /// Current on going 2x weekend
   final List<GlobalUpgrade> globalUpgrades;
+
+  /// Current on going sales
   final List<FlashSale> flashSales;
+
+  /// Current special?
   final InGameMarket inGameMarket;
+
+  /// Current on going invasions
   final List<Invasion> invasions;
+
+  /// Baro trader instances
   final List<Trader> voidTraders;
+
+  /// THe main Baro instances that appears on weekends
   final Trader vaultTrader;
+
+  /// Darvo's daily deals
   final List<DailyDeal> dailyDeals;
+
+  /// Invasion construction progress
   final ConstructionProgress constructionProgress;
+
+  /// Current state and choices for duviri
   final DuviriCycle duviriCycle;
+
+  /// Current Nightwave challenges
   final Nightwave? nightwave;
+
+  /// The current weeks calendar events and rewards
   final Calendar calendar;
+
+  /// Current running Archimedeas
   final List<Archimedea> archimedeas;
+
+  /// Current Cetus state
   final CetusCycle cetusCycle;
+
+  /// Current Orb Vallis state
   final VallisCycle vallisCycle;
+
+  /// Current Cambion Drift state
   final CambionCycle cambionCycle;
+
+  /// Current Zariman state
   final ZarimanCycle zarimanCycle;
+
+  /// Current location of the sentient outpost
   final SentientOutpost sentientOutpost;
+
+  /// Current Steel path rotation and duration
   final SteelPath steelPath;
+
+  /// Personal rewards and bonus region for clan initiative
+  final ClanInitiative clanInitiative;
 }

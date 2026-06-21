@@ -31,6 +31,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       RawSeasonInfoMapper.ensureInitialized();
       RawCalendarMapper.ensureInitialized();
       RawConquestMapper.ensureInitialized();
+      WeeklyVaultBonusRewardsMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -177,6 +178,15 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     _$tmp,
     key: r'Tmp',
   );
+  static List<WeeklyVaultBonusRewards> _$weeklyVaultBonusRewards(
+    RawWorldstate v,
+  ) => v.weeklyVaultBonusRewards;
+  static const Field<RawWorldstate, List<WeeklyVaultBonusRewards>>
+  _f$weeklyVaultBonusRewards = Field(
+    'weeklyVaultBonusRewards',
+    _$weeklyVaultBonusRewards,
+    key: r'WeeklyVaultBonusRewards',
+  );
 
   @override
   final MappableFields<RawWorldstate> fields = const {
@@ -203,6 +213,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
     #knownCalendarSeasons: _f$knownCalendarSeasons,
     #conquests: _f$conquests,
     #tmp: _f$tmp,
+    #weeklyVaultBonusRewards: _f$weeklyVaultBonusRewards,
   };
   @override
   final bool ignoreNull = true;
@@ -232,6 +243,7 @@ class RawWorldstateMapper extends ClassMapperBase<RawWorldstate> {
       knownCalendarSeasons: data.dec(_f$knownCalendarSeasons),
       conquests: data.dec(_f$conquests),
       tmp: data.dec(_f$tmp),
+      weeklyVaultBonusRewards: data.dec(_f$weeklyVaultBonusRewards),
     );
   }
 
@@ -374,6 +386,16 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     RawConquestCopyWith<$R, RawConquest, RawConquest>
   >
   get conquests;
+  ListCopyWith<
+    $R,
+    WeeklyVaultBonusRewards,
+    WeeklyVaultBonusRewardsCopyWith<
+      $R,
+      WeeklyVaultBonusRewards,
+      WeeklyVaultBonusRewards
+    >
+  >
+  get weeklyVaultBonusRewards;
   $R call({
     int? time,
     String? buildLabel,
@@ -398,6 +420,7 @@ abstract class RawWorldstateCopyWith<$R, $In extends RawWorldstate, $Out>
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
     String? tmp,
+    List<WeeklyVaultBonusRewards>? weeklyVaultBonusRewards,
   });
   RawWorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -584,6 +607,21 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     (v) => call(conquests: v),
   );
   @override
+  ListCopyWith<
+    $R,
+    WeeklyVaultBonusRewards,
+    WeeklyVaultBonusRewardsCopyWith<
+      $R,
+      WeeklyVaultBonusRewards,
+      WeeklyVaultBonusRewards
+    >
+  >
+  get weeklyVaultBonusRewards => ListCopyWith(
+    $value.weeklyVaultBonusRewards,
+    (v, t) => v.copyWith.$chain(t),
+    (v) => call(weeklyVaultBonusRewards: v),
+  );
+  @override
   $R call({
     int? time,
     String? buildLabel,
@@ -608,6 +646,7 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     List<RawCalendar>? knownCalendarSeasons,
     List<RawConquest>? conquests,
     String? tmp,
+    List<WeeklyVaultBonusRewards>? weeklyVaultBonusRewards,
   }) => $apply(
     FieldCopyWithData({
       if (time != null) #time: time,
@@ -634,6 +673,8 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
         #knownCalendarSeasons: knownCalendarSeasons,
       if (conquests != null) #conquests: conquests,
       if (tmp != null) #tmp: tmp,
+      if (weeklyVaultBonusRewards != null)
+        #weeklyVaultBonusRewards: weeklyVaultBonusRewards,
     }),
   );
   @override
@@ -673,6 +714,10 @@ class _RawWorldstateCopyWithImpl<$R, $Out>
     ),
     conquests: data.get(#conquests, or: $value.conquests),
     tmp: data.get(#tmp, or: $value.tmp),
+    weeklyVaultBonusRewards: data.get(
+      #weeklyVaultBonusRewards,
+      or: $value.weeklyVaultBonusRewards,
+    ),
   );
 
   @override
@@ -711,6 +756,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       ZarimanCycleMapper.ensureInitialized();
       SentientOutpostMapper.ensureInitialized();
       SteelPathMapper.ensureInitialized();
+      ClanInitiativeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -845,6 +891,11 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'steelPath',
     _$steelPath,
   );
+  static ClanInitiative _$clanInitiative(Worldstate v) => v.clanInitiative;
+  static const Field<Worldstate, ClanInitiative> _f$clanInitiative = Field(
+    'clanInitiative',
+    _$clanInitiative,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -875,6 +926,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #zarimanCycle: _f$zarimanCycle,
     #sentientOutpost: _f$sentientOutpost,
     #steelPath: _f$steelPath,
+    #clanInitiative: _f$clanInitiative,
   };
   @override
   final bool ignoreNull = true;
@@ -908,6 +960,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       zarimanCycle: data.dec(_f$zarimanCycle),
       sentientOutpost: data.dec(_f$sentientOutpost),
       steelPath: data.dec(_f$steelPath),
+      clanInitiative: data.dec(_f$clanInitiative),
     );
   }
 
@@ -1018,6 +1071,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   SentientOutpostCopyWith<$R, SentientOutpost, SentientOutpost>
   get sentientOutpost;
   SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath;
+  ClanInitiativeCopyWith<$R, ClanInitiative, ClanInitiative> get clanInitiative;
   $R call({
     DateTime? timestamp,
     String? buildLabel,
@@ -1046,6 +1100,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     ZarimanCycle? zarimanCycle,
     SentientOutpost? sentientOutpost,
     SteelPath? steelPath,
+    ClanInitiative? clanInitiative,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1192,6 +1247,10 @@ class _WorldstateCopyWithImpl<$R, $Out>
   SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath =>
       $value.steelPath.copyWith.$chain((v) => call(steelPath: v));
   @override
+  ClanInitiativeCopyWith<$R, ClanInitiative, ClanInitiative>
+  get clanInitiative =>
+      $value.clanInitiative.copyWith.$chain((v) => call(clanInitiative: v));
+  @override
   $R call({
     DateTime? timestamp,
     String? buildLabel,
@@ -1220,6 +1279,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     ZarimanCycle? zarimanCycle,
     SentientOutpost? sentientOutpost,
     SteelPath? steelPath,
+    ClanInitiative? clanInitiative,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1250,6 +1310,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (zarimanCycle != null) #zarimanCycle: zarimanCycle,
       if (sentientOutpost != null) #sentientOutpost: sentientOutpost,
       if (steelPath != null) #steelPath: steelPath,
+      if (clanInitiative != null) #clanInitiative: clanInitiative,
     }),
   );
   @override
@@ -1287,6 +1348,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     zarimanCycle: data.get(#zarimanCycle, or: $value.zarimanCycle),
     sentientOutpost: data.get(#sentientOutpost, or: $value.sentientOutpost),
     steelPath: data.get(#steelPath, or: $value.steelPath),
+    clanInitiative: data.get(#clanInitiative, or: $value.clanInitiative),
   );
 
   @override

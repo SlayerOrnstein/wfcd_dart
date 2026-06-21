@@ -212,4 +212,7 @@ class WorldstateFixture {
 
   /// Get the Tmp string
   String get tmp => data['Tmp'] as String;
+
+  /// Get WeeklyVaultBonusRewards
+  Map<String, dynamic> get weeklyVaultBonusRewards => data['WeeklyVaultBonusRewards'] as Map<String, dynamic>;
 }
