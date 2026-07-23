@@ -75,8 +75,7 @@ enum Category {
   necramech('Necramech'),
 
   /// Exalted Weapon
-  exalted('Exalted')
-  ;
+  exalted('Exalted');
 
   const Category(this.value);
 
@@ -104,8 +103,7 @@ enum DamageTypes {
   shieldDrain(16),
   healthDrain(17),
   energyDrain(18),
-  trueType(19)
-  ;
+  trueType(19);
 
   const DamageTypes(this.position);
 
@@ -135,8 +133,7 @@ enum ExportTypes {
   drones('ExportDrones'),
   keys('ExportKeys'),
   gear('ExportGear'),
-  recipes('ExportRecipes')
-  ;
+  recipes('ExportRecipes');
 
   const ExportTypes(this.rootKey);
 
@@ -686,8 +683,7 @@ enum ItemTypes {
     'Items/Deimos/Seriglass',
     'Upgrades/Mods/Fusers',
     r'Part$',
-  ])
-  ;
+  ]);
 
   const ItemTypes(this.value, this.patterns, {this.append = false});
 
@@ -732,8 +728,7 @@ enum Languages {
   th('th'),
   tr('tr'),
   uk('uk'),
-  zh('zh')
-  ;
+  zh('zh');
 
   const Languages(this.code);
 
@@ -744,8 +739,7 @@ enum RelicGrades {
   intact('Bronze'),
   exceptional('Silver'),
   flawless('Gold'),
-  radiant('Platinum')
-  ;
+  radiant('Platinum');
 
   const RelicGrades(this.id);
 

@@ -830,12 +830,18 @@ class TraderItemMapper extends RecordMapperBase<TraderItem> {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = TraderItemMapper._());
       MapperBase.addType(
-        <A, B, C>(f) => f<({A name, B primePrice, C regularPrice})>(),
+        <A, B, C, D>(f) =>
+            f<({A name, B primePrice, C regularPrice, D uniqueName})>(),
       );
     }
     return _instance!;
   }
 
+  static String _$uniqueName(TraderItem v) => v.uniqueName;
+  static const Field<TraderItem, String> _f$uniqueName = Field(
+    'uniqueName',
+    _$uniqueName,
+  );
   static String _$name(TraderItem v) => v.name;
   static const Field<TraderItem, String> _f$name = Field('name', _$name);
   static int _$primePrice(TraderItem v) => v.primePrice;
@@ -851,6 +857,7 @@ class TraderItemMapper extends RecordMapperBase<TraderItem> {
 
   @override
   final MappableFields<TraderItem> fields = const {
+    #uniqueName: _f$uniqueName,
     #name: _f$name,
     #primePrice: _f$primePrice,
     #regularPrice: _f$regularPrice,
@@ -867,6 +874,7 @@ class TraderItemMapper extends RecordMapperBase<TraderItem> {
 
   static TraderItem _instantiate(DecodingData<TraderItem> data) {
     return (
+      uniqueName: data.dec(_f$uniqueName),
       name: data.dec(_f$name),
       primePrice: data.dec(_f$primePrice),
       regularPrice: data.dec(_f$regularPrice),
@@ -906,7 +914,12 @@ extension TraderItemValueCopy<$R>
 
 abstract class TraderItemCopyWith<$R>
     implements RecordCopyWith<$R, TraderItem> {
-  $R call({String? name, int? primePrice, int? regularPrice});
+  $R call({
+    String? uniqueName,
+    String? name,
+    int? primePrice,
+    int? regularPrice,
+  });
   TraderItemCopyWith<$R2> $chain<$R2>(Then<TraderItem, $R2> t);
 }
 
@@ -918,8 +931,14 @@ class _TraderItemCopyWithImpl<$R> extends RecordCopyWithBase<$R, TraderItem>
   late final RecordMapperBase<TraderItem> $mapper =
       TraderItemMapper.ensureInitialized();
   @override
-  $R call({String? name, int? primePrice, int? regularPrice}) => $apply(
+  $R call({
+    String? uniqueName,
+    String? name,
+    int? primePrice,
+    int? regularPrice,
+  }) => $apply(
     FieldCopyWithData({
+      if (uniqueName != null) #uniqueName: uniqueName,
       if (name != null) #name: name,
       if (primePrice != null) #primePrice: primePrice,
       if (regularPrice != null) #regularPrice: regularPrice,
@@ -927,6 +946,7 @@ class _TraderItemCopyWithImpl<$R> extends RecordCopyWithBase<$R, TraderItem>
   );
   @override
   TraderItem $make(CopyWithData data) => (
+    uniqueName: data.get(#uniqueName, or: $value.uniqueName),
     name: data.get(#name, or: $value.name),
     primePrice: data.get(#primePrice, or: $value.primePrice),
     regularPrice: data.get(#regularPrice, or: $value.regularPrice),

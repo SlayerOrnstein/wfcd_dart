@@ -47,7 +47,7 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
 }
 
 @MappableRecord()
-typedef TraderItem = ({String name, int primePrice, int regularPrice});
+typedef TraderItem = ({String uniqueName, String name, int primePrice, int regularPrice});
 
 @MappableClass()
 class Trader extends WorldstateObject with TraderMappable {
@@ -66,6 +66,7 @@ class Trader extends WorldstateObject with TraderMappable {
   factory Trader.fromRaw(RawTrader raw, Dependency deps, {String? character}) {
     TraderItem toItem(RawTraderItem item) {
       return (
+        uniqueName: item.itemType,
         name: deps.langs.fetchValue(item.itemType),
         primePrice: item.primePrice ?? 0,
         regularPrice: item.regularPrice ?? 0,
