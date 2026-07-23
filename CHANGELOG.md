@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-07-23
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`warframe_items` - `v0.1.1+12`](#warframe_items---v01112)
+ - [`worldstate_models` - `v0.1.8+1`](#worldstate_models---v0181)
+ - [`worldstate_status` - `v1.0.51`](#worldstate_status---v1051)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.51`
+
+---
+
+#### `warframe_items` - `v0.1.1+12`
+
+ - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))
+
+#### `worldstate_models` - `v0.1.8+1`
+
+ - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))
+
+
 ## 2026-06-20
 
 ### Changes

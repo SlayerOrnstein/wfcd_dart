@@ -1,3 +1,7 @@
+## 0.1.8+1
+
+ - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))
+
 ## 0.1.8
 
  - **FEAT**(worldstate-models): added clan initiative models. ([5224ed96](https://github.com/SlayerOrnstein/wfcd_dart/commit/5224ed968bf99f87e0066f35afe129163dfcc28a))

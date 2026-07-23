@@ -1,3 +1,7 @@
+## 0.1.1+12
+
+ - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))
+
 ## 0.1.1+11
 
  - Update a dependency to the latest release.
