@@ -660,10 +660,10 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
 
   static String? _$type(SyndicateBounty v) => v.type;
   static const Field<SyndicateBounty, String> _f$type = Field('type', _$type);
-  static String _$rewards(SyndicateBounty v) => v.rewards;
-  static const Field<SyndicateBounty, String> _f$rewards = Field(
-    'rewards',
-    _$rewards,
+  static String _$rewardPoolString(SyndicateBounty v) => v.rewardPoolString;
+  static const Field<SyndicateBounty, String> _f$rewardPoolString = Field(
+    'rewardPoolString',
+    _$rewardPoolString,
   );
   static int _$masteryRequirment(SyndicateBounty v) => v.masteryRequirment;
   static const Field<SyndicateBounty, int> _f$masteryRequirment = Field(
@@ -685,10 +685,10 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     'isEndless',
     _$isEndless,
   );
-  static int _$standing(SyndicateBounty v) => v.standing;
-  static const Field<SyndicateBounty, int> _f$standing = Field(
-    'standing',
-    _$standing,
+  static List<int> _$standingPerStage(SyndicateBounty v) => v.standingPerStage;
+  static const Field<SyndicateBounty, List<int>> _f$standingPerStage = Field(
+    'standingPerStage',
+    _$standingPerStage,
   );
   static String? _$location(SyndicateBounty v) => v.location;
   static const Field<SyndicateBounty, String> _f$location = Field(
@@ -711,12 +711,12 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
   @override
   final MappableFields<SyndicateBounty> fields = const {
     #type: _f$type,
-    #rewards: _f$rewards,
+    #rewardPoolString: _f$rewardPoolString,
     #masteryRequirment: _f$masteryRequirment,
     #minLevel: _f$minLevel,
     #maxLevel: _f$maxLevel,
     #isEndless: _f$isEndless,
-    #standing: _f$standing,
+    #standingPerStage: _f$standingPerStage,
     #location: _f$location,
     #isVault: _f$isVault,
     #rewardPool: _f$rewardPool,
@@ -727,12 +727,12 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
   static SyndicateBounty _instantiate(DecodingData data) {
     return SyndicateBounty(
       type: data.dec(_f$type),
-      rewards: data.dec(_f$rewards),
+      rewardPoolString: data.dec(_f$rewardPoolString),
       masteryRequirment: data.dec(_f$masteryRequirment),
       minLevel: data.dec(_f$minLevel),
       maxLevel: data.dec(_f$maxLevel),
       isEndless: data.dec(_f$isEndless),
-      standing: data.dec(_f$standing),
+      standingPerStage: data.dec(_f$standingPerStage),
       location: data.dec(_f$location),
       isVault: data.dec(_f$isVault),
       rewardPool: data.dec(_f$rewardPool),
@@ -801,16 +801,17 @@ extension SyndicateBountyValueCopy<$R, $Out>
 
 abstract class SyndicateBountyCopyWith<$R, $In extends SyndicateBounty, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get standingPerStage;
   ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool;
   $R call({
     String? type,
-    String? rewards,
+    String? rewardPoolString,
     int? masteryRequirment,
     int? minLevel,
     int? maxLevel,
     bool? isEndless,
-    int? standing,
+    List<int>? standingPerStage,
     String? location,
     bool? isVault,
     List<BountyStage>? rewardPool,
@@ -829,6 +830,13 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   late final ClassMapperBase<SyndicateBounty> $mapper =
       SyndicateBountyMapper.ensureInitialized();
   @override
+  ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>> get standingPerStage =>
+      ListCopyWith(
+        $value.standingPerStage,
+        (v, t) => ObjectCopyWith(v, $identity, t),
+        (v) => call(standingPerStage: v),
+      );
+  @override
   ListCopyWith<$R, BountyStage, ObjectCopyWith<$R, BountyStage, BountyStage>>
   get rewardPool => ListCopyWith(
     $value.rewardPool,
@@ -838,24 +846,24 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   @override
   $R call({
     Object? type = $none,
-    String? rewards,
+    String? rewardPoolString,
     int? masteryRequirment,
     int? minLevel,
     int? maxLevel,
     Object? isEndless = $none,
-    int? standing,
+    List<int>? standingPerStage,
     Object? location = $none,
     Object? isVault = $none,
     List<BountyStage>? rewardPool,
   }) => $apply(
     FieldCopyWithData({
       if (type != $none) #type: type,
-      if (rewards != null) #rewards: rewards,
+      if (rewardPoolString != null) #rewardPoolString: rewardPoolString,
       if (masteryRequirment != null) #masteryRequirment: masteryRequirment,
       if (minLevel != null) #minLevel: minLevel,
       if (maxLevel != null) #maxLevel: maxLevel,
       if (isEndless != $none) #isEndless: isEndless,
-      if (standing != null) #standing: standing,
+      if (standingPerStage != null) #standingPerStage: standingPerStage,
       if (location != $none) #location: location,
       if (isVault != $none) #isVault: isVault,
       if (rewardPool != null) #rewardPool: rewardPool,
@@ -864,7 +872,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   @override
   SyndicateBounty $make(CopyWithData data) => SyndicateBounty(
     type: data.get(#type, or: $value.type),
-    rewards: data.get(#rewards, or: $value.rewards),
+    rewardPoolString: data.get(#rewardPoolString, or: $value.rewardPoolString),
     masteryRequirment: data.get(
       #masteryRequirment,
       or: $value.masteryRequirment,
@@ -872,7 +880,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     minLevel: data.get(#minLevel, or: $value.minLevel),
     maxLevel: data.get(#maxLevel, or: $value.maxLevel),
     isEndless: data.get(#isEndless, or: $value.isEndless),
-    standing: data.get(#standing, or: $value.standing),
+    standingPerStage: data.get(#standingPerStage, or: $value.standingPerStage),
     location: data.get(#location, or: $value.location),
     isVault: data.get(#isVault, or: $value.isVault),
     rewardPool: data.get(#rewardPool, or: $value.rewardPool),

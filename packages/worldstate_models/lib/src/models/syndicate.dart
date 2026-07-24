@@ -102,12 +102,12 @@ typedef BountyStage = ({int stage, List<RewardDrop> rewards});
 class SyndicateBounty with SyndicateBountyMappable {
   SyndicateBounty({
     required this.type,
-    required this.rewards,
+    required this.rewardPoolString,
     required this.masteryRequirment,
     required this.minLevel,
     required this.maxLevel,
     required this.isEndless,
-    required this.standing,
+    required this.standingPerStage,
     required this.location,
     required this.isVault,
     this.rewardPool = const [],
@@ -118,28 +118,30 @@ class SyndicateBounty with SyndicateBountyMappable {
 
     return SyndicateBounty(
       type: raw.jobType != null ? deps.langs.fetchValue(raw.jobType!) : null,
-      rewards: raw.rewards,
+      rewardPoolString: raw.rewards,
       rewardPool: drops,
       masteryRequirment: raw.masteryReq,
       minLevel: raw.minEnemyLevel,
       maxLevel: raw.maxEnemyLevel,
       isEndless: raw.endless ?? false ? raw.endless : null,
-      standing: raw.xpAmounts.fold(0, (p, n) => p + n),
+      standingPerStage: raw.xpAmounts,
       location: raw.locationTag,
       isVault: raw.isVault ?? false ? raw.isVault : null,
     );
   }
 
   final String? type;
-  final String rewards;
+  final String rewardPoolString;
   final List<BountyStage> rewardPool;
   final int masteryRequirment;
   final int minLevel;
   final int maxLevel;
   final bool? isEndless;
-  final int standing;
+  final List<int> standingPerStage;
   final String? location;
   final bool? isVault;
+
+  int get standing => standingPerStage.fold(0, (p, n) => p + n);
 
   static (String location, String rotation) _determineLocation(String resource, RawJob raw, bool isVault) {
     final bountyRewardRegex = RegExp('(?:Tier([ABCDE])|Narmer)Table([ABC])Rewards');
