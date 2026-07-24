@@ -1,3 +1,7 @@
+## 0.1.8+2
+
+ - **FIX**(worldstate_models): expose standing per stage and masde `rewards`. ([ee00ae03](https://github.com/SlayerOrnstein/wfcd_dart/commit/ee00ae03775ca15dc2146708219d39b234b3f863))
+
 ## 0.1.8+1
 
  - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))
