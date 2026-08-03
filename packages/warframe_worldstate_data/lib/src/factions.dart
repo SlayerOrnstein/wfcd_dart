@@ -11,7 +11,7 @@ enum Faction {
   corrupted('FC_CORRUPTED'),
 
   /// Grineer
-  grineer('FC_CORRUPTED'),
+  grineer('FC_GRINEER'),
 
   /// The infested
   infested('FC_INFESTATION'),
