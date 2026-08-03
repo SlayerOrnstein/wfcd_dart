@@ -7,7 +7,7 @@ class FactionHook extends MappingHook {
   const FactionHook();
 
   @override
-  Object? afterDecode(Object? value) {
+  Object? beforeDecode(Object? value) {
     if (value == null) return Faction.unknown;
     return Faction.byInternalName(value as String);
   }
