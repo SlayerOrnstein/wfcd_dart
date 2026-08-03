@@ -3,10 +3,6 @@ import 'package:warframe_worldstate_data/src/i18n/syndicates.dart';
 import 'package:warframe_worldstate_data/src/tools.dart';
 import 'package:warframe_worldstate_data/src/types.dart';
 
-/// Get a faction string from the given [resource] in the given [locale]
-String faction(String resource, [WorldstateDataLocale locale = WorldstateDataLocale.en]) =>
-    factions(locale)[resource] ?? toTitleCase(resource.replaceAll('FC_', ''));
-
 /// Get mission type string.
 ///
 /// A normalized version of the [resource] will be returned if one is not found.

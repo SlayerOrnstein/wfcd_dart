@@ -118,10 +118,13 @@ void main() {
       expect(factions(), isNotEmpty);
     });
 
-    test('faction(string) => get the matching faction', () => expect(faction('FC_CORPUS'), 'Corpus'));
+    test(
+      'faction(string) => get the matching faction',
+      () => expect(Faction.byInternalName('FC_CORPUS'), Faction.corpus),
+    );
 
     test('faction(string) => normalize string when no match is found', () {
-      expect(faction('FC_NOTFOUND'), 'Notfound');
+      expect(Faction.byInternalName('FC_NOTFOUND'), Faction.unknown);
     });
   });
 

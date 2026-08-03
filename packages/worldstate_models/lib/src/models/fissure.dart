@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart';
+import 'package:worldstate_models/src/hooks/hooks.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/worldstate_utils.dart';
@@ -58,7 +59,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
       expiry: parseDate(raw.expiry),
       node: node.name,
       missionType: node.type ?? raw.missionType ?? raw.node,
-      faction: node.enemy ?? raw.node,
+      faction: Faction.byName(node.enemy ?? '', deps.locale),
       key: raw.modifier ?? raw.activeMissionTier!,
       isStorm: isStorm,
       isSteelpath: raw.hard ?? false,
@@ -68,7 +69,10 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
 
   final String node;
   final String missionType;
-  final String faction;
+
+  @MappableField(hook: FactionHook())
+  final Faction faction;
+
   final String key;
   final bool isStorm;
   final bool isSteelpath;
