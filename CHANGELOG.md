@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.8+4`](#worldstate_models---v0184)
+ - [`worldstate_status` - `v1.0.54`](#worldstate_status---v1054)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.54`
+
+---
+
+#### `worldstate_models` - `v0.1.8+4`
+
+ - **FIX**(worldstate_models): Faction conversion should be `beforeDecode`. ([68470993](https://github.com/SlayerOrnstein/wfcd_dart/commit/68470993ad5da511d668a757d4053013cd345596))
+
+
+## 2026-08-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.2+23`](#profile_models---v01223)
  - [`warframe_drop_data` - `v0.1.8+2`](#warframe_drop_data---v0182)
  - [`warframe_items` - `v0.1.1+13`](#warframe_items---v01113)

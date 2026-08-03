@@ -1,3 +1,7 @@
+## 0.1.8+4
+
+ - **FIX**(worldstate_models): Faction conversion should be `beforeDecode`. ([68470993](https://github.com/SlayerOrnstein/wfcd_dart/commit/68470993ad5da511d668a757d4053013cd345596))
+
 ## 0.1.8+3
 
  - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
