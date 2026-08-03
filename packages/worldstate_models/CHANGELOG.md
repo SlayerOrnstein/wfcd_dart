@@ -1,3 +1,7 @@
+## 0.1.8+5
+
+ - Update a dependency to the latest release.
+
 ## 0.1.8+4
 
  - **FIX**(worldstate_models): Faction conversion should be `beforeDecode`. ([68470993](https://github.com/SlayerOrnstein/wfcd_dart/commit/68470993ad5da511d668a757d4053013cd345596))

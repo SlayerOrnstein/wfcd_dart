@@ -15,6 +15,40 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`warframe_worldstate_data` - `v0.1.3+14`](#warframe_worldstate_data---v01314)
+ - [`profile_models` - `v0.1.2+24`](#profile_models---v01224)
+ - [`warframe_items` - `v0.1.1+14`](#warframe_items---v01114)
+ - [`worldstate_models` - `v0.1.8+5`](#worldstate_models---v0185)
+ - [`worldstate_status` - `v1.0.55`](#worldstate_status---v1055)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `profile_models` - `v0.1.2+24`
+ - `warframe_items` - `v0.1.1+14`
+ - `worldstate_models` - `v0.1.8+5`
+ - `worldstate_status` - `v1.0.55`
+
+---
+
+#### `warframe_worldstate_data` - `v0.1.3+14`
+
+ - **FIX**(data): incorrect internal name for `Grineer`. ([5a9b8109](https://github.com/SlayerOrnstein/wfcd_dart/commit/5a9b8109cec482e9bca8e28a28e6ec4eacb4f0e0))
+
+
+## 2026-08-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`worldstate_models` - `v0.1.8+4`](#worldstate_models---v0184)
  - [`worldstate_status` - `v1.0.54`](#worldstate_status---v1054)
 
