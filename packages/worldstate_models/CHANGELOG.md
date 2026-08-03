@@ -1,3 +1,7 @@
+## 0.1.8+3
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
 ## 0.1.8+2
 
  - **FIX**(worldstate_models): expose standing per stage and masde `rewards`. ([ee00ae03](https://github.com/SlayerOrnstein/wfcd_dart/commit/ee00ae03775ca15dc2146708219d39b234b3f863))

@@ -1,3 +1,7 @@
+## 0.1.1+13
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
 ## 0.1.1+12
 
  - **FIX**(worldstate_models): expose trader item uniqueName. ([ff17df1d](https://github.com/SlayerOrnstein/wfcd_dart/commit/ff17df1df3565c3bb0c4283361ead492211e21c5))

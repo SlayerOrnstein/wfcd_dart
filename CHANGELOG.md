@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-08-03
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.2+23`](#profile_models---v01223)
+ - [`warframe_drop_data` - `v0.1.8+2`](#warframe_drop_data---v0182)
+ - [`warframe_items` - `v0.1.1+13`](#warframe_items---v01113)
+ - [`warframe_worldstate_data` - `v0.1.3+13`](#warframe_worldstate_data---v01313)
+ - [`worldstate_models` - `v0.1.8+3`](#worldstate_models---v0183)
+ - [`worldstate_status` - `v1.0.53`](#worldstate_status---v1053)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.53`
+
+---
+
+#### `profile_models` - `v0.1.2+23`
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
+#### `warframe_drop_data` - `v0.1.8+2`
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
+#### `warframe_items` - `v0.1.1+13`
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
+#### `warframe_worldstate_data` - `v0.1.3+13`
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
+#### `worldstate_models` - `v0.1.8+3`
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
+
 ## 2026-07-24
 
 ### Changes

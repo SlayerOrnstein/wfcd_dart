@@ -1,3 +1,7 @@
+## 0.1.8+2
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
 ## 0.1.8+1
 
  - **FIX**(warframe_drop_data): use sealed class for `RegionRewardPool`. ([42ead886](https://github.com/SlayerOrnstein/wfcd_dart/commit/42ead886a52ec43a5470506ea4fd60cc4edb5645))

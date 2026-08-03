@@ -1,3 +1,7 @@
+## 0.1.2+23
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
 ## 0.1.2+22
 
  - Update a dependency to the latest release.

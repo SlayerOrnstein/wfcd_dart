@@ -1,3 +1,7 @@
+## 0.1.3+13
+
+ - **FIX**: migrate faction data to an enum. ([85d50fdc](https://github.com/SlayerOrnstein/wfcd_dart/commit/85d50fdce36227a374ece61e07bbfc7cf5d255e3))
+
 ## 0.1.3+12
 
  - **PERF**: optimization when parsing embeded lang files". ([9fc4433c](https://github.com/SlayerOrnstein/wfcd_dart/commit/9fc4433c642437560991b8b1a05f3ee6c3ec3223))
