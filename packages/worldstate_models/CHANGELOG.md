@@ -1,3 +1,7 @@
+## 0.1.10+7
+
+ - **FIX**(worldstate_model): add `factionKey` to sortie model. ([f29d9226](https://github.com/SlayerOrnstein/wfcd_dart/commit/f29d9226d7370f97e4278f6cb7d693f2dcce418e))
+
 ## 0.1.9+6
 
  - **FIX**: minor cleanup with faction localization. ([92627bf0](https://github.com/SlayerOrnstein/wfcd_dart/commit/92627bf0491e4db54661549b864c812e8c5fd495))

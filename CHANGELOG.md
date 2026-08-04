@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.10+7`](#worldstate_models---v01107)
+ - [`worldstate_status` - `v1.0.57`](#worldstate_status---v1057)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.57`
+
+---
+
+#### `worldstate_models` - `v0.1.10+7`
+
+ - **FIX**(worldstate_model): add `factionKey` to sortie model. ([f29d9226](https://github.com/SlayerOrnstein/wfcd_dart/commit/f29d9226d7370f97e4278f6cb7d693f2dcce418e))
+
+
+## 2026-08-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.3+25`](#profile_models---v01325)
  - [`warframe_drop_data` - `v0.1.9+3`](#warframe_drop_data---v0193)
  - [`warframe_items` - `v0.1.2+15`](#warframe_items---v01215)
