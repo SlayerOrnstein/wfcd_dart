@@ -44,6 +44,7 @@ class Sortie extends WorldstateObject with SortieMappable {
     required super.activation,
     required super.expiry,
     required this.boss,
+    required this.factionKey,
     required this.faction,
     required this.missions,
   });
@@ -57,12 +58,14 @@ class Sortie extends WorldstateObject with SortieMappable {
       activation: parseDate(raw.activation),
       expiry: parseDate(raw.expiry),
       boss: sortieEnemy.boss,
+      factionKey: sortieFaction(raw.boss).faction,
       faction: sortieEnemy.faction,
       missions: missions.map((v) => v.toVariant(locale)).toList(),
     );
   }
 
   final String boss;
+  final String factionKey;
   final String faction;
   final List<Variant> missions;
 

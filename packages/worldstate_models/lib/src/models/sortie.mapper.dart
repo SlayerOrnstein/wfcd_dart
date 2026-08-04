@@ -430,6 +430,11 @@ class SortieMapper extends ClassMapperBase<Sortie> {
   static const Field<Sortie, DateTime> _f$expiry = Field('expiry', _$expiry);
   static String _$boss(Sortie v) => v.boss;
   static const Field<Sortie, String> _f$boss = Field('boss', _$boss);
+  static String _$factionKey(Sortie v) => v.factionKey;
+  static const Field<Sortie, String> _f$factionKey = Field(
+    'factionKey',
+    _$factionKey,
+  );
   static String _$faction(Sortie v) => v.faction;
   static const Field<Sortie, String> _f$faction = Field('faction', _$faction);
   static List<Variant> _$missions(Sortie v) => v.missions;
@@ -444,6 +449,7 @@ class SortieMapper extends ClassMapperBase<Sortie> {
     #activation: _f$activation,
     #expiry: _f$expiry,
     #boss: _f$boss,
+    #factionKey: _f$factionKey,
     #faction: _f$faction,
     #missions: _f$missions,
   };
@@ -456,6 +462,7 @@ class SortieMapper extends ClassMapperBase<Sortie> {
       activation: data.dec(_f$activation),
       expiry: data.dec(_f$expiry),
       boss: data.dec(_f$boss),
+      factionKey: data.dec(_f$factionKey),
       faction: data.dec(_f$faction),
       missions: data.dec(_f$missions),
     );
@@ -513,6 +520,7 @@ abstract class SortieCopyWith<$R, $In extends Sortie, $Out>
     DateTime? activation,
     DateTime? expiry,
     String? boss,
+    String? factionKey,
     String? faction,
     List<Variant>? missions,
   });
@@ -538,6 +546,7 @@ class _SortieCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Sortie, $Out>
     Object? activation = $none,
     Object? expiry = $none,
     String? boss,
+    String? factionKey,
     String? faction,
     List<Variant>? missions,
   }) => $apply(
@@ -546,6 +555,7 @@ class _SortieCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Sortie, $Out>
       if (activation != $none) #activation: activation,
       if (expiry != $none) #expiry: expiry,
       if (boss != null) #boss: boss,
+      if (factionKey != null) #factionKey: factionKey,
       if (faction != null) #faction: faction,
       if (missions != null) #missions: missions,
     }),
@@ -556,6 +566,7 @@ class _SortieCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Sortie, $Out>
     activation: data.get(#activation, or: $value.activation),
     expiry: data.get(#expiry, or: $value.expiry),
     boss: data.get(#boss, or: $value.boss),
+    factionKey: data.get(#factionKey, or: $value.factionKey),
     faction: data.get(#faction, or: $value.faction),
     missions: data.get(#missions, or: $value.missions),
   );
