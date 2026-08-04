@@ -496,20 +496,10 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     'description',
     _$description,
   );
-  static String _$attackingFaction(Invasion v) => v.attackingFaction;
-  static const Field<Invasion, String> _f$attackingFaction = Field(
-    'attackingFaction',
-    _$attackingFaction,
-  );
   static InvasionFaction _$attacker(Invasion v) => v.attacker;
   static const Field<Invasion, InvasionFaction> _f$attacker = Field(
     'attacker',
     _$attacker,
-  );
-  static String _$defendingFaction(Invasion v) => v.defendingFaction;
-  static const Field<Invasion, String> _f$defendingFaction = Field(
-    'defendingFaction',
-    _$defendingFaction,
   );
   static InvasionFaction _$defender(Invasion v) => v.defender;
   static const Field<Invasion, InvasionFaction> _f$defender = Field(
@@ -551,9 +541,7 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
     #key: _f$key,
     #node: _f$node,
     #description: _f$description,
-    #attackingFaction: _f$attackingFaction,
     #attacker: _f$attacker,
-    #defendingFaction: _f$defendingFaction,
     #defender: _f$defender,
     #vsInfestation: _f$vsInfestation,
     #count: _f$count,
@@ -572,9 +560,7 @@ class InvasionMapper extends ClassMapperBase<Invasion> {
       key: data.dec(_f$key),
       node: data.dec(_f$node),
       description: data.dec(_f$description),
-      attackingFaction: data.dec(_f$attackingFaction),
       attacker: data.dec(_f$attacker),
-      defendingFaction: data.dec(_f$defendingFaction),
       defender: data.dec(_f$defender),
       vsInfestation: data.dec(_f$vsInfestation),
       count: data.dec(_f$count),
@@ -651,9 +637,7 @@ abstract class InvasionCopyWith<$R, $In extends Invasion, $Out>
     String? key,
     String? node,
     String? description,
-    String? attackingFaction,
     InvasionFaction? attacker,
-    String? defendingFaction,
     InvasionFaction? defender,
     bool? vsInfestation,
     int? count,
@@ -693,9 +677,7 @@ class _InvasionCopyWithImpl<$R, $Out>
     String? key,
     String? node,
     String? description,
-    String? attackingFaction,
     InvasionFaction? attacker,
-    String? defendingFaction,
     InvasionFaction? defender,
     bool? vsInfestation,
     int? count,
@@ -710,9 +692,7 @@ class _InvasionCopyWithImpl<$R, $Out>
       if (key != null) #key: key,
       if (node != null) #node: node,
       if (description != null) #description: description,
-      if (attackingFaction != null) #attackingFaction: attackingFaction,
       if (attacker != null) #attacker: attacker,
-      if (defendingFaction != null) #defendingFaction: defendingFaction,
       if (defender != null) #defender: defender,
       if (vsInfestation != null) #vsInfestation: vsInfestation,
       if (count != null) #count: count,
@@ -729,9 +709,7 @@ class _InvasionCopyWithImpl<$R, $Out>
     key: data.get(#key, or: $value.key),
     node: data.get(#node, or: $value.node),
     description: data.get(#description, or: $value.description),
-    attackingFaction: data.get(#attackingFaction, or: $value.attackingFaction),
     attacker: data.get(#attacker, or: $value.attacker),
-    defendingFaction: data.get(#defendingFaction, or: $value.defendingFaction),
     defender: data.get(#defender, or: $value.defender),
     vsInfestation: data.get(#vsInfestation, or: $value.vsInfestation),
     count: data.get(#count, or: $value.count),

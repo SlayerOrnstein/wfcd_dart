@@ -48,6 +48,7 @@ class RawMission with RawMissionMappable {
 class Mission with MissionMappable {
   Mission({
     required this.type,
+    required this.factionKey,
     required this.faction,
     required this.node,
     required this.override,
@@ -68,6 +69,7 @@ class Mission with MissionMappable {
 
     return Mission(
       type: data.missionType(raw.missionType, locale),
+      factionKey: data.faction(raw.faction),
       faction: data.faction(raw.faction, locale),
       node: data.solNodes(locale).fetchNode(raw.location).name,
       override: raw.levelOverrride != null ? langs.fetchValue(raw.levelOverrride!) : null,
@@ -75,7 +77,6 @@ class Mission with MissionMappable {
       minEnemyLevel: raw.minEnemyLevel,
       maxEnemyLevel: raw.maxEnemyLevel,
       reward: raw.missionReward.toReward(deps),
-      // probably need lang for this one later down the line. Seems to be for events based on quest i.e. Jade of Shadows
       description: raw.descText,
       questRequired: raw.questReq,
       maxWaves: raw.maxWaveNum,
@@ -85,6 +86,7 @@ class Mission with MissionMappable {
   }
 
   final String type;
+  final String factionKey;
   final String faction;
   final String node;
   final String? override;

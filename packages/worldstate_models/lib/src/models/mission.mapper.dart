@@ -307,6 +307,11 @@ class MissionMapper extends ClassMapperBase<Mission> {
 
   static String _$type(Mission v) => v.type;
   static const Field<Mission, String> _f$type = Field('type', _$type);
+  static String _$factionKey(Mission v) => v.factionKey;
+  static const Field<Mission, String> _f$factionKey = Field(
+    'factionKey',
+    _$factionKey,
+  );
   static String _$faction(Mission v) => v.faction;
   static const Field<Mission, String> _f$faction = Field('faction', _$faction);
   static String _$node(Mission v) => v.node;
@@ -359,6 +364,7 @@ class MissionMapper extends ClassMapperBase<Mission> {
   @override
   final MappableFields<Mission> fields = const {
     #type: _f$type,
+    #factionKey: _f$factionKey,
     #faction: _f$faction,
     #node: _f$node,
     #override: _f$override,
@@ -378,6 +384,7 @@ class MissionMapper extends ClassMapperBase<Mission> {
   static Mission _instantiate(DecodingData data) {
     return Mission(
       type: data.dec(_f$type),
+      factionKey: data.dec(_f$factionKey),
       faction: data.dec(_f$faction),
       node: data.dec(_f$node),
       override: data.dec(_f$override),
@@ -453,6 +460,7 @@ abstract class MissionCopyWith<$R, $In extends Mission, $Out>
   RewardCopyWith<$R, Reward, Reward> get reward;
   $R call({
     String? type,
+    String? factionKey,
     String? faction,
     String? node,
     String? override,
@@ -483,6 +491,7 @@ class _MissionCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? type,
+    String? factionKey,
     String? faction,
     String? node,
     Object? override = $none,
@@ -498,6 +507,7 @@ class _MissionCopyWithImpl<$R, $Out>
   }) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
+      if (factionKey != null) #factionKey: factionKey,
       if (faction != null) #faction: faction,
       if (node != null) #node: node,
       if (override != $none) #override: override,
@@ -515,6 +525,7 @@ class _MissionCopyWithImpl<$R, $Out>
   @override
   Mission $make(CopyWithData data) => Mission(
     type: data.get(#type, or: $value.type),
+    factionKey: data.get(#factionKey, or: $value.factionKey),
     faction: data.get(#faction, or: $value.faction),
     node: data.get(#node, or: $value.node),
     override: data.get(#override, or: $value.override),

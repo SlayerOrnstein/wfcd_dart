@@ -58,9 +58,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
     required this.key,
     required this.node,
     required this.description,
-    required this.attackingFaction,
     required this.attacker,
-    required this.defendingFaction,
     required this.defender,
     required this.vsInfestation,
     required this.count,
@@ -81,9 +79,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
       key: raw.node,
       node: deps.nodes.fetchNode(raw.node).name,
       description: deps.langs.fetchValue(raw.locTag),
-      attackingFaction: attacker.faction,
       attacker: attacker,
-      defendingFaction: defender.faction,
       defender: defender,
       vsInfestation: vsInfestation,
       count: raw.count,
@@ -103,11 +99,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
   final String description;
 
-  final String attackingFaction;
-
   final InvasionFaction attacker;
-
-  final String defendingFaction;
 
   final InvasionFaction defender;
 
