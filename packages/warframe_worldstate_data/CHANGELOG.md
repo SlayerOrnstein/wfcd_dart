@@ -1,3 +1,7 @@
+## 0.1.4+15
+
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
 ## 0.1.3+14
 
  - **FIX**(data): incorrect internal name for `Grineer`. ([5a9b8109](https://github.com/SlayerOrnstein/wfcd_dart/commit/5a9b8109cec482e9bca8e28a28e6ec4eacb4f0e0))

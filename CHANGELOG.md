@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-08-04
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.3+25`](#profile_models---v01325)
+ - [`warframe_drop_data` - `v0.1.9+3`](#warframe_drop_data---v0193)
+ - [`warframe_items` - `v0.1.2+15`](#warframe_items---v01215)
+ - [`warframe_worldstate_data` - `v0.1.4+15`](#warframe_worldstate_data---v01415)
+ - [`worldstate_models` - `v0.1.9+6`](#worldstate_models---v0196)
+ - [`worldstate_status` - `v1.0.56`](#worldstate_status---v1056)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.56`
+
+---
+
+#### `profile_models` - `v0.1.3+25`
+
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
+#### `warframe_drop_data` - `v0.1.9+3`
+
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
+#### `warframe_items` - `v0.1.2+15`
+
+ - **FIX**: minor cleanup with faction localization. ([92627bf0](https://github.com/SlayerOrnstein/wfcd_dart/commit/92627bf0491e4db54661549b864c812e8c5fd495))
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
+#### `warframe_worldstate_data` - `v0.1.4+15`
+
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
+#### `worldstate_models` - `v0.1.9+6`
+
+ - **FIX**: minor cleanup with faction localization. ([92627bf0](https://github.com/SlayerOrnstein/wfcd_dart/commit/92627bf0491e4db54661549b864c812e8c5fd495))
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
+
 ## 2026-08-03
 
 ### Changes

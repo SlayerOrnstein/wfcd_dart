@@ -1,3 +1,8 @@
+## 0.1.9+6
+
+ - **FIX**: minor cleanup with faction localization. ([92627bf0](https://github.com/SlayerOrnstein/wfcd_dart/commit/92627bf0491e4db54661549b864c812e8c5fd495))
+ - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
+
 ## 0.1.8+5
 
  - Update a dependency to the latest release.
