@@ -1,6 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
-import 'package:worldstate_models/src/hooks/hooks.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
 import 'package:worldstate_models/src/utils/utils.dart';
@@ -135,7 +134,7 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
     final deviation = raw.difficulties[0].deviation;
 
     return ArchimedeaMission(
-      faction: data.Faction.byInternalName(raw.faction),
+      faction: data.faction(raw.faction),
       missionType: data.missionType(raw.missionType),
       deviation: (title: deps.langs.fetchValue(deviation), description: deps.langs.fetchDescription(deviation)),
       risks: _dedupRisks(raw.difficulties, deps),
@@ -143,8 +142,7 @@ class ArchimedeaMission with ArchimedeaMissionMappable {
   }
 
   /// Enemy faction
-  @MappableField(hook: FactionHook())
-  final data.Faction faction;
+  final String faction;
 
   /// Mission type
   final String missionType;

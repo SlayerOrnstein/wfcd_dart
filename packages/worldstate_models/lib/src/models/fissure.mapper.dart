@@ -288,11 +288,10 @@ class VoidFissureMapper extends ClassMapperBase<VoidFissure> {
     'missionType',
     _$missionType,
   );
-  static Faction _$faction(VoidFissure v) => v.faction;
-  static const Field<VoidFissure, Faction> _f$faction = Field(
+  static String _$faction(VoidFissure v) => v.faction;
+  static const Field<VoidFissure, String> _f$faction = Field(
     'faction',
     _$faction,
-    hook: FactionHook(),
   );
   static String _$key(VoidFissure v) => v.key;
   static const Field<VoidFissure, String> _f$key = Field('key', _$key);
@@ -413,7 +412,7 @@ abstract class VoidFissureCopyWith<$R, $In extends VoidFissure, $Out>
     DateTime? expiry,
     String? node,
     String? missionType,
-    Faction? faction,
+    String? faction,
     String? key,
     bool? isStorm,
     bool? isSteelpath,
@@ -448,7 +447,7 @@ class _VoidFissureCopyWithImpl<$R, $Out>
     Object? expiry = $none,
     String? node,
     String? missionType,
-    Faction? faction,
+    String? faction,
     String? key,
     bool? isStorm,
     bool? isSteelpath,

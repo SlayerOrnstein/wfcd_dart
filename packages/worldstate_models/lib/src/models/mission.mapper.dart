@@ -307,12 +307,8 @@ class MissionMapper extends ClassMapperBase<Mission> {
 
   static String _$type(Mission v) => v.type;
   static const Field<Mission, String> _f$type = Field('type', _$type);
-  static data.Faction _$faction(Mission v) => v.faction;
-  static const Field<Mission, data.Faction> _f$faction = Field(
-    'faction',
-    _$faction,
-    hook: FactionHook(),
-  );
+  static String _$faction(Mission v) => v.faction;
+  static const Field<Mission, String> _f$faction = Field('faction', _$faction);
   static String _$node(Mission v) => v.node;
   static const Field<Mission, String> _f$node = Field('node', _$node);
   static String? _$override(Mission v) => v.override;
@@ -457,7 +453,7 @@ abstract class MissionCopyWith<$R, $In extends Mission, $Out>
   RewardCopyWith<$R, Reward, Reward> get reward;
   $R call({
     String? type,
-    data.Faction? faction,
+    String? faction,
     String? node,
     String? override,
     String? enemySpec,
@@ -487,7 +483,7 @@ class _MissionCopyWithImpl<$R, $Out>
   @override
   $R call({
     String? type,
-    data.Faction? faction,
+    String? faction,
     String? node,
     Object? override = $none,
     String? enemySpec,

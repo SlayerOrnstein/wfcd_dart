@@ -1,6 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
-import 'package:worldstate_models/src/hooks/hooks.dart';
 import 'package:worldstate_models/src/models/reward.dart';
 import 'package:worldstate_models/src/models/worldstate_object.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
@@ -59,7 +58,9 @@ class Invasion extends WorldstateObject with InvasionMappable {
     required this.key,
     required this.node,
     required this.description,
+    required this.attackingFaction,
     required this.attacker,
+    required this.defendingFaction,
     required this.defender,
     required this.vsInfestation,
     required this.count,
@@ -80,7 +81,9 @@ class Invasion extends WorldstateObject with InvasionMappable {
       key: raw.node,
       node: deps.nodes.fetchNode(raw.node).name,
       description: deps.langs.fetchValue(raw.locTag),
+      attackingFaction: attacker.faction,
       attacker: attacker,
+      defendingFaction: defender.faction,
       defender: defender,
       vsInfestation: vsInfestation,
       count: raw.count,
@@ -100,7 +103,11 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
   final String description;
 
+  final String attackingFaction;
+
   final InvasionFaction attacker;
+
+  final String defendingFaction;
 
   final InvasionFaction defender;
 
@@ -141,17 +148,19 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
 @MappableClass()
 class InvasionFaction with InvasionFactionMappable {
-  InvasionFaction({required this.faction, required this.reward});
+  InvasionFaction({required this.key, required this.faction, required this.reward});
 
   factory InvasionFaction.fromRaw(String faction, RawReward? reward, Dependency deps) {
     return InvasionFaction(
-      faction: data.Faction.byInternalName(faction),
+      key: data.faction(faction),
+      faction: data.faction(faction, deps.locale),
       reward: reward != null ? Reward.fromRaw(reward, deps) : null,
     );
   }
 
-  @MappableField(hook: FactionHook())
-  final data.Faction faction;
+  final String key;
+
+  final String faction;
 
   final Reward? reward;
 }

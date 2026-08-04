@@ -1,6 +1,5 @@
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:warframe_worldstate_data/warframe_worldstate_data.dart' as data;
-import 'package:worldstate_models/src/hooks/hooks.dart';
 import 'package:worldstate_models/src/models/reward.dart';
 import 'package:worldstate_models/src/supporting/dependency.dart';
 
@@ -69,7 +68,7 @@ class Mission with MissionMappable {
 
     return Mission(
       type: data.missionType(raw.missionType, locale),
-      faction: data.Faction.byInternalName(raw.faction),
+      faction: data.faction(raw.faction, locale),
       node: data.solNodes(locale).fetchNode(raw.location).name,
       override: raw.levelOverrride != null ? langs.fetchValue(raw.levelOverrride!) : null,
       enemySpec: langs.fetchValue(raw.enemySpec),
@@ -86,10 +85,7 @@ class Mission with MissionMappable {
   }
 
   final String type;
-
-  @MappableField(hook: FactionHook())
-  final data.Faction faction;
-
+  final String faction;
   final String node;
   final String? override;
   final String enemySpec;

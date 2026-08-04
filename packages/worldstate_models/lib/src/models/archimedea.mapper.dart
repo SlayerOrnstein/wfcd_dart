@@ -815,11 +815,10 @@ class ArchimedeaMissionMapper extends ClassMapperBase<ArchimedeaMission> {
   @override
   final String id = 'ArchimedeaMission';
 
-  static data.Faction _$faction(ArchimedeaMission v) => v.faction;
-  static const Field<ArchimedeaMission, data.Faction> _f$faction = Field(
+  static String _$faction(ArchimedeaMission v) => v.faction;
+  static const Field<ArchimedeaMission, String> _f$faction = Field(
     'faction',
     _$faction,
-    hook: FactionHook(),
   );
   static String _$missionType(ArchimedeaMission v) => v.missionType;
   static const Field<ArchimedeaMission, String> _f$missionType = Field(
@@ -932,7 +931,7 @@ abstract class ArchimedeaMissionCopyWith<
   >
   get risks;
   $R call({
-    data.Faction? faction,
+    String? faction,
     String? missionType,
     _t$_R0<String, String>? deviation,
     List<ArchimedeaRisk>? risks,
@@ -963,7 +962,7 @@ class _ArchimedeaMissionCopyWithImpl<$R, $Out>
   );
   @override
   $R call({
-    data.Faction? faction,
+    String? faction,
     String? missionType,
     _t$_R0<String, String>? deviation,
     List<ArchimedeaRisk>? risks,
