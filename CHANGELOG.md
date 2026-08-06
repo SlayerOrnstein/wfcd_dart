@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-08-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.11+8`](#worldstate_models---v01118)
+ - [`worldstate_status` - `v1.0.58`](#worldstate_status---v1058)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.58`
+
+---
+
+#### `worldstate_models` - `v0.1.11+8`
+
+ - **FIX**(worldstate_models): add `BonusReward` for `WorldEvent`. ([b4f72b51](https://github.com/SlayerOrnstein/wfcd_dart/commit/b4f72b51f5a410434497f1d87b2ba1bef249b961))
+
+
 ## 2026-08-04
 
 ### Changes

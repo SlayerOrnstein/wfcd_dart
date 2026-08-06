@@ -1,3 +1,7 @@
+## 0.1.11+8
+
+ - **FIX**(worldstate_models): add `BonusReward` for `WorldEvent`. ([b4f72b51](https://github.com/SlayerOrnstein/wfcd_dart/commit/b4f72b51f5a410434497f1d87b2ba1bef249b961))
+
 ## 0.1.10+7
 
  - **FIX**(worldstate_model): add `factionKey` to sortie model. ([f29d9226](https://github.com/SlayerOrnstein/wfcd_dart/commit/f29d9226d7370f97e4278f6cb7d693f2dcce418e))
