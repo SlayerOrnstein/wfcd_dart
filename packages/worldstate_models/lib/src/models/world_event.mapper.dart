@@ -114,6 +114,12 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     _$goal,
     key: r'Goal',
   );
+  static int? _$bonusGoal(RawGoal v) => v.bonusGoal;
+  static const Field<RawGoal, int> _f$bonusGoal = Field(
+    'bonusGoal',
+    _$bonusGoal,
+    key: r'BonusGoal',
+  );
   static List<int>? _$clanGoal(RawGoal v) => v.clanGoal;
   static const Field<RawGoal, List<int>> _f$clanGoal = Field(
     'clanGoal',
@@ -137,6 +143,12 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     'interimRewards',
     _$interimRewards,
     key: r'InterimRewards',
+  );
+  static RawReward? _$bonusReward(RawGoal v) => v.bonusReward;
+  static const Field<RawGoal, RawReward> _f$bonusReward = Field(
+    'bonusReward',
+    _$bonusReward,
+    key: r'BonusReward',
   );
   static String _$tag(RawGoal v) => v.tag;
   static const Field<RawGoal, String> _f$tag = Field('tag', _$tag, key: r'Tag');
@@ -170,10 +182,12 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
     #personal: _f$personal,
     #community: _f$community,
     #goal: _f$goal,
+    #bonusGoal: _f$bonusGoal,
     #clanGoal: _f$clanGoal,
     #reward: _f$reward,
     #interimGoals: _f$interimGoals,
     #interimRewards: _f$interimRewards,
+    #bonusReward: _f$bonusReward,
     #tag: _f$tag,
     #jobAffiliationTag: _f$jobAffiliationTag,
     #jobs: _f$jobs,
@@ -198,10 +212,12 @@ class RawGoalMapper extends ClassMapperBase<RawGoal> {
       personal: data.dec(_f$personal),
       community: data.dec(_f$community),
       goal: data.dec(_f$goal),
+      bonusGoal: data.dec(_f$bonusGoal),
       clanGoal: data.dec(_f$clanGoal),
       reward: data.dec(_f$reward),
       interimGoals: data.dec(_f$interimGoals),
       interimRewards: data.dec(_f$interimRewards),
+      bonusReward: data.dec(_f$bonusReward),
       tag: data.dec(_f$tag),
       jobAffiliationTag: data.dec(_f$jobAffiliationTag),
       jobs: data.dec(_f$jobs),
@@ -276,6 +292,7 @@ abstract class RawGoalCopyWith<$R, $In extends RawGoal, $Out>
   ListCopyWith<$R, int, ObjectCopyWith<$R, int, int>>? get interimGoals;
   ListCopyWith<$R, RawReward, RawRewardCopyWith<$R, RawReward, RawReward>>?
   get interimRewards;
+  RawRewardCopyWith<$R, RawReward, RawReward>? get bonusReward;
   ListCopyWith<$R, RawJob, RawJobCopyWith<$R, RawJob, RawJob>>? get jobs;
   $R call({
     Map<String, dynamic>? id,
@@ -293,10 +310,12 @@ abstract class RawGoalCopyWith<$R, $In extends RawGoal, $Out>
     bool? personal,
     bool? community,
     int? goal,
+    int? bonusGoal,
     List<int>? clanGoal,
     RawReward? reward,
     List<int>? interimGoals,
     List<RawReward>? interimRewards,
+    RawReward? bonusReward,
     String? tag,
     String? jobAffiliationTag,
     List<RawJob>? jobs,
@@ -368,6 +387,9 @@ class _RawGoalCopyWithImpl<$R, $Out>
         )
       : null;
   @override
+  RawRewardCopyWith<$R, RawReward, RawReward>? get bonusReward =>
+      $value.bonusReward?.copyWith.$chain((v) => call(bonusReward: v));
+  @override
   ListCopyWith<$R, RawJob, RawJobCopyWith<$R, RawJob, RawJob>>? get jobs =>
       $value.jobs != null
       ? ListCopyWith(
@@ -393,10 +415,12 @@ class _RawGoalCopyWithImpl<$R, $Out>
     Object? personal = $none,
     Object? community = $none,
     Object? goal = $none,
+    Object? bonusGoal = $none,
     Object? clanGoal = $none,
     Object? reward = $none,
     Object? interimGoals = $none,
     Object? interimRewards = $none,
+    Object? bonusReward = $none,
     String? tag,
     Object? jobAffiliationTag = $none,
     Object? jobs = $none,
@@ -417,10 +441,12 @@ class _RawGoalCopyWithImpl<$R, $Out>
       if (personal != $none) #personal: personal,
       if (community != $none) #community: community,
       if (goal != $none) #goal: goal,
+      if (bonusGoal != $none) #bonusGoal: bonusGoal,
       if (clanGoal != $none) #clanGoal: clanGoal,
       if (reward != $none) #reward: reward,
       if (interimGoals != $none) #interimGoals: interimGoals,
       if (interimRewards != $none) #interimRewards: interimRewards,
+      if (bonusReward != $none) #bonusReward: bonusReward,
       if (tag != null) #tag: tag,
       if (jobAffiliationTag != $none) #jobAffiliationTag: jobAffiliationTag,
       if (jobs != $none) #jobs: jobs,
@@ -446,10 +472,12 @@ class _RawGoalCopyWithImpl<$R, $Out>
     personal: data.get(#personal, or: $value.personal),
     community: data.get(#community, or: $value.community),
     goal: data.get(#goal, or: $value.goal),
+    bonusGoal: data.get(#bonusGoal, or: $value.bonusGoal),
     clanGoal: data.get(#clanGoal, or: $value.clanGoal),
     reward: data.get(#reward, or: $value.reward),
     interimGoals: data.get(#interimGoals, or: $value.interimGoals),
     interimRewards: data.get(#interimRewards, or: $value.interimRewards),
+    bonusReward: data.get(#bonusReward, or: $value.bonusReward),
     tag: data.get(#tag, or: $value.tag),
     jobAffiliationTag: data.get(
       #jobAffiliationTag,

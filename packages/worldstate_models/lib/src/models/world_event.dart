@@ -24,15 +24,18 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
     required this.personal,
     required this.community,
     required this.goal,
+    required this.bonusGoal,
     required this.clanGoal,
     required this.reward,
     required this.interimGoals,
     required this.interimRewards,
+    required this.bonusReward,
     required this.tag,
     required this.jobAffiliationTag,
     required this.jobs,
   });
 
+  // ignore: specify_nonobvious_property_types It is obvious
   static const fromMap = RawGoalMapper.fromMap;
 
   final String? node;
@@ -51,10 +54,12 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
   final bool? personal;
   final bool? community;
   final int? goal;
+  final int? bonusGoal;
   final List<int>? clanGoal;
   final RawReward? reward;
   final List<int>? interimGoals;
   final List<RawReward>? interimRewards;
+  final RawReward? bonusReward;
   final String tag;
   final String? jobAffiliationTag;
   final List<RawJob>? jobs;
@@ -159,12 +164,19 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   static List<WorldEventReward> _mapEventRewards(RawGoal raw, Dependency deps) {
     final rewards = <RawReward>[...?raw.interimRewards, ?raw.reward];
-    final goals = <int>[...?raw.interimGoals, if (raw.goal != null && raw.goal != 0) raw.goal!];
+    final goals = <int>[...?raw.interimGoals, ?raw.goal];
     if (rewards.isEmpty && goals.isEmpty) return [];
 
     final r = <WorldEventReward>[];
     for (var i = 0; i < goals.length; i++) {
       r.add(WorldEventReward(requiredScore: goals[i], reward: rewards[i].toReward(deps)));
+    }
+
+    // May need to change if they ever do more then one bonus reward.
+    final bonusGoal = raw.bonusGoal;
+    final bonusRewards = raw.bonusReward;
+    if (bonusGoal != null && bonusRewards != null) {
+      r.add(WorldEventReward(requiredScore: bonusGoal, reward: bonusRewards.toReward(deps)));
     }
 
     return r;
