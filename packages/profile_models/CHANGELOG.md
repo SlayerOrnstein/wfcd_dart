@@ -1,3 +1,7 @@
+## 0.1.4+26
+
+ - **FIX**(profile_models): parsing profiles that aren't marked for death would. ([58ccbd7f](https://github.com/SlayerOrnstein/wfcd_dart/commit/58ccbd7f843c54a8a0decf89926f456eaa9fd805))
+
 ## 0.1.3+25
 
  - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))

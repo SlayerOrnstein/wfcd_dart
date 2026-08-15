@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-08-15
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.4+26`](#profile_models---v01426)
+
+---
+
+#### `profile_models` - `v0.1.4+26`
+
+ - **FIX**(profile_models): parsing profiles that aren't marked for death would. ([58ccbd7f](https://github.com/SlayerOrnstein/wfcd_dart/commit/58ccbd7f843c54a8a0decf89926f456eaa9fd805))
+
+
 ## 2026-08-05
 
 ### Changes
