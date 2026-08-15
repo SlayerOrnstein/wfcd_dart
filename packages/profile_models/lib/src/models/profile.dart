@@ -62,8 +62,8 @@ class RawProfile with RawProfileMappable {
   final RawIntrinsics? playerSkills;
   final JsonObject guildId;
   final List<String>? deathMarks;
-  final bool harvestable;
-  final bool deathSquadable;
+  final bool? harvestable;
+  final bool? deathSquadable;
   final JsonObject created;
   final int dailyAffiliation;
   final int? dailyAffiliationPvp;
@@ -154,8 +154,8 @@ class Profile with ProfileMappable {
       preset: raw.loadoutPreset.toLoadoutPreset(),
       loadout: raw.loadoutInventory.toLoadout(),
       intrinsics: raw.playerSkills?.toInstrinsics(),
-      isHarvestable: raw.harvestable,
-      isDeathSquadable: raw.deathSquadable,
+      isHarvestable: raw.harvestable ?? false,
+      isDeathSquadable: raw.deathSquadable ?? false,
       createdOn: parseDate(raw.created),
       dailyStanding: DailyStanding(
         daily: raw.dailyAffiliation,

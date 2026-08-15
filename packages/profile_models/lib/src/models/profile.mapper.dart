@@ -80,13 +80,13 @@ class RawProfileMapper extends ClassMapperBase<RawProfile> {
     _$deathMarks,
     key: r'DeathMarks',
   );
-  static bool _$harvestable(RawProfile v) => v.harvestable;
+  static bool? _$harvestable(RawProfile v) => v.harvestable;
   static const Field<RawProfile, bool> _f$harvestable = Field(
     'harvestable',
     _$harvestable,
     key: r'Harvestable',
   );
-  static bool _$deathSquadable(RawProfile v) => v.deathSquadable;
+  static bool? _$deathSquadable(RawProfile v) => v.deathSquadable;
   static const Field<RawProfile, bool> _f$deathSquadable = Field(
     'deathSquadable',
     _$deathSquadable,
@@ -461,8 +461,8 @@ class _RawProfileCopyWithImpl<$R, $Out>
     Object? playerSkills = $none,
     Map<String, dynamic>? guildId,
     Object? deathMarks = $none,
-    bool? harvestable,
-    bool? deathSquadable,
+    Object? harvestable = $none,
+    Object? deathSquadable = $none,
     Map<String, dynamic>? created,
     int? dailyAffiliation,
     Object? dailyAffiliationPvp = $none,
@@ -493,8 +493,8 @@ class _RawProfileCopyWithImpl<$R, $Out>
       if (playerSkills != $none) #playerSkills: playerSkills,
       if (guildId != null) #guildId: guildId,
       if (deathMarks != $none) #deathMarks: deathMarks,
-      if (harvestable != null) #harvestable: harvestable,
-      if (deathSquadable != null) #deathSquadable: deathSquadable,
+      if (harvestable != $none) #harvestable: harvestable,
+      if (deathSquadable != $none) #deathSquadable: deathSquadable,
       if (created != null) #created: created,
       if (dailyAffiliation != null) #dailyAffiliation: dailyAffiliation,
       if (dailyAffiliationPvp != $none)
