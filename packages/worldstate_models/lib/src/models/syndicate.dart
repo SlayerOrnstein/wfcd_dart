@@ -46,7 +46,7 @@ class RawJob with RawJobMappable {
 
   final String? jobType;
   final String rewards;
-  final int masteryReq;
+  final int? masteryReq;
   final int minEnemyLevel;
   final int maxEnemyLevel;
   final bool? endless;
@@ -133,7 +133,7 @@ class SyndicateBounty with SyndicateBountyMappable {
   final String? type;
   final String rewardPoolString;
   final List<BountyStage> rewardPool;
-  final int masteryRequirment;
+  final int? masteryRequirment;
   final int minLevel;
   final int maxLevel;
   final bool? isEndless;

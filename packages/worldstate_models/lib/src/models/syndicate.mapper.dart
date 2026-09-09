@@ -265,7 +265,7 @@ class RawJobMapper extends ClassMapperBase<RawJob> {
   static const Field<RawJob, String> _f$jobType = Field('jobType', _$jobType);
   static String _$rewards(RawJob v) => v.rewards;
   static const Field<RawJob, String> _f$rewards = Field('rewards', _$rewards);
-  static int _$masteryReq(RawJob v) => v.masteryReq;
+  static int? _$masteryReq(RawJob v) => v.masteryReq;
   static const Field<RawJob, int> _f$masteryReq = Field(
     'masteryReq',
     _$masteryReq,
@@ -402,7 +402,7 @@ class _RawJobCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, RawJob, $Out>
   $R call({
     Object? jobType = $none,
     String? rewards,
-    int? masteryReq,
+    Object? masteryReq = $none,
     int? minEnemyLevel,
     int? maxEnemyLevel,
     Object? endless = $none,
@@ -413,7 +413,7 @@ class _RawJobCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, RawJob, $Out>
     FieldCopyWithData({
       if (jobType != $none) #jobType: jobType,
       if (rewards != null) #rewards: rewards,
-      if (masteryReq != null) #masteryReq: masteryReq,
+      if (masteryReq != $none) #masteryReq: masteryReq,
       if (minEnemyLevel != null) #minEnemyLevel: minEnemyLevel,
       if (maxEnemyLevel != null) #maxEnemyLevel: maxEnemyLevel,
       if (endless != $none) #endless: endless,
@@ -665,7 +665,7 @@ class SyndicateBountyMapper extends ClassMapperBase<SyndicateBounty> {
     'rewardPoolString',
     _$rewardPoolString,
   );
-  static int _$masteryRequirment(SyndicateBounty v) => v.masteryRequirment;
+  static int? _$masteryRequirment(SyndicateBounty v) => v.masteryRequirment;
   static const Field<SyndicateBounty, int> _f$masteryRequirment = Field(
     'masteryRequirment',
     _$masteryRequirment,
@@ -847,7 +847,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
   $R call({
     Object? type = $none,
     String? rewardPoolString,
-    int? masteryRequirment,
+    Object? masteryRequirment = $none,
     int? minLevel,
     int? maxLevel,
     Object? isEndless = $none,
@@ -859,7 +859,7 @@ class _SyndicateBountyCopyWithImpl<$R, $Out>
     FieldCopyWithData({
       if (type != $none) #type: type,
       if (rewardPoolString != null) #rewardPoolString: rewardPoolString,
-      if (masteryRequirment != null) #masteryRequirment: masteryRequirment,
+      if (masteryRequirment != $none) #masteryRequirment: masteryRequirment,
       if (minLevel != null) #minLevel: minLevel,
       if (maxLevel != null) #maxLevel: maxLevel,
       if (isEndless != $none) #isEndless: isEndless,
