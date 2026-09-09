@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-09-09
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.12+9`](#worldstate_models---v01129)
+ - [`worldstate_status` - `v1.0.59`](#worldstate_status---v1059)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.59`
+
+---
+
+#### `worldstate_models` - `v0.1.12+9`
+
+ - **FIX**(worldstate_models): `WorldEvent` mastery requirement set to nullable. ([063e5615](https://github.com/SlayerOrnstein/wfcd_dart/commit/063e561581037a84780de2827bdcabba67e97afe))
+
+
 ## 2026-08-15
 
 ### Changes

@@ -1,3 +1,7 @@
+## 0.1.12+9
+
+ - **FIX**(worldstate_models): `WorldEvent` mastery requirement set to nullable. ([063e5615](https://github.com/SlayerOrnstein/wfcd_dart/commit/063e561581037a84780de2827bdcabba67e97afe))
+
 ## 0.1.11+8
 
  - **FIX**(worldstate_models): add `BonusReward` for `WorldEvent`. ([b4f72b51](https://github.com/SlayerOrnstein/wfcd_dart/commit/b4f72b51f5a410434497f1d87b2ba1bef249b961))
