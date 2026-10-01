@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-10-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`worldstate_models` - `v0.1.13+10`](#worldstate_models---v011310)
+ - [`worldstate_status` - `v1.0.60`](#worldstate_status---v1060)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.60`
+
+---
+
+#### `worldstate_models` - `v0.1.13+10`
+
+ - **FIX**(worldstate_models): parsing world events with no goals causes an error when mapping rewards. ([36b921d2](https://github.com/SlayerOrnstein/wfcd_dart/commit/36b921d207a777ce6cb6720625c03210497dfeb3))
+
+
 ## 2026-09-09
 
 ### Changes

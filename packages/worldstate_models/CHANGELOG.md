@@ -1,3 +1,7 @@
+## 0.1.13+10
+
+ - **FIX**(worldstate_models): parsing world events with no goals causes an error when mapping rewards. ([36b921d2](https://github.com/SlayerOrnstein/wfcd_dart/commit/36b921d207a777ce6cb6720625c03210497dfeb3))
+
 ## 0.1.12+9
 
  - **FIX**(worldstate_models): `WorldEvent` mastery requirement set to nullable. ([063e5615](https://github.com/SlayerOrnstein/wfcd_dart/commit/063e561581037a84780de2827bdcabba67e97afe))
