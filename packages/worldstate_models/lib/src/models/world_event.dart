@@ -164,7 +164,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
   static List<WorldEventReward> _mapEventRewards(RawGoal raw, Dependency deps) {
     final rewards = <RawReward>[...?raw.interimRewards, ?raw.reward];
-    final goals = <int>[...?raw.interimGoals, ?raw.goal];
+    final goals = <int>[...?raw.interimGoals, if (raw.goal != 0) ?raw.goal];
     if (rewards.isEmpty && goals.isEmpty) return [];
 
     final r = <WorldEventReward>[];
