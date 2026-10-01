@@ -11,11 +11,11 @@ resolution: workspace
 dependencies:
   collection: ^1.19.1
   crypto: ^3.0.6
-  dart_mappable: ^4.5.0
+  dart_mappable: ^4.10.0
   html: ^0.15.5
   http: ^1.6.0
 
 dev_dependencies:
-  dart_mappable_builder: ^4.5.0
+  dart_mappable_builder: ^4.10.0
   mocktail: ^1.0.5
   test: ^1.31.1

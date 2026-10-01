@@ -16,4 +16,3 @@ dev_dependencies:
   hive_ce_generator: ^1.11.1
   mocktail: ^1.0.4
   test: ^1.26.3
-  very_good_analysis: 10.3.0
