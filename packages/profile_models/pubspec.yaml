@@ -1,6 +1,6 @@
 name: profile_models
 description: A Very Good Project created by Very Good CLI.
-version: 0.1.4+26
+version: 0.1.5+27
 publish_to: none
 
 environment:
@@ -14,7 +14,7 @@ dependencies:
     git:
       url: https://github.com/SlayerOrnstein/wfcd_dart.git
       path: packages/warframe_worldstate_data
-      ref: warframe_worldstate_data-v0.1.4+15
+      ref: warframe_worldstate_data-v0.1.5+16
 
 dev_dependencies:
   dart_mappable_builder: ^4.10.0

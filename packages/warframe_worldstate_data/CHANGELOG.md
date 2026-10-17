@@ -1,3 +1,7 @@
+## 0.1.5+16
+
+ - **FIX**(worldstate_data): update language data. ([230eb21f](https://github.com/SlayerOrnstein/wfcd_dart/commit/230eb21fbd50ca1792c936e79e102801f44a4385))
+
 ## 0.1.4+15
 
  - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))

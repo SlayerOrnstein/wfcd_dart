@@ -1,3 +1,7 @@
+## 0.1.14+11
+
+ - Update a dependency to the latest release.
+
 ## 0.1.13+10
 
  - **FIX**(worldstate_models): parsing world events with no goals causes an error when mapping rewards. ([36b921d2](https://github.com/SlayerOrnstein/wfcd_dart/commit/36b921d207a777ce6cb6720625c03210497dfeb3))

@@ -1,3 +1,7 @@
+## 0.1.3+16
+
+ - Update a dependency to the latest release.
+
 ## 0.1.2+15
 
  - **FIX**: minor cleanup with faction localization. ([92627bf0](https://github.com/SlayerOrnstein/wfcd_dart/commit/92627bf0491e4db54661549b864c812e8c5fd495))

@@ -1,3 +1,7 @@
+## 0.1.5+27
+
+ - Update a dependency to the latest release.
+
 ## 0.1.4+26
 
  - **FIX**(profile_models): parsing profiles that aren't marked for death would. ([58ccbd7f](https://github.com/SlayerOrnstein/wfcd_dart/commit/58ccbd7f843c54a8a0decf89926f456eaa9fd805))
