@@ -757,6 +757,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       SentientOutpostMapper.ensureInitialized();
       SteelPathMapper.ensureInitialized();
       ClanInitiativeMapper.ensureInitialized();
+      ArbitrationMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -896,6 +897,12 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     'clanInitiative',
     _$clanInitiative,
   );
+  static Arbitration? _$arbitration(Worldstate v) => v.arbitration;
+  static const Field<Worldstate, Arbitration> _f$arbitration = Field(
+    'arbitration',
+    _$arbitration,
+    opt: true,
+  );
 
   @override
   final MappableFields<Worldstate> fields = const {
@@ -927,6 +934,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
     #sentientOutpost: _f$sentientOutpost,
     #steelPath: _f$steelPath,
     #clanInitiative: _f$clanInitiative,
+    #arbitration: _f$arbitration,
   };
   @override
   final bool ignoreNull = true;
@@ -961,6 +969,7 @@ class WorldstateMapper extends ClassMapperBase<Worldstate> {
       sentientOutpost: data.dec(_f$sentientOutpost),
       steelPath: data.dec(_f$steelPath),
       clanInitiative: data.dec(_f$clanInitiative),
+      arbitration: data.dec(_f$arbitration),
     );
   }
 
@@ -1072,6 +1081,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
   get sentientOutpost;
   SteelPathCopyWith<$R, SteelPath, SteelPath> get steelPath;
   ClanInitiativeCopyWith<$R, ClanInitiative, ClanInitiative> get clanInitiative;
+  ArbitrationCopyWith<$R, Arbitration, Arbitration>? get arbitration;
   $R call({
     DateTime? timestamp,
     String? buildLabel,
@@ -1101,6 +1111,7 @@ abstract class WorldstateCopyWith<$R, $In extends Worldstate, $Out>
     SentientOutpost? sentientOutpost,
     SteelPath? steelPath,
     ClanInitiative? clanInitiative,
+    Arbitration? arbitration,
   });
   WorldstateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -1251,6 +1262,9 @@ class _WorldstateCopyWithImpl<$R, $Out>
   get clanInitiative =>
       $value.clanInitiative.copyWith.$chain((v) => call(clanInitiative: v));
   @override
+  ArbitrationCopyWith<$R, Arbitration, Arbitration>? get arbitration =>
+      $value.arbitration?.copyWith.$chain((v) => call(arbitration: v));
+  @override
   $R call({
     DateTime? timestamp,
     String? buildLabel,
@@ -1280,6 +1294,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     SentientOutpost? sentientOutpost,
     SteelPath? steelPath,
     ClanInitiative? clanInitiative,
+    Object? arbitration = $none,
   }) => $apply(
     FieldCopyWithData({
       if (timestamp != null) #timestamp: timestamp,
@@ -1311,6 +1326,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
       if (sentientOutpost != null) #sentientOutpost: sentientOutpost,
       if (steelPath != null) #steelPath: steelPath,
       if (clanInitiative != null) #clanInitiative: clanInitiative,
+      if (arbitration != $none) #arbitration: arbitration,
     }),
   );
   @override
@@ -1349,6 +1365,7 @@ class _WorldstateCopyWithImpl<$R, $Out>
     sentientOutpost: data.get(#sentientOutpost, or: $value.sentientOutpost),
     steelPath: data.get(#steelPath, or: $value.steelPath),
     clanInitiative: data.get(#clanInitiative, or: $value.clanInitiative),
+    arbitration: data.get(#arbitration, or: $value.arbitration),
   );
 
   @override
