@@ -1,3 +1,7 @@
+## 0.1.17+14
+
+ - **FIX**(worldstate_models): add faction to arbitration model. ([cdfc8f75](https://github.com/SlayerOrnstein/wfcd_dart/commit/cdfc8f75378b3375153e2594615fd7309619ec82))
+
 ## 0.1.16+13
 
  - **FIX**(worldstate_models): run build_runner. ([d5b828d6](https://github.com/SlayerOrnstein/wfcd_dart/commit/d5b828d6351b1eb1e23a7704912ad80dd6a4d641))

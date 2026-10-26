@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.17+14`](#worldstate_models---v011714)
+ - [`worldstate_status` - `v1.0.64`](#worldstate_status---v1064)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.64`
+
+---
+
+#### `worldstate_models` - `v0.1.17+14`
+
+ - **FIX**(worldstate_models): add faction to arbitration model. ([cdfc8f75](https://github.com/SlayerOrnstein/wfcd_dart/commit/cdfc8f75378b3375153e2594615fd7309619ec82))
+
+
+## 2026-10-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`worldstate_models` - `v0.1.16+13`](#worldstate_models---v011613)
  - [`worldstate_status` - `v1.0.63`](#worldstate_status---v1063)
 
