@@ -7,7 +7,7 @@ part 'sortie.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawSortie extends BaseContentObject with RawSortieMappable {
-  RawSortie({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -16,7 +16,7 @@ class RawSortie extends BaseContentObject with RawSortieMappable {
     required this.missions,
   });
 
-  static const fromMap = RawSortieMapper.fromMap;
+  static const RawSortie Function(Map<String, dynamic> map) fromMap = RawSortieMapper.fromMap;
 
   final String boss;
   final List<RawVariant>? variants;
@@ -27,7 +27,7 @@ class RawSortie extends BaseContentObject with RawSortieMappable {
 
 @MappableClass()
 class RawVariant with RawVariantMappable {
-  RawVariant({required this.missionType, required this.modifierType, required this.node, required this.tileset});
+  new({required this.missionType, required this.modifierType, required this.node, required this.tileset});
 
   final String missionType;
   final String? modifierType;
@@ -39,7 +39,7 @@ class RawVariant with RawVariantMappable {
 
 @MappableClass()
 class Sortie extends WorldstateObject with SortieMappable {
-  Sortie({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -49,7 +49,7 @@ class Sortie extends WorldstateObject with SortieMappable {
     required this.missions,
   });
 
-  factory Sortie.fromRaw(RawSortie raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
+  factory fromRaw(RawSortie raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final sortieEnemy = sortieFaction(raw.boss, locale);
     final missions = raw.variants ?? raw.missions ?? <RawVariant>[];
 
@@ -81,9 +81,9 @@ class Sortie extends WorldstateObject with SortieMappable {
 
 @MappableClass()
 class Variant with VariantMappable {
-  Variant({required this.type, required this.modifier, required this.node, required this.tileset});
+  new({required this.type, required this.modifier, required this.node, required this.tileset});
 
-  factory Variant.fromRaw(RawVariant raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
+  factory fromRaw(RawVariant raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     return Variant(
       type: missionType(raw.missionType, locale),
       modifier: raw.modifierType != null ? sortieModifier(raw.modifierType!, locale) : null,

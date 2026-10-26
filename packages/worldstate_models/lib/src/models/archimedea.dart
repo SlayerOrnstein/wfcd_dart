@@ -44,7 +44,7 @@ enum ArchimedeaType {
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawConquest extends BaseContentObject with RawConquestMappable {
   /// {@macro raw_conquest}
-  RawConquest({
+  new({
     required super.activation,
     required super.expiry,
     required this.type,
@@ -53,7 +53,7 @@ class RawConquest extends BaseContentObject with RawConquestMappable {
   }) : super(id: {});
 
   /// {macro raw_conquest}
-  factory RawConquest.fromMap(Map<String, dynamic> map) => RawConquestMapper.fromMap(map);
+  factory fromMap(Map<String, dynamic> map) => RawConquestMapper.fromMap(map);
 
   /// Raw sttring for conquest type
   final String type;
@@ -74,7 +74,7 @@ class RawConquest extends BaseContentObject with RawConquestMappable {
 @MappableClass()
 class RawConquestMission with RawConquestMissionMappable {
   /// {@macro raw_conquest_mission}
-  RawConquestMission({required this.faction, required this.missionType, required this.difficulties});
+  new({required this.faction, required this.missionType, required this.difficulties});
 
   /// Enemy faction
   final String faction;
@@ -88,7 +88,7 @@ class RawConquestMission with RawConquestMissionMappable {
 
 @MappableClass()
 class Archimedea extends WorldstateObject with ArchimedeaMappable {
-  Archimedea({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -97,7 +97,7 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
     required this.personalModifiers,
   });
 
-  factory Archimedea.fromRaw(RawConquest raw, Dependency deps) {
+  factory fromRaw(RawConquest raw, Dependency deps) {
     final id = hash(raw.type + raw.activation.toString());
 
     return Archimedea(
@@ -128,9 +128,9 @@ class Archimedea extends WorldstateObject with ArchimedeaMappable {
 
 @MappableClass()
 class ArchimedeaMission with ArchimedeaMissionMappable {
-  ArchimedeaMission({required this.faction, required this.missionType, required this.deviation, required this.risks});
+  new({required this.faction, required this.missionType, required this.deviation, required this.risks});
 
-  factory ArchimedeaMission.fromRaw(RawConquestMission raw, Dependency deps) {
+  factory fromRaw(RawConquestMission raw, Dependency deps) {
     final deviation = raw.difficulties[0].deviation;
 
     return ArchimedeaMission(

@@ -8,7 +8,7 @@ part 'daily_deal.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawDailyDeal extends BaseContentObject with RawDailyDealMappable {
-  RawDailyDeal({
+  new({
     required super.activation,
     required super.expiry,
     required this.storeItem,
@@ -19,7 +19,7 @@ class RawDailyDeal extends BaseContentObject with RawDailyDealMappable {
     required this.amountSold,
   }) : super(id: {});
 
-  static const fromMap = RawDailyDealMapper.fromMap;
+  static const RawDailyDeal Function(Map<String, dynamic> map) fromMap = RawDailyDealMapper.fromMap;
 
   final String storeItem;
   final int discount;
@@ -33,7 +33,7 @@ class RawDailyDeal extends BaseContentObject with RawDailyDealMappable {
 
 @MappableClass()
 class DailyDeal extends WorldstateObject with DailyDealMappable {
-  DailyDeal({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -45,7 +45,7 @@ class DailyDeal extends WorldstateObject with DailyDealMappable {
     required this.sold,
   });
 
-  factory DailyDeal.fromRaw(RawDailyDeal raw, Dependency deps) {
+  factory fromRaw(RawDailyDeal raw, Dependency deps) {
     final activation = parseDate(raw.activation);
 
     return DailyDeal(

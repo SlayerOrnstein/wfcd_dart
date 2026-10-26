@@ -44,9 +44,9 @@ class RawProfile with RawProfileMappable {
     required this.alignment,
   });
 
-  static const fromJson = RawProfileMapper.fromJson;
+  static const RawProfile Function(String json) fromJson = RawProfileMapper.fromJson;
 
-  static const fromMap = RawProfileMapper.fromMap;
+  static const RawProfile Function(Map<String, dynamic> map) fromMap = RawProfileMapper.fromMap;
 
   final JsonObject accountId;
   final String displayName;
@@ -178,9 +178,9 @@ class Profile with ProfileMappable {
     );
   }
 
-  static const fromJson = ProfileMapper.fromJson;
+  static const Profile Function(String json) fromJson = ProfileMapper.fromJson;
 
-  static const fromMap = ProfileMapper.fromMap;
+  static const Profile Function(Map<String, dynamic> map) fromMap = ProfileMapper.fromMap;
 
   final String id;
   final String username;

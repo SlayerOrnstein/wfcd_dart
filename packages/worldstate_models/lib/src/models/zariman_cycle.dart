@@ -9,7 +9,7 @@ enum ZarimanState { corpus, grineer }
 
 @MappableClass()
 class ZarimanCycle extends WorldstateObject with ZarimanCycleMappable {
-  ZarimanCycle({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -17,7 +17,7 @@ class ZarimanCycle extends WorldstateObject with ZarimanCycleMappable {
     required this.state,
   });
 
-  factory ZarimanCycle.fromBountiesEndDate(DateTime bountiesEnd) {
+  factory fromBountiesEndDate(DateTime bountiesEnd) {
     final cycle = calculateCurrentZarimanCycle(bountiesEnd);
 
     return ZarimanCycle(

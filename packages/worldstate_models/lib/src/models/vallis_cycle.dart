@@ -9,7 +9,7 @@ enum VallisState { warm, cold }
 
 @MappableClass()
 class VallisCycle extends WorldstateObject with VallisCycleMappable {
-  VallisCycle({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -17,7 +17,7 @@ class VallisCycle extends WorldstateObject with VallisCycleMappable {
     required this.state,
   });
 
-  factory VallisCycle.init() {
+  factory init() {
     final cycle = calculateCurrentVallisCycle();
 
     return VallisCycle(

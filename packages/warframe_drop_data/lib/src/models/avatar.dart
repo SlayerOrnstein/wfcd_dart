@@ -12,7 +12,7 @@ class Avatar with AvatarMappable {
   Avatar({required this.id, required this.name, required this.chance, required this.items});
 
   /// Creates an [Avatar] from map
-  static const fromMap = AvatarMapper.fromMap;
+  static const Avatar Function(Map<String, dynamic> map) fromMap = AvatarMapper.fromMap;
 
   /// Generated ID
   final String id;

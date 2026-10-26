@@ -13,7 +13,7 @@ class Planet with PlanetMappable {
   Planet({required this.name, required this.nodes});
 
   /// Creates a [Planet] from map
-  static const fromMap = PlanetMapper.fromMap;
+  static const Planet Function(Map<String, dynamic> map) fromMap = PlanetMapper.fromMap;
 
   /// Planet name
   final String name;
@@ -31,7 +31,7 @@ sealed class RegionRewardPool with RegionRewardPoolMappable {
   RegionRewardPool({required this.name, this.gameMode, this.isEvent});
 
   /// Get a either a [MultiRewardPool] or [SingleRewardPool] depending on type.
-  static const fromMap = RegionRewardPoolMapper.fromMap;
+  static const RegionRewardPool Function(Map<String, dynamic> map) fromMap = RegionRewardPoolMapper.fromMap;
 
   /// Node name
   final String name;
@@ -53,7 +53,7 @@ final class SingleRewardPool extends RegionRewardPool with SingleRewardPoolMappa
     : rewards = rewards ?? [];
 
   /// Creates a [SingleRewardPool] from map
-  static const fromMap = SingleRewardPoolMapper.fromMap;
+  static const SingleRewardPool Function(Map<String, dynamic> map) fromMap = SingleRewardPoolMapper.fromMap;
 
   /// Possible drops recieved at the end of a mission
   final List<ItemDrop> rewards;
@@ -69,7 +69,7 @@ final class MultiRewardPool extends RegionRewardPool with MultiRewardPoolMappabl
     : rewards = rewards ?? Rotations.empty();
 
   /// Creates a [MultiRewardPool] from map
-  static const fromMap = MultiRewardPoolMapper.fromMap;
+  static const MultiRewardPool Function(Map<String, dynamic> map) fromMap = MultiRewardPoolMapper.fromMap;
 
   /// Rewards per ABC rotation
   final Rotations rewards;

@@ -11,7 +11,7 @@ class ItemDrop with ItemDropMappable {
   const ItemDrop({required this.id, required this.item, required this.chance, required this.rarity, this.status});
 
   /// Creates an [ItemDrop] from map
-  static const fromMap = ItemDropMapper.fromMap;
+  static const ItemDrop Function(Map<String, dynamic> map) fromMap = ItemDropMapper.fromMap;
 
   /// Generated ID
   final String id;

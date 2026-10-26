@@ -25,7 +25,7 @@ class DropData with DropDataMappable {
   });
 
   /// Creates a [DropData] from map
-  static const fromMap = DropDataMapper.fromMap;
+  static const DropData Function(Map<String, dynamic> map) fromMap = DropDataMapper.fromMap;
 
   /// Blueprint drop data
   final List<BlueprintPart> blueprintDrops;

@@ -10,7 +10,7 @@ part 'worldstate.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawWorldstate with RawWorldstateMappable {
-  RawWorldstate({
+  new({
     required this.time,
     required this.buildLabel,
     required this.events,
@@ -37,9 +37,9 @@ class RawWorldstate with RawWorldstateMappable {
     required this.weeklyVaultBonusRewards,
   });
 
-  static const fromJson = RawWorldstateMapper.fromJson;
+  static const RawWorldstate Function(String json) fromJson = RawWorldstateMapper.fromJson;
 
-  static const fromMap = RawWorldstateMapper.fromMap;
+  static const RawWorldstate Function(Map<String, dynamic> map) fromMap = RawWorldstateMapper.fromMap;
 
   final int time;
   final String buildLabel;
@@ -71,7 +71,7 @@ class RawWorldstate with RawWorldstateMappable {
 
 @MappableClass()
 class Worldstate with WorldstateMappable {
-  Worldstate({
+  new({
     required this.timestamp,
     required this.buildLabel,
     required this.news,
@@ -100,16 +100,17 @@ class Worldstate with WorldstateMappable {
     required this.sentientOutpost,
     required this.steelPath,
     required this.clanInitiative,
+    this.arbitration,
   });
 
   ///
-  factory Worldstate.fromJson(String json) => WorldstateMapper.fromJson(json);
+  factory fromJson(String json) => WorldstateMapper.fromJson(json);
 
   ///
-  factory Worldstate.fromMap(Map<String, dynamic> map) => WorldstateMapper.fromMap(map);
+  factory fromMap(Map<String, dynamic> map) => WorldstateMapper.fromMap(map);
 
   ///
-  factory Worldstate.fromRaw(RawWorldstate raw, Dependency deps) {
+  factory fromRaw(RawWorldstate raw, Dependency deps) {
     final tmp = json.decode(raw.tmp) as Map<String, dynamic>;
 
     // Bounties all have the same 2 hour cycle so safe to just reuse one.
@@ -233,4 +234,7 @@ class Worldstate with WorldstateMappable {
 
   /// Personal rewards and bonus region for clan initiative
   final ClanInitiative clanInitiative;
+
+  /// Current arbitration
+  final Arbitration? arbitration;
 }

@@ -11,7 +11,7 @@ final DateTime start = DateTime.parse('2020-11-16T00:00:00.000Z');
 
 @MappableClass()
 class SteelPath extends WorldstateObject with SteelPathMappable {
-  SteelPath({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -20,7 +20,7 @@ class SteelPath extends WorldstateObject with SteelPathMappable {
     required this.evergreens,
   });
 
-  factory SteelPath.init([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
+  factory init([WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     const eightWeeks = (DateTime.daysPerWeek * 8) * Duration.secondsPerDay;
     const sevenDays = DateTime.daysPerWeek * Duration.secondsPerDay;
 

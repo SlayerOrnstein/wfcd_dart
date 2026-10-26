@@ -10,7 +10,7 @@ part 'syndicate.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
-  RawSyndicate({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -19,7 +19,7 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
     required this.jobs,
   });
 
-  static const fromMap = RawSyndicateMapper.fromMap;
+  static const RawSyndicate Function(Map<String, dynamic> map) fromMap = RawSyndicateMapper.fromMap;
 
   final String tag;
   final List<String> nodes;
@@ -30,7 +30,7 @@ class RawSyndicate extends BaseContentObject with RawSyndicateMappable {
 
 @MappableClass()
 class RawJob with RawJobMappable {
-  RawJob({
+  new({
     required this.jobType,
     required this.rewards,
     required this.masteryReq,
@@ -42,7 +42,7 @@ class RawJob with RawJobMappable {
     required this.isVault,
   });
 
-  static const fromMap = RawJobMapper.fromMap;
+  static const RawJob Function(Map<String, dynamic> map) fromMap = RawJobMapper.fromMap;
 
   final String? jobType;
   final String rewards;
@@ -59,7 +59,7 @@ class RawJob with RawJobMappable {
 
 @MappableClass()
 class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
-  SyndicateMission({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -68,7 +68,7 @@ class SyndicateMission extends WorldstateObject with SyndicateMissionMappable {
     required this.bounties,
   });
 
-  factory SyndicateMission.fromRaw(RawSyndicate raw, Dependency deps) {
+  factory fromRaw(RawSyndicate raw, Dependency deps) {
     final nodes = raw.nodes.map((n) => deps.nodes.fetchNode(n).name).toList();
 
     return SyndicateMission(
@@ -100,7 +100,7 @@ typedef BountyStage = ({int stage, List<RewardDrop> rewards});
 
 @MappableClass()
 class SyndicateBounty with SyndicateBountyMappable {
-  SyndicateBounty({
+  new({
     required this.type,
     required this.rewardPoolString,
     required this.masteryRequirment,
@@ -113,7 +113,7 @@ class SyndicateBounty with SyndicateBountyMappable {
     this.rewardPool = const [],
   });
 
-  factory SyndicateBounty.fromRaw(RawJob raw, Dependency deps) {
+  factory fromRaw(RawJob raw, Dependency deps) {
     final (rewards, drops) = _fetchBountyRewards(raw.rewards, deps.dropData.bountyRewardTables, raw);
 
     return SyndicateBounty(
@@ -236,9 +236,9 @@ class SyndicateBounty with SyndicateBountyMappable {
 @MappableClass()
 class RewardDrop with RewardDropMappable {
   /// {@macro reward_drop}
-  const RewardDrop({required this.item, required this.rarity, required this.chance, required this.count});
+  const new({required this.item, required this.rarity, required this.chance, required this.count});
 
-  factory RewardDrop.fromDrop(BountyReward drop) {
+  factory fromDrop(BountyReward drop) {
     // Don't usually see drop counts this high but you know, cast a wide net
     final countReg = RegExp('([0-9]{1,10})X');
     final count = countReg.allMatches(drop.item);

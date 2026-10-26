@@ -1,5 +1,5 @@
 // example file
-// ignore_for_file: avoid_print, unused_import
+// ignore_for_file: avoid_print
 
 import 'dart:convert';
 

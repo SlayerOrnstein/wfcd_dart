@@ -8,7 +8,7 @@ part 'alert.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawAlert extends BaseContentObject with RawAlertMappable {
-  RawAlert({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -17,7 +17,7 @@ class RawAlert extends BaseContentObject with RawAlertMappable {
     this.forceUnlock = false,
   });
 
-  static const fromMap = RawAlertMapper.fromMap;
+  static const RawAlert Function(Map<String, dynamic> map) fromMap = RawAlertMapper.fromMap;
 
   final RawMission missionInfo;
   final String tag;
@@ -28,7 +28,7 @@ class RawAlert extends BaseContentObject with RawAlertMappable {
 
 @MappableClass()
 class Alert extends WorldstateObject with AlertMappable {
-  Alert({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -37,7 +37,7 @@ class Alert extends WorldstateObject with AlertMappable {
     required this.forceUnlocked,
   });
 
-  factory Alert.fromRaw(RawAlert raw, Dependency deps) {
+  factory fromRaw(RawAlert raw, Dependency deps) {
     return Alert(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),

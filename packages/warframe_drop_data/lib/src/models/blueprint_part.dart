@@ -12,7 +12,7 @@ class BlueprintPart with BlueprintPartMappable {
   const BlueprintPart({required this.id, required this.name, required this.enemies});
 
   /// Creates an [BlueprintPart] from map
-  static const fromMap = BlueprintPartMapper.fromMap;
+  static const BlueprintPart Function(Map<String, dynamic> map) fromMap = BlueprintPartMapper.fromMap;
 
   /// MD5 generated ID
   final String id;

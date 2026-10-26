@@ -8,7 +8,7 @@ part 'nightwave.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawSeasonInfo extends BaseContentObject with RawSeasonInfoMappable {
-  RawSeasonInfo({
+  new({
     required super.activation,
     required super.expiry,
     required this.affiliationTag,
@@ -17,7 +17,7 @@ class RawSeasonInfo extends BaseContentObject with RawSeasonInfoMappable {
     required this.activeChallenges,
   }) : super(id: {});
 
-  static const fromMap = RawSeasonInfoMapper.fromMap;
+  static const RawSeasonInfo Function(Map<String, dynamic> map) fromMap = RawSeasonInfoMapper.fromMap;
 
   final String affiliationTag;
   final int season;
@@ -29,7 +29,7 @@ class RawSeasonInfo extends BaseContentObject with RawSeasonInfoMappable {
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawActiveChallenge extends BaseContentObject with RawActiveChallengeMappable {
-  RawActiveChallenge({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -43,7 +43,7 @@ class RawActiveChallenge extends BaseContentObject with RawActiveChallengeMappab
 
 @MappableClass()
 class Nightwave extends WorldstateObject with NightwaveMappable {
-  Nightwave({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -52,7 +52,7 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
     required this.challenges,
   });
 
-  factory Nightwave.fromRaw(RawSeasonInfo raw, Dependency deps) {
+  factory fromRaw(RawSeasonInfo raw, Dependency deps) {
     return Nightwave(
       id: hash(raw.affiliationTag + raw.activation.toString() + raw.expiry.toString()),
       activation: parseDate(raw.activation),
@@ -79,7 +79,7 @@ class Nightwave extends WorldstateObject with NightwaveMappable {
 
 @MappableClass()
 class NightwaveChallenge extends WorldstateObject with NightwaveChallengeMappable {
-  NightwaveChallenge({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -89,7 +89,7 @@ class NightwaveChallenge extends WorldstateObject with NightwaveChallengeMappabl
     this.isElite = false,
   });
 
-  factory NightwaveChallenge.fromRaw(RawActiveChallenge raw, Dependency deps) {
+  factory fromRaw(RawActiveChallenge raw, Dependency deps) {
     return NightwaveChallenge(
       id: parseId(raw.id),
       activation: parseDate(raw.activation),

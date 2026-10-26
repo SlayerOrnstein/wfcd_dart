@@ -15,7 +15,7 @@ class Rotations<T extends ItemDrop> with RotationsMappable<T> {
   factory Rotations.empty() => Rotations(a: [], b: [], c: []);
 
   /// Get [Rotations] from map
-  static const fromMap = RotationsMapper.fromMap;
+  static const Rotations<T> Function<T extends ItemDrop>(Map<String, dynamic> map) fromMap = RotationsMapper.fromMap;
 
   /// Rotation A
   @MappableField(key: 'A')

@@ -7,25 +7,25 @@ part 'in_game_market.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawInGameMarket with RawInGameMarketMappable {
-  RawInGameMarket({required this.landingPage});
+  new({required this.landingPage});
 
   final RawLandingPage landingPage;
 
-  static const fromMap = RawInGameMarketMapper.fromMap;
+  static const RawInGameMarket Function(Map<String, dynamic> map) fromMap = RawInGameMarketMapper.fromMap;
 
   InGameMarket toInGameMarket(Dependency deps) => InGameMarket.fromRaw(this, deps);
 }
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawLandingPage with RawLandingPageMappable {
-  RawLandingPage({required this.categories});
+  new({required this.categories});
 
   final List<RawCategory> categories;
 }
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawCategory with RawCategoryMappable {
-  RawCategory({
+  new({
     required this.categoryName,
     required this.name,
     required this.icon,
@@ -44,9 +44,9 @@ class RawCategory with RawCategoryMappable {
 
 @MappableClass()
 class InGameMarket with InGameMarketMappable {
-  InGameMarket({required this.landingPage});
+  new({required this.landingPage});
 
-  factory InGameMarket.fromRaw(RawInGameMarket raw, Dependency deps) {
+  factory fromRaw(RawInGameMarket raw, Dependency deps) {
     final rawCategories = raw.landingPage.categories.map((c) => Category.fromRaw(c, deps));
 
     return InGameMarket(landingPage: LandingPage(categories: rawCategories.toList()));
@@ -57,14 +57,14 @@ class InGameMarket with InGameMarketMappable {
 
 @MappableClass()
 class LandingPage with LandingPageMappable {
-  LandingPage({required this.categories});
+  new({required this.categories});
 
   final List<Category> categories;
 }
 
 @MappableClass()
 class Category with CategoryMappable {
-  Category({
+  new({
     required this.category,
     required this.name,
     required this.icon,
@@ -72,7 +72,7 @@ class Category with CategoryMappable {
     required this.items,
   });
 
-  factory Category.fromRaw(RawCategory raw, Dependency deps) {
+  factory fromRaw(RawCategory raw, Dependency deps) {
     final langs = deps.langs;
 
     return Category(

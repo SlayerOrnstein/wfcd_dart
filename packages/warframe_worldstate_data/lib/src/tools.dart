@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs
 
 enum WorldstateDataLocale { en, cs, de, es, fr, it, ko, pl, pt, ru, sr, tr, uk, zh }
 

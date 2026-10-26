@@ -27,43 +27,43 @@ Map<String, String> missionTypes([WorldstateDataLocale locale = .en]) {
 }
 
 @EmbedStr('/data/missionTypes')
-const _en = _$_en;
+const String _en = _$_en;
 
 @EmbedStr('/data/cs/missionTypes')
-const _cs = _$_cs;
+const String _cs = _$_cs;
 
 @EmbedStr('/data/de/missionTypes')
-const _de = _$_de;
+const String _de = _$_de;
 
 @EmbedStr('/data/es/missionTypes')
-const _es = _$_es;
+const String _es = _$_es;
 
 @EmbedStr('/data/fr/missionTypes')
-const _fr = _$_fr;
+const String _fr = _$_fr;
 
 @EmbedStr('/data/it/missionTypes')
-const _it = _$_it;
+const String _it = _$_it;
 
 @EmbedStr('/data/ko/missionTypes')
-const _ko = _$_ko;
+const String _ko = _$_ko;
 
 @EmbedStr('/data/pl/missionTypes')
-const _pl = _$_pl;
+const String _pl = _$_pl;
 
 @EmbedStr('/data/pt/missionTypes')
-const _pt = _$_pt;
+const String _pt = _$_pt;
 
 @EmbedStr('/data/ru/missionTypes')
-const _ru = _$_ru;
+const String _ru = _$_ru;
 
 @EmbedStr('/data/sr/missionTypes')
-const _sr = _$_sr;
+const String _sr = _$_sr;
 
 @EmbedStr('/data/tr/missionTypes')
-const _tr = _$_tr;
+const String _tr = _$_tr;
 
 @EmbedStr('/data/uk/missionTypes')
-const _uk = _$_uk;
+const String _uk = _$_uk;
 
 @EmbedStr('/data/zh/missionTypes')
-const _zh = _$_zh;
+const String _zh = _$_zh;

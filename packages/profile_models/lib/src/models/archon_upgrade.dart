@@ -7,7 +7,7 @@ part 'archon_upgrade.mapper.dart';
 class RawArchonUpgrade with RawArchonUpgradeMappable {
   RawArchonUpgrade({required this.color, required this.upgradeType});
 
-  static const fromMap = RawArchonUpgradeMapper.fromMap;
+  static const RawArchonUpgrade Function(Map<String, dynamic> map) fromMap = RawArchonUpgradeMapper.fromMap;
 
   final String color;
   final String upgradeType;

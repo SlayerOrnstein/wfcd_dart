@@ -9,7 +9,7 @@ part 'invasion.mapper.dart';
 
 @MappableClass()
 class RawMissionInfo with RawMissionInfoMappable {
-  RawMissionInfo({required this.seed, required this.faction});
+  new({required this.seed, required this.faction});
 
   final int seed;
   final String faction;
@@ -17,7 +17,7 @@ class RawMissionInfo with RawMissionInfoMappable {
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawInvasion extends BaseContentObject with RawInvasionMappable {
-  RawInvasion({
+  new({
     required super.id,
     required super.activation,
     required this.faction,
@@ -33,7 +33,7 @@ class RawInvasion extends BaseContentObject with RawInvasionMappable {
     required this.defenderMissionInfo,
   }) : attackerReward = attackerReward is List ? null : RawReward.fromMap(attackerReward as Map<String, dynamic>);
 
-  static const fromMap = RawInvasionMapper.fromMap;
+  static const RawInvasion Function(Map<String, dynamic> map) fromMap = RawInvasionMapper.fromMap;
 
   final String faction;
   final String defenderFaction;
@@ -52,7 +52,7 @@ class RawInvasion extends BaseContentObject with RawInvasionMappable {
 
 @MappableClass()
 class Invasion extends WorldstateObject with InvasionMappable {
-  Invasion({
+  new({
     required super.id,
     required super.activation,
     required this.key,
@@ -68,7 +68,7 @@ class Invasion extends WorldstateObject with InvasionMappable {
     required this.rewardTypes,
   });
 
-  factory Invasion.fromRaw(RawInvasion raw, Dependency deps) {
+  factory fromRaw(RawInvasion raw, Dependency deps) {
     final attacker = InvasionFaction.fromRaw(raw.defenderMissionInfo.faction, raw.attackerReward, deps);
     final defender = InvasionFaction.fromRaw(raw.attackerMissionInfo.faction, raw.defenderReward, deps);
     final vsInfestation = raw.faction == 'FC_INFESTATION';
@@ -140,9 +140,9 @@ class Invasion extends WorldstateObject with InvasionMappable {
 
 @MappableClass()
 class InvasionFaction with InvasionFactionMappable {
-  InvasionFaction({required this.key, required this.faction, required this.reward});
+  new({required this.key, required this.faction, required this.reward});
 
-  factory InvasionFaction.fromRaw(String faction, RawReward? reward, Dependency deps) {
+  factory fromRaw(String faction, RawReward? reward, Dependency deps) {
     return InvasionFaction(
       key: data.faction(faction),
       faction: data.faction(faction, deps.locale),

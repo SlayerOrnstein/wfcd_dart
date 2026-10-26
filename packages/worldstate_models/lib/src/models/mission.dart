@@ -7,7 +7,7 @@ part 'mission.mapper.dart';
 
 @MappableClass()
 class RawMission with RawMissionMappable {
-  RawMission({
+  new({
     required this.missionType,
     required this.faction,
     required this.location,
@@ -24,7 +24,7 @@ class RawMission with RawMissionMappable {
     this.isSharkwingMission = false,
   });
 
-  static const fromMap = RawMissionMapper.fromMap;
+  static const RawMission Function(Map<String, dynamic> map) fromMap = RawMissionMapper.fromMap;
 
   final String missionType;
   final String faction;
@@ -46,7 +46,7 @@ class RawMission with RawMissionMappable {
 
 @MappableClass()
 class Mission with MissionMappable {
-  Mission({
+  new({
     required this.type,
     required this.factionKey,
     required this.faction,
@@ -63,7 +63,7 @@ class Mission with MissionMappable {
     required this.archwingRequired,
   });
 
-  factory Mission.fromRaw(RawMission raw, Dependency deps) {
+  factory fromRaw(RawMission raw, Dependency deps) {
     final langs = deps.langs;
     final locale = deps.locale;
 

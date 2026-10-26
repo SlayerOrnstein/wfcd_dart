@@ -10,7 +10,7 @@ enum CambionState { fass, vome }
 
 @MappableClass()
 class CambionCycle extends WorldstateObject with CambionCycleMappable {
-  CambionCycle({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -18,7 +18,7 @@ class CambionCycle extends WorldstateObject with CambionCycleMappable {
     required this.state,
   });
 
-  factory CambionCycle.fromBountiesEndDate(DateTime bountiesEnd) {
+  factory fromBountiesEndDate(DateTime bountiesEnd) {
     final cycle = calculateCurrentCetusCycle(bountiesEnd);
 
     return CambionCycle(

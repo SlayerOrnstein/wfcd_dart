@@ -10,7 +10,7 @@ part 'fissure.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
-  RawActiveMission({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -21,7 +21,7 @@ class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
     required this.activeMissionTier,
   });
 
-  static const fromMap = RawActiveMissionMapper.fromMap;
+  static const RawActiveMission Function(Map<String, dynamic> map) fromMap = RawActiveMissionMapper.fromMap;
 
   final String node;
   final String? missionType;
@@ -34,7 +34,7 @@ class RawActiveMission extends BaseContentObject with RawActiveMissionMappable {
 
 @MappableClass()
 class VoidFissure extends WorldstateObject with VoidFissureMappable {
-  VoidFissure({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -47,7 +47,7 @@ class VoidFissure extends WorldstateObject with VoidFissureMappable {
     required this.rewardPools,
   });
 
-  factory VoidFissure.fromRaw(RawActiveMission raw, Dependency deps) {
+  factory fromRaw(RawActiveMission raw, Dependency deps) {
     final node = deps.nodes.fetchNode(raw.node);
     final isStorm = raw.node.contains('CrewBattle');
     final rewardPools = _findRewardPools(node.name, deps.dropData, isStrom: isStorm);

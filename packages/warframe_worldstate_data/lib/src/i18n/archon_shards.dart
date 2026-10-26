@@ -37,43 +37,43 @@ Map<String, ArchonShard> archonShards([WorldstateDataLocale locale = .en]) {
 }
 
 @EmbedStr('/data/archonShards')
-const _en = _$_en;
+const String _en = _$_en;
 
 @EmbedStr('/data/cs/archonShards')
-const _cs = _$_cs;
+const String _cs = _$_cs;
 
 @EmbedStr('/data/de/archonShards')
-const _de = _$_de;
+const String _de = _$_de;
 
 @EmbedStr('/data/es/archonShards')
-const _es = _$_es;
+const String _es = _$_es;
 
 @EmbedStr('/data/fr/archonShards')
-const _fr = _$_fr;
+const String _fr = _$_fr;
 
 @EmbedStr('/data/it/archonShards')
-const _it = _$_it;
+const String _it = _$_it;
 
 @EmbedStr('/data/ko/archonShards')
-const _ko = _$_ko;
+const String _ko = _$_ko;
 
 @EmbedStr('/data/pl/archonShards')
-const _pl = _$_pl;
+const String _pl = _$_pl;
 
 @EmbedStr('/data/pt/archonShards')
-const _pt = _$_pt;
+const String _pt = _$_pt;
 
 @EmbedStr('/data/ru/archonShards')
-const _ru = _$_ru;
+const String _ru = _$_ru;
 
 @EmbedStr('/data/sr/archonShards')
-const _sr = _$_sr;
+const String _sr = _$_sr;
 
 @EmbedStr('/data/tr/archonShards')
-const _tr = _$_tr;
+const String _tr = _$_tr;
 
 @EmbedStr('/data/uk/archonShards')
-const _uk = _$_uk;
+const String _uk = _$_uk;
 
 @EmbedStr('/data/zh/archonShards')
-const _zh = _$_zh;
+const String _zh = _$_zh;

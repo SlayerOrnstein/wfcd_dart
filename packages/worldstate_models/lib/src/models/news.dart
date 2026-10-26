@@ -7,7 +7,7 @@ part 'news.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawEvent with RawEventMappable {
-  RawEvent({
+  new({
     required this.id,
     required this.messages,
     required this.date,
@@ -18,7 +18,7 @@ class RawEvent with RawEventMappable {
     this.community = false,
   });
 
-  static const fromMap = RawEventMapper.fromMap;
+  static const RawEvent Function(Map<String, dynamic> map) fromMap = RawEventMapper.fromMap;
 
   @MappableField(key: '_id')
   final JsonObject id;
@@ -35,7 +35,7 @@ class RawEvent with RawEventMappable {
 
 @MappableClass()
 class News with NewsMappable {
-  News({
+  new({
     required this.id,
     required this.message,
     required this.link,
@@ -51,7 +51,7 @@ class News with NewsMappable {
   });
 
   /// Used to create an instance straight from Worldstate API
-  factory News.fromRaw(RawEvent event, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
+  factory fromRaw(RawEvent event, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final date = parseDate(event.date);
     final messages = _buildTranslations(event.messages);
     final updateRegEx = RegExp('(update|hotfix)', caseSensitive: false);

@@ -30,10 +30,10 @@ enum DuviriState {
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawChoiceObject with RawChoiceObjectMappable {
   /// Constructor
-  RawChoiceObject({required this.categoryChoices});
+  new({required this.categoryChoices});
 
   /// Constructor from map
-  factory RawChoiceObject.fromMap(Map<String, dynamic> map) => RawChoiceObjectMapper.fromMap(map);
+  factory fromMap(Map<String, dynamic> map) => RawChoiceObjectMapper.fromMap(map);
 
   /// Current rotation for normal and steel path
   final List<RawCategoryChoices> categoryChoices;
@@ -45,10 +45,10 @@ class RawChoiceObject with RawChoiceObjectMappable {
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawCategoryChoices with RawCategoryChoicesMappable {
   /// Constructor
-  RawCategoryChoices({required this.category, required this.choices});
+  new({required this.category, required this.choices});
 
   /// Constructor from map
-  factory RawCategoryChoices.fromMap(Map<String, dynamic> map) => RawCategoryChoicesMapper.fromMap(map);
+  factory fromMap(Map<String, dynamic> map) => RawCategoryChoicesMapper.fromMap(map);
 
   /// Whether this is normal or steel path
   final String category;
@@ -62,7 +62,7 @@ class RawCategoryChoices with RawCategoryChoicesMappable {
 
 @MappableClass()
 class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
-  DuviriCycle({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -70,7 +70,7 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
     required this.choices,
   });
 
-  factory DuviriCycle.fromRaw(RawChoiceObject raw) {
+  factory fromRaw(RawChoiceObject raw) {
     final phase = calculateCurrentDuviriPhase();
     final choices = raw.categoryChoices;
 
@@ -98,9 +98,9 @@ class DuviriCycle extends WorldstateObject with DuviriCycleMappable {
 
 @MappableClass()
 class CircuitChoice with CircuitChoiceMappable {
-  CircuitChoice({required this.key, required this.choices});
+  new({required this.key, required this.choices});
 
-  factory CircuitChoice.fromRaw(RawCategoryChoices raw) {
+  factory fromRaw(RawCategoryChoices raw) {
     return CircuitChoice(key: raw.category, choices: raw.choices.map(normalizeResourceName).toList());
   }
 

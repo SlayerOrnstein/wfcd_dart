@@ -9,7 +9,7 @@ enum CetusState { day, night }
 
 @MappableClass()
 class CetusCycle extends WorldstateObject with CetusCycleMappable {
-  CetusCycle({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -17,7 +17,7 @@ class CetusCycle extends WorldstateObject with CetusCycleMappable {
     required this.state,
   });
 
-  factory CetusCycle.fromBountiesEndDate(DateTime bountiesEnd) {
+  factory fromBountiesEndDate(DateTime bountiesEnd) {
     final cycle = calculateCurrentCetusCycle(bountiesEnd);
 
     return CetusCycle(

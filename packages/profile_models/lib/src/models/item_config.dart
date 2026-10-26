@@ -14,7 +14,7 @@ class RawItemConfig with RawItemConfigMappable {
     required this.syancol,
   });
 
-  static const fromMap = RawItemConfigMapper.fromMap;
+  static const RawItemConfig Function(Map<String, dynamic> map) fromMap = RawItemConfigMapper.fromMap;
 
   final List<String>? skins;
   final List<String>? pvpUgrades;

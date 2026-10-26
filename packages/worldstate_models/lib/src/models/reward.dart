@@ -10,9 +10,9 @@ typedef CountedItem = ({int count, String type, String key});
 
 @MappableClass()
 class RawReward with RawRewardMappable {
-  RawReward({required this.items, required this.countedItems, required this.credits});
+  new({required this.items, required this.countedItems, required this.credits});
 
-  static const fromMap = RawRewardMapper.fromMap;
+  static const RawReward Function(Map<String, dynamic> map) fromMap = RawRewardMapper.fromMap;
 
   final List<String>? items;
   final List<JsonObject>? countedItems;
@@ -23,9 +23,9 @@ class RawReward with RawRewardMappable {
 
 @MappableClass()
 class Reward with RewardMappable {
-  Reward({required this.items, required this.countedItems, required this.credits});
+  new({required this.items, required this.countedItems, required this.credits});
 
-  factory Reward.fromRaw(RawReward raw, Dependency deps) {
+  factory fromRaw(RawReward raw, Dependency deps) {
     final countedItems = raw.countedItems?.map<CountedItem>((i) => _toCountedItem(i, deps.locale)).toList();
 
     return Reward(

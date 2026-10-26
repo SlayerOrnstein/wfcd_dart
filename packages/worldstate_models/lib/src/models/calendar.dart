@@ -8,7 +8,7 @@ part 'calendar.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawCalendar extends BaseContentObject with RawCalendarMappable {
-  RawCalendar({
+  new({
     required super.activation,
     required super.expiry,
     required this.season,
@@ -17,7 +17,7 @@ class RawCalendar extends BaseContentObject with RawCalendarMappable {
     required this.days,
   }) : super(id: {});
 
-  static const fromMap = RawCalendarMapper.fromMap;
+  static const RawCalendar Function(Map<String, dynamic> map) fromMap = RawCalendarMapper.fromMap;
 
   final String season;
   final int yearIteration;
@@ -39,7 +39,7 @@ typedef RawCalendarDayEvent = ({
 
 @MappableClass()
 class RawCalendarDay with RawCalendarDayMappable {
-  RawCalendarDay({required this.day, required this.events});
+  new({required this.day, required this.events});
 
   final int day;
   final List<RawCalendarDayEvent> events;
@@ -47,7 +47,7 @@ class RawCalendarDay with RawCalendarDayMappable {
 
 @MappableClass()
 class Calendar extends WorldstateObject with CalendarMappable {
-  Calendar({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -56,7 +56,7 @@ class Calendar extends WorldstateObject with CalendarMappable {
     required this.days,
   });
 
-  factory Calendar.fromRaw(RawCalendar raw, Dependency deps) {
+  factory fromRaw(RawCalendar raw, Dependency deps) {
     return Calendar(
       id: hash(raw.days.fold<int>(0, (p, n) => p + n.day).toString()),
       activation: parseDate(raw.activation),
@@ -83,9 +83,9 @@ class Calendar extends WorldstateObject with CalendarMappable {
 
 @MappableClass()
 class CalendarDay with CalendarDayMappable {
-  CalendarDay({required this.day, required this.events});
+  new({required this.day, required this.events});
 
-  factory CalendarDay.fromRaw(RawCalendarDay raw, Dependency deps) {
+  factory fromRaw(RawCalendarDay raw, Dependency deps) {
     final year1999 = DateTime.utc(1999);
 
     return CalendarDay(
@@ -100,9 +100,9 @@ class CalendarDay with CalendarDayMappable {
 
 @MappableClass(discriminatorKey: 'key')
 sealed class CalendarDayEvent with CalendarDayEventMappable {
-  CalendarDayEvent({required this.type});
+  new({required this.type});
 
-  factory CalendarDayEvent.fromType(RawCalendarDayEvent event, Dependency deps) {
+  factory fromType(RawCalendarDayEvent event, Dependency deps) {
     final rawType = CalendarEvents.fromString(event.type);
 
     return switch (rawType) {
@@ -129,7 +129,7 @@ sealed class CalendarDayEvent with CalendarDayEventMappable {
 
 @MappableClass(discriminatorValue: 'CET_CHALLENGE')
 final class CalendarDayChallenge extends CalendarDayEvent with CalendarDayChallengeMappable {
-  CalendarDayChallenge({required this.title, required this.description}) : super(type: .challenge);
+  new({required this.title, required this.description}) : super(type: .challenge);
 
   final String title;
   final String description;
@@ -137,14 +137,14 @@ final class CalendarDayChallenge extends CalendarDayEvent with CalendarDayChalle
 
 @MappableClass(discriminatorValue: 'CET_REWARD')
 final class CalendarDayReward extends CalendarDayEvent with CalendarDayRewardMappable {
-  CalendarDayReward({required this.reward}) : super(type: .reward);
+  new({required this.reward}) : super(type: .reward);
 
   final String reward;
 }
 
 @MappableClass(discriminatorValue: 'CET_UPGRADE')
 final class CalendarDayUpgrade extends CalendarDayEvent with CalendarDayUpgradeMappable {
-  CalendarDayUpgrade({required this.name, required this.description}) : super(type: .upgrade);
+  new({required this.name, required this.description}) : super(type: .upgrade);
 
   final String name;
   final String description;
@@ -152,7 +152,7 @@ final class CalendarDayUpgrade extends CalendarDayEvent with CalendarDayUpgradeM
 
 @MappableClass(discriminatorValue: 'CET_PLOT')
 final class CalendarDayBirthday extends CalendarDayEvent with CalendarDayBirthdayMappable {
-  CalendarDayBirthday({required this.name, required this.conversation}) : super(type: .plot);
+  new({required this.name, required this.conversation}) : super(type: .plot);
 
   final String name;
   final String conversation;

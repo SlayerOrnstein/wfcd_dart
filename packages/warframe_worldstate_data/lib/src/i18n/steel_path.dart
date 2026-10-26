@@ -39,43 +39,43 @@ SteelPathData steelPathOfferings([WorldstateDataLocale locale = .en]) {
 }
 
 @EmbedStr('/data/steelPath')
-const _en = _$_en;
+const String _en = _$_en;
 
 @EmbedStr('/data/cs/steelPath')
-const _cs = _$_cs;
+const String _cs = _$_cs;
 
 @EmbedStr('/data/de/steelPath')
-const _de = _$_de;
+const String _de = _$_de;
 
 @EmbedStr('/data/es/steelPath')
-const _es = _$_es;
+const String _es = _$_es;
 
 @EmbedStr('/data/fr/steelPath')
-const _fr = _$_fr;
+const String _fr = _$_fr;
 
 @EmbedStr('/data/it/steelPath')
-const _it = _$_it;
+const String _it = _$_it;
 
 @EmbedStr('/data/ko/steelPath')
-const _ko = _$_ko;
+const String _ko = _$_ko;
 
 @EmbedStr('/data/pl/steelPath')
-const _pl = _$_pl;
+const String _pl = _$_pl;
 
 @EmbedStr('/data/pt/steelPath')
-const _pt = _$_pt;
+const String _pt = _$_pt;
 
 @EmbedStr('/data/ru/steelPath')
-const _ru = _$_ru;
+const String _ru = _$_ru;
 
 @EmbedStr('/data/sr/steelPath')
-const _sr = _$_sr;
+const String _sr = _$_sr;
 
 @EmbedStr('/data/tr/steelPath')
-const _tr = _$_tr;
+const String _tr = _$_tr;
 
 @EmbedStr('/data/uk/steelPath')
-const _uk = _$_uk;
+const String _uk = _$_uk;
 
 @EmbedStr('/data/zh/steelPath')
-const _zh = _$_zh;
+const String _zh = _$_zh;

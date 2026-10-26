@@ -8,7 +8,7 @@ part 'world_event.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawGoal extends BaseContentObject with RawGoalMappable {
-  RawGoal({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -69,7 +69,7 @@ class RawGoal extends BaseContentObject with RawGoalMappable {
 
 @MappableClass()
 class WorldEvent extends WorldstateObject with WorldEventMappable {
-  WorldEvent({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -92,7 +92,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
     required this.bounties,
   });
 
-  factory WorldEvent.fromRaw(RawGoal raw, Dependency deps) {
+  factory fromRaw(RawGoal raw, Dependency deps) {
     final langs = deps.langs;
 
     return WorldEvent(
@@ -185,7 +185,7 @@ class WorldEvent extends WorldstateObject with WorldEventMappable {
 
 @MappableClass()
 class WorldEventReward with WorldEventRewardMappable {
-  WorldEventReward({required this.requiredScore, required this.reward});
+  new({required this.requiredScore, required this.reward});
 
   /// Score required to earn reward
   final int requiredScore;

@@ -13,10 +13,10 @@ import 'dart:io';
 /// final events = fixture.getEvents();
 /// ```
 class WorldstateFixture {
-  WorldstateFixture._(this.data);
+  new _(this.data);
 
   /// Load the worldstate fixture from the default location
-  factory WorldstateFixture.load({String path = './test/fixtures/worldstate.json'}) {
+  factory load({String path = './test/fixtures/worldstate.json'}) {
     final file = File(path);
     final json = file.readAsStringSync();
     final data = jsonDecode(json) as Map<String, dynamic>;

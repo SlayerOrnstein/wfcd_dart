@@ -10,7 +10,7 @@ part 'clan_initiative.mapper.dart';
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class VaultBonusReward with VaultBonusRewardMappable {
   /// {@macro vault_reward}
-  VaultBonusReward({
+  new({
     required this.reward,
     required this.itemCount,
     required this.pointThreshold,
@@ -18,7 +18,7 @@ class VaultBonusReward with VaultBonusRewardMappable {
   });
 
   ///
-  factory VaultBonusReward.fromMap(Map<String, dynamic> map) {
+  factory fromMap(Map<String, dynamic> map) {
     return VaultBonusRewardMapper.fromMap(map);
   }
 
@@ -41,10 +41,10 @@ class VaultBonusReward with VaultBonusRewardMappable {
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class WeeklyVaultBonusRewards with WeeklyVaultBonusRewardsMappable {
   /// {@macro weekly_clan}
-  WeeklyVaultBonusRewards({required this.weekCount, required this.bonusRegion, required this.rewards});
+  new({required this.weekCount, required this.bonusRegion, required this.rewards});
 
   ///
-  factory WeeklyVaultBonusRewards.fromMap(Map<String, dynamic> map) {
+  factory fromMap(Map<String, dynamic> map) {
     return WeeklyVaultBonusRewardsMapper.fromMap(map);
   }
 
@@ -64,7 +64,7 @@ class WeeklyVaultBonusRewards with WeeklyVaultBonusRewardsMappable {
 @MappableClass()
 class PersonalReward with PersonalRewardMappable {
   /// {@macro personal_reward}
-  PersonalReward({
+  new({
     required this.uniqueName,
     required this.reward,
     required this.count,
@@ -73,7 +73,7 @@ class PersonalReward with PersonalRewardMappable {
   });
 
   ///
-  factory PersonalReward.fromRaw(VaultBonusReward raw, Dependency deps) {
+  factory fromRaw(VaultBonusReward raw, Dependency deps) {
     return PersonalReward(
       uniqueName: raw.reward,
       reward: deps.langs.fetchValue(raw.reward),
@@ -107,10 +107,10 @@ class PersonalReward with PersonalRewardMappable {
 @MappableClass()
 class ClanInitiative with ClanInitiativeMappable {
   /// {@macro clan_initiative}
-  ClanInitiative({required this.week, required this.bonusRegion, required this.rewards});
+  new({required this.week, required this.bonusRegion, required this.rewards});
 
   ///
-  factory ClanInitiative.fromRaw(WeeklyVaultBonusRewards raw, Dependency deps) {
+  factory fromRaw(WeeklyVaultBonusRewards raw, Dependency deps) {
     return ClanInitiative(
       week: raw.weekCount,
       bonusRegion: deps.langs.fetchValue(raw.bonusRegion),

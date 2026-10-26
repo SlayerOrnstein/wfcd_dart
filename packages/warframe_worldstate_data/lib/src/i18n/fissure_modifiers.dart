@@ -35,43 +35,43 @@ Map<String, FissureModifier> fissures([WorldstateDataLocale locale = .en]) {
 }
 
 @EmbedStr('/data/fissureModifiers')
-const _en = _$_en;
+const String _en = _$_en;
 
 @EmbedStr('/data/cs/fissureModifiers')
-const _cs = _$_cs;
+const String _cs = _$_cs;
 
 @EmbedStr('/data/de/fissureModifiers')
-const _de = _$_de;
+const String _de = _$_de;
 
 @EmbedStr('/data/es/fissureModifiers')
-const _es = _$_es;
+const String _es = _$_es;
 
 @EmbedStr('/data/fr/fissureModifiers')
-const _fr = _$_fr;
+const String _fr = _$_fr;
 
 @EmbedStr('/data/it/fissureModifiers')
-const _it = _$_it;
+const String _it = _$_it;
 
 @EmbedStr('/data/ko/fissureModifiers')
-const _ko = _$_ko;
+const String _ko = _$_ko;
 
 @EmbedStr('/data/pl/fissureModifiers')
-const _pl = _$_pl;
+const String _pl = _$_pl;
 
 @EmbedStr('/data/pt/fissureModifiers')
-const _pt = _$_pt;
+const String _pt = _$_pt;
 
 @EmbedStr('/data/ru/fissureModifiers')
-const _ru = _$_ru;
+const String _ru = _$_ru;
 
 @EmbedStr('/data/sr/fissureModifiers')
-const _sr = _$_sr;
+const String _sr = _$_sr;
 
 @EmbedStr('/data/tr/fissureModifiers')
-const _tr = _$_tr;
+const String _tr = _$_tr;
 
 @EmbedStr('/data/uk/fissureModifiers')
-const _uk = _$_uk;
+const String _uk = _$_uk;
 
 @EmbedStr('/data/zh/fissureModifiers')
-const _zh = _$_zh;
+const String _zh = _$_zh;

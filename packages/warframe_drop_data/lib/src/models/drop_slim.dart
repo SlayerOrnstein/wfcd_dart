@@ -11,10 +11,10 @@ class DropSlim with DropSlimMappable {
   DropSlim({required this.place, required this.item, required this.rarity, required this.chance});
 
   /// [DropSlim] from json string
-  static const fromJson = DropSlimMapper.fromJson;
+  static const DropSlim Function(String json) fromJson = DropSlimMapper.fromJson;
 
   /// [DropSlim] from [Map]
-  static const fromMap = DropSlimMapper.fromMap;
+  static const DropSlim Function(Map<String, dynamic> map) fromMap = DropSlimMapper.fromMap;
 
   /// Location items drops
   final String place;

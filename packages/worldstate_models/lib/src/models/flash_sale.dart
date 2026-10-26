@@ -8,7 +8,7 @@ part 'flash_sale.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
-  RawFlashSale({
+  new({
     required this.typeName,
     required this.discount,
     required this.bogoBuy,
@@ -39,7 +39,7 @@ class RawFlashSale extends BaseContentObject with RawFlashSaleMappable {
 
 @MappableClass()
 class FlashSale extends WorldstateObject with FlashSaleMappable {
-  FlashSale({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -51,7 +51,7 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
     required this.regularOverride,
   });
 
-  factory FlashSale.fromRaw(RawFlashSale raw, Dependency deps) {
+  factory fromRaw(RawFlashSale raw, Dependency deps) {
     final activation = parseDate(raw.startDate);
 
     return FlashSale(
@@ -59,7 +59,7 @@ class FlashSale extends WorldstateObject with FlashSaleMappable {
       activation: activation,
       expiry: parseDate(raw.endDate),
       item: deps.langs.fetchValue(raw.typeName),
-      shownInMarket: raw.showInMarket || raw.hideFromMarket || false,
+      shownInMarket: raw.showInMarket || raw.hideFromMarket,
       isSupporterPack: raw.supporterPack,
       discount: raw.discount ?? 0,
       premiumOverride: raw.premiumOverride ?? 0,

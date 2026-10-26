@@ -15,7 +15,7 @@ typedef RawScheduleInfo = ({JsonObject expiry, JsonObject? previewHiddenUntil, S
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawTrader extends BaseContentObject with RawTraderMappable {
-  RawTrader({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -27,9 +27,9 @@ class RawTrader extends BaseContentObject with RawTraderMappable {
     this.evergreenManifest = const [],
   });
 
-  static const fromJson = RawTraderMapper.fromJson;
+  static const RawTrader Function(String json) fromJson = RawTraderMapper.fromJson;
 
-  static const fromMap = RawTraderMapper.fromMap;
+  static const RawTrader Function(Map<String, dynamic> map) fromMap = RawTraderMapper.fromMap;
 
   final JsonObject? initialStartDate;
 
@@ -51,7 +51,7 @@ typedef TraderItem = ({String uniqueName, String name, int primePrice, int regul
 
 @MappableClass()
 class Trader extends WorldstateObject with TraderMappable {
-  Trader({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -63,7 +63,7 @@ class Trader extends WorldstateObject with TraderMappable {
     required this.schedule,
   });
 
-  factory Trader.fromRaw(RawTrader raw, Dependency deps, {String? character}) {
+  factory fromRaw(RawTrader raw, Dependency deps, {String? character}) {
     TraderItem toItem(RawTraderItem item) {
       return (
         uniqueName: item.itemType,
@@ -105,9 +105,9 @@ class Trader extends WorldstateObject with TraderMappable {
 
 @MappableClass()
 class Schedule with ScheduleMappable {
-  Schedule({required this.expiry, required this.previewHiddenUntil, this.key, this.resurgence});
+  new({required this.expiry, required this.previewHiddenUntil, this.key, this.resurgence});
 
-  factory Schedule.fromRaw(RawScheduleInfo raw, Dependency deps) {
+  factory fromRaw(RawScheduleInfo raw, Dependency deps) {
     return Schedule(
       expiry: parseDate(raw.expiry),
       previewHiddenUntil: parseDate(raw.previewHiddenUntil),

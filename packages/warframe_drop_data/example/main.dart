@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:html/parser.dart';
 import 'package:http/http.dart';
-// ignore: depend_on_referenced_packages Only a example/test so doesn't matter
 import 'package:path/path.dart';
 import 'package:warframe_drop_data/warframe_drop_data.dart';
 

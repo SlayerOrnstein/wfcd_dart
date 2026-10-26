@@ -7,7 +7,7 @@ part 'global_upgrade.mapper.dart';
 
 @MappableClass(caseStyle: CaseStyle.pascalCase)
 class RawGlobalUpgrade extends BaseContentObject with RawGlobalUpgradeMappable {
-  RawGlobalUpgrade({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -18,7 +18,7 @@ class RawGlobalUpgrade extends BaseContentObject with RawGlobalUpgradeMappable {
     required this.localizeDescTag,
   });
 
-  static const fromMap = RawGlobalUpgradeMapper.fromMap;
+  static const RawGlobalUpgrade Function(Map<String, dynamic> map) fromMap = RawGlobalUpgradeMapper.fromMap;
 
   final String upgradeType;
   final String? opertationType;
@@ -32,7 +32,7 @@ class RawGlobalUpgrade extends BaseContentObject with RawGlobalUpgradeMappable {
 
 @MappableClass()
 class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
-  GlobalUpgrade({
+  new({
     required super.id,
     required super.activation,
     required super.expiry,
@@ -44,7 +44,7 @@ class GlobalUpgrade extends WorldstateObject with GlobalUpgradeMappable {
     required this.description,
   });
 
-  factory GlobalUpgrade.fromRaw(RawGlobalUpgrade raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
+  factory fromRaw(RawGlobalUpgrade raw, [WorldstateDataLocale locale = WorldstateDataLocale.en]) {
     final operation = operationType(raw.opertationType ?? '', locale);
     final upgrade = upgradeType(raw.upgradeType, locale);
     final desc = '$upgrade ${operation.value} ${raw.value}${operation.symbol}';
