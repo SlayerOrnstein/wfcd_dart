@@ -18,6 +18,7 @@ class Arbitration extends WorldstateObject with ArbitrationMappable {
     required super.expiry,
     required this.key,
     required this.node,
+    required this.faction,
     required this.type,
   });
 
@@ -35,12 +36,14 @@ class Arbitration extends WorldstateObject with ArbitrationMappable {
       expiry: expiry,
       key: key,
       node: node.name,
+      faction: node.enemy ?? key,
       type: node.type,
     );
   }
 
   final String key;
   final String node;
+  final String faction;
   final String? type;
 
   @override

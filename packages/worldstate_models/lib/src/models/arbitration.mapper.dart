@@ -38,6 +38,11 @@ class ArbitrationMapper extends ClassMapperBase<Arbitration> {
   static const Field<Arbitration, String> _f$key = Field('key', _$key);
   static String _$node(Arbitration v) => v.node;
   static const Field<Arbitration, String> _f$node = Field('node', _$node);
+  static String _$faction(Arbitration v) => v.faction;
+  static const Field<Arbitration, String> _f$faction = Field(
+    'faction',
+    _$faction,
+  );
   static String? _$type(Arbitration v) => v.type;
   static const Field<Arbitration, String> _f$type = Field('type', _$type);
 
@@ -48,6 +53,7 @@ class ArbitrationMapper extends ClassMapperBase<Arbitration> {
     #expiry: _f$expiry,
     #key: _f$key,
     #node: _f$node,
+    #faction: _f$faction,
     #type: _f$type,
   };
   @override
@@ -60,6 +66,7 @@ class ArbitrationMapper extends ClassMapperBase<Arbitration> {
       expiry: data.dec(_f$expiry),
       key: data.dec(_f$key),
       node: data.dec(_f$node),
+      faction: data.dec(_f$faction),
       type: data.dec(_f$type),
     );
   }
@@ -130,6 +137,7 @@ abstract class ArbitrationCopyWith<$R, $In extends Arbitration, $Out>
     DateTime? expiry,
     String? key,
     String? node,
+    String? faction,
     String? type,
   });
   ArbitrationCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -150,6 +158,7 @@ class _ArbitrationCopyWithImpl<$R, $Out>
     Object? expiry = $none,
     String? key,
     String? node,
+    String? faction,
     Object? type = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -158,6 +167,7 @@ class _ArbitrationCopyWithImpl<$R, $Out>
       if (expiry != $none) #expiry: expiry,
       if (key != null) #key: key,
       if (node != null) #node: node,
+      if (faction != null) #faction: faction,
       if (type != $none) #type: type,
     }),
   );
@@ -168,6 +178,7 @@ class _ArbitrationCopyWithImpl<$R, $Out>
     expiry: data.get(#expiry, or: $value.expiry),
     key: data.get(#key, or: $value.key),
     node: data.get(#node, or: $value.node),
+    faction: data.get(#faction, or: $value.faction),
     type: data.get(#type, or: $value.type),
   );
 
