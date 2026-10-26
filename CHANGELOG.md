@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-10-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`profile_models` - `v0.1.6+28`](#profile_models---v01628)
+ - [`warframe_drop_data` - `v0.1.10+4`](#warframe_drop_data---v01104)
+ - [`warframe_worldstate_data` - `v0.1.6+17`](#warframe_worldstate_data---v01617)
+ - [`worldstate_models` - `v0.1.15+12`](#worldstate_models---v011512)
+ - [`worldstate_status` - `v1.0.62`](#worldstate_status---v1062)
+ - [`warframe_items` - `v0.1.4+17`](#warframe_items---v01417)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `warframe_items` - `v0.1.4+17`
+
+---
+
+#### `profile_models` - `v0.1.6+28`
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
+#### `warframe_drop_data` - `v0.1.10+4`
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
+#### `warframe_worldstate_data` - `v0.1.6+17`
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
+#### `worldstate_models` - `v0.1.15+12`
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
+#### `worldstate_status` - `v1.0.62`
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
+
 ## 2026-10-16
 
 ### Changes

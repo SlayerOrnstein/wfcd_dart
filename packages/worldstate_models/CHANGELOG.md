@@ -1,3 +1,7 @@
+## 0.1.15+12
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
 ## 0.1.14+11
 
  - Update a dependency to the latest release.

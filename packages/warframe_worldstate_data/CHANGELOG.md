@@ -1,3 +1,7 @@
+## 0.1.6+17
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
 ## 0.1.5+16
 
  - **FIX**(worldstate_data): update language data. ([230eb21f](https://github.com/SlayerOrnstein/wfcd_dart/commit/230eb21fbd50ca1792c936e79e102801f44a4385))

@@ -1,3 +1,7 @@
+## 0.1.10+4
+
+ - **FIX**(worldstate_models): tidy up models. ([0a0eed48](https://github.com/SlayerOrnstein/wfcd_dart/commit/0a0eed4848bcbc02acc9afe23ee55ec489686ca2))
+
 ## 0.1.9+3
 
  - **FIX**: migrate faction data to an enum". ([30ee53ac](https://github.com/SlayerOrnstein/wfcd_dart/commit/30ee53ac78257ad6753a332ae9d5b0b768d9e02b))
