@@ -15,6 +15,34 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`worldstate_models` - `v0.1.16+13`](#worldstate_models---v011613)
+ - [`worldstate_status` - `v1.0.63`](#worldstate_status---v1063)
+
+Packages with dependency updates only:
+
+> Packages listed below depend on other packages in this workspace that have had changes. Their versions have been incremented to bump the minimum dependency versions of the packages they depend upon in this project.
+
+ - `worldstate_status` - `v1.0.63`
+
+---
+
+#### `worldstate_models` - `v0.1.16+13`
+
+ - **FIX**(worldstate_models): run build_runner. ([d5b828d6](https://github.com/SlayerOrnstein/wfcd_dart/commit/d5b828d6351b1eb1e23a7704912ad80dd6a4d641))
+
+
+## 2026-10-26
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`profile_models` - `v0.1.6+28`](#profile_models---v01628)
  - [`warframe_drop_data` - `v0.1.10+4`](#warframe_drop_data---v01104)
  - [`warframe_worldstate_data` - `v0.1.6+17`](#warframe_worldstate_data---v01617)
